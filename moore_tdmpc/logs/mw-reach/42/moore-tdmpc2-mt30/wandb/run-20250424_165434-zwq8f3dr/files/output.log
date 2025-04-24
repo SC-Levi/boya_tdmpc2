@@ -1,0 +1,231 @@
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=10, obs_dim=39, action_dim=4, hidden_dim=256, n_experts=4, moore_temperature=1.0, use_softmax=True, use_checkpoint=False, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=2, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='mw-reach', obs='state', multitask=False, steps=10000000, batch_size=1024, reward_coef=0.1, value_coef=0.25, consistency_coef=20, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=100000, exp_name='moore-tdmpc2-mt30', eval_freq=5000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 1.0, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=4, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=5, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=False, compile_dynamics=True, compile_loss=True, work_dir=PosixPath('/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-reach/42/moore-tdmpc2-mt30'), task_title='Mw Reach', tasks=['mw-reach'], obs_shape={'state': (39,)}, episode_length=100, obs_shapes='???', episode_lengths='???', seed_steps=1000, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: MooreWorldModel(total_params=5308978, latent_dim=512, action_dim=4, n_experts=4, temperature=0.5)
+Task Encoder: MooreTaskEncoder(obs_dim=39, latent_dim=512, hidden_dim=256, n_experts=4, temperature=1.0, use_softmax=True)
+Transition-Reward Core: MoETransitionRewardModel(latent_dim=512, action_dim=4, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, fused_head=True, use_mixed_precision=True)
+Policy prior: Sequential(
+  (0): Linear(in_features=512, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=256, out_features=256, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=256, out_features=8, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+[32m[1m开始Moore-TDMPC2训练...
+[32mOnlineTrainer: Starting training loop with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=0, Total Calls=0
+[36mPROFILER: forward executed in 36.28ms (call 1)
+[36mPROFILER: forward executed in 1.21ms (call 2)
+[36mPROFILER: forward executed in 0.64ms (call 3)
+W0424 16:54:44.828252 2294005 site-packages/torch/_logging/_internal.py:1084] [0/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+=== 首次 eval() 阶段热点函数 ===
+         9532756 function calls (8792507 primitive calls) in 15.786 seconds
+   Ordered by: cumulative time
+   List reduced from 4210 to 20 due to restriction <20>
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.011    0.011   15.837   15.837 /home/levi/Desktop/MOORE-TDMPC/TDMPC2/algorithms/trainer/online_trainer.py:36(eval)
+6007/1000    0.032    0.000   15.205    0.015 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py:113(decorate_context)
+     1000    0.003    0.000   15.196    0.015 /home/levi/Desktop/MOORE-TDMPC/TDMPC2/algorithms/tdmpc2.py:92(act)
+     1000    0.744    0.001   15.147    0.015 /home/levi/Desktop/MOORE-TDMPC/TDMPC2/algorithms/tdmpc2.py:153(_plan)
+     4000    0.121    0.000   10.361    0.003 /home/levi/Desktop/MOORE-TDMPC/TDMPC2/algorithms/tdmpc2.py:117(_estimate_value)
+249000/34000    0.104    0.000    8.767    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py:1736(_wrapped_call_impl)
+249000/34000    0.184    0.000    8.748    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py:1744(_call_impl)
+     8000    0.218    0.000    4.673    0.001 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model_core.py:99(forward)
+    33000    0.097    0.000    4.114    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/container.py:248(forward)
+     4000    0.031    0.000    3.608    0.001 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py:519(Q)
+     4000    0.016    0.000    3.446    0.001 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py:277(reward)
+   100000    0.067    0.000    2.939    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/linear.py:124(forward)
+100060/100045    2.845    0.000    2.898    0.000 {built-in method torch._C._nn.linear}
+     4000    0.080    0.000    2.687    0.001 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:525(_fn)
+        5    0.000    0.000    1.853    0.371 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:1327(__call__)
+        1    0.000    0.000    1.852    1.852 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:1164(__call__)
+        1    0.000    0.000    1.852    1.852 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:447(__call__)
+        1    0.000    0.000    1.852    1.852 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:596(_compile)
+        1    0.000    0.000    1.850    1.850 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:688(compile_inner)
+        1    0.000    0.000    1.850    1.850 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_utils_internal.py:89(wrapper_function)
+ [32meval[39m    [34mE:[39m 0            [34mI:[39m 0            [34mR:[39m 55.5         [34mS:[39m 0.0          [34mT:[39m 0:00:15
+ [34mtrain[39m   [34mE:[39m 0            [34mI:[39m 100          [34mR:[39m 364.9        [34mS:[39m 0.0          [34mT:[39m 0:00:15
+Buffer capacity: 100,000
+Storage required: 0.02 GB
+Using CUDA:0 memory for storage.
+ [34mtrain[39m   [34mE:[39m 1            [34mI:[39m 200          [34mR:[39m 315.7        [34mS:[39m 0.0          [34mT:[39m 0:00:15
+ [34mtrain[39m   [34mE:[39m 2            [34mI:[39m 300          [34mR:[39m 605.1        [34mS:[39m 0.0          [34mT:[39m 0:00:15
+ [34mtrain[39m   [34mE:[39m 3            [34mI:[39m 400          [34mR:[39m 347.1        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 4            [34mI:[39m 500          [34mR:[39m 319.2        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 5            [34mI:[39m 600          [34mR:[39m 274.8        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 6            [34mI:[39m 700          [34mR:[39m 276.7        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 7            [34mI:[39m 800          [34mR:[39m 190.2        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 8            [34mI:[39m 900          [34mR:[39m 547.0        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 9            [34mI:[39m 1,000        [34mR:[39m 361.1        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+Pretraining agent on seed data...
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+Traceback (most recent call last):
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py", line 175, in <module>
+    train()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py", line 162, in train
+    trainer.train()
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/TDMPC2/algorithms/trainer/online_trainer.py", line 126, in train
+    _train_metrics = self.agent.update(self.buffer)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 541, in update
+    return self._update(obs, action, reward, task=task)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 721, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 359, in _update
+    pl, rl, vl, cl, tot = self._compiled_loss_and_backward(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 556, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 420, in _loss_and_backward
+    total_loss.backward()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 721, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_functorch/aot_autograd.py", line 1132, in forward
+    return compiled_fn(full_args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 311, in runtime_wrapper
+    all_outs = call_func_at_runtime_with_args(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_functorch/_aot_autograd/utils.py", line 126, in call_func_at_runtime_with_args
+    out = normalize_as_list(f(args))
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_functorch/_aot_autograd/utils.py", line 100, in g
+    return f(*args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/autograd/function.py", line 575, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/fx/traceback.py", line 83, in format_stack
+    return traceback.format_list(traceback.extract_stack()[:-1])
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/traceback.py", line 211, in extract_stack
+    stack = StackSummary.extract(walk_stack(f), limit=limit)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/traceback.py", line 362, in extract
+    linecache.checkcache(filename)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/linecache.py", line 52, in checkcache
+    def checkcache(filename=None):
+KeyboardInterrupt
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!
+[DEBUG] MooreTDMPC2.update called!

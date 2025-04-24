@@ -1,0 +1,137 @@
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=1, obs_dim=39, action_dim=4, hidden_dim=256, n_experts=4, moore_temperature=1.0, use_softmax=True, use_checkpoint=True, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=1, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='mw-reach', obs='state', multitask=False, steps=10000, batch_size=256, reward_coef=0.1, value_coef=0.1, consistency_coef=20, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=100000, exp_name='moore-tdmpc2-mt30', eval_freq=50000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 1.0, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=6, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=3, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=False, work_dir=PosixPath('/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/logs/mw-reach/42/moore-tdmpc2-mt30'), task_title='Mw Reach', tasks=['mw-reach'], obs_shape={'state': (39,)}, episode_length=100, obs_shapes='???', episode_lengths='???', seed_steps=1000, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: TD-MPC2 Moore World Model
+Task Encoder: MooreTaskEncoder(obs_dim=39, latent_dim=512, hidden_dim=256, n_experts=4, temperature=1.0, use_softmax=True)
+Dynamics: MoEDynamicsModel(latent_dim=512, action_dim=4, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, use_mixed_precision=True)
+Reward: MoERewardModel(latent_dim=512, action_dim=4, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, top_k=1)
+Policy prior: Sequential(
+  (0): Linear(in_features=512, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=256, out_features=256, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=256, out_features=8, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+Learnable parameters: 5,217,221
+[32m[1m开始Moore-TDMPC2训练...
+[36mPROFILER STATUS: Enabled=True, Functions=2, Total Calls=3
+[32mOnlineTrainer: Starting training loop with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=2, Total Calls=3
+[36mPROFILER: forward executed in 1.06ms (call 3)
+ [32meval[39m    [34mE:[39m 0            [34mI:[39m 0            [34mR:[39m 242.1        [34mS:[39m 0.0          [34mT:[39m 0:00:01
+ [34mtrain[39m   [34mE:[39m 0            [34mI:[39m 100          [34mR:[39m 364.9        [34mS:[39m 0.0          [34mT:[39m 0:00:01
+Buffer capacity: 10,000
+Storage required: 0.00 GB
+Using CUDA:0 memory for storage.
+ [34mtrain[39m   [34mE:[39m 1            [34mI:[39m 200          [34mR:[39m 315.7        [34mS:[39m 0.0          [34mT:[39m 0:00:01
+ [34mtrain[39m   [34mE:[39m 2            [34mI:[39m 300          [34mR:[39m 605.1        [34mS:[39m 0.0          [34mT:[39m 0:00:01
+ [34mtrain[39m   [34mE:[39m 3            [34mI:[39m 400          [34mR:[39m 347.1        [34mS:[39m 0.0          [34mT:[39m 0:00:01
+ [34mtrain[39m   [34mE:[39m 4            [34mI:[39m 500          [34mR:[39m 319.2        [34mS:[39m 0.0          [34mT:[39m 0:00:01
+ [34mtrain[39m   [34mE:[39m 5            [34mI:[39m 600          [34mR:[39m 274.8        [34mS:[39m 0.0          [34mT:[39m 0:00:01
+ [34mtrain[39m   [34mE:[39m 6            [34mI:[39m 700          [34mR:[39m 276.7        [34mS:[39m 0.0          [34mT:[39m 0:00:01
+ [34mtrain[39m   [34mE:[39m 7            [34mI:[39m 800          [34mR:[39m 190.2        [34mS:[39m 0.0          [34mT:[39m 0:00:01
+ [34mtrain[39m   [34mE:[39m 8            [34mI:[39m 900          [34mR:[39m 547.0        [34mS:[39m 0.0          [34mT:[39m 0:00:01
+ [34mtrain[39m   [34mE:[39m 9            [34mI:[39m 1,000        [34mR:[39m 361.1        [34mS:[39m 0.0          [34mT:[39m 0:00:01
+Pretraining agent on seed data...
+[DEBUG] 原始 shapes - obs: (4, 256, 39), action: (3, 256, 4), reward: (3, 256, 1)
+[DEBUG] 检测到 time‑first 布局，已转置到 batch‑first
+[DEBUG] 转置后 shapes - obs: (256, 4, 39), action: (256, 3, 4), reward: (256, 3, 1)
+[TIME] encode:    9.76 ms
+[36mPROFILER: _td_target executed in 0.07ms (call 1)
+[TIME] td_target:    5.21 ms
+[DEBUG] dynamics_vectorized inputs: z0=torch.Size([256, 512]), action_seq=torch.Size([256, 3, 4])
+Error executing job with overrides: ['task=mw-reach', 'steps=10000']
+Traceback (most recent call last):
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore.py", line 142, in train
+    trainer.train()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/TDMPC2/algorithms/trainer/online_trainer.py", line 126, in train
+    _train_metrics = self.agent.update(self.buffer)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore.py", line 75, in _patched_update
+    return self._update(obs, action, reward, task=task)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/timer.py", line 94, in wrapper
+    result = f(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 787, in _update
+    next_seq, expert_weights = self.model.dynamics_vectorized(z0, action_seq)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 556, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/world_model.py", line 642, in dynamics_vectorized
+    z_next, weights = self.dynamics_step(z_current, a_t)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/world_model.py", line 244, in dynamics_step
+    next_z, expert_weights = checkpoint(self._dynamics, z, a)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_compile.py", line 32, in inner
+    return disable_fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 721, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/checkpoint.py", line 489, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/autograd/function.py", line 575, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/checkpoint.py", line 264, in forward
+    outputs = run_function(*args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1740, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_dynamics.py", line 188, in forward
+    return self.dynamics_forward(z, a, use_softmax=use_softmax)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_dynamics.py", line 95, in dynamics_forward
+    return self._dynamics_forward_optimized(z, a, use_softmax)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 556, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 1395, in __call__
+    return self._torchdynamo_orig_callable(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 1180, in __call__
+    result = self._inner_convert(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 545, in __call__
+    return _compile(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 1027, in _compile
+    raise InternalTorchDynamoError(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 977, in _compile
+    guarded_code = compile_inner(code, one_graph, hooks, transform)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 706, in compile_inner
+    return _compile_inner(code, one_graph, hooks, transform)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_utils_internal.py", line 95, in wrapper_function
+    return function(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 741, in _compile_inner
+    out_code = transform_code_object(code, transform)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/bytecode_transformation.py", line 1348, in transform_code_object
+    transformations(instructions, code_options)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 229, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 658, in transform
+    tracer.run()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 2912, in run
+    super().run()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1120, in run
+    while self.step():
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1032, in step
+    self.dispatch_table[inst.opcode](self, inst)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 640, in wrapper
+    return inner_fn(self, inst)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1738, in CALL_FUNCTION
+    self.call_function(fn, args, {})
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 967, in call_function
+    self.push(fn.call_function(self, args, kwargs))  # type: ignore[arg-type]
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/torch.py", line 297, in call_function
+    return AutocastModeVariable.create(self.value, args, kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/ctx_manager.py", line 772, in create
+    bound_args = inspect.signature(func).bind(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/inspect.py", line 3045, in bind
+    return self._bind(args, kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/inspect.py", line 2960, in _bind
+    raise TypeError(msg) from None
+torch._dynamo.exc.InternalTorchDynamoError: TypeError: missing a required argument: 'device_type'
+from user code:
+   File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_dynamics.py", line 117, in _dynamics_forward
+    with autocast() if self.use_mixed_precision else nullcontext():
+Set TORCH_LOGS="+dynamo" and TORCHDYNAMO_VERBOSE=1 for more information
+You can suppress this exception and fall back to eager by setting:
+    import torch._dynamo
+    torch._dynamo.config.suppress_errors = True
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

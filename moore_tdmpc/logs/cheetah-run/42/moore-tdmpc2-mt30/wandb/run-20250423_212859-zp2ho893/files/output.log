@@ -1,0 +1,83 @@
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=10, obs_dim=17, action_dim=6, hidden_dim=256, n_experts=4, moore_temperature=1.0, use_softmax=True, use_checkpoint=False, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=2, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='cheetah-run', obs='state', multitask=False, steps=1000, batch_size=1024, reward_coef=0.1, value_coef=0.25, consistency_coef=20, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=100000, exp_name='moore-tdmpc2-mt30', eval_freq=5000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 1.0, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=4, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=5, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=True, save_agent=True, compile=False, work_dir=PosixPath('/home/levi/Desktop/offline-MOORE-TDMPC/moore_tdmpc/logs/cheetah-run/42/moore-tdmpc2-mt30'), task_title='Cheetah Run', tasks=['cheetah-run'], obs_shape={'state': (17,)}, episode_length=500, obs_shapes='???', episode_lengths='???', seed_steps=2500, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: MooreWorldModel(total_params=5293110, latent_dim=512, action_dim=6, n_experts=4, temperature=0.5)
+Task Encoder: MooreTaskEncoder(obs_dim=17, latent_dim=512, hidden_dim=256, n_experts=4, temperature=1.0, use_softmax=True)
+Transition-Reward Core: MoETransitionRewardModel(latent_dim=512, action_dim=6, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, fused_head=True, use_mixed_precision=True)
+Policy prior: Sequential(
+  (0): Linear(in_features=512, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=256, out_features=256, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=256, out_features=12, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+[32m[1m开始Moore-TDMPC2训练...
+[32mOnlineTrainer: Starting training loop with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=0, Total Calls=0
+[36mPROFILER: forward executed in 41.97ms (call 1)
+W0423 21:29:03.998627 2096247 site-packages/torch/_logging/_internal.py:1084] [0/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+[36mPROFILER: forward executed in 7.24ms (call 2)
+[36mPROFILER: forward executed in 6.76ms (call 3)
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py", line 192, in train
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/TDMPC2/algorithms/trainer/online_trainer.py", line 93, in train
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py", line 15, in profiled_eval
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/TDMPC2/algorithms/trainer/online_trainer.py", line 45, in eval
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/TDMPC2/algorithms/tdmpc2.py", line 110, in act
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/TDMPC2/algorithms/tdmpc2.py", line 199, in _plan
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/TDMPC2/algorithms/tdmpc2.py", line 130, in _estimate_value
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 556, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/moore_tdmpc/world_model.py", line 645, in dynamics_vectorized
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 721, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_functorch/aot_autograd.py", line 1132, in forward
+    return compiled_fn(full_args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 324, in runtime_wrapper
+    all_outs = call_func_at_runtime_with_args(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_functorch/_aot_autograd/utils.py", line 126, in call_func_at_runtime_with_args
+    out = normalize_as_list(f(args))
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 673, in inner_fn
+    outs = compiled_fn(args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 491, in wrapper
+    return compiled_fn(runtime_args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_inductor/codecache.py", line 1686, in __call__
+    return self.current_callable(inputs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_inductor/utils.py", line 2065, in run
+    return model(new_inputs)
+  File "/tmp/torchinductor_levi/ud/cud4jli3cpnpldllrqadkpck5hxlavzyve2j5qhilb55sqbvwrnv.py", line 1360, in call
+    triton_poi_fused__softmax_8.run(buf96, arg7_1, buf106, buf107, 512, grid=grid(512), stream=stream0)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 1031, in run
+    return launcher(
+  File "<string>", line 13, in launcher
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/triton/backends/nvidia/driver.py", line 365, in __call__
+    self.launch(*args, **kwargs)
+KeyboardInterrupt
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/core/utils.py", line 202, in run_job
+    os.chdir(old_cwd)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/levi/Desktop/offline-MOORE-TDMPC/moore_tdmpc'
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/dm_control/_render/executor/render_executor.py", line 214, in terminate
+    self._call_locked(cleanup_callable)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/dm_control/_render/executor/render_executor.py", line 206, in _call_locked
+    return self._executor.submit(func, *args, **kwargs).result()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/concurrent/futures/thread.py", line 167, in submit
+    raise RuntimeError('cannot schedule new futures after shutdown')

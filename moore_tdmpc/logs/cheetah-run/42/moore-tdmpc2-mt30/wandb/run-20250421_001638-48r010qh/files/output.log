@@ -1,0 +1,60 @@
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=1, obs_dim=17, action_dim=6, hidden_dim=256, n_experts=4, moore_temperature=1.0, use_softmax=True, use_checkpoint=True, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=1, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='cheetah-run', obs='state', multitask=False, steps=10000, batch_size=256, reward_coef=0.1, value_coef=0.1, consistency_coef=20, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=100000, exp_name='moore-tdmpc2-mt30', eval_freq=50000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 1.0, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=6, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=3, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=False, work_dir=PosixPath('/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/logs/cheetah-run/42/moore-tdmpc2-mt30'), task_title='Cheetah Run', tasks=['cheetah-run'], obs_shape={'state': (17,)}, episode_length=500, obs_shapes='???', episode_lengths='???', seed_steps=2500, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: TD-MPC2 Moore World Model
+Task Encoder: MooreTaskEncoder(obs_dim=17, latent_dim=512, hidden_dim=256, n_experts=4, temperature=1.0, use_softmax=True)
+Dynamics: MoEDynamicsModel(latent_dim=512, action_dim=6, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True)
+Reward: MoERewardModel(latent_dim=512, action_dim=6, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, top_k=1)
+Policy prior: Sequential(
+  (0): Linear(in_features=512, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=256, out_features=256, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=256, out_features=12, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+Learnable parameters: 5,991,369
+[32m[1m开始Moore-TDMPC2训练...
+[36mPROFILER STATUS: Enabled=True, Functions=3, Total Calls=7
+[32mOnlineTrainer: Starting training loop with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=3, Total Calls=7
+[36mPROFILER: forward executed in 3.61ms (call 3)
+Traceback (most recent call last):
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore.py", line 162, in <module>
+    train()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore.py", line 142, in train
+    trainer.train()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/TDMPC2/algorithms/trainer/online_trainer.py", line 93, in train
+    eval_metrics = self.eval()
+  File "/home/levi/Documents/MOORE-TDMPC/TDMPC2/algorithms/trainer/online_trainer.py", line 46, in eval
+    obs, reward, done, info = self.env.step(action)
+  File "/home/levi/Documents/MOORE-TDMPC/TDMPC2/algorithms/envs/wrappers/tensor.py", line 38, in step
+    obs, reward, done, info = self.env.step(action.numpy() if isinstance(action, torch.Tensor) else action)
+  File "/home/levi/Documents/MOORE-TDMPC/TDMPC2/algorithms/envs/wrappers/timeout.py", line 22, in step
+    obs, reward, done, info = self.env.step(action)
+  File "/home/levi/Documents/MOORE-TDMPC/TDMPC2/algorithms/envs/dmcontrol.py", line 57, in step
+    step = self.env.step(action)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/dm_control/suite/wrappers/action_scale.py", line 91, in step
+    return self._env.step(self._transform(action))
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/dm_control/rl/control.py", line 110, in step
+    observation = self._task.get_observation(self._physics)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/dm_control/suite/cheetah.py", line 82, in get_observation
+    obs['position'] = physics.data.qpos[1:].copy()
+KeyboardInterrupt

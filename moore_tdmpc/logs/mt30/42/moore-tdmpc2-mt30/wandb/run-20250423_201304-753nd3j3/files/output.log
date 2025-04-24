@@ -1,0 +1,44 @@
+
+Loading data:   0%|                                                                                               | 0/1 [00:00<?, ?it/s]
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=10, obs_dim=24, action_dim=6, hidden_dim=256, n_experts=4, moore_temperature=1.0, use_softmax=True, use_checkpoint=False, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=2, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='mt30', obs='state', multitask=True, steps=10000000, batch_size=1024, reward_coef=0.1, value_coef=0.25, consistency_coef=20, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=100000, exp_name='moore-tdmpc2-mt30', eval_freq=5000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 1.0, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=4, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=5, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=64, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=True, save_agent=True, compile=False, work_dir=PosixPath('/home/levi/Desktop/offline-MOORE-TDMPC/moore_tdmpc/logs/mt30/42/moore-tdmpc2-mt30'), task_title='MT30', tasks=['walker-stand', 'walker-walk', 'walker-run', 'cheetah-run', 'reacher-easy', 'reacher-hard', 'acrobot-swingup', 'pendulum-swingup', 'cartpole-balance', 'cartpole-balance-sparse', 'cartpole-swingup', 'cartpole-swingup-sparse', 'cup-catch', 'finger-spin', 'finger-turn-easy', 'finger-turn-hard', 'fish-swim', 'hopper-stand', 'hopper-hop', 'walker-walk-backwards', 'walker-run-backwards', 'cheetah-run-backwards', 'cheetah-run-front', 'cheetah-run-back', 'cheetah-jump', 'hopper-hop-backwards', 'reacher-three-easy', 'reacher-three-hard', 'cup-spin', 'pendulum-spin'], obs_shape={'state': (24,)}, episode_length=500, obs_shapes=[24, 24, 24, 17, 6, 6, 6, 3, 5, 5, 5, 5, 8, 9, 12, 12, 24, 15, 15, 24, 24, 17, 17, 17, 17, 15, 8, 8, 8, 3], episode_lengths=[500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], seed_steps=2500, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: MooreWorldModel(total_params=5300278, latent_dim=512, action_dim=6, n_experts=4, temperature=0.5)
+Task Encoder: MooreTaskEncoder(obs_dim=24, latent_dim=512, hidden_dim=256, n_experts=4, temperature=1.0, use_softmax=True)
+Transition-Reward Core: MoETransitionRewardModel(latent_dim=512, action_dim=6, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, fused_head=True, use_mixed_precision=True)
+Policy prior: Sequential(
+  (0): Linear(in_features=512, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=256, out_features=256, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=256, out_features=12, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+[32m[1m开始Moore-TDMPC2训练...
+[32mOfflineTrainer: Starting training with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=0, Total Calls=0
+Found 1 files in /media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30/*.pt
+WARNING: expected 20 files for mt80, 4 for mt30, found 1.
+Buffer capacity: 345,690,000
+Storage required: 47.01 GB
+Loading data: 100%|███████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:04<00:00,  4.46s/it]
+Error executing job with overrides: ['task=mt30']
+Traceback (most recent call last):
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py", line 192, in train
+    trainer.train()
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/TDMPC2/algorithms/trainer/offline_trainer.py", line 155, in train
+    train_metrics = self.agent.update(self.buffer)
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py", line 107, in _patched_update
+    return self._update(obs, action, reward, task=task)
+  File "/home/levi/Desktop/offline-MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 300, in _update
+    task_rep = task.unsqueeze(1).expand(-1, H, -1).reshape(B * H, -1)
+RuntimeError: The expanded size of the tensor (5) must match the existing size (1024) at non-singleton dimension 1.  Target sizes: [-1, 5, -1].  Tensor sizes: [1024, 1]
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+WARNING: buffer has 200000 eps, expected 690000.
+[OfflineTrainer] Disabled TaskEncoder gradient checkpointing
+[OfflineTrainer] Applied batch-first to time-first adaptor for encode method
+Training agent for 10000000 iterations...
+[36mOfflineTrainer: Training iteration 0/10000000
+[36mPROFILER STATUS: Enabled=True, Functions=0, Total Calls=0
+[36mPROFILER: forward executed in 45.09ms (call 1)

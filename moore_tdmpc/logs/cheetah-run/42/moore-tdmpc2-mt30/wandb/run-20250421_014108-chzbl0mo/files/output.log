@@ -1,0 +1,230 @@
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=1, obs_dim=17, action_dim=6, hidden_dim=256, n_experts=4, moore_temperature=1.0, use_softmax=True, use_checkpoint=True, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=1, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='cheetah-run', obs='state', multitask=False, steps=10000, batch_size=256, reward_coef=0.1, value_coef=0.1, consistency_coef=20, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=100000, exp_name='moore-tdmpc2-mt30', eval_freq=50000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 1.0, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=6, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=3, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=False, work_dir=PosixPath('/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/logs/cheetah-run/42/moore-tdmpc2-mt30'), task_title='Cheetah Run', tasks=['cheetah-run'], obs_shape={'state': (17,)}, episode_length=500, obs_shapes='???', episode_lengths='???', seed_steps=2500, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: TD-MPC2 Moore World Model
+Task Encoder: MooreTaskEncoder(obs_dim=17, latent_dim=512, hidden_dim=256, n_experts=4, temperature=1.0, use_softmax=True)
+Dynamics: MoEDynamicsModel(latent_dim=512, action_dim=6, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True)
+Reward: MoERewardModel(latent_dim=512, action_dim=6, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, top_k=1)
+Policy prior: Sequential(
+  (0): Linear(in_features=512, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=256, out_features=256, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=256, out_features=12, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+Learnable parameters: 5,991,369
+[32m[1m开始Moore-TDMPC2训练...
+[36mPROFILER STATUS: Enabled=True, Functions=2, Total Calls=3
+[32mOnlineTrainer: Starting training loop with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=2, Total Calls=3
+[36mPROFILER: forward executed in 3.89ms (call 3)
+ [32meval[39m    [34mE:[39m 0            [34mI:[39m 0            [34mR:[39m 0.8          [34mS:[39m 0.0          [34mT:[39m 0:00:09
+ [34mtrain[39m   [34mE:[39m 0            [34mI:[39m 500          [34mR:[39m 4.8          [34mS:[39m 0.0          [34mT:[39m 0:00:09
+Buffer capacity: 10,000
+Storage required: 0.00 GB
+Using CUDA:0 memory for storage.
+ [34mtrain[39m   [34mE:[39m 1            [34mI:[39m 1,000        [34mR:[39m 4.7          [34mS:[39m 0.0          [34mT:[39m 0:00:09
+ [34mtrain[39m   [34mE:[39m 2            [34mI:[39m 1,500        [34mR:[39m 13.3         [34mS:[39m 0.0          [34mT:[39m 0:00:09
+ [34mtrain[39m   [34mE:[39m 3            [34mI:[39m 2,000        [34mR:[39m 4.0          [34mS:[39m 0.0          [34mT:[39m 0:00:09
+ [34mtrain[39m   [34mE:[39m 4            [34mI:[39m 2,500        [34mR:[39m 3.0          [34mS:[39m 0.0          [34mT:[39m 0:00:09
+Pretraining agent on seed data...
+[DEBUG] 原始 shapes - obs: (4, 256, 17), action: (3, 256, 6), reward: (3, 256, 1)
+[DEBUG] 检测到 time‑first 布局，已转置到 batch‑first
+[DEBUG] 转置后 shapes - obs: (256, 4, 17), action: (256, 3, 6), reward: (256, 3, 1)
+[TIME] encode:  611.75 ms
+[36mPROFILER: _td_target executed in 0.06ms (call 1)
+[TIME] td_target:  453.01 ms
+[DEBUG] dynamics_vectorized inputs: z0=torch.Size([256, 512]), action_seq=torch.Size([256, 3, 6])
+[DEBUG] dynamics_vectorized: z_b=torch.Size([256, 512]), a_bt=torch.Size([256, 3, 6])
+[36mPROFILER: dynamics_forward executed in 157.72ms (call 1)
+[36mPROFILER: dynamics_forward executed in 162.90ms (call 2)
+[36mPROFILER: dynamics_forward executed in 163.83ms (call 3)
+[DEBUG] Tensor formats: z_roll=torch.Size([256, 3, 512]), all_mu=torch.Size([256, 3, 6])
+[TIME] rollout:  578.66 ms
+[TIME] compute Q:   13.20 ms
+[TIME] reward loss: 1925.79 ms
+[TIME] value loss:    0.29 ms
+[TIME] backward:   19.48 ms
+[TIME] grad clipping:    4.28 ms
+[TIME] optim.step:   26.80 ms
+[TIME] _update total: 3634.55 ms
+[36mPROFILER: _update executed in 3634.87ms (call 1)
+[DEBUG] 原始 shapes - obs: (4, 256, 17), action: (3, 256, 6), reward: (3, 256, 1)
+[DEBUG] 检测到 time‑first 布局，已转置到 batch‑first
+[DEBUG] 转置后 shapes - obs: (256, 4, 17), action: (256, 3, 6), reward: (256, 3, 1)
+[TIME] encode:  613.96 ms
+[36mPROFILER: _td_target executed in 0.05ms (call 2)
+[TIME] td_target:  455.76 ms
+[DEBUG] dynamics_vectorized inputs: z0=torch.Size([256, 512]), action_seq=torch.Size([256, 3, 6])
+[DEBUG] dynamics_vectorized: z_b=torch.Size([256, 512]), a_bt=torch.Size([256, 3, 6])
+[DEBUG] Tensor formats: z_roll=torch.Size([256, 3, 512]), all_mu=torch.Size([256, 3, 6])
+[TIME] rollout:  485.03 ms
+[TIME] compute Q:    7.40 ms
+Traceback (most recent call last):
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore.py", line 162, in <module>
+    train()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore.py", line 142, in train
+    trainer.train()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/TDMPC2/algorithms/trainer/online_trainer.py", line 126, in train
+    _train_metrics = self.agent.update(self.buffer)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore.py", line 75, in _patched_update
+    return self._update(obs, action, reward, task=task)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/timer.py", line 94, in wrapper
+    result = f(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 821, in _update
+    reward_output = self.model.reward(z_roll[:, t], action[:, t], task=task)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/world_model.py", line 260, in reward
+    out = checkpoint(self._reward, z_a)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_compile.py", line 32, in inner
+    return disable_fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 721, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/checkpoint.py", line 489, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/autograd/function.py", line 575, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/checkpoint.py", line 264, in forward
+    outputs = run_function(*args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1740, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_rewards.py", line 103, in forward
+    return self._forward_flat_optimized(state_action)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 556, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_rewards.py", line 157, in _forward_flat
+    t_start = time.perf_counter()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_rewards.py", line 159, in torch_dynamo_resume_in__forward_flat_at_157
+    t1 = time.perf_counter()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_rewards.py", line 161, in torch_dynamo_resume_in__forward_flat_at_159
+    t2 = time.perf_counter()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_rewards.py", line 165, in torch_dynamo_resume_in__forward_flat_at_161
+    t1 = time.perf_counter()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_rewards.py", line 167, in torch_dynamo_resume_in__forward_flat_at_165
+    t2 = time.perf_counter()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_rewards.py", line 171, in torch_dynamo_resume_in__forward_flat_at_167
+    t1 = time.perf_counter()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_rewards.py", line 173, in torch_dynamo_resume_in__forward_flat_at_171
+    t2 = time.perf_counter()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_rewards.py", line 177, in torch_dynamo_resume_in__forward_flat_at_173
+    t1 = time.perf_counter()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_rewards.py", line 190, in torch_dynamo_resume_in__forward_flat_at_177
+    t2 = time.perf_counter()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/moe_rewards.py", line 194, in torch_dynamo_resume_in__forward_flat_at_190
+    t1 = time.perf_counter()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 1395, in __call__
+    return self._torchdynamo_orig_callable(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 1180, in __call__
+    result = self._inner_convert(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 545, in __call__
+    return _compile(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 977, in _compile
+    guarded_code = compile_inner(code, one_graph, hooks, transform)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 706, in compile_inner
+    return _compile_inner(code, one_graph, hooks, transform)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_utils_internal.py", line 95, in wrapper_function
+    return function(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 741, in _compile_inner
+    out_code = transform_code_object(code, transform)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/bytecode_transformation.py", line 1348, in transform_code_object
+    transformations(instructions, code_options)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 229, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 658, in transform
+    tracer.run()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 2912, in run
+    super().run()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1120, in run
+    while self.step():
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1032, in step
+    self.dispatch_table[inst.opcode](self, inst)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 640, in wrapper
+    return inner_fn(self, inst)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1738, in CALL_FUNCTION
+    self.call_function(fn, args, {})
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 967, in call_function
+    self.push(fn.call_function(self, args, kwargs))  # type: ignore[arg-type]
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/lazy.py", line 170, in realize_and_forward
+    return getattr(self.realize(), name)(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/nn_module.py", line 913, in call_function
+    return variables.UserFunctionVariable(fn, source=source).call_function(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/functions.py", line 349, in call_function
+    return super().call_function(tx, args, kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/functions.py", line 125, in call_function
+    return tx.inline_user_function_return(self, [*self.self_args(), *args], kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 973, in inline_user_function_return
+    return InliningInstructionTranslator.inline_call(self, fn, args, kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 3127, in inline_call
+    return cls.inline_call_(parent, func, args, kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 3255, in inline_call_
+    tracer.run()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1120, in run
+    while self.step():
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1032, in step
+    self.dispatch_table[inst.opcode](self, inst)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 640, in wrapper
+    return inner_fn(self, inst)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1738, in CALL_FUNCTION
+    self.call_function(fn, args, {})
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 967, in call_function
+    self.push(fn.call_function(self, args, kwargs))  # type: ignore[arg-type]
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/nn_module.py", line 913, in call_function
+    return variables.UserFunctionVariable(fn, source=source).call_function(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/functions.py", line 349, in call_function
+    return super().call_function(tx, args, kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/functions.py", line 125, in call_function
+    return tx.inline_user_function_return(self, [*self.self_args(), *args], kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 973, in inline_user_function_return
+    return InliningInstructionTranslator.inline_call(self, fn, args, kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 3127, in inline_call
+    return cls.inline_call_(parent, func, args, kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 3255, in inline_call_
+    tracer.run()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1120, in run
+    while self.step():
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1032, in step
+    self.dispatch_table[inst.opcode](self, inst)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 640, in wrapper
+    return inner_fn(self, inst)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1738, in CALL_FUNCTION
+    self.call_function(fn, args, {})
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 967, in call_function
+    self.push(fn.call_function(self, args, kwargs))  # type: ignore[arg-type]
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/nn_module.py", line 913, in call_function
+    return variables.UserFunctionVariable(fn, source=source).call_function(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/functions.py", line 349, in call_function
+    return super().call_function(tx, args, kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/variables/functions.py", line 125, in call_function
+    return tx.inline_user_function_return(self, [*self.self_args(), *args], kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 973, in inline_user_function_return
+    return InliningInstructionTranslator.inline_call(self, fn, args, kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 3127, in inline_call
+    return cls.inline_call_(parent, func, args, kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 3229, in inline_call_
+    if is_generator(code):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/bytecode_transformation.py", line 1435, in is_generator
+    return (code.co_flags & co_generator) > 0
+KeyboardInterrupt

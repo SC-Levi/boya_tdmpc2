@@ -1,0 +1,3 @@
+- task=cheetah-run
+- steps=10000
+- seed_steps=10

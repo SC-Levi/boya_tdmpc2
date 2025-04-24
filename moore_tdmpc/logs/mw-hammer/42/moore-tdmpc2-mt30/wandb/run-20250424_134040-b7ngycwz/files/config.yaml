@@ -1,0 +1,292 @@
+wandb_version: 1
+
+env_type:
+  desc: null
+  value: MooreMultiTask
+n_contexts:
+  desc: null
+  value: 10
+obs_dim:
+  desc: null
+  value: 39
+action_dim:
+  desc: null
+  value: 4
+hidden_dim:
+  desc: null
+  value: 256
+n_experts:
+  desc: null
+  value: 4
+moore_temperature:
+  desc: null
+  value: 1.0
+use_softmax:
+  desc: null
+  value: true
+use_checkpoint:
+  desc: null
+  value: false
+use_mixed_precision:
+  desc: null
+  value: true
+gamma:
+  desc: null
+  value: 0.99
+stddev:
+  desc: null
+  value: 0.1
+actor_updates:
+  desc: null
+  value: 2
+use_ema:
+  desc: null
+  value: true
+ensemble_size:
+  desc: null
+  value: 5
+update_freq:
+  desc: null
+  value: 2
+seed:
+  desc: null
+  value: 42
+device:
+  desc: null
+  value: cuda:0
+task:
+  desc: null
+  value: mw-hammer
+obs:
+  desc: null
+  value: state
+multitask:
+  desc: null
+  value: false
+steps:
+  desc: null
+  value: 10000000
+batch_size:
+  desc: null
+  value: 1024
+reward_coef:
+  desc: null
+  value: 0.1
+value_coef:
+  desc: null
+  value: 0.25
+consistency_coef:
+  desc: null
+  value: 20
+rho:
+  desc: null
+  value: 0.5
+lr:
+  desc: null
+  value: 0.0003
+enc_lr_scale:
+  desc: null
+  value: 0.3
+grad_clip_norm:
+  desc: null
+  value: 20
+tau:
+  desc: null
+  value: 0.01
+discount_denom:
+  desc: null
+  value: 5
+discount_min:
+  desc: null
+  value: 0.95
+discount_max:
+  desc: null
+  value: 0.995
+buffer_size:
+  desc: null
+  value: 100000
+exp_name:
+  desc: null
+  value: moore-tdmpc2-mt30
+eval_freq:
+  desc: null
+  value: 5000
+eval_episodes:
+  desc: null
+  value: 10
+moore:
+  desc: null
+  value:
+    n_experts: 4
+    temperature: 1.0
+    use_softmax: true
+    debug_task_emb: false
+mpc:
+  desc: null
+  value: true
+iterations:
+  desc: null
+  value: 4
+num_samples:
+  desc: null
+  value: 512
+num_elites:
+  desc: null
+  value: 64
+num_pi_trajs:
+  desc: null
+  value: 24
+horizon:
+  desc: null
+  value: 5
+min_std:
+  desc: null
+  value: 0.05
+max_std:
+  desc: null
+  value: 2
+temperature:
+  desc: null
+  value: 0.5
+log_std_min:
+  desc: null
+  value: -10
+log_std_max:
+  desc: null
+  value: 2
+entropy_coef:
+  desc: null
+  value: 0.0001
+model_size:
+  desc: null
+  value: 5
+num_enc_layers:
+  desc: null
+  value: 2
+enc_dim:
+  desc: null
+  value: 256
+num_channels:
+  desc: null
+  value: 32
+mlp_dim:
+  desc: null
+  value: 512
+latent_dim:
+  desc: null
+  value: 512
+task_dim:
+  desc: null
+  value: 0
+num_q:
+  desc: null
+  value: 5
+dropout:
+  desc: null
+  value: 0.01
+simnorm_dim:
+  desc: null
+  value: 8
+num_bins:
+  desc: null
+  value: 101
+vmin:
+  desc: null
+  value: -10
+vmax:
+  desc: null
+  value: 10
+wandb_project:
+  desc: null
+  value: moore-tdmpc2
+wandb_entity:
+  desc: null
+  value: OA-MBRL
+wandb_silent:
+  desc: null
+  value: false
+enable_wandb:
+  desc: null
+  value: true
+save_csv:
+  desc: null
+  value: true
+save_video:
+  desc: null
+  value: false
+save_agent:
+  desc: null
+  value: true
+compile:
+  desc: null
+  value: true
+compile_dynamics:
+  desc: null
+  value: true
+compile_loss:
+  desc: null
+  value: true
+work_dir:
+  desc: null
+  value: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30
+task_title:
+  desc: null
+  value: Mw Hammer
+tasks:
+  desc: null
+  value:
+  - mw-hammer
+obs_shape:
+  desc: null
+  value:
+    state:
+    - 39
+episode_length:
+  desc: null
+  value: 100
+obs_shapes:
+  desc: null
+  value: ???
+episode_lengths:
+  desc: null
+  value: ???
+seed_steps:
+  desc: null
+  value: 1000
+bin_size:
+  desc: null
+  value: 0.2
+data_dir:
+  desc: null
+  value: /media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30
+_wandb:
+  desc: null
+  value:
+    python_version: 3.9.21
+    cli_version: 0.17.4
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1745473240
+    t:
+      1:
+      - 1
+      - 50
+      - 55
+      - 105
+      2:
+      - 1
+      - 50
+      - 55
+      - 105
+      3:
+      - 13
+      - 15
+      - 16
+      - 23
+      - 61
+      4: 3.9.21
+      5: 0.17.4
+      8:
+      - 5
+      13: linux-x86_64

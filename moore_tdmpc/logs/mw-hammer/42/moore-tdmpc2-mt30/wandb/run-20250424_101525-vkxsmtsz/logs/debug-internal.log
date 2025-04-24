@@ -1,0 +1,105 @@
+2025-04-24 10:15:25,237 INFO    StreamThr :2215140 [internal.py:wandb_internal():85] W&B internal server running at pid: 2215140, started at: 2025-04-24 10:15:25.237029
+2025-04-24 10:15:25,239 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: status
+2025-04-24 10:15:25,244 INFO    WriterThread:2215140 [datastore.py:open_for_write():87] open: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_101525-vkxsmtsz/run-vkxsmtsz.wandb
+2025-04-24 10:15:25,244 DEBUG   SenderThread:2215140 [sender.py:send():379] send: header
+2025-04-24 10:15:25,244 DEBUG   SenderThread:2215140 [sender.py:send():379] send: run
+2025-04-24 10:15:30,246 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:15:35,247 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:15:40,248 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:15:43,509 INFO    SenderThread:2215140 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connection.py", line 741, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connection.py", line 920, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 460, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 504, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 1074, in _create
+    self.do_handshake()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 1343, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connection.py", line 741, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connection.py", line 920, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 460, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 504, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 1074, in _create
+    self.do_handshake()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 1343, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 345, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-04-24 10:15:45,250 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:15:50,251 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:15:55,253 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:00,254 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:05,256 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:10,257 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:15,258 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:20,260 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:25,261 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:30,262 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:35,263 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:40,265 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:45,266 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:50,267 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 10:16:55,268 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: cancel
+2025-04-24 10:16:55,269 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: cancel
+2025-04-24 10:16:55,269 DEBUG   SenderThread:2215140 [sender.py:send():388] Record cancelled: run
+2025-04-24 10:16:55,269 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 10:16:56,359 DEBUG   HandlerThread:2215140 [handler.py:handle_request():158] handle_request: shutdown
+2025-04-24 10:16:56,359 INFO    HandlerThread:2215140 [handler.py:finish():882] shutting down handler
+2025-04-24 10:16:57,270 INFO    SenderThread:2215140 [sender.py:finish():1608] shutting down sender
+2025-04-24 10:16:57,270 INFO    WriterThread:2215140 [datastore.py:close():296] close: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_101525-vkxsmtsz/run-vkxsmtsz.wandb

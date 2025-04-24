@@ -1,0 +1,106 @@
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=10, obs_dim=39, action_dim=4, hidden_dim=256, n_experts=4, moore_temperature=1.0, use_softmax=True, use_checkpoint=False, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=2, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='mw-hammer', obs='state', multitask=False, steps=10000000, batch_size=1024, reward_coef=0.1, value_coef=0.25, consistency_coef=20, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=100000, exp_name='moore-tdmpc2-mt30', eval_freq=5000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 1.0, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=4, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=5, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=True, compile_dynamics=True, compile_loss=True, work_dir=PosixPath('/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30'), task_title='Mw Hammer', tasks=['mw-hammer'], obs_shape={'state': (39,)}, episode_length=100, obs_shapes='???', episode_lengths='???', seed_steps=1000, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: MooreWorldModel(total_params=5308978, latent_dim=512, action_dim=4, n_experts=4, temperature=0.5)
+Task Encoder: MooreTaskEncoder(obs_dim=39, latent_dim=512, hidden_dim=256, n_experts=4, temperature=1.0, use_softmax=True)
+Transition-Reward Core: MoETransitionRewardModel(latent_dim=512, action_dim=4, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, fused_head=True, use_mixed_precision=True)
+Policy prior: Sequential(
+  (0): Linear(in_features=512, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=256, out_features=256, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=256, out_features=8, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+[32m[1m开始Moore-TDMPC2训练...
+[32mOnlineTrainer: Starting training loop with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=0, Total Calls=0
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0] Graph break from `Tensor.item()`, consider setting:
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0] or:
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0] to include these operations in the captured graph.
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0] Graph break: from user code at:
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]   File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/external_utils.py", line 31, in inner
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]     return fn(*args, **kwargs)
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]   File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]     return func(*args, **kwargs)
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]   File "/home/levi/Desktop/MOORE-TDMPC/TDMPC2/algorithms/tdmpc2.py", line 168, in _plan
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]     z = self.model.encode(obs, task)
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]   File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 249, in encode_only
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]     out = orig_encode(obs, task) if task is not None else orig_encode(obs)
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]   File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py", line 228, in encode
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]     f = int(torch.tensor(x.shape[1:]).prod().item())
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]
+W0424 12:33:25.859839 2239125 site-packages/torch/_dynamo/variables/tensor.py:867] [0/0]
+W0424 12:33:28.148840 2239125 site-packages/torch/_logging/_internal.py:1084] [15/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+[36mPROFILER: forward executed in 591.18ms (call 1)
+[36mPROFILER: forward executed in 270.29ms (call 2)
+[36mPROFILER: forward executed in 12.64ms (call 3)
+W0424 12:33:44.602329 2239125 site-packages/torch/_dynamo/convert_frame.py:897] [6/8] torch._dynamo hit config.cache_size_limit (8)
+W0424 12:33:44.602329 2239125 site-packages/torch/_dynamo/convert_frame.py:897] [6/8]    function: 'torch_dynamo_resume_in_wrapper_at_27' (/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/utils/profiler.py:27)
+W0424 12:33:44.602329 2239125 site-packages/torch/_dynamo/convert_frame.py:897] [6/8]    last reason: 6/0: L['___stack0'] == 1745469207.4561026
+W0424 12:33:44.602329 2239125 site-packages/torch/_dynamo/convert_frame.py:897] [6/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0424 12:33:44.602329 2239125 site-packages/torch/_dynamo/convert_frame.py:897] [6/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+=== 首次 eval() 阶段热点函数 ===
+         55195348 function calls (52644808 primitive calls) in 23.929 seconds
+   Ordered by: cumulative time
+   List reduced from 4987 to 20 due to restriction <20>
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.012    0.012   24.589   24.589 /home/levi/Desktop/MOORE-TDMPC/TDMPC2/algorithms/trainer/online_trainer.py:36(eval)
+2161/1000    0.012    0.000   23.573    0.024 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py:113(decorate_context)
+     1000    0.003    0.000   23.563    0.024 /home/levi/Desktop/MOORE-TDMPC/TDMPC2/algorithms/tdmpc2.py:92(act)
+     1000    0.012    0.000   19.614    0.020 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:525(_fn)
+     1000    0.040    0.000   19.500    0.019 /home/levi/Desktop/MOORE-TDMPC/TDMPC2/algorithms/tdmpc2.py:153(_plan)
+       72    0.000    0.000   18.117    0.252 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:1327(__call__)
+       53    0.000    0.000   18.112    0.342 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:1164(__call__)
+       53    0.003    0.000   18.112    0.342 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:447(__call__)
+       31    0.001    0.000   18.106    0.584 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:596(_compile)
+       30    0.000    0.000   18.087    0.603 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:688(compile_inner)
+       30    0.000    0.000   18.084    0.603 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_utils_internal.py:89(wrapper_function)
+       30    0.001    0.000   18.083    0.603 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:710(_compile_inner)
+    68/52    0.000    0.000   17.806    0.342 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/bytecode_transformation.py:1340(transform_code_object)
+       52    0.001    0.000   17.772    0.342 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:202(_fn)
+       52    0.001    0.000   17.766    0.342 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py:631(transform)
+       52    0.000    0.000   17.736    0.341 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py:2911(run)
+  1389/52    0.009    0.000   17.736    0.341 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py:1116(run)
+35102/3088    0.047    0.000   17.733    0.006 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py:1004(step)
+       26    0.001    0.000   14.247    0.548 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/output_graph.py:937(compile_subgraph)
+        6    0.000    0.000   14.226    2.371 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/output_graph.py:1268(compile_and_call_fx_graph)
+ [32meval[39m    [34mE:[39m 0            [34mI:[39m 0            [34mR:[39m 143.8        [34mS:[39m 0.3          [34mT:[39m 0:00:24
+ [34mtrain[39m   [34mE:[39m 0            [34mI:[39m 100          [34mR:[39m 184.5        [34mS:[39m 0.0          [34mT:[39m 0:00:24
+Buffer capacity: 100,000
+Storage required: 0.02 GB
+Using CUDA:0 memory for storage.
+ [34mtrain[39m   [34mE:[39m 1            [34mI:[39m 200          [34mR:[39m 236.8        [34mS:[39m 0.0          [34mT:[39m 0:00:24
+Error executing job with overrides: ['task=mw-hammer']
+Traceback (most recent call last):
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py", line 192, in train
+    trainer.train()
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/TDMPC2/algorithms/trainer/online_trainer.py", line 126, in train
+    _train_metrics = self.agent.update(self.buffer)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py", line 107, in _patched_update
+    return self._update(obs, action, reward, task=task)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 556, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 292, in _update
+    z_seq = normalize_bt(self.model.encode(obs, task), 'obs')
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 320, in torch_dynamo_resume_in__update_at_292
+    pl, rl, vl, cl, tot = self._compiled_loss_and_backward(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 556, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 347, in _loss_and_backward
+    assert Tp1 == H + 1, \
+AssertionError: z_seq 时序维度应该是 action 时序＋1，实际是 5 vs 5
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+ [34mtrain[39m   [34mE:[39m 2            [34mI:[39m 300          [34mR:[39m 170.3        [34mS:[39m 0.0          [34mT:[39m 0:00:24
+ [34mtrain[39m   [34mE:[39m 3            [34mI:[39m 400          [34mR:[39m 172.7        [34mS:[39m 0.0          [34mT:[39m 0:00:24
+ [34mtrain[39m   [34mE:[39m 4            [34mI:[39m 500          [34mR:[39m 182.8        [34mS:[39m 0.0          [34mT:[39m 0:00:24
+ [34mtrain[39m   [34mE:[39m 5            [34mI:[39m 600          [34mR:[39m 186.2        [34mS:[39m 0.0          [34mT:[39m 0:00:24
+ [34mtrain[39m   [34mE:[39m 6            [34mI:[39m 700          [34mR:[39m 176.2        [34mS:[39m 0.0          [34mT:[39m 0:00:25
+ [34mtrain[39m   [34mE:[39m 7            [34mI:[39m 800          [34mR:[39m 231.9        [34mS:[39m 0.0          [34mT:[39m 0:00:25
+ [34mtrain[39m   [34mE:[39m 8            [34mI:[39m 900          [34mR:[39m 222.9        [34mS:[39m 0.0          [34mT:[39m 0:00:25
+ [34mtrain[39m   [34mE:[39m 9            [34mI:[39m 1,000        [34mR:[39m 163.3        [34mS:[39m 0.0          [34mT:[39m 0:00:25
+Pretraining agent on seed data...

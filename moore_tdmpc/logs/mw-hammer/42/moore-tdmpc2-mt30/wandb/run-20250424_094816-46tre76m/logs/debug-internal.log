@@ -1,0 +1,806 @@
+2025-04-24 09:48:16,718 INFO    StreamThr :2210003 [internal.py:wandb_internal():85] W&B internal server running at pid: 2210003, started at: 2025-04-24 09:48:16.718129
+2025-04-24 09:48:16,719 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status
+2025-04-24 09:48:16,722 INFO    WriterThread:2210003 [datastore.py:open_for_write():87] open: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/run-46tre76m.wandb
+2025-04-24 09:48:16,722 DEBUG   SenderThread:2210003 [sender.py:send():379] send: header
+2025-04-24 09:48:16,722 DEBUG   SenderThread:2210003 [sender.py:send():379] send: run
+2025-04-24 09:48:21,724 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:48:26,725 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:48:31,727 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:48:34,884 INFO    SenderThread:2210003 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connection.py", line 741, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connection.py", line 920, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 460, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 504, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 1074, in _create
+    self.do_handshake()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 1343, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connection.py", line 741, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connection.py", line 920, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 460, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 504, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 1074, in _create
+    self.do_handshake()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/ssl.py", line 1343, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 345, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-04-24 09:48:36,728 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:48:41,730 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:48:46,731 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:48:51,732 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:48:56,733 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:49:01,734 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:49:06,735 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:49:11,736 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:49:16,737 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:49:19,030 INFO    SenderThread:2210003 [dir_watcher.py:__init__():211] watching files in: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files
+2025-04-24 09:49:19,030 INFO    SenderThread:2210003 [sender.py:_start_run_threads():1188] run started: 46tre76m with start time 1745459296.71839
+2025-04-24 09:49:19,030 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:49:19,030 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: check_version
+2025-04-24 09:49:19,031 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: check_version
+2025-04-24 09:49:20,767 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: run_start
+2025-04-24 09:49:20,792 DEBUG   HandlerThread:2210003 [system_info.py:__init__():26] System info init
+2025-04-24 09:49:20,792 DEBUG   HandlerThread:2210003 [system_info.py:__init__():41] System info init done
+2025-04-24 09:49:20,792 INFO    HandlerThread:2210003 [system_monitor.py:start():194] Starting system monitor
+2025-04-24 09:49:20,792 INFO    SystemMonitor:2210003 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-04-24 09:49:20,792 INFO    HandlerThread:2210003 [system_monitor.py:probe():214] Collecting system info
+2025-04-24 09:49:20,793 INFO    SystemMonitor:2210003 [interfaces.py:start():188] Started cpu monitoring
+2025-04-24 09:49:20,793 INFO    SystemMonitor:2210003 [interfaces.py:start():188] Started disk monitoring
+2025-04-24 09:49:20,793 INFO    SystemMonitor:2210003 [interfaces.py:start():188] Started gpu monitoring
+2025-04-24 09:49:20,794 INFO    SystemMonitor:2210003 [interfaces.py:start():188] Started memory monitoring
+2025-04-24 09:49:20,795 INFO    SystemMonitor:2210003 [interfaces.py:start():188] Started network monitoring
+2025-04-24 09:49:20,825 DEBUG   HandlerThread:2210003 [system_info.py:probe():152] Probing system
+2025-04-24 09:49:20,833 DEBUG   HandlerThread:2210003 [gitlib.py:_init_repo():56] git repository is invalid
+2025-04-24 09:49:20,833 DEBUG   HandlerThread:2210003 [system_info.py:probe():200] Probing system done
+2025-04-24 09:49:20,833 DEBUG   HandlerThread:2210003 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-134-generic-x86_64-with-glibc2.31', 'python': '3.9.21', 'heartbeatAt': '2025-04-24T01:49:20.825274', 'startedAt': '2025-04-24T01:48:16.705728', 'docker': None, 'cuda': None, 'args': ('task=mw-hammer',), 'state': 'running', 'program': '/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py', 'codePathLocal': None, 'host': 'workstation', 'username': 'levi', 'executable': '/home/levi/anaconda3/envs/tdmpc2/bin/python', 'cpu_count': 16, 'cpu_count_logical': 24, 'cpu_freq': {'current': 3219.0925, 'min': 800.0, 'max': 4950.0}, 'cpu_freq_per_core': [{'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 1143.274, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 1314.946, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}], 'disk': {'/': {'total': 456.8756866455078, 'used': 393.9855041503906}}, 'gpu': 'NVIDIA GeForce RTX 4090 D', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4090 D', 'memory_total': 25757220864}], 'memory': {'total': 62.60572814941406}}
+2025-04-24 09:49:20,834 INFO    HandlerThread:2210003 [system_monitor.py:probe():224] Finished collecting system info
+2025-04-24 09:49:20,834 INFO    HandlerThread:2210003 [system_monitor.py:probe():227] Publishing system info
+2025-04-24 09:49:20,834 DEBUG   HandlerThread:2210003 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-04-24 09:49:21,031 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/conda-environment.yaml
+2025-04-24 09:49:21,702 DEBUG   HandlerThread:2210003 [system_info.py:_save_conda():224] Saving conda packages done
+2025-04-24 09:49:21,703 INFO    HandlerThread:2210003 [system_monitor.py:probe():229] Finished publishing system info
+2025-04-24 09:49:21,705 DEBUG   SenderThread:2210003 [sender.py:send():379] send: files
+2025-04-24 09:49:21,705 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-04-24 09:49:21,744 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: python_packages
+2025-04-24 09:49:21,744 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: stop_status
+2025-04-24 09:49:21,744 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: python_packages
+2025-04-24 09:49:21,744 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:21,745 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: stop_status
+2025-04-24 09:49:22,031 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/conda-environment.yaml
+2025-04-24 09:49:22,031 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/requirements.txt
+2025-04-24 09:49:22,031 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/wandb-metadata.json
+2025-04-24 09:49:22,745 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:23,017 DEBUG   SenderThread:2210003 [sender.py:send():379] send: telemetry
+2025-04-24 09:49:23,031 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/output.log
+2025-04-24 09:49:23,747 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:23,996 INFO    wandb-upload_0:2210003 [upload_job.py:push():130] Uploaded file /tmp/tmp9kke43mowandb/zut7brcn-wandb-metadata.json
+2025-04-24 09:49:24,215 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:49:24,749 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:25,031 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/output.log
+2025-04-24 09:49:25,750 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:26,751 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:27,750 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:28,752 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:29,747 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:49:29,760 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:30,756 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:31,760 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:32,760 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:33,032 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/output.log
+2025-04-24 09:49:33,760 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:33,780 WARNING FileStreamThread:2210003 [file_stream.py:request_with_retry():674] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/OA-MBRL/moore-tdmpc2/46tre76m/file_stream (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)'))). func: <bound method Session.post of <requests.sessions.Session object at 0x7f46e9fa77c0>>, args: ('https://api.wandb.ai/files/OA-MBRL/moore-tdmpc2/46tre76m/file_stream',), kwargs: {'json': {'files': {'output.log': {'offset': 0, 'content': ['2025-04-24T01:49:25.020878 \x1b[34m\x1b[1mLogs will be synced with wandb.\n', "2025-04-24T01:49:25.020878 Config(env_type='MooreMultiTask', n_contexts=10, obs_dim=39, action_dim=4, hidden_dim=256, n_experts=4, moore_temperature=1.0, use_softmax=True, use_checkpoint=False, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=2, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='mw-hammer', obs='state', multitask=False, steps=10000000, batch_size=1024, reward_coef=0.1, value_coef=0.25, consistency_coef=20, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=100000, exp_name='moore-tdmpc2-mt30', eval_freq=5000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 1.0, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=4, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=5, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=True, compile_dynamics=True, use_fp16=True, work_dir=PosixPath('/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30'), task_title='Mw Hammer', tasks=['mw-hammer'], obs_shape={'state': (39,)}, episode_length=100, obs_shapes='???', episode_lengths='???', seed_steps=1000, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')\n", '2025-04-24T01:49:25.020878 Architecture: MooreWorldModel(total_params=5308978, latent_dim=512, action_dim=4, n_experts=4, temperature=0.5)\n', '2025-04-24T01:49:25.020878 Task Encoder: MooreTaskEncoder(obs_dim=39, latent_dim=512, hidden_dim=256, n_experts=4, temperature=1.0, use_softmax=True)\n', '2025-04-24T01:49:25.020878 Transition-Reward Core: MoETransitionRewardModel(latent_dim=512, action_dim=4, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, fused_head=True, use_mixed_precision=True)\n', '2025-04-24T01:49:25.020878 Policy prior: Sequential(\n', '2025-04-24T01:49:25.020878   (0): Linear(in_features=512, out_features=256, bias=True)\n', '2025-04-24T01:49:25.020878   (1): ReLU()\n', '2025-04-24T01:49:25.020878   (2): Linear(in_features=256, out_features=256, bias=True)\n', '2025-04-24T01:49:25.020878   (3): ReLU()\n', '2025-04-24T01:49:25.020878   (4): Linear(in_features=256, out_features=8, bias=True)\n', '2025-04-24T01:49:25.020878 )\n', '2025-04-24T01:49:25.020878 Q-functions: Ensemble(n_models=5)\n', '2025-04-24T01:49:25.020878 \x1b[32m\x1b[1m开始Moore-TDMPC2训练...\n', '2025-04-24T01:49:25.020878 \x1b[32mOnlineTrainer: Starting training loop with profiling enabled\n', '2025-04-24T01:49:25.020878 \x1b[36mPROFILER STATUS: Enabled=True, Functions=0, Total Calls=0\n', '2025-04-24T01:49:25.020878 \x1b[36mPROFILER: forward executed in 1250.77ms (call 1)\n', 'ERROR 2025-04-24T01:49:25.021508 \x1b[34m\x1b[1mwandb\x1b[39m\x1b[22m: Network error resolved after 0:01:01.671900, resuming normal operation.\n', "ERROR 2025-04-24T01:49:25.021508 W0424 09:49:23.214243 2209894 site-packages/torch/_logging/_internal.py:1084] [14/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored\n", '2025-04-24T01:49:33.026362 \x1b[36mPROFILER: forward executed in 269.77ms (call 2)\n']}}, 'dropped': 0}}
+2025-04-24 09:49:34,758 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:35,415 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:49:35,759 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:36,746 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: stop_status
+2025-04-24 09:49:36,747 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: stop_status
+2025-04-24 09:49:36,787 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:36,898 WARNING FileStreamThread:2210003 [file_stream.py:request_with_retry():674] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/OA-MBRL/moore-tdmpc2/46tre76m/file_stream (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)'))). func: <bound method Session.post of <requests.sessions.Session object at 0x7f46e9fa77c0>>, args: ('https://api.wandb.ai/files/OA-MBRL/moore-tdmpc2/46tre76m/file_stream',), kwargs: {'json': {'files': {'output.log': {'offset': 0, 'content': ['2025-04-24T01:49:25.020878 \x1b[34m\x1b[1mLogs will be synced with wandb.\n', "2025-04-24T01:49:25.020878 Config(env_type='MooreMultiTask', n_contexts=10, obs_dim=39, action_dim=4, hidden_dim=256, n_experts=4, moore_temperature=1.0, use_softmax=True, use_checkpoint=False, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=2, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='mw-hammer', obs='state', multitask=False, steps=10000000, batch_size=1024, reward_coef=0.1, value_coef=0.25, consistency_coef=20, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=100000, exp_name='moore-tdmpc2-mt30', eval_freq=5000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 1.0, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=4, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=5, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=True, compile_dynamics=True, use_fp16=True, work_dir=PosixPath('/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30'), task_title='Mw Hammer', tasks=['mw-hammer'], obs_shape={'state': (39,)}, episode_length=100, obs_shapes='???', episode_lengths='???', seed_steps=1000, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')\n", '2025-04-24T01:49:25.020878 Architecture: MooreWorldModel(total_params=5308978, latent_dim=512, action_dim=4, n_experts=4, temperature=0.5)\n', '2025-04-24T01:49:25.020878 Task Encoder: MooreTaskEncoder(obs_dim=39, latent_dim=512, hidden_dim=256, n_experts=4, temperature=1.0, use_softmax=True)\n', '2025-04-24T01:49:25.020878 Transition-Reward Core: MoETransitionRewardModel(latent_dim=512, action_dim=4, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, fused_head=True, use_mixed_precision=True)\n', '2025-04-24T01:49:25.020878 Policy prior: Sequential(\n', '2025-04-24T01:49:25.020878   (0): Linear(in_features=512, out_features=256, bias=True)\n', '2025-04-24T01:49:25.020878   (1): ReLU()\n', '2025-04-24T01:49:25.020878   (2): Linear(in_features=256, out_features=256, bias=True)\n', '2025-04-24T01:49:25.020878   (3): ReLU()\n', '2025-04-24T01:49:25.020878   (4): Linear(in_features=256, out_features=8, bias=True)\n', '2025-04-24T01:49:25.020878 )\n', '2025-04-24T01:49:25.020878 Q-functions: Ensemble(n_models=5)\n', '2025-04-24T01:49:25.020878 \x1b[32m\x1b[1m开始Moore-TDMPC2训练...\n', '2025-04-24T01:49:25.020878 \x1b[32mOnlineTrainer: Starting training loop with profiling enabled\n', '2025-04-24T01:49:25.020878 \x1b[36mPROFILER STATUS: Enabled=True, Functions=0, Total Calls=0\n', '2025-04-24T01:49:25.020878 \x1b[36mPROFILER: forward executed in 1250.77ms (call 1)\n', 'ERROR 2025-04-24T01:49:25.021508 \x1b[34m\x1b[1mwandb\x1b[39m\x1b[22m: Network error resolved after 0:01:01.671900, resuming normal operation.\n', "ERROR 2025-04-24T01:49:25.021508 W0424 09:49:23.214243 2209894 site-packages/torch/_logging/_internal.py:1084] [14/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored\n", '2025-04-24T01:49:33.026362 \x1b[36mPROFILER: forward executed in 269.77ms (call 2)\n']}}, 'dropped': 0}}
+2025-04-24 09:49:37,761 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:38,778 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:39,769 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:40,873 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:41,079 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:49:41,871 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:42,872 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:43,036 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/output.log
+2025-04-24 09:49:43,872 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:44,036 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/output.log
+2025-04-24 09:49:44,872 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:45,872 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:46,750 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:49:46,872 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:47,775 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: partial_history
+2025-04-24 09:49:47,775 DEBUG   SenderThread:2210003 [sender.py:send():379] send: telemetry
+2025-04-24 09:49:47,798 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: partial_history
+2025-04-24 09:49:47,799 DEBUG   SenderThread:2210003 [sender.py:send():379] send: history
+2025-04-24 09:49:47,799 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: summary_record
+2025-04-24 09:49:47,800 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:47,864 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: partial_history
+2025-04-24 09:49:47,864 DEBUG   SenderThread:2210003 [sender.py:send():379] send: history
+2025-04-24 09:49:47,864 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: summary_record
+2025-04-24 09:49:47,865 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:47,873 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:47,922 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: partial_history
+2025-04-24 09:49:47,922 DEBUG   SenderThread:2210003 [sender.py:send():379] send: history
+2025-04-24 09:49:47,923 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: summary_record
+2025-04-24 09:49:47,923 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:47,979 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: partial_history
+2025-04-24 09:49:47,979 DEBUG   SenderThread:2210003 [sender.py:send():379] send: history
+2025-04-24 09:49:47,979 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: summary_record
+2025-04-24 09:49:47,980 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:48,035 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: partial_history
+2025-04-24 09:49:48,035 DEBUG   SenderThread:2210003 [sender.py:send():379] send: history
+2025-04-24 09:49:48,035 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: summary_record
+2025-04-24 09:49:48,035 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:48,037 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/wandb-summary.json
+2025-04-24 09:49:48,093 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: partial_history
+2025-04-24 09:49:48,093 DEBUG   SenderThread:2210003 [sender.py:send():379] send: history
+2025-04-24 09:49:48,093 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: summary_record
+2025-04-24 09:49:48,093 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:48,149 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: partial_history
+2025-04-24 09:49:48,150 DEBUG   SenderThread:2210003 [sender.py:send():379] send: history
+2025-04-24 09:49:48,150 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: summary_record
+2025-04-24 09:49:48,150 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:48,207 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: partial_history
+2025-04-24 09:49:48,207 DEBUG   SenderThread:2210003 [sender.py:send():379] send: history
+2025-04-24 09:49:48,207 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: summary_record
+2025-04-24 09:49:48,207 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:48,264 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: partial_history
+2025-04-24 09:49:48,264 DEBUG   SenderThread:2210003 [sender.py:send():379] send: history
+2025-04-24 09:49:48,264 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: summary_record
+2025-04-24 09:49:48,265 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:48,321 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: partial_history
+2025-04-24 09:49:48,321 DEBUG   SenderThread:2210003 [sender.py:send():379] send: history
+2025-04-24 09:49:48,321 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: summary_record
+2025-04-24 09:49:48,321 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:48,872 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:49:49,038 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/wandb-summary.json
+2025-04-24 09:49:49,507 DEBUG   SenderThread:2210003 [sender.py:send():379] send: exit
+2025-04-24 09:49:49,507 INFO    SenderThread:2210003 [sender.py:send_exit():586] handling exit code: 1
+2025-04-24 09:49:49,507 INFO    SenderThread:2210003 [sender.py:send_exit():588] handling runtime: 28
+2025-04-24 09:49:49,508 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:49,508 INFO    SenderThread:2210003 [sender.py:send_exit():594] send defer
+2025-04-24 09:49:49,508 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:49:49,508 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 0
+2025-04-24 09:49:49,508 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:49:49,508 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 0
+2025-04-24 09:49:49,508 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 1
+2025-04-24 09:49:49,508 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:49:49,508 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 1
+2025-04-24 09:49:49,508 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:49:49,508 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 1
+2025-04-24 09:49:49,508 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 2
+2025-04-24 09:49:49,508 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:49:49,508 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 2
+2025-04-24 09:49:49,508 INFO    HandlerThread:2210003 [system_monitor.py:finish():203] Stopping system monitor
+2025-04-24 09:49:49,508 DEBUG   SystemMonitor:2210003 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-04-24 09:49:49,508 DEBUG   SystemMonitor:2210003 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-04-24 09:49:49,508 DEBUG   SystemMonitor:2210003 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-04-24 09:49:49,509 INFO    HandlerThread:2210003 [interfaces.py:finish():200] Joined cpu monitor
+2025-04-24 09:49:49,509 INFO    HandlerThread:2210003 [interfaces.py:finish():200] Joined disk monitor
+2025-04-24 09:49:49,537 INFO    HandlerThread:2210003 [interfaces.py:finish():200] Joined gpu monitor
+2025-04-24 09:49:49,537 INFO    HandlerThread:2210003 [interfaces.py:finish():200] Joined memory monitor
+2025-04-24 09:49:49,537 INFO    HandlerThread:2210003 [interfaces.py:finish():200] Joined network monitor
+2025-04-24 09:49:49,537 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:49:49,537 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 2
+2025-04-24 09:49:49,537 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 3
+2025-04-24 09:49:49,537 DEBUG   SenderThread:2210003 [sender.py:send():379] send: stats
+2025-04-24 09:49:49,537 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:49:49,537 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 3
+2025-04-24 09:49:49,538 DEBUG   SenderThread:2210003 [sender.py:send():379] send: history
+2025-04-24 09:49:49,538 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: summary_record
+2025-04-24 09:49:49,538 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:49,538 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:49:49,538 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 3
+2025-04-24 09:49:49,538 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 4
+2025-04-24 09:49:49,538 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:49:49,538 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 4
+2025-04-24 09:49:49,538 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:49:49,538 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 4
+2025-04-24 09:49:49,538 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 5
+2025-04-24 09:49:49,538 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:49:49,538 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 5
+2025-04-24 09:49:49,538 DEBUG   SenderThread:2210003 [sender.py:send():379] send: summary
+2025-04-24 09:49:49,538 INFO    SenderThread:2210003 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-04-24 09:49:49,539 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:49:49,539 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 5
+2025-04-24 09:49:49,539 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 6
+2025-04-24 09:49:49,539 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:49:49,539 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 6
+2025-04-24 09:49:49,539 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:49:49,539 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 6
+2025-04-24 09:49:49,541 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:49:50,039 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/wandb-summary.json
+2025-04-24 09:49:50,040 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/output.log
+2025-04-24 09:49:50,074 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 7
+2025-04-24 09:49:50,074 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:49:50,074 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 7
+2025-04-24 09:49:50,074 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:49:50,074 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 7
+2025-04-24 09:49:50,508 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:49:51,040 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/config.yaml
+2025-04-24 09:49:52,040 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/output.log
+2025-04-24 09:49:53,064 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 8
+2025-04-24 09:49:53,064 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:49:53,065 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:49:53,065 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 8
+2025-04-24 09:49:53,065 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:49:53,066 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 8
+2025-04-24 09:49:53,066 INFO    SenderThread:2210003 [job_builder.py:build():440] Attempting to build job artifact
+2025-04-24 09:49:53,067 INFO    SenderThread:2210003 [job_builder.py:_get_source_type():580] no source found
+2025-04-24 09:49:53,067 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 9
+2025-04-24 09:49:53,067 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:49:53,068 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 9
+2025-04-24 09:49:53,068 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:49:53,068 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 9
+2025-04-24 09:49:53,068 INFO    SenderThread:2210003 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-04-24 09:49:53,509 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:49:54,042 INFO    Thread-12 :2210003 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/output.log
+2025-04-24 09:49:54,043 INFO    SenderThread:2210003 [dir_watcher.py:finish():388] scan: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files
+2025-04-24 09:49:54,043 INFO    SenderThread:2210003 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/conda-environment.yaml conda-environment.yaml
+2025-04-24 09:49:54,043 INFO    SenderThread:2210003 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/wandb-summary.json wandb-summary.json
+2025-04-24 09:49:54,044 INFO    SenderThread:2210003 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/output.log output.log
+2025-04-24 09:49:54,044 INFO    SenderThread:2210003 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/config.yaml config.yaml
+2025-04-24 09:49:54,044 INFO    SenderThread:2210003 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/wandb-metadata.json wandb-metadata.json
+2025-04-24 09:49:54,044 INFO    SenderThread:2210003 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/requirements.txt requirements.txt
+2025-04-24 09:49:54,044 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 10
+2025-04-24 09:49:54,044 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:49:54,045 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:49:54,046 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 10
+2025-04-24 09:49:54,066 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:49:54,066 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 10
+2025-04-24 09:49:54,067 INFO    SenderThread:2210003 [file_pusher.py:finish():169] shutting down file pusher
+2025-04-24 09:49:54,511 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:49:54,511 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:49:54,966 INFO    wandb-upload_1:2210003 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/wandb-summary.json
+2025-04-24 09:49:55,189 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:49:55,189 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '6172'}
+2025-04-24 09:49:55,198 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:49:55,513 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:49:55,514 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:49:55,905 INFO    wandb-upload_3:2210003 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/config.yaml
+2025-04-24 09:49:56,058 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:49:56,059 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '10540'}
+2025-04-24 09:49:56,059 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:49:56,515 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:49:56,516 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:49:56,897 INFO    wandb-upload_4:2210003 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/requirements.txt
+2025-04-24 09:49:57,090 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:49:57,091 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '6172'}
+2025-04-24 09:49:57,091 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:49:57,517 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:49:57,517 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:49:57,979 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:49:57,979 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '10540'}
+2025-04-24 09:49:57,979 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:49:58,518 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:49:58,518 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:49:58,519 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:49:59,520 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:49:59,520 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:00,254 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:50:00,255 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '6172'}
+2025-04-24 09:50:00,255 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:50:00,255 INFO    wandb-upload_0:2210003 [retry.py:__call__():172] Retry attempt failed:
+urllib3.exceptions.SSLError: TLS/SSL connection has been closed (EOF) (_ssl.c:1147)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2880, in upload_file
+    response = self._upload_file_session.put(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 649, in put
+    return self.request("PUT", url, data=data, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/adapters.py", line 698, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2911, in upload_file
+    raise _e.with_traceback(sys.exc_info()[2])
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2880, in upload_file
+    response = self._upload_file_session.put(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 649, in put
+    return self.request("PUT", url, data=data, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/adapters.py", line 698, in send
+    raise SSLError(e, request=request)
+wandb.sdk.lib.retry.TransientError: None
+2025-04-24 09:50:00,521 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:00,521 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:01,229 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:50:01,229 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '10540'}
+2025-04-24 09:50:01,229 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:50:01,521 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:01,522 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:02,522 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:02,523 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:03,524 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:03,525 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:03,525 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:04,525 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:04,526 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:05,493 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:50:05,493 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '6172'}
+2025-04-24 09:50:05,493 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:50:05,526 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:05,526 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:06,527 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:06,527 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:06,719 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:50:06,719 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '10540'}
+2025-04-24 09:50:06,720 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:50:07,528 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:07,529 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:08,528 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:08,528 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:08,529 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:09,529 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:09,529 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:10,530 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:10,530 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:11,531 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:11,531 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:12,532 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:12,532 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:13,533 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:13,534 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:13,535 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:14,535 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:14,536 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:14,767 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:50:14,767 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '6172'}
+2025-04-24 09:50:14,767 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:50:15,536 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:15,536 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:16,536 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:16,536 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:17,390 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:50:17,390 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '10540'}
+2025-04-24 09:50:17,390 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:50:17,537 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:17,537 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:18,538 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:18,538 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:18,539 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:19,540 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:19,540 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:20,540 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:20,541 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:21,541 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:21,542 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:22,542 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:22,542 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:23,542 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:23,543 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:23,543 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:24,543 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:24,543 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:25,544 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:25,545 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:26,545 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:26,545 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:27,545 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:27,546 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:28,546 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:28,546 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:28,546 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:29,547 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:29,548 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:30,548 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:30,550 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:31,550 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:31,550 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:31,934 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:50:31,934 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '6172'}
+2025-04-24 09:50:31,934 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:50:32,551 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:32,551 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:33,552 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:33,552 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:33,553 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:34,553 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:34,553 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:34,860 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/output.log?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014955Z&X-Goog-Expires=86399&X-Goog-Signature=45cb52be86d390033e7b10a49e569f94155b8b53468e7445e32e5643eae7db7dbaf2f57a5cf0d61f21f1e68f0e3c18fa8b2cdd446fe67de97b159ac1c4d5859674df0a8b4828d7d7e7354a20ee926f1c0b7d115568374608766d10af8f12ee0eceebed05fbd8712bd607611aa8838f56fb47814ccfc1ff4046077792c6a865a74bac18ed911e90df2c222d15186bbc852a1027b31fe5ffec5686dd5e986ccd18ffb8481a5c2a31937007cab7d51d8ec331ce4819be73fc31bc4d5ca5f01db739be7478ab1255984b97c84c14454a1dd1c1a2e185a2e8849afb0fc2ee15634d47a02f49cecf80ffa2a733c9cc6bb07d4ddbc44ec46ad18deb4866ad074a4161ab&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:50:34,861 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '10540'}
+2025-04-24 09:50:34,861 ERROR   wandb-upload_2:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:50:35,554 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:35,555 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:36,554 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:36,555 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:37,555 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:37,555 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:38,556 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:38,557 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:38,557 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:39,557 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:39,558 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:40,557 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:40,558 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:41,559 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:41,560 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:42,561 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:42,561 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:43,561 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:43,562 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:43,563 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:44,563 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:44,564 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:45,565 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:45,565 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:46,565 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:46,566 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:47,567 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:47,568 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:48,568 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:48,569 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:48,569 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:49,569 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:49,570 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:50,569 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:50,570 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:51,571 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:51,572 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:52,573 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:52,573 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:53,574 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:53,575 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:53,576 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:54,577 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:54,578 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:55,579 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:55,580 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:56,580 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:56,580 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:57,582 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:57,582 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:58,582 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:58,583 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:50:58,584 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:50:59,585 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:50:59,585 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:00,586 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:00,587 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:01,588 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:01,589 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:02,589 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:02,590 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:03,591 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:03,592 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:03,593 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:04,593 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:04,594 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:05,595 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:05,596 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:06,595 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:06,595 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:07,596 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:07,598 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:08,457 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2887] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/OA-MBRL/moore-tdmpc2/46tre76m/conda-environment.yaml?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250424%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250424T014954Z&X-Goog-Expires=86399&X-Goog-Signature=1ade6933f4a9377553d73d8b61e75d2a89e72ab74bc4478d57c867af7951f51713d6e98060e30ce49f262fd9322ef0c88502e0910503ec94f85f9c4f14ad4e70179bdbc640af7119fd5e068aafdbe1b93d4d7e308e44d0fb9bc6d18bfdcacd34f178e8ae7de7da3b76b81d0305b96a91751bea040baec0bf90791b1d25a4da8c6275b99e0412d55b0db67464d85ad81a60ea5a45d8c1d254ed369b3df16a634eb91a291f47a0d15cd1eddcdf14fe4d66ba2ab4647ce7fdb455f034c785a329aebac336029a9174e1f01b49b0a341d5e8fc8da54a06428cf2d22803223b29fe0e2046f84803b6e2d12ed84b0c269c744b430f5c342d5a024991def7901bc39052&X-Goog-SignedHeaders=host&X-User=levi1024 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:51:08,458 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2889] upload_file request headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '6172'}
+2025-04-24 09:51:08,458 ERROR   wandb-upload_0:2210003 [internal_api.py:upload_file():2891] upload_file response body: ''
+2025-04-24 09:51:08,598 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:08,599 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:08,600 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:08,957 INFO    wandb-upload_2:2210003 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/output.log
+2025-04-24 09:51:09,602 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:09,603 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:10,602 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:10,603 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:11,604 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:11,605 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:12,604 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:12,605 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:13,606 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:13,607 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:13,608 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:14,606 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:14,606 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:15,606 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:15,607 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:16,607 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:16,607 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:17,607 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:17,608 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:18,608 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:18,610 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:18,611 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:19,611 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:19,612 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:20,612 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:20,613 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:21,613 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:21,613 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:22,614 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:22,615 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:23,615 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:23,615 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:23,615 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:24,615 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:24,617 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:25,617 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:25,618 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:26,618 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:26,619 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:27,620 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:27,621 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:28,621 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:28,621 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:28,622 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:29,623 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:29,624 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:30,625 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:30,626 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:31,627 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:31,628 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:32,628 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:32,629 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:33,630 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:33,630 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:33,631 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:34,631 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:34,632 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:35,633 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:35,634 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:36,633 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:36,635 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:37,636 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:37,636 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:38,637 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:38,638 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:38,638 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:39,639 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:39,639 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:40,640 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:40,641 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:41,642 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:41,643 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:42,643 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:42,644 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:43,644 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:43,645 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:43,646 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:44,645 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:44,646 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:45,647 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:45,648 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:46,648 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:46,649 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:47,650 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:47,651 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:48,652 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:48,653 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:48,653 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:49,653 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:49,654 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:50,653 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:50,654 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:51,656 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:51,656 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:52,656 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:52,657 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:53,658 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:53,659 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:53,659 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:54,658 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:54,658 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:55,659 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:55,660 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:56,660 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:56,661 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:57,661 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:57,661 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:58,661 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:58,662 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:51:58,662 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:51:59,663 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:51:59,663 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:00,664 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:00,665 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:01,666 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:01,667 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:02,666 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:02,667 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:03,667 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:52:03,668 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:03,669 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:04,669 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:04,670 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:05,670 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:05,670 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:06,672 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:06,672 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:07,673 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:07,674 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:08,674 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:52:08,674 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:08,675 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:09,676 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:09,676 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:10,677 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:10,678 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:11,678 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:11,678 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:12,679 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:12,679 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:13,680 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:13,681 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:13,681 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:52:14,681 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:14,682 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:15,683 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:15,683 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:16,684 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:16,684 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:17,685 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:17,686 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:18,686 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:18,686 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:18,686 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:52:19,687 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:19,687 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:20,687 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:20,687 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:20,985 INFO    wandb-upload_0:2210003 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/files/conda-environment.yaml
+2025-04-24 09:52:21,186 INFO    Thread-11 :2210003 [sender.py:transition_state():614] send defer: 11
+2025-04-24 09:52:21,186 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:52:21,186 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 11
+2025-04-24 09:52:21,186 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:52:21,186 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 11
+2025-04-24 09:52:21,186 INFO    SenderThread:2210003 [file_pusher.py:join():175] waiting for file pusher
+2025-04-24 09:52:21,186 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 12
+2025-04-24 09:52:21,186 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:52:21,186 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 12
+2025-04-24 09:52:21,186 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:52:21,186 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 12
+2025-04-24 09:52:21,186 INFO    SenderThread:2210003 [file_stream.py:finish():601] file stream finish called
+2025-04-24 09:52:21,674 INFO    SenderThread:2210003 [file_stream.py:finish():605] file stream finish is done
+2025-04-24 09:52:21,674 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 13
+2025-04-24 09:52:21,675 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:52:21,675 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 13
+2025-04-24 09:52:21,675 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:52:21,675 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 13
+2025-04-24 09:52:21,675 INFO    SenderThread:2210003 [sender.py:transition_state():614] send defer: 14
+2025-04-24 09:52:21,675 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: defer
+2025-04-24 09:52:21,675 INFO    HandlerThread:2210003 [handler.py:handle_request_defer():184] handle defer: 14
+2025-04-24 09:52:21,675 DEBUG   SenderThread:2210003 [sender.py:send():379] send: final
+2025-04-24 09:52:21,675 DEBUG   SenderThread:2210003 [sender.py:send():379] send: footer
+2025-04-24 09:52:21,675 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: defer
+2025-04-24 09:52:21,675 INFO    SenderThread:2210003 [sender.py:send_request_defer():610] handle sender defer: 14
+2025-04-24 09:52:21,675 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:21,676 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:21,676 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: server_info
+2025-04-24 09:52:21,676 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: poll_exit
+2025-04-24 09:52:21,676 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: server_info
+2025-04-24 09:52:21,677 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: get_summary
+2025-04-24 09:52:21,677 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: sampled_history
+2025-04-24 09:52:21,677 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: internal_messages
+2025-04-24 09:52:26,679 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:52:27,501 INFO    SenderThread:2210003 [retry.py:__call__():172] Retry attempt failed:
+urllib3.exceptions.SSLError: TLS/SSL connection has been closed (EOF) (_ssl.c:1147)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 345, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/requests/adapters.py", line 698, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
+2025-04-24 09:52:31,680 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: keepalive
+2025-04-24 09:52:33,642 DEBUG   SenderThread:2210003 [sender.py:send_request():406] send_request: poll_exit
+2025-04-24 09:52:33,642 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: status_report
+2025-04-24 09:52:33,642 INFO    MainThread:2210003 [wandb_run.py:_footer_history_summary_info():3991] rendering history
+2025-04-24 09:52:33,642 INFO    MainThread:2210003 [wandb_run.py:_footer_history_summary_info():4023] rendering summary
+2025-04-24 09:52:33,642 INFO    MainThread:2210003 [wandb_run.py:_footer_sync_info():3950] logging synced files
+2025-04-24 09:52:33,643 DEBUG   HandlerThread:2210003 [handler.py:handle_request():158] handle_request: shutdown
+2025-04-24 09:52:33,643 INFO    HandlerThread:2210003 [handler.py:finish():882] shutting down handler
+2025-04-24 09:52:34,642 INFO    SenderThread:2210003 [sender.py:finish():1608] shutting down sender
+2025-04-24 09:52:34,642 INFO    WriterThread:2210003 [datastore.py:close():296] close: /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-hammer/42/moore-tdmpc2-mt30/wandb/run-20250424_094816-46tre76m/run-46tre76m.wandb
+2025-04-24 09:52:34,642 INFO    SenderThread:2210003 [file_pusher.py:finish():169] shutting down file pusher
+2025-04-24 09:52:34,643 INFO    SenderThread:2210003 [file_pusher.py:join():175] waiting for file pusher

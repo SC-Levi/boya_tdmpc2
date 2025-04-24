@@ -1,0 +1,1255 @@
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=1, obs_dim=17, action_dim=6, hidden_dim=256, n_experts=4, moore_temperature=1.0, use_softmax=True, gamma=0.99, stddev=0.1, actor_updates=1, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='cheetah-run', obs='state', multitask=False, steps=10000, batch_size=256, reward_coef=0.1, value_coef=0.1, consistency_coef=20, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=100000, exp_name='moore-tdmpc2-mt30', eval_freq=50000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 1.0, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=6, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=3, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=False, work_dir=PosixPath('/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/logs/cheetah-run/42/moore-tdmpc2-mt30'), task_title='Cheetah Run', tasks=['cheetah-run'], obs_shape={'state': (17,)}, episode_length=500, obs_shapes='???', episode_lengths='???', seed_steps=2500, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: TD-MPC2 Moore World Model
+Task Encoder: MooreTaskEncoder(obs_dim=17, latent_dim=512, hidden_dim=256, n_experts=4, temperature=1.0, use_softmax=True)
+Dynamics: MoEDynamicsModel(latent_dim=512, action_dim=6, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True)
+Reward: MoERewardModel(latent_dim=512, action_dim=6, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101)
+Policy prior: Sequential(
+  (0): Linear(in_features=512, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=256, out_features=256, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=256, out_features=12, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+Learnable parameters: 5,991,369
+[32m[1m开始Moore-TDMPC2训练...
+[36mPROFILER STATUS: Enabled=True, Functions=2, Total Calls=6
+[32mOnlineTrainer: Starting training loop with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=2, Total Calls=6
+[36mPROFILER: forward executed in 1.52ms (call 3)
+ [32meval[39m    [34mE:[39m 0            [34mI:[39m 0            [34mR:[39m 0.8          [34mS:[39m 0.0          [34mT:[39m 0:00:07
+ [34mtrain[39m   [34mE:[39m 0            [34mI:[39m 500          [34mR:[39m 5.1          [34mS:[39m 0.0          [34mT:[39m 0:00:07
+Buffer capacity: 10,000
+Storage required: 0.00 GB
+Using CUDA:0 memory for storage.
+ [34mtrain[39m   [34mE:[39m 1            [34mI:[39m 1,000        [34mR:[39m 8.9          [34mS:[39m 0.0          [34mT:[39m 0:00:07
+ [34mtrain[39m   [34mE:[39m 2            [34mI:[39m 1,500        [34mR:[39m 4.3          [34mS:[39m 0.0          [34mT:[39m 0:00:07
+ [34mtrain[39m   [34mE:[39m 3            [34mI:[39m 2,000        [34mR:[39m 4.2          [34mS:[39m 0.0          [34mT:[39m 0:00:08
+ [34mtrain[39m   [34mE:[39m 4            [34mI:[39m 2,500        [34mR:[39m 6.7          [34mS:[39m 0.0          [34mT:[39m 0:00:08
+Pretraining agent on seed data...
+[TIME] encode(future):  455.84 ms
+[TIME] compute TD targets:    1.36 ms
+[TIME] encode(initial): 1530.46 ms
+[TIME] rollout & consistency (vectorized):  479.57 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.16 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.33 ms
+[TIME-FLAT] Experts forward: 4368.28 ms
+[TIME-FLAT] Gate forward: 0.83 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 13.58 ms
+[TIME-FLAT] Total flat forward: 4383.43 ms
+[TIME-VEC] _forward_flat: 4383.46 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4383.78 ms
+[TIME] reward_preds total: 4383.88 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4384.07 ms
+[TIME] Q preds:    5.65 ms
+[TIME] reward loss:    9.91 ms
+[TIME] value loss:    2.42 ms
+[TIME] loss computation:    0.17 ms
+[TIME] backward: 4109.12 ms
+[TIME] grad clipping:    8.38 ms
+[TIME] optim.step:   26.14 ms
+[TIME] _update total: 11014.80 ms
+[36mPROFILER: _update executed in 11104.43ms (call 1)
+[TIME] encode(future):  459.46 ms
+[TIME] compute TD targets:    1.03 ms
+[TIME] encode(initial): 1611.04 ms
+[TIME] rollout & consistency (vectorized):  452.67 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.29 ms
+[TIME-FLAT] Experts forward: 4389.12 ms
+[TIME-FLAT] Gate forward: 0.85 ms
+[TIME-FLAT] Softmax: 0.15 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4391.24 ms
+[TIME-VEC] _forward_flat: 4391.26 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4391.46 ms
+[TIME] reward_preds total: 4391.57 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4391.77 ms
+[TIME] Q preds:    5.48 ms
+[TIME] reward loss:    0.80 ms
+[TIME] value loss:    2.07 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 3882.60 ms
+[TIME] grad clipping:    6.29 ms
+[TIME] optim.step:    1.21 ms
+[TIME] _update total: 10816.01 ms
+[36mPROFILER: _update executed in 10903.26ms (call 2)
+[TIME] encode(future):  466.21 ms
+[TIME] compute TD targets:    1.15 ms
+[TIME] encode(initial): 1535.96 ms
+[TIME] rollout & consistency (vectorized):  463.89 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.07 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.31 ms
+[TIME-FLAT] Experts forward: 4388.93 ms
+[TIME-FLAT] Gate forward: 0.72 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.56 ms
+[TIME-FLAT] Total flat forward: 4390.92 ms
+[TIME-VEC] _forward_flat: 4390.94 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4391.16 ms
+[TIME] reward_preds total: 4391.25 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4391.44 ms
+[TIME] Q preds:    5.16 ms
+[TIME] reward loss:    0.76 ms
+[TIME] value loss:    2.37 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3890.72 ms
+[TIME] grad clipping:    7.15 ms
+[TIME] optim.step:    1.38 ms
+[TIME] _update total: 10767.91 ms
+[36mPROFILER: _update executed in 10866.22ms (call 3)
+[TIME] encode(future):  454.12 ms
+[TIME] compute TD targets:    1.11 ms
+[TIME] encode(initial): 1544.84 ms
+[TIME] rollout & consistency (vectorized):  458.85 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.07 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.28 ms
+[TIME-FLAT] Experts forward: 4397.69 ms
+[TIME-FLAT] Gate forward: 0.68 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.58 ms
+[TIME-FLAT] Total flat forward: 4399.62 ms
+[TIME-VEC] _forward_flat: 4399.65 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4399.87 ms
+[TIME] reward_preds total: 4399.96 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4400.13 ms
+[TIME] Q preds:    5.39 ms
+[TIME] reward loss:    0.78 ms
+[TIME] value loss:    2.06 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3892.50 ms
+[TIME] grad clipping:    6.28 ms
+[TIME] optim.step:    1.26 ms
+[TIME] _update total: 10768.91 ms
+[TIME] encode(future):  450.09 ms
+[TIME] compute TD targets:    1.09 ms
+[TIME] encode(initial): 1536.15 ms
+[TIME] rollout & consistency (vectorized):  455.74 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.05 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.26 ms
+[TIME-FLAT] Experts forward: 4363.77 ms
+[TIME-FLAT] Gate forward: 0.71 ms
+[TIME-FLAT] Softmax: 0.13 ms
+[TIME-FLAT] Einsum: 0.55 ms
+[TIME-FLAT] Total flat forward: 4365.67 ms
+[TIME-VEC] _forward_flat: 4365.69 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4365.88 ms
+[TIME] reward_preds total: 4365.97 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4366.14 ms
+[TIME] Q preds:    5.06 ms
+[TIME] reward loss:    0.81 ms
+[TIME] value loss:    2.01 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3853.63 ms
+[TIME] grad clipping:    6.32 ms
+[TIME] optim.step:    1.24 ms
+[TIME] _update total: 10679.81 ms
+[TIME] encode(future):  457.76 ms
+[TIME] compute TD targets:    1.04 ms
+[TIME] encode(initial): 1509.79 ms
+[TIME] rollout & consistency (vectorized):  457.01 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.28 ms
+[TIME-FLAT] Experts forward: 4408.56 ms
+[TIME-FLAT] Gate forward: 0.69 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4410.49 ms
+[TIME-VEC] _forward_flat: 4410.51 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4410.70 ms
+[TIME] reward_preds total: 4410.79 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4410.96 ms
+[TIME] Q preds:    5.34 ms
+[TIME] reward loss:    0.81 ms
+[TIME] value loss:    2.04 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 4090.08 ms
+[TIME] grad clipping:    6.47 ms
+[TIME] optim.step:    1.23 ms
+[TIME] _update total: 10945.18 ms
+[TIME] encode(future):  453.38 ms
+[TIME] compute TD targets:    2.05 ms
+[TIME] encode(initial): 1643.68 ms
+[TIME] rollout & consistency (vectorized):  514.34 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.28 ms
+[TIME-FLAT] Experts forward: 4690.80 ms
+[TIME-FLAT] Gate forward: 0.71 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.74 ms
+[TIME-FLAT] Total flat forward: 4692.92 ms
+[TIME-VEC] _forward_flat: 4692.94 ms
+[TIME-VEC] Reshape back: 0.06 ms
+[TIME-VEC] Total vector reward: 4693.14 ms
+[TIME] reward_preds total: 4693.23 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4693.40 ms
+[TIME] Q preds:    5.26 ms
+[TIME] reward loss:    1.12 ms
+[TIME] value loss:    2.06 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 4047.30 ms
+[TIME] grad clipping:    6.95 ms
+[TIME] optim.step:    1.26 ms
+[TIME] _update total: 11372.51 ms
+[TIME] encode(future):  496.78 ms
+[TIME] compute TD targets:    1.03 ms
+[TIME] encode(initial): 1574.22 ms
+[TIME] rollout & consistency (vectorized):  460.16 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.29 ms
+[TIME-FLAT] Experts forward: 4504.69 ms
+[TIME-FLAT] Gate forward: 0.71 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4506.63 ms
+[TIME-VEC] _forward_flat: 4506.65 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4506.86 ms
+[TIME] reward_preds total: 4506.95 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4507.13 ms
+[TIME] Q preds:    5.13 ms
+[TIME] reward loss:    0.78 ms
+[TIME] value loss:    2.13 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3907.34 ms
+[TIME] grad clipping:    5.59 ms
+[TIME] optim.step:    1.28 ms
+[TIME] _update total: 10963.23 ms
+[TIME] encode(future):  452.85 ms
+[TIME] compute TD targets:    1.25 ms
+[TIME] encode(initial): 1520.83 ms
+[TIME] rollout & consistency (vectorized):  452.16 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.07 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.30 ms
+[TIME-FLAT] Experts forward: 4354.91 ms
+[TIME-FLAT] Gate forward: 0.73 ms
+[TIME-FLAT] Softmax: 0.13 ms
+[TIME-FLAT] Einsum: 0.55 ms
+[TIME-FLAT] Total flat forward: 4356.87 ms
+[TIME-VEC] _forward_flat: 4356.89 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4357.10 ms
+[TIME] reward_preds total: 4357.19 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4357.37 ms
+[TIME] Q preds:    5.02 ms
+[TIME] reward loss:    0.77 ms
+[TIME] value loss:    2.00 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 3791.90 ms
+[TIME] grad clipping:    6.18 ms
+[TIME] optim.step:    1.24 ms
+[TIME] _update total: 10593.19 ms
+[TIME] encode(future):  449.99 ms
+[TIME] compute TD targets:    0.96 ms
+[TIME] encode(initial): 1499.69 ms
+[TIME] rollout & consistency (vectorized):  455.00 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.26 ms
+[TIME-FLAT] Experts forward: 4317.83 ms
+[TIME-FLAT] Gate forward: 0.75 ms
+[TIME-FLAT] Softmax: 0.17 ms
+[TIME-FLAT] Einsum: 0.59 ms
+[TIME-FLAT] Total flat forward: 4319.83 ms
+[TIME-VEC] _forward_flat: 4319.87 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4320.06 ms
+[TIME] reward_preds total: 4320.14 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4320.29 ms
+[TIME] Q preds:    5.24 ms
+[TIME] reward loss:    0.77 ms
+[TIME] value loss:    2.01 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3867.44 ms
+[TIME] grad clipping:    5.81 ms
+[TIME] optim.step:    1.28 ms
+[TIME] _update total: 10610.95 ms
+[TIME] encode(future):  454.20 ms
+[TIME] compute TD targets:    1.32 ms
+[TIME] encode(initial): 1610.73 ms
+[TIME] rollout & consistency (vectorized):  453.90 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.29 ms
+[TIME-FLAT] Experts forward: 4389.87 ms
+[TIME-FLAT] Gate forward: 0.71 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4391.82 ms
+[TIME-VEC] _forward_flat: 4391.84 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4392.04 ms
+[TIME] reward_preds total: 4392.12 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4392.30 ms
+[TIME] Q preds:    5.13 ms
+[TIME] reward loss:    0.77 ms
+[TIME] value loss:    2.19 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3863.34 ms
+[TIME] grad clipping:    6.42 ms
+[TIME] optim.step:    1.21 ms
+[TIME] _update total: 10793.14 ms
+[TIME] encode(future):  453.57 ms
+[TIME] compute TD targets:    1.09 ms
+[TIME] encode(initial): 1533.20 ms
+[TIME] rollout & consistency (vectorized):  458.81 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.28 ms
+[TIME-FLAT] Experts forward: 4422.82 ms
+[TIME-FLAT] Gate forward: 0.69 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.62 ms
+[TIME-FLAT] Total flat forward: 4424.82 ms
+[TIME-VEC] _forward_flat: 4424.84 ms
+[TIME-VEC] Reshape back: 0.06 ms
+[TIME-VEC] Total vector reward: 4425.05 ms
+[TIME] reward_preds total: 4425.15 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4425.32 ms
+[TIME] Q preds:    5.09 ms
+[TIME] reward loss:    0.79 ms
+[TIME] value loss:    2.07 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 3864.01 ms
+[TIME] grad clipping:    6.50 ms
+[TIME] optim.step:    1.25 ms
+[TIME] _update total: 10753.36 ms
+[TIME] encode(future):  460.86 ms
+[TIME] compute TD targets:    1.08 ms
+[TIME] encode(initial): 1535.00 ms
+[TIME] rollout & consistency (vectorized):  457.42 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.36 ms
+[TIME-FLAT] Experts forward: 4441.90 ms
+[TIME-FLAT] Gate forward: 0.65 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.61 ms
+[TIME-FLAT] Total flat forward: 4443.94 ms
+[TIME-VEC] _forward_flat: 4443.96 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4444.17 ms
+[TIME] reward_preds total: 4444.26 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4444.46 ms
+[TIME] Q preds:    5.09 ms
+[TIME] reward loss:    0.93 ms
+[TIME] value loss:    2.05 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3909.21 ms
+[TIME] grad clipping:    6.47 ms
+[TIME] optim.step:    1.28 ms
+[TIME] _update total: 10825.63 ms
+[TIME] encode(future):  463.85 ms
+[TIME] compute TD targets:    1.06 ms
+[TIME] encode(initial): 1543.64 ms
+[TIME] rollout & consistency (vectorized):  459.38 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.27 ms
+[TIME-FLAT] Experts forward: 4413.99 ms
+[TIME-FLAT] Gate forward: 0.66 ms
+[TIME-FLAT] Softmax: 0.17 ms
+[TIME-FLAT] Einsum: 0.56 ms
+[TIME-FLAT] Total flat forward: 4415.91 ms
+[TIME-VEC] _forward_flat: 4415.93 ms
+[TIME-VEC] Reshape back: 0.06 ms
+[TIME-VEC] Total vector reward: 4416.14 ms
+[TIME] reward_preds total: 4416.23 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4416.39 ms
+[TIME] Q preds:    5.16 ms
+[TIME] reward loss:    0.91 ms
+[TIME] value loss:    2.05 ms
+[TIME] loss computation:    0.17 ms
+[TIME] backward: 3900.64 ms
+[TIME] grad clipping:    7.29 ms
+[TIME] optim.step:    1.25 ms
+[TIME] _update total: 10803.41 ms
+[TIME] encode(future):  451.87 ms
+[TIME] compute TD targets:    1.17 ms
+[TIME] encode(initial): 1520.76 ms
+[TIME] rollout & consistency (vectorized):  457.23 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.07 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.29 ms
+[TIME-FLAT] Experts forward: 4376.23 ms
+[TIME-FLAT] Gate forward: 0.69 ms
+[TIME-FLAT] Softmax: 0.15 ms
+[TIME-FLAT] Einsum: 0.59 ms
+[TIME-FLAT] Total flat forward: 4378.23 ms
+[TIME-VEC] _forward_flat: 4378.25 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4378.45 ms
+[TIME] reward_preds total: 4378.56 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4378.72 ms
+[TIME] Q preds:    5.10 ms
+[TIME] reward loss:    0.81 ms
+[TIME] value loss:    2.25 ms
+[TIME] loss computation:    0.17 ms
+[TIME] backward: 3868.44 ms
+[TIME] grad clipping:    5.95 ms
+[TIME] optim.step:    1.26 ms
+[TIME] _update total: 10696.12 ms
+[TIME] encode(future):  455.42 ms
+[TIME] compute TD targets:    1.14 ms
+[TIME] encode(initial): 1520.59 ms
+[TIME] rollout & consistency (vectorized):  450.68 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.27 ms
+[TIME-FLAT] Experts forward: 4367.79 ms
+[TIME-FLAT] Gate forward: 0.69 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.59 ms
+[TIME-FLAT] Total flat forward: 4369.74 ms
+[TIME-VEC] _forward_flat: 4369.76 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4369.96 ms
+[TIME] reward_preds total: 4370.04 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4370.20 ms
+[TIME] Q preds:    5.10 ms
+[TIME] reward loss:    0.79 ms
+[TIME] value loss:    2.04 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 3863.01 ms
+[TIME] grad clipping:    6.34 ms
+[TIME] optim.step:    1.21 ms
+[TIME] _update total: 10678.18 ms
+[TIME] encode(future):  454.80 ms
+[TIME] compute TD targets:    1.24 ms
+[TIME] encode(initial): 1516.33 ms
+[TIME] rollout & consistency (vectorized):  453.93 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.05 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.27 ms
+[TIME-FLAT] Experts forward: 4374.01 ms
+[TIME-FLAT] Gate forward: 0.67 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4375.93 ms
+[TIME-VEC] _forward_flat: 4375.96 ms
+[TIME-VEC] Reshape back: 0.07 ms
+[TIME-VEC] Total vector reward: 4376.20 ms
+[TIME] reward_preds total: 4376.28 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4376.46 ms
+[TIME] Q preds:    5.28 ms
+[TIME] reward loss:    0.94 ms
+[TIME] value loss:    2.07 ms
+[TIME] loss computation:    0.19 ms
+[TIME] backward: 3853.30 ms
+[TIME] grad clipping:    6.58 ms
+[TIME] optim.step:    1.25 ms
+[TIME] _update total: 10673.85 ms
+[TIME] encode(future):  460.83 ms
+[TIME] compute TD targets:    1.07 ms
+[TIME] encode(initial): 1576.95 ms
+[TIME] rollout & consistency (vectorized):  450.12 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.05 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.26 ms
+[TIME-FLAT] Experts forward: 4420.22 ms
+[TIME-FLAT] Gate forward: 0.69 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.56 ms
+[TIME-FLAT] Total flat forward: 4422.15 ms
+[TIME-VEC] _forward_flat: 4422.18 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4422.39 ms
+[TIME] reward_preds total: 4422.47 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4422.64 ms
+[TIME] Q preds:    5.20 ms
+[TIME] reward loss:    0.87 ms
+[TIME] value loss:    2.27 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 4057.27 ms
+[TIME] grad clipping:    7.57 ms
+[TIME] optim.step:    1.44 ms
+[TIME] _update total: 10987.92 ms
+[TIME] encode(future):  465.20 ms
+[TIME] compute TD targets:    1.78 ms
+[TIME] encode(initial): 1533.87 ms
+[TIME] rollout & consistency (vectorized):  454.14 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.07 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.26 ms
+[TIME-FLAT] Experts forward: 4420.32 ms
+[TIME-FLAT] Gate forward: 0.68 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4422.24 ms
+[TIME-VEC] _forward_flat: 4422.27 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4422.48 ms
+[TIME] reward_preds total: 4422.58 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4422.75 ms
+[TIME] Q preds:    5.19 ms
+[TIME] reward loss:    0.84 ms
+[TIME] value loss:    2.03 ms
+[TIME] loss computation:    0.17 ms
+[TIME] backward: 3892.44 ms
+[TIME] grad clipping:    6.51 ms
+[TIME] optim.step:    1.20 ms
+[TIME] _update total: 10787.58 ms
+[TIME] encode(future):  454.29 ms
+[TIME] compute TD targets:    1.09 ms
+[TIME] encode(initial): 1636.11 ms
+[TIME] rollout & consistency (vectorized):  471.94 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.29 ms
+[TIME-FLAT] Experts forward: 4340.40 ms
+[TIME-FLAT] Gate forward: 0.72 ms
+[TIME-FLAT] Softmax: 0.16 ms
+[TIME-FLAT] Einsum: 0.64 ms
+[TIME-FLAT] Total flat forward: 4342.47 ms
+[TIME-VEC] _forward_flat: 4342.49 ms
+[TIME-VEC] Reshape back: 0.06 ms
+[TIME-VEC] Total vector reward: 4342.69 ms
+[TIME] reward_preds total: 4342.79 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4342.96 ms
+[TIME] Q preds:    5.17 ms
+[TIME] reward loss:    0.80 ms
+[TIME] value loss:    2.05 ms
+[TIME] loss computation:    0.18 ms
+[TIME] backward: 4171.90 ms
+[TIME] grad clipping:    7.00 ms
+[TIME] optim.step:    1.65 ms
+[TIME] _update total: 11096.61 ms
+[TIME] encode(future):  494.47 ms
+[TIME] compute TD targets:    1.45 ms
+[TIME] encode(initial): 1676.08 ms
+[TIME] rollout & consistency (vectorized):  457.05 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.29 ms
+[TIME-FLAT] Experts forward: 4583.72 ms
+[TIME-FLAT] Gate forward: 1.11 ms
+[TIME-FLAT] Softmax: 0.28 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4586.24 ms
+[TIME-VEC] _forward_flat: 4586.26 ms
+[TIME-VEC] Reshape back: 0.06 ms
+[TIME-VEC] Total vector reward: 4586.46 ms
+[TIME] reward_preds total: 4586.55 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4586.71 ms
+[TIME] Q preds:    5.71 ms
+[TIME] reward loss:    0.82 ms
+[TIME] value loss:    2.81 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 3979.63 ms
+[TIME] grad clipping:    6.24 ms
+[TIME] optim.step:    1.18 ms
+[TIME] _update total: 11214.84 ms
+[TIME] encode(future):  449.06 ms
+[TIME] compute TD targets:    0.99 ms
+[TIME] encode(initial): 1510.09 ms
+[TIME] rollout & consistency (vectorized):  448.24 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.05 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.27 ms
+[TIME-FLAT] Experts forward: 4323.63 ms
+[TIME-FLAT] Gate forward: 0.65 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.56 ms
+[TIME-FLAT] Total flat forward: 4325.50 ms
+[TIME-VEC] _forward_flat: 4325.51 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4325.70 ms
+[TIME] reward_preds total: 4325.78 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4325.93 ms
+[TIME] Q preds:    5.17 ms
+[TIME] reward loss:    0.79 ms
+[TIME] value loss:    2.04 ms
+[TIME] loss computation:    0.17 ms
+[TIME] backward: 4110.59 ms
+[TIME] grad clipping:    7.50 ms
+[TIME] optim.step:    1.27 ms
+[TIME] _update total: 10863.22 ms
+[TIME] encode(future):  485.26 ms
+[TIME] compute TD targets:    1.06 ms
+[TIME] encode(initial): 1571.33 ms
+[TIME] rollout & consistency (vectorized):  472.19 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.27 ms
+[TIME-FLAT] Experts forward: 4648.68 ms
+[TIME-FLAT] Gate forward: 0.69 ms
+[TIME-FLAT] Softmax: 0.15 ms
+[TIME-FLAT] Einsum: 0.58 ms
+[TIME-FLAT] Total flat forward: 4650.65 ms
+[TIME-VEC] _forward_flat: 4650.67 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4650.86 ms
+[TIME] reward_preds total: 4650.95 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4651.10 ms
+[TIME] Q preds:    5.78 ms
+[TIME] reward loss:    1.02 ms
+[TIME] value loss:    2.68 ms
+[TIME] loss computation:    0.17 ms
+[TIME] backward: 4160.11 ms
+[TIME] grad clipping:    9.50 ms
+[TIME] optim.step:    1.26 ms
+[TIME] _update total: 11363.05 ms
+[TIME] encode(future):  542.87 ms
+[TIME] compute TD targets:    1.08 ms
+[TIME] encode(initial): 1699.82 ms
+[TIME] rollout & consistency (vectorized):  487.58 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.31 ms
+[TIME-FLAT] Experts forward: 4813.65 ms
+[TIME-FLAT] Gate forward: 1.49 ms
+[TIME-FLAT] Softmax: 0.22 ms
+[TIME-FLAT] Einsum: 0.58 ms
+[TIME-FLAT] Total flat forward: 4816.52 ms
+[TIME-VEC] _forward_flat: 4816.54 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4816.75 ms
+[TIME] reward_preds total: 4816.84 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4817.10 ms
+[TIME] Q preds:    5.66 ms
+[TIME] reward loss:    0.85 ms
+[TIME] value loss:    2.23 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 4285.77 ms
+[TIME] grad clipping:   10.82 ms
+[TIME] optim.step:    1.40 ms
+[TIME] _update total: 11857.01 ms
+[TIME] encode(future):  520.52 ms
+[TIME] compute TD targets:    1.16 ms
+[TIME] encode(initial): 1643.66 ms
+[TIME] rollout & consistency (vectorized):  506.79 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.29 ms
+[TIME-FLAT] Experts forward: 4744.98 ms
+[TIME-FLAT] Gate forward: 0.77 ms
+[TIME-FLAT] Softmax: 0.15 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4747.01 ms
+[TIME-VEC] _forward_flat: 4747.03 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4747.22 ms
+[TIME] reward_preds total: 4747.33 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4747.51 ms
+[TIME] Q preds:    5.61 ms
+[TIME] reward loss:    0.88 ms
+[TIME] value loss:    2.12 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 4339.83 ms
+[TIME] grad clipping:    8.13 ms
+[TIME] optim.step:    1.31 ms
+[TIME] _update total: 11779.28 ms
+[TIME] encode(future):  516.84 ms
+[TIME] compute TD targets:    1.15 ms
+[TIME] encode(initial): 1649.06 ms
+[TIME] rollout & consistency (vectorized):  514.24 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.07 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.32 ms
+[TIME-FLAT] Experts forward: 4794.62 ms
+[TIME-FLAT] Gate forward: 0.72 ms
+[TIME-FLAT] Softmax: 0.15 ms
+[TIME-FLAT] Einsum: 0.59 ms
+[TIME-FLAT] Total flat forward: 4796.68 ms
+[TIME-VEC] _forward_flat: 4796.70 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4796.91 ms
+[TIME] reward_preds total: 4797.02 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4797.20 ms
+[TIME] Q preds:    5.18 ms
+[TIME] reward loss:    0.80 ms
+[TIME] value loss:    2.09 ms
+[TIME] loss computation:    0.53 ms
+[TIME] backward: 4350.49 ms
+[TIME] grad clipping:    7.94 ms
+[TIME] optim.step:    1.29 ms
+[TIME] _update total: 11849.30 ms
+[TIME] encode(future):  512.02 ms
+[TIME] compute TD targets:    1.08 ms
+[TIME] encode(initial): 1665.47 ms
+[TIME] rollout & consistency (vectorized):  511.52 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.30 ms
+[TIME-FLAT] Experts forward: 4767.32 ms
+[TIME-FLAT] Gate forward: 0.71 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.58 ms
+[TIME-FLAT] Total flat forward: 4769.31 ms
+[TIME-VEC] _forward_flat: 4769.33 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4769.58 ms
+[TIME] reward_preds total: 4770.04 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4774.47 ms
+[TIME] Q preds:    5.96 ms
+[TIME] reward loss:    0.90 ms
+[TIME] value loss:    2.33 ms
+[TIME] loss computation:    0.17 ms
+[TIME] backward: 4314.72 ms
+[TIME] grad clipping:    8.03 ms
+[TIME] optim.step:    1.30 ms
+[TIME] _update total: 11799.60 ms
+[TIME] encode(future):  513.46 ms
+[TIME] compute TD targets:    1.16 ms
+[TIME] encode(initial): 1649.71 ms
+[TIME] rollout & consistency (vectorized):  499.52 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.07 ms
+[TIME-FLAT] Contiguous: 0.01 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.28 ms
+[TIME-FLAT] Experts forward: 4689.92 ms
+[TIME-FLAT] Gate forward: 0.76 ms
+[TIME-FLAT] Softmax: 0.16 ms
+[TIME-FLAT] Einsum: 1.21 ms
+[TIME-FLAT] Total flat forward: 4692.60 ms
+[TIME-VEC] _forward_flat: 4692.62 ms
+[TIME-VEC] Reshape back: 0.06 ms
+[TIME-VEC] Total vector reward: 4692.83 ms
+[TIME] reward_preds total: 4692.92 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4693.08 ms
+[TIME] Q preds:    5.55 ms
+[TIME] reward loss:    0.85 ms
+[TIME] value loss:    2.13 ms
+[TIME] loss computation:    0.17 ms
+[TIME] backward: 4399.22 ms
+[TIME] grad clipping:    7.85 ms
+[TIME] optim.step:    1.28 ms
+[TIME] _update total: 11775.61 ms
+[TIME] encode(future):  508.76 ms
+[TIME] compute TD targets:    1.22 ms
+[TIME] encode(initial): 1785.16 ms
+[TIME] rollout & consistency (vectorized):  514.16 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.31 ms
+[TIME-FLAT] Experts forward: 4829.11 ms
+[TIME-FLAT] Gate forward: 0.67 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4831.06 ms
+[TIME-VEC] _forward_flat: 4831.08 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4831.28 ms
+[TIME] reward_preds total: 4831.39 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4831.56 ms
+[TIME] Q preds:    5.16 ms
+[TIME] reward loss:    0.85 ms
+[TIME] value loss:    3.43 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 4437.63 ms
+[TIME] grad clipping:    8.56 ms
+[TIME] optim.step:    1.29 ms
+[TIME] _update total: 12099.56 ms
+[TIME] encode(future):  521.10 ms
+[TIME] compute TD targets:    1.72 ms
+[TIME] encode(initial): 1678.84 ms
+[TIME] rollout & consistency (vectorized):  506.94 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.28 ms
+[TIME-FLAT] Experts forward: 4746.32 ms
+[TIME-FLAT] Gate forward: 0.74 ms
+[TIME-FLAT] Softmax: 0.15 ms
+[TIME-FLAT] Einsum: 0.60 ms
+[TIME-FLAT] Total flat forward: 4748.34 ms
+[TIME-VEC] _forward_flat: 4748.36 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4748.55 ms
+[TIME] reward_preds total: 4748.64 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4748.80 ms
+[TIME] Q preds:    5.13 ms
+[TIME] reward loss:    0.83 ms
+[TIME] value loss:    3.19 ms
+[TIME] loss computation:    0.17 ms
+[TIME] backward: 4371.77 ms
+[TIME] grad clipping:    8.00 ms
+[TIME] optim.step:    2.36 ms
+[TIME] _update total: 11850.46 ms
+[TIME] encode(future):  515.18 ms
+[TIME] compute TD targets:    1.05 ms
+[TIME] encode(initial): 1646.79 ms
+[TIME] rollout & consistency (vectorized):  512.06 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.27 ms
+[TIME-FLAT] Experts forward: 4729.95 ms
+[TIME-FLAT] Gate forward: 0.72 ms
+[TIME-FLAT] Softmax: 0.15 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4731.90 ms
+[TIME-VEC] _forward_flat: 4731.91 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4732.11 ms
+[TIME] reward_preds total: 4732.20 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4732.36 ms
+[TIME] Q preds:    7.22 ms
+[TIME] reward loss:    1.02 ms
+[TIME] value loss:    2.42 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 4308.80 ms
+[TIME] grad clipping:    7.29 ms
+[TIME] optim.step:    1.35 ms
+[TIME] _update total: 11737.36 ms
+[TIME] encode(future):  506.69 ms
+[TIME] compute TD targets:    2.27 ms
+[TIME] encode(initial): 1658.80 ms
+[TIME] rollout & consistency (vectorized):  503.82 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 23.68 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.46 ms
+[TIME-FLAT] Experts forward: 4771.98 ms
+[TIME-FLAT] Gate forward: 0.74 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4774.17 ms
+[TIME-VEC] _forward_flat: 4774.18 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4798.08 ms
+[TIME] reward_preds total: 4798.17 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4798.34 ms
+[TIME] Q preds:    6.14 ms
+[TIME] reward loss:    0.88 ms
+[TIME] value loss:    2.38 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 4369.00 ms
+[TIME] grad clipping:    7.26 ms
+[TIME] optim.step:    2.39 ms
+[TIME] _update total: 11859.68 ms
+[TIME] encode(future):  502.76 ms
+[TIME] compute TD targets:    1.04 ms
+[TIME] encode(initial): 1649.98 ms
+[TIME] rollout & consistency (vectorized):  505.92 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.27 ms
+[TIME-FLAT] Experts forward: 4757.79 ms
+[TIME-FLAT] Gate forward: 0.72 ms
+[TIME-FLAT] Softmax: 0.15 ms
+[TIME-FLAT] Einsum: 0.59 ms
+[TIME-FLAT] Total flat forward: 4759.86 ms
+[TIME-VEC] _forward_flat: 4759.89 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4760.09 ms
+[TIME] reward_preds total: 4760.17 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4760.33 ms
+[TIME] Q preds:    5.20 ms
+[TIME] reward loss:    0.88 ms
+[TIME] value loss:    2.10 ms
+[TIME] loss computation:    0.16 ms
+[TIME] backward: 4338.72 ms
+[TIME] grad clipping:    8.39 ms
+[TIME] optim.step:    1.30 ms
+[TIME] _update total: 11778.39 ms
+[TIME] encode(future):  519.50 ms
+[TIME] compute TD targets:    1.05 ms
+[TIME] encode(initial): 1651.25 ms
+[TIME] rollout & consistency (vectorized):  476.14 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.05 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.27 ms
+[TIME-FLAT] Experts forward: 4636.21 ms
+[TIME-FLAT] Gate forward: 0.67 ms
+[TIME-FLAT] Softmax: 0.15 ms
+[TIME-FLAT] Einsum: 0.59 ms
+[TIME-FLAT] Total flat forward: 4638.15 ms
+[TIME-VEC] _forward_flat: 4638.19 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4638.38 ms
+[TIME] reward_preds total: 4638.47 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4638.63 ms
+[TIME] Q preds:    6.41 ms
+[TIME] reward loss:    0.82 ms
+[TIME] value loss:    2.12 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3930.66 ms
+[TIME] grad clipping:    6.72 ms
+[TIME] optim.step:    1.28 ms
+[TIME] _update total: 11236.29 ms
+[TIME] encode(future):  457.14 ms
+[TIME] compute TD targets:    1.04 ms
+[TIME] encode(initial): 1527.26 ms
+[TIME] rollout & consistency (vectorized):  454.90 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.06 ms
+[TIME-FLAT] Contiguous: 0.01 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.45 ms
+[TIME-FLAT] Experts forward: 4364.70 ms
+[TIME-FLAT] Gate forward: 0.73 ms
+[TIME-FLAT] Softmax: 0.15 ms
+[TIME-FLAT] Einsum: 0.59 ms
+[TIME-FLAT] Total flat forward: 4366.88 ms
+[TIME-VEC] _forward_flat: 4366.90 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4367.11 ms
+[TIME] reward_preds total: 4367.22 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4367.37 ms
+[TIME] Q preds:    5.12 ms
+[TIME] reward loss:    0.88 ms
+[TIME] value loss:    2.09 ms
+[TIME] loss computation:    0.17 ms
+[TIME] backward: 3904.12 ms
+[TIME] grad clipping:    6.53 ms
+[TIME] optim.step:    1.26 ms
+[TIME] _update total: 10729.47 ms
+[TIME] encode(future):  459.25 ms
+[TIME] compute TD targets:    1.16 ms
+[TIME] encode(initial): 1521.47 ms
+[TIME] rollout & consistency (vectorized):  460.52 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.05 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.28 ms
+[TIME-FLAT] Experts forward: 4345.76 ms
+[TIME-FLAT] Gate forward: 0.70 ms
+[TIME-FLAT] Softmax: 0.15 ms
+[TIME-FLAT] Einsum: 0.56 ms
+[TIME-FLAT] Total flat forward: 4347.69 ms
+[TIME-VEC] _forward_flat: 4347.72 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4347.91 ms
+[TIME] reward_preds total: 4348.01 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4348.21 ms
+[TIME] Q preds:    5.06 ms
+[TIME] reward loss:    0.89 ms
+[TIME] value loss:    2.05 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3864.98 ms
+[TIME] grad clipping:    5.84 ms
+[TIME] optim.step:    1.24 ms
+[TIME] _update total: 10673.13 ms
+[TIME] encode(future):  456.15 ms
+[TIME] compute TD targets:    1.14 ms
+[TIME] encode(initial): 1537.07 ms
+[TIME] rollout & consistency (vectorized):  457.05 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.05 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.29 ms
+[TIME-FLAT] Experts forward: 4354.28 ms
+[TIME-FLAT] Gate forward: 0.72 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.61 ms
+[TIME-FLAT] Total flat forward: 4356.26 ms
+[TIME-VEC] _forward_flat: 4356.29 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4356.49 ms
+[TIME] reward_preds total: 4356.59 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4356.76 ms
+[TIME] Q preds:    6.07 ms
+[TIME] reward loss:    0.89 ms
+[TIME] value loss:    2.06 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3883.38 ms
+[TIME] grad clipping:    5.41 ms
+[TIME] optim.step:    1.24 ms
+[TIME] _update total: 10708.95 ms
+[TIME] encode(future):  456.30 ms
+[TIME] compute TD targets:    1.11 ms
+[TIME] encode(initial): 1551.80 ms
+[TIME] rollout & consistency (vectorized):  460.59 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.05 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.27 ms
+[TIME-FLAT] Experts forward: 4358.88 ms
+[TIME-FLAT] Gate forward: 0.68 ms
+[TIME-FLAT] Softmax: 0.13 ms
+[TIME-FLAT] Einsum: 0.57 ms
+[TIME-FLAT] Total flat forward: 4360.77 ms
+[TIME-VEC] _forward_flat: 4360.80 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4361.00 ms
+[TIME] reward_preds total: 4361.11 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4361.28 ms
+[TIME] Q preds:    5.12 ms
+[TIME] reward loss:    0.79 ms
+[TIME] value loss:    2.07 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3882.41 ms
+[TIME] grad clipping:    5.83 ms
+[TIME] optim.step:    1.31 ms
+[TIME] _update total: 10730.22 ms
+[TIME] encode(future):  449.00 ms
+[TIME] compute TD targets:    1.02 ms
+[TIME] encode(initial): 1522.35 ms
+[TIME] rollout & consistency (vectorized):  454.77 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.05 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.28 ms
+[TIME-FLAT] Experts forward: 4303.23 ms
+[TIME-FLAT] Gate forward: 0.68 ms
+[TIME-FLAT] Softmax: 0.14 ms
+[TIME-FLAT] Einsum: 0.59 ms
+[TIME-FLAT] Total flat forward: 4305.17 ms
+[TIME-VEC] _forward_flat: 4305.19 ms
+[TIME-VEC] Reshape back: 0.05 ms
+[TIME-VEC] Total vector reward: 4305.38 ms
+[TIME] reward_preds total: 4305.47 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4305.63 ms
+[TIME] Q preds:    5.08 ms
+[TIME] reward loss:    0.78 ms
+[TIME] value loss:    2.05 ms
+[TIME] loss computation:    0.15 ms
+[TIME] backward: 3847.02 ms
+[TIME] grad clipping:    5.96 ms
+[TIME] optim.step:    1.25 ms
+[TIME] _update total: 10597.74 ms
+[TIME] encode(future):  451.16 ms
+[TIME] compute TD targets:    1.01 ms
+[TIME] encode(initial): 1525.19 ms
+[TIME] rollout & consistency (vectorized):  445.90 ms
+[TIME] reward_preds starting... shapes: z=torch.Size([3, 256, 512]), a=torch.Size([3, 256, 6])
+[TIME] z_a_seq created: torch.Size([3, 256, 518]), now calling model.reward...
+[DEBUG] vectorized_reward H=3, B=256, Dp=518
+[TIME-VEC] Reshape: 0.05 ms
+[TIME-FLAT] Contiguous: 0.00 ms, shape=torch.Size([768, 518])
+[TIME-FLAT] Pre-projection: 0.27 ms
+[TIME-FLAT] Experts forward: 4442.74 ms
+[TIME-FLAT] Gate forward: 0.69 ms
+[TIME-FLAT] Softmax: 0.17 ms
+[TIME-FLAT] Einsum: 0.59 ms
+[TIME-FLAT] Total flat forward: 4444.72 ms
+[TIME-VEC] _forward_flat: 4444.75 ms
+[TIME-VEC] Reshape back: 0.06 ms
+[TIME-VEC] Total vector reward: 4444.96 ms
+[TIME] reward_preds total: 4445.05 ms
+[TIME] reward_preds shape: torch.Size([3, 256, 101])
+[TIME] reward preds: 4445.21 ms
+[TIME] Q preds:    5.96 ms
+[TIME] reward loss:    0.85 ms
+[TIME] value loss:    2.05 ms
+[TIME] loss computation:    0.18 ms
+[TIME] backward: 3991.49 ms
+[TIME] grad clipping:    7.04 ms
+[TIME] optim.step:    1.27 ms
+[TIME] _update total: 10881.43 ms
+[TIME] encode(future):  468.20 ms
+[TIME] compute TD targets:    1.44 ms
+Traceback (most recent call last):
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore.py", line 126, in <module>
+    train()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore.py", line 106, in train
+    trainer.train()
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/TDMPC2/algorithms/trainer/online_trainer.py", line 126, in train
+    _train_metrics = self.agent.update(self.buffer)
+  File "/home/levi/Documents/MOORE-TDMPC/TDMPC2/algorithms/tdmpc2.py", line 329, in update
+    return self._update(obs, action, reward, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/timer.py", line 94, in wrapper
+    result = f(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 684, in _update
+    v_c = self.model.encode(obs[0], task)  # [batch_size, latent_dim]
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/world_model.py", line 238, in encode
+    # 如果已经是潜在维度，直接返回
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/world_model.py", line 199, in task_emb
+    if getattr(self.cfg, 'debug', False):
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1740, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/task_encoder.py", line 158, in forward
+    expert_feats = self.experts(flat_obs)              # [n_experts, N, latent]
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1740, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/levi/Documents/MOORE-TDMPC/moore_tdmpc/layers.py", line 352, in forward
+    orthogonalized_output[i, b] = (vi / vi_norm).clone()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/fx/traceback.py", line 83, in format_stack
+    return traceback.format_list(traceback.extract_stack()[:-1])
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/traceback.py", line 211, in extract_stack
+    stack = StackSummary.extract(walk_stack(f), limit=limit)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/traceback.py", line 362, in extract
+    linecache.checkcache(filename)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/linecache.py", line 63, in checkcache
+    for filename in filenames:
+KeyboardInterrupt
