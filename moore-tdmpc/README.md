@@ -1,14 +1,36 @@
-<h1>TD-MPC2</span></h1>
+<h1>Moore-TDMPC</span></h1>
 
-Official implementation of
+Modified implementation of TD-MPC2, with Mixture-of-Experts (MoE) architecture for enhanced performance.
 
-[TD-MPC2: Scalable, Robust World Models for Continuous Control](https://www.tdmpc2.com) by
+Original paper: [TD-MPC2: Scalable, Robust World Models for Continuous Control](https://www.tdmpc2.com) by
 
 [Nicklas Hansen](https://nicklashansen.github.io), [Hao Su](https://cseweb.ucsd.edu/~haosu)\*, [Xiaolong Wang](https://xiaolonw.github.io)\* (UC San Diego)</br>
 
 <img src="assets/0.gif" width="12.5%"><img src="assets/1.gif" width="12.5%"><img src="assets/2.gif" width="12.5%"><img src="assets/3.gif" width="12.5%"><img src="assets/4.gif" width="12.5%"><img src="assets/5.gif" width="12.5%"><img src="assets/6.gif" width="12.5%"><img src="assets/7.gif" width="12.5%"></br>
 
 [[Website]](https://www.tdmpc2.com) [[Paper]](https://arxiv.org/abs/2310.16828) [[Models]](https://www.tdmpc2.com/models)  [[Dataset]](https://www.tdmpc2.com/dataset)
+
+----
+
+## Key Modifications in Moore-TDMPC
+
+Moore-TDMPC enhances the original TD-MPC2 algorithm by implementing a Mixture-of-Experts (MoE) architecture to improve model performance in single-task scenarios. Key improvements include:
+
+1. **State-based Expert Gating**: Using input features as gating signals, allowing the network to learn to route different state-space regions to different experts.
+
+2. **MoE Architecture Integration**: Replaced standard MLPs with MoE structures in critical components:
+   - Dynamics module
+   - Reward module
+   - Q-functions module
+
+3. **Expert Utilization Techniques**:
+   - Load-balancing loss to encourage uniform expert utilization
+   - Orthogonalization to enhance expert diversity
+   - Support for sparse gating (Top-k selection)
+
+4. **Expert Gating Visualization**: Added tools to visualize expert gating weights during training, helping to understand model routing behavior.
+
+These modifications allow Moore-TDMPC to better partition the state space and specialize in handling different "sub-problems" within a single task, improving prediction accuracy and planning efficiency.
 
 ----
 
@@ -21,17 +43,17 @@ We have added support for episodic RL (tasks with terminations) in the latest re
 
 ## Overview
 
-TD-MPC**2** is a scalable, robust model-based reinforcement learning algorithm. It compares favorably to existing model-free and model-based methods across **104** continuous control tasks spanning multiple domains, with a *single* set of hyperparameters (*right*). We further demonstrate the scalability of TD-MPC**2** by training a single 317M parameter agent to perform **80** tasks across multiple domains, embodiments, and action spaces (*left*). 
+Moore-TDMPC is a scalable, robust model-based reinforcement learning algorithm. It compares favorably to existing model-free and model-based methods across **104** continuous control tasks spanning multiple domains, with a *single* set of hyperparameters (*right*). We further demonstrate the scalability of Moore-TDMPC by training a single 317M parameter agent to perform **80** tasks across multiple domains, embodiments, and action spaces (*left*). 
 
 <img src="assets/8.png" width="100%" style="max-width: 640px"><br/>
 
-This repository contains code for training and evaluating both single-task online RL and multi-task offline RL TD-MPC**2** agents. We additionally open-source **300+** [model checkpoints](https://www.tdmpc2.com/models) (including 12 multi-task models) across 4 task domains: [DMControl](https://arxiv.org/abs/1801.00690), [Meta-World](https://meta-world.github.io/), [ManiSkill2](https://maniskill2.github.io/), and [MyoSuite](https://sites.google.com/view/myosuite), as well as our [30-task and 80-task datasets](https://www.tdmpc2.com/dataset) used to train the multi-task models. Our codebase supports both state and pixel observations. We hope that this repository will serve as a useful community resource for future research on model-based RL.
+This repository contains code for training and evaluating both single-task online RL and multi-task offline RL Moore-TDMPC agents. We additionally open-source **300+** [model checkpoints](https://www.tdmpc2.com/models) (including 12 multi-task models) across 4 task domains: [DMControl](https://arxiv.org/abs/1801.00690), [Meta-World](https://meta-world.github.io/), [ManiSkill2](https://maniskill2.github.io/), and [MyoSuite](https://sites.google.com/view/myosuite), as well as our [30-task and 80-task datasets](https://www.tdmpc2.com/dataset) used to train the multi-task models. Our codebase supports both state and pixel observations. We hope that this repository will serve as a useful community resource for future research on model-based RL.
 
 ----
 
 ## Getting started
 
-You will need a machine with a GPU and at least 12 GB of RAM for single-task online RL with TD-MPC**2**, and 128 GB of RAM for multi-task offline RL on our provided 80-task dataset. A GPU with at least 8 GB of memory is recommended for single-task online RL and for evaluation of the provided multi-task models (up to 317M parameters). Training of the 317M parameter model requires a GPU with at least 24 GB of memory.
+You will need a machine with a GPU and at least 12 GB of RAM for single-task online RL with Moore-TDMPC, and 128 GB of RAM for multi-task offline RL on our provided 80-task dataset. A GPU with at least 8 GB of memory is recommended for single-task online RL and for evaluation of the provided multi-task models (up to 317M parameters). Training of the 317M parameter model requires a GPU with at least 24 GB of memory.
 
 We provide a `Dockerfile` for easy installation. You can build the docker image by running
 
@@ -93,7 +115,7 @@ which can be run by specifying the `task` argument for `evaluation.py`. Multi-ta
 
 ## Example usage
 
-We provide examples on how to evaluate our provided TD-MPC**2** checkpoints, as well as how to train your own TD-MPC**2** agents, below.
+We provide examples on how to evaluate our provided Moore-TDMPC checkpoints, as well as how to train your own Moore-TDMPC agents, below.
 
 ### Evaluation
 
@@ -109,7 +131,7 @@ All single-task checkpoints expect `model_size=5`. Multi-task checkpoints are av
 
 ### Training
 
-See below examples on how to train TD-MPC**2** on a single task (online RL) and on multi-task datasets (offline RL). We recommend configuring [Weights and Biases](https://wandb.ai) (`wandb`) in `config.yaml` to track training progress.
+See below examples on how to train Moore-TDMPC on a single task (online RL) and on multi-task datasets (offline RL). We recommend configuring [Weights and Biases](https://wandb.ai) (`wandb`) in `config.yaml` to track training progress.
 
 ```
 $ python train.py task=mt80 model_size=48 batch_size=1024
@@ -119,6 +141,16 @@ $ python train.py task=walker-walk obs=rgb
 ```
 
 We recommend using default hyperparameters for single-task online RL, including the default model size of 5M parameters (`model_size=5`). Multi-task offline RL benefits from a larger model size, but larger models are also increasingly costly to train and evaluate. Available arguments are `model_size={1, 5, 19, 48, 317}`. See `config.yaml` for a full list of arguments.
+
+### Visualizing Expert Gating
+
+Moore-TDMPC includes functionality to visualize expert gating patterns during training. This can be enabled by setting `visualize_experts=true` in the configuration:
+
+```
+$ python train.py task=dog-run visualize_experts=true viz_interval=5000
+```
+
+The visualization shows how different experts are activated across the state space, and displays the entropy of gating weights, helping to understand how the model routes different inputs to different experts.
 
 ----
 
