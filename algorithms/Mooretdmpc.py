@@ -356,7 +356,11 @@ class MooreTDMPC(torch.nn.Module):
 			moe_block: MoEBlock instance with recorded gate_history
 			save_path: Optional path to save the plot
 		"""
-		if not moe_block.gate_history:
+		if not hasattr(moe_block, "gate_history"):
+			# MoE 没开，或者用了普通 MLP
+			return
+
+		if len(moe_block.gate_history) == 0:
 			print("No gating history recorded")
 			return
 			
