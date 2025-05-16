@@ -21,7 +21,6 @@ Moore-TDMPC enhances the original TD-MPC2 algorithm by implementing a Mixture-of
 2. **MoE Architecture Integration**: Replaced standard MLPs with MoE structures in critical components:
    - Dynamics module
    - Reward module
-   - Q-functions module
 
 3. **Expert Utilization Techniques**:
    - Load-balancing loss to encourage uniform expert utilization
@@ -177,6 +176,65 @@ Key features of the MoE implementation:
    - Compatible with visualization tools for expert gating analysis
 
 The MoE architecture provides improved expressivity by allowing different experts to specialize in different regions of the state space or different tasks, while maintaining a unified interface for both single and multi-task learning.
+
+### MoE Implementation Details
+
+The MoE architecture in Moore-TDMPC is implemented through a unified `MoEBlock` module that seamlessly handles both single-task and multi-task scenarios:
+
+```python
+class MoEBlock(nn.Module):
+    """
+    Generic MoE gating-expert module.
+    - In single-task mode: uses (z||a) as gate input
+    - In multi-task mode: uses task embedding as gate input
+    Expert inputs are always (z||a||[task_emb]) when available
+    """
+    def __init__(self,
+                 in_dim,           # dynamics: latent+action; reward: latent+action
+                 gate_dim,         # single-task: in_dim; multi-task: task_dim
+                 hidden_dims,      # e.g. [mlp_dim, mlp_dim]
+                 out_dim,          # dynamics: latent_dim; reward: num_bins
+                 n_experts,
+                 use_orthogonal=False):
+        # Implementation details...
+        
+    def forward(self, z, a, task_emb=None):
+        """
+        z: [B, latent_dim]
+        a: [B, action_dim]
+        task_emb: None for single-task, [B, task_dim] for multi-task
+        """
+        # Implementation logic...
+```
+
+The MoE architecture replaces standard MLPs in the WorldModel's dynamics and reward modules:
+
+```python
+class WorldModel(nn.Module):
+    def __init__(self, cfg):
+        # ...
+        if cfg.use_moe:
+            # Dynamics: input dim = latent + action + (task?)
+            dyn_in = cfg.latent_dim + cfg.action_dim + (cfg.task_dim if cfg.multitask else 0)
+            # Gate dimensions: single-task uses latent+action; multi-task uses task_dim
+            gate_dim = cfg.task_dim if cfg.multitask else (cfg.latent_dim + cfg.action_dim)
+            self._dynamics = MoEBlock(
+                in_dim=dyn_in,
+                gate_dim=gate_dim,
+                hidden_dims=[cfg.mlp_dim, cfg.mlp_dim],
+                out_dim=cfg.latent_dim,
+                n_experts=cfg.n_experts,
+                use_orthogonal=cfg.use_orthogonal
+            )
+            # Similar construction for reward module
+            # ...
+```
+
+This unified approach allows:
+1. Automatic adaptation between single and multi-task scenarios
+2. Consistent model interface with gating mechanism variations
+3. Expert specialization based on state regions or task characteristics
+4. Visualization of expert activations to analyze model behavior
 
 ----
 
