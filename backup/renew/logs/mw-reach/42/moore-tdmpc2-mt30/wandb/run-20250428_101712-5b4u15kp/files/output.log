@@ -1,0 +1,81 @@
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=30, obs_dim=39, action_dim=4, hidden_dim=256, n_experts=2, moore_temperature=1, use_softmax=True, use_checkpoint=False, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=2, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='mw-reach', obs='state', multitask=False, steps=10000000, batch_size=256, reward_coef=0.1, value_coef=0.1, consistency_coef=10, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=1000000, exp_name='moore-tdmpc2-mt30', eval_freq=20000, eval_episodes=10, moore={'n_experts': 2, 'temperature': 1, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=6, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=7, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=False, compile_dynamics=False, compile_loss=False, work_dir=PosixPath('/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-reach/42/moore-tdmpc2-mt30'), task_title='Mw Reach', tasks=['mw-reach'], obs_shape={'state': (39,)}, episode_length=100, obs_shapes='???', episode_lengths='???', seed_steps=1000, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: MooreWorldModel(total_params=4629530, latent_dim=512, action_dim=4, n_experts=2, temperature=0.5)
+Task Encoder: MooreTaskEncoder(obs_dim=39, latent_dim=512, hidden_dim=256, n_experts=2, temperature=1, use_softmax=True)
+Transition-Reward Core: MoETransitionRewardModel(latent_dim=512, action_dim=4, hidden_dim=256, n_experts=2, temperature=0.5, use_softmax=True, reward_dim=101, fused_head=True, use_mixed_precision=True)
+Policy prior: Sequential(
+  (0): Linear(in_features=512, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=256, out_features=256, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=256, out_features=8, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+[32m[1m开始Moore-TDMPC2训练...
+[32mOnlineTrainer: Starting training loop with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=0, Total Calls=0
+[36mPROFILER: forward executed in 39.88ms (call 1)
+[36mPROFILER: forward executed in 0.95ms (call 2)
+[36mPROFILER: forward executed in 2.22ms (call 3)
+=== 首次 eval() 阶段热点函数 ===
+         6840055 function calls (6421984 primitive calls) in 65.357 seconds
+   Ordered by: cumulative time
+   List reduced from 2396 to 20 due to restriction <20>
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.012    0.012   65.358   65.358 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/trainer/online_trainer.py:36(eval)
+     1000    0.003    0.000   64.038    0.064 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py:113(decorate_context)
+     1000    0.007    0.000   64.027    0.064 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py:454(act)
+     1000    7.928    0.008   64.002    0.064 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py:323(plan)
+     6000    1.237    0.000   45.568    0.008 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py:299(estimate_value)
+111000/19000    0.057    0.000   38.592    0.002 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py:1736(_wrapped_call_impl)
+111000/19000    0.146    0.000   38.578    0.002 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py:1744(_call_impl)
+    12000    0.080    0.000   34.965    0.003 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model_core.py:148(core_vectorized)
+    12000    6.173    0.001   34.191    0.003 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model_core.py:103(forward)
+     6000    0.030    0.000   18.064    0.003 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py:705(core_vectorized)
+     6000    0.013    0.000   17.193    0.003 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py:275(reward)
+     6000    0.013    0.000   17.162    0.003 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py:281(_forward)
+    13000    0.059    0.000    8.985    0.001 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/layers.py:228(forward)
+    50000    0.115    0.000    7.543    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/functional.py:210(einsum)
+    50000    7.389    0.000    7.389    0.000 {built-in method torch.einsum}
+    18000    0.038    0.000    6.541    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/container.py:248(forward)
+    49000    0.038    0.000    6.238    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/linear.py:124(forward)
+    49000    6.186    0.000    6.186    0.000 {built-in method torch._C._nn.linear}
+     6000    0.627    0.000    5.265    0.001 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/common/math.py:90(two_hot_inv)
+    31000    0.015    0.000    3.125    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/functional.py:2103(softmax)
+ [32meval[39m    [34mE:[39m 0            [34mI:[39m 0            [34mR:[39m 155.6        [34mS:[39m 0.0          [34mT:[39m 0:01:05
+ [34mtrain[39m   [34mE:[39m 0            [34mI:[39m 100          [34mR:[39m 364.9        [34mS:[39m 0.0          [34mT:[39m 0:01:05
+Buffer capacity: 1,000,000
+Storage required: 0.18 GB
+Using CUDA:0 memory for storage.
+ [34mtrain[39m   [34mE:[39m 1            [34mI:[39m 200          [34mR:[39m 315.7        [34mS:[39m 0.0          [34mT:[39m 0:01:05
+ [34mtrain[39m   [34mE:[39m 2            [34mI:[39m 300          [34mR:[39m 605.1        [34mS:[39m 0.0          [34mT:[39m 0:01:05
+ [34mtrain[39m   [34mE:[39m 3            [34mI:[39m 400          [34mR:[39m 347.1        [34mS:[39m 0.0          [34mT:[39m 0:01:05
+ [34mtrain[39m   [34mE:[39m 4            [34mI:[39m 500          [34mR:[39m 319.2        [34mS:[39m 0.0          [34mT:[39m 0:01:05
+ [34mtrain[39m   [34mE:[39m 5            [34mI:[39m 600          [34mR:[39m 274.8        [34mS:[39m 0.0          [34mT:[39m 0:01:05
+ [34mtrain[39m   [34mE:[39m 6            [34mI:[39m 700          [34mR:[39m 276.7        [34mS:[39m 0.0          [34mT:[39m 0:01:05
+ [34mtrain[39m   [34mE:[39m 7            [34mI:[39m 800          [34mR:[39m 190.2        [34mS:[39m 0.0          [34mT:[39m 0:01:05
+ [34mtrain[39m   [34mE:[39m 8            [34mI:[39m 900          [34mR:[39m 547.0        [34mS:[39m 0.0          [34mT:[39m 0:01:05
+ [34mtrain[39m   [34mE:[39m 9            [34mI:[39m 1,000        [34mR:[39m 361.1        [34mS:[39m 0.0          [34mT:[39m 0:01:05
+Pretraining agent on seed data...
+Error executing job with overrides: ['task=mw-reach']
+Traceback (most recent call last):
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py", line 162, in train
+    trainer.train()
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/trainer/online_trainer.py", line 126, in train
+    _train_metrics = self.agent.update(self.buffer)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 665, in update
+    return self._update(obs, action, reward, task=task)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 721, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 425, in _update
+    model_tot.backward()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_tensor.py", line 624, in backward
+    torch.autograd.backward(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: Trying to backward through the graph a second time (or directly access saved tensors after they have already been freed). Saved intermediate values of the graph are freed when you call .backward() or autograd.grad(). Specify retain_graph=True if you need to backward through the graph a second time or if you need to access saved tensors after calling backward.
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

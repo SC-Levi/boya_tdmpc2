@@ -1,0 +1,3645 @@
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=30, obs_dim=39, action_dim=4, hidden_dim=512, n_experts=4, moore_temperature=0.75, use_softmax=True, use_checkpoint=False, use_mixed_precision=True, gamma=0.995, stddev=0.1, actor_updates=4, use_ema=True, ensemble_size=5, update_freq=4, seed=1, device='cuda:0', task='mw-reach', obs='state', multitask=False, steps=10000000, batch_size=256, reward_coef=0.1, value_coef=0.1, consistency_coef=20, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=1000000, exp_name='moore-tdmpc2-mt30', eval_freq=20000, eval_episodes=10, mpc=True, iterations=6, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=3, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=False, compile_dynamics=False, compile_loss=False, work_dir=PosixPath('/home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/1/moore-tdmpc2-mt30'), task_title='Mw Reach', tasks=['mw-reach'], obs_shape={'state': (39,)}, episode_length=100, obs_shapes='???', episode_lengths='???', seed_steps=1000, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: MooreWorldModel(total_params=7728177, latent_dim=512, action_dim=4, n_experts=4, temperature=0.5)
+Task Encoder: MooreTaskEncoder(obs_dim=39, latent_dim=512, hidden_dim=512, n_experts=4, temperature=0.75, use_softmax=True)
+Transition-Reward Core: MoETransitionRewardModel(latent_dim=512, action_dim=4, hidden_dim=512, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, fused_head=True, use_mixed_precision=True)
+Policy prior: Sequential(
+  (0): NormedLinear(in_features=512, out_features=512, bias=True, act=Mish)
+  (1): NormedLinear(in_features=512, out_features=512, bias=True, act=Mish)
+  (2): Linear(in_features=512, out_features=8, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+[32m[1m开始Moore-TDMPC2训练...
+[32mOnlineTrainer: Starting training loop with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=0, Total Calls=0
+[36mPROFILER: forward executed in 32.77ms (call 1)
+[36mPROFILER: forward executed in 0.29ms (call 2)
+[36mPROFILER: forward executed in 0.51ms (call 3)
+ [32meval[39m    [34mE:[39m 0            [34mI:[39m 0            [34mR:[39m 277.6        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 0            [34mI:[39m 100          [34mR:[39m 158.1        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+Buffer capacity: 1,000,000
+Storage required: 0.18 GB
+Using CUDA:0 memory for storage.
+ [34mtrain[39m   [34mE:[39m 1            [34mI:[39m 200          [34mR:[39m 225.5        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 2            [34mI:[39m 300          [34mR:[39m 137.3        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 3            [34mI:[39m 400          [34mR:[39m 318.5        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 4            [34mI:[39m 500          [34mR:[39m 418.2        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 5            [34mI:[39m 600          [34mR:[39m 225.5        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 6            [34mI:[39m 700          [34mR:[39m 253.3        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 7            [34mI:[39m 800          [34mR:[39m 246.9        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 8            [34mI:[39m 900          [34mR:[39m 1080.1       [34mS:[39m 0.0          [34mT:[39m 0:00:16
+ [34mtrain[39m   [34mE:[39m 9            [34mI:[39m 1,000        [34mR:[39m 294.2        [34mS:[39m 0.0          [34mT:[39m 0:00:16
+Pretraining agent on seed data...
+[Q dist] min=0.0107, max=0.2035, std=0.0315
+[Scale before] step=0, p05=0.0000, p95=0.0000
+[Scale  after] step=1, p05=0.0628, p95=0.1646, value=1.000
+[Q dist] min=0.0613, max=0.2436, std=0.0228
+[Scale before] step=1, p05=0.0628, p95=0.1646
+[Scale  after] step=2, p05=0.1241, p95=0.1911, value=1.000
+[Q dist] min=0.0535, max=0.2008, std=0.0208
+[Scale before] step=2, p05=0.1241, p95=0.1911
+[Scale  after] step=3, p05=0.0894, p95=0.1560, value=1.000
+[Q dist] min=-0.0503, max=0.0482, std=0.0170
+[Scale before] step=3, p05=0.0894, p95=0.1560
+[Scale  after] step=4, p05=-0.0407, p95=0.0186, value=1.000
+[Q dist] min=0.0751, max=0.1948, std=0.0182
+[Scale before] step=4, p05=-0.0407, p95=0.0186
+[Scale  after] step=5, p05=0.1121, p95=0.1663, value=1.000
+[Q dist] min=0.1082, max=0.2673, std=0.0209
+[Scale before] step=5, p05=0.1121, p95=0.1663
+[Scale  after] step=6, p05=0.1459, p95=0.2097, value=1.000
+[Q dist] min=-0.1333, max=0.0150, std=0.0208
+[Scale before] step=6, p05=0.1459, p95=0.2097
+[Scale  after] step=7, p05=-0.0890, p95=-0.0219, value=1.000
+[Q dist] min=-0.0336, max=0.0964, std=0.0187
+[Scale before] step=7, p05=-0.0890, p95=-0.0219
+[Scale  after] step=8, p05=-0.0033, p95=0.0580, value=1.000
+[Q dist] min=0.0635, max=0.2036, std=0.0206
+[Scale before] step=8, p05=-0.0033, p95=0.0580
+[Scale  after] step=9, p05=0.0816, p95=0.1514, value=1.000
+[Q dist] min=-0.1123, max=0.0370, std=0.0224
+[Scale before] step=9, p05=0.0816, p95=0.1514
+[Scale  after] step=10, p05=-0.0690, p95=0.0018, value=1.000
+[Q dist] min=0.0244, max=0.1537, std=0.0210
+[Scale before] step=10, p05=-0.0690, p95=0.0018
+[Scale  after] step=11, p05=0.0634, p95=0.1322, value=1.000
+[Q dist] min=0.0461, max=0.2277, std=0.0289
+[Scale before] step=11, p05=0.0634, p95=0.1322
+[Scale  after] step=12, p05=0.1031, p95=0.1965, value=1.000
+[Q dist] min=-0.0028, max=0.2498, std=0.0419
+[Scale before] step=12, p05=0.1031, p95=0.1965
+[Scale  after] step=13, p05=0.0373, p95=0.1666, value=1.000
+[Q dist] min=-0.0030, max=0.2185, std=0.0495
+[Scale before] step=13, p05=0.0373, p95=0.1666
+[Scale  after] step=14, p05=0.0186, p95=0.1800, value=1.000
+[Q dist] min=0.0590, max=0.3200, std=0.0540
+[Scale before] step=14, p05=0.0186, p95=0.1800
+[Scale  after] step=15, p05=0.0984, p95=0.2616, value=1.000
+[Q dist] min=0.0375, max=0.3386, std=0.0651
+[Scale before] step=15, p05=0.0984, p95=0.2616
+[Scale  after] step=16, p05=0.0828, p95=0.2655, value=1.000
+[Q dist] min=-0.0313, max=0.3194, std=0.0922
+[Scale before] step=16, p05=0.0828, p95=0.2655
+[Scale  after] step=17, p05=0.0116, p95=0.2587, value=1.000
+[Q dist] min=0.0956, max=0.2745, std=0.0266
+[Scale before] step=17, p05=0.0116, p95=0.2587
+[Scale  after] step=18, p05=0.1390, p95=0.2262, value=1.000
+[Q dist] min=-0.0725, max=0.2885, std=0.0862
+[Scale before] step=18, p05=0.1390, p95=0.2262
+[Scale  after] step=19, p05=0.0190, p95=0.2530, value=1.000
+[Q dist] min=0.0037, max=0.3420, std=0.0842
+[Scale before] step=19, p05=0.0190, p95=0.2530
+[Scale  after] step=20, p05=0.0284, p95=0.2607, value=1.000
+[Q dist] min=0.0122, max=0.2914, std=0.0681
+[Scale before] step=20, p05=0.0284, p95=0.2607
+[Scale  after] step=21, p05=0.0696, p95=0.2598, value=1.000
+[Q dist] min=-0.0791, max=0.1329, std=0.0312
+[Scale before] step=21, p05=0.0696, p95=0.2598
+[Scale  after] step=22, p05=0.0139, p95=0.1108, value=1.000
+[Q dist] min=0.0319, max=0.2905, std=0.0595
+[Scale before] step=22, p05=0.0139, p95=0.1108
+[Scale  after] step=23, p05=0.0663, p95=0.2450, value=1.000
+[Q dist] min=0.0030, max=0.3175, std=0.0699
+[Scale before] step=23, p05=0.0663, p95=0.2450
+[Scale  after] step=24, p05=0.0620, p95=0.2803, value=1.000
+[Q dist] min=-0.0431, max=0.1015, std=0.0244
+[Scale before] step=24, p05=0.0620, p95=0.2803
+[Scale  after] step=25, p05=-0.0140, p95=0.0644, value=1.000
+[Q dist] min=-0.0856, max=0.1399, std=0.0314
+[Scale before] step=25, p05=-0.0140, p95=0.0644
+[Scale  after] step=26, p05=-0.0308, p95=0.0699, value=1.000
+[Q dist] min=0.0663, max=0.2203, std=0.0216
+[Scale before] step=26, p05=-0.0308, p95=0.0699
+[Scale  after] step=27, p05=0.1008, p95=0.1748, value=1.000
+[Q dist] min=-0.0019, max=0.2117, std=0.0242
+[Scale before] step=27, p05=0.1008, p95=0.1748
+[Scale  after] step=28, p05=0.0200, p95=0.0913, value=1.000
+[Q dist] min=0.0378, max=0.3506, std=0.0365
+[Scale before] step=28, p05=0.0200, p95=0.0913
+[Scale  after] step=29, p05=0.1779, p95=0.2746, value=1.000
+[Q dist] min=0.0643, max=0.3172, std=0.0266
+[Scale before] step=29, p05=0.1779, p95=0.2746
+[Scale  after] step=30, p05=0.0894, p95=0.1557, value=1.000
+[Q dist] min=0.0141, max=0.1552, std=0.0200
+[Scale before] step=30, p05=0.0894, p95=0.1557
+[Scale  after] step=31, p05=0.0394, p95=0.1046, value=1.000
+[Q dist] min=-0.0443, max=0.0783, std=0.0201
+[Scale before] step=31, p05=0.0394, p95=0.1046
+[Scale  after] step=32, p05=-0.0194, p95=0.0494, value=1.000
+[Q dist] min=0.0591, max=0.3759, std=0.0496
+[Scale before] step=32, p05=-0.0194, p95=0.0494
+[Scale  after] step=33, p05=0.1882, p95=0.3437, value=1.000
+[Q dist] min=-0.0318, max=0.2957, std=0.0351
+[Scale before] step=33, p05=0.1882, p95=0.3437
+[Scale  after] step=34, p05=0.0164, p95=0.1061, value=1.000
+[Q dist] min=0.0792, max=0.3758, std=0.0353
+[Scale before] step=34, p05=0.0164, p95=0.1061
+[Scale  after] step=35, p05=0.2455, p95=0.3428, value=1.000
+[Q dist] min=0.0055, max=0.1303, std=0.0211
+[Scale before] step=35, p05=0.2455, p95=0.3428
+[Scale  after] step=36, p05=0.0327, p95=0.1025, value=1.000
+[Q dist] min=0.2067, max=0.3420, std=0.0246
+[Scale before] step=36, p05=0.0327, p95=0.1025
+[Scale  after] step=37, p05=0.2425, p95=0.3281, value=1.000
+[Q dist] min=-0.0125, max=0.1291, std=0.0201
+[Scale before] step=37, p05=0.2425, p95=0.3281
+[Scale  after] step=38, p05=0.0129, p95=0.0713, value=1.000
+[Q dist] min=-0.0444, max=0.0757, std=0.0189
+[Scale before] step=38, p05=0.0129, p95=0.0713
+[Scale  after] step=39, p05=-0.0256, p95=0.0368, value=1.000
+[Q dist] min=0.0630, max=0.3168, std=0.0264
+[Scale before] step=39, p05=-0.0256, p95=0.0368
+[Scale  after] step=40, p05=0.2201, p95=0.2977, value=1.000
+[Q dist] min=-0.0028, max=0.1533, std=0.0221
+[Scale before] step=40, p05=0.2201, p95=0.2977
+[Scale  after] step=41, p05=0.0188, p95=0.0900, value=1.000
+[Q dist] min=0.2376, max=0.4012, std=0.0246
+[Scale before] step=41, p05=0.0188, p95=0.0900
+[Scale  after] step=42, p05=0.2802, p95=0.3648, value=1.000
+[Q dist] min=0.1640, max=0.3416, std=0.0247
+[Scale before] step=42, p05=0.2802, p95=0.3648
+[Scale  after] step=43, p05=0.2290, p95=0.3115, value=1.000
+[Q dist] min=0.0006, max=0.1275, std=0.0190
+[Scale before] step=43, p05=0.2290, p95=0.3115
+[Scale  after] step=44, p05=0.0317, p95=0.0920, value=1.000
+[Q dist] min=0.2461, max=0.4457, std=0.0274
+[Scale before] step=44, p05=0.0317, p95=0.0920
+[Scale  after] step=45, p05=0.3028, p95=0.3927, value=1.000
+[Q dist] min=-0.0421, max=0.2616, std=0.0324
+[Scale before] step=45, p05=0.3028, p95=0.3927
+[Scale  after] step=46, p05=0.0035, p95=0.0754, value=1.000
+[Q dist] min=-0.0933, max=0.0440, std=0.0208
+[Scale before] step=46, p05=0.0035, p95=0.0754
+[Scale  after] step=47, p05=-0.0609, p95=0.0050, value=1.000
+[Q dist] min=0.2728, max=0.4750, std=0.0307
+[Scale before] step=47, p05=-0.0609, p95=0.0050
+[Scale  after] step=48, p05=0.3133, p95=0.4217, value=1.000
+[Q dist] min=-0.0102, max=0.3292, std=0.0597
+[Scale before] step=48, p05=0.3133, p95=0.4217
+[Scale  after] step=49, p05=0.0073, p95=0.2253, value=1.000
+[Q dist] min=0.0206, max=0.3222, std=0.0753
+[Scale before] step=49, p05=0.0073, p95=0.2253
+[Scale  after] step=50, p05=0.0619, p95=0.2983, value=1.000
+[Q dist] min=-0.1479, max=0.0511, std=0.0240
+[Scale before] step=50, p05=0.0619, p95=0.2983
+[Scale  after] step=51, p05=-0.0812, p95=-0.0086, value=1.000
+[Q dist] min=-0.0270, max=0.3491, std=0.0845
+[Scale before] step=51, p05=-0.0812, p95=-0.0086
+[Scale  after] step=52, p05=0.0084, p95=0.2678, value=1.000
+[Q dist] min=-0.0667, max=0.1175, std=0.0343
+[Scale before] step=52, p05=0.0084, p95=0.2678
+[Scale  after] step=53, p05=-0.0331, p95=0.0692, value=1.000
+[Q dist] min=0.0721, max=0.3739, std=0.0855
+[Scale before] step=53, p05=-0.0331, p95=0.0692
+[Scale  after] step=54, p05=0.0943, p95=0.3363, value=1.000
+[Q dist] min=0.0650, max=0.3674, std=0.0851
+[Scale before] step=54, p05=0.0943, p95=0.3363
+[Scale  after] step=55, p05=0.0925, p95=0.3347, value=1.000
+[Q dist] min=-0.1368, max=0.0137, std=0.0245
+[Scale before] step=55, p05=0.0925, p95=0.3347
+[Scale  after] step=56, p05=-0.0894, p95=-0.0129, value=1.000
+[Q dist] min=-0.1255, max=0.0783, std=0.0487
+[Scale before] step=56, p05=-0.0894, p95=-0.0129
+[Scale  after] step=57, p05=-0.0976, p95=0.0381, value=1.000
+[Q dist] min=-0.0751, max=0.1323, std=0.0390
+[Scale before] step=57, p05=-0.0976, p95=0.0381
+[Scale  after] step=58, p05=-0.0372, p95=0.0750, value=1.000
+[Q dist] min=-0.0758, max=0.0829, std=0.0368
+[Scale before] step=58, p05=-0.0372, p95=0.0750
+[Scale  after] step=59, p05=-0.0388, p95=0.0685, value=1.000
+[Q dist] min=0.0767, max=0.3828, std=0.0857
+[Scale before] step=59, p05=-0.0388, p95=0.0685
+[Scale  after] step=60, p05=0.1010, p95=0.3301, value=1.000
+[Q dist] min=0.0090, max=0.3291, std=0.0965
+[Scale before] step=60, p05=0.1010, p95=0.3301
+[Scale  after] step=61, p05=0.0384, p95=0.2921, value=1.000
+[Q dist] min=-0.0918, max=0.1023, std=0.0368
+[Scale before] step=61, p05=0.0384, p95=0.2921
+[Scale  after] step=62, p05=-0.0316, p95=0.0758, value=1.000
+[Q dist] min=0.0604, max=0.3532, std=0.0808
+[Scale before] step=62, p05=-0.0316, p95=0.0758
+[Scale  after] step=63, p05=0.1100, p95=0.3309, value=1.000
+[Q dist] min=0.0437, max=0.3934, std=0.1132
+[Scale before] step=63, p05=0.1100, p95=0.3309
+[Scale  after] step=64, p05=0.0941, p95=0.3728, value=1.000
+[Q dist] min=0.0781, max=0.3755, std=0.0935
+[Scale before] step=64, p05=0.0941, p95=0.3728
+[Scale  after] step=65, p05=0.1047, p95=0.3490, value=1.000
+[Q dist] min=0.0728, max=0.3869, std=0.0928
+[Scale before] step=65, p05=0.1047, p95=0.3490
+[Scale  after] step=66, p05=0.1049, p95=0.3431, value=1.000
+[Q dist] min=0.2922, max=0.5530, std=0.0517
+[Scale before] step=66, p05=0.1049, p95=0.3431
+[Scale  after] step=67, p05=0.3381, p95=0.4931, value=1.000
+[Q dist] min=0.0054, max=0.3254, std=0.0949
+[Scale before] step=67, p05=0.3381, p95=0.4931
+[Scale  after] step=68, p05=0.0351, p95=0.2849, value=1.000
+[Q dist] min=-0.1382, max=0.0648, std=0.0522
+[Scale before] step=68, p05=0.0351, p95=0.2849
+[Scale  after] step=69, p05=-0.1115, p95=0.0411, value=1.000
+[Q dist] min=-0.1266, max=0.0728, std=0.0494
+[Scale before] step=69, p05=-0.1115, p95=0.0411
+[Scale  after] step=70, p05=-0.0999, p95=0.0383, value=1.000
+[Q dist] min=-0.0235, max=0.3281, std=0.1080
+[Scale before] step=70, p05=-0.0999, p95=0.0383
+[Scale  after] step=71, p05=0.0101, p95=0.2813, value=1.000
+[Q dist] min=-0.0600, max=0.0955, std=0.0363
+[Scale before] step=71, p05=0.0101, p95=0.2813
+[Scale  after] step=72, p05=-0.0318, p95=0.0764, value=1.000
+[Q dist] min=-0.0219, max=0.3464, std=0.1051
+[Scale before] step=72, p05=-0.0318, p95=0.0764
+[Scale  after] step=73, p05=0.0133, p95=0.2785, value=1.000
+[Q dist] min=-0.1378, max=0.0774, std=0.0499
+[Scale before] step=73, p05=0.0133, p95=0.2785
+[Scale  after] step=74, p05=-0.1002, p95=0.0419, value=1.000
+[Q dist] min=-0.0517, max=0.0965, std=0.0373
+[Scale before] step=74, p05=-0.1002, p95=0.0419
+[Scale  after] step=75, p05=-0.0339, p95=0.0782, value=1.000
+[Q dist] min=-0.1397, max=0.0745, std=0.0518
+[Scale before] step=75, p05=-0.0339, p95=0.0782
+[Scale  after] step=76, p05=-0.1066, p95=0.0435, value=1.000
+[Q dist] min=-0.0020, max=0.3574, std=0.0919
+[Scale before] step=76, p05=-0.1066, p95=0.0435
+[Scale  after] step=77, p05=0.0395, p95=0.2862, value=1.000
+[Q dist] min=-0.0244, max=0.3053, std=0.1077
+[Scale before] step=77, p05=0.0395, p95=0.2862
+[Scale  after] step=78, p05=0.0073, p95=0.2778, value=1.000
+[Q dist] min=0.0691, max=0.3855, std=0.0941
+[Scale before] step=78, p05=0.0073, p95=0.2778
+[Scale  after] step=79, p05=0.1059, p95=0.3498, value=1.000
+[Q dist] min=-0.0148, max=0.3503, std=0.0953
+[Scale before] step=79, p05=0.1059, p95=0.3498
+[Scale  after] step=80, p05=0.0327, p95=0.2901, value=1.000
+[Q dist] min=0.0748, max=0.3725, std=0.0886
+[Scale before] step=80, p05=0.0327, p95=0.2901
+[Scale  after] step=81, p05=0.1030, p95=0.3408, value=1.000
+[Q dist] min=0.0120, max=0.3264, std=0.0948
+[Scale before] step=81, p05=0.1030, p95=0.3408
+[Scale  after] step=82, p05=0.0360, p95=0.2918, value=1.000
+[Q dist] min=-0.1488, max=0.0098, std=0.0277
+[Scale before] step=82, p05=0.0360, p95=0.2918
+[Scale  after] step=83, p05=-0.0927, p95=-0.0067, value=1.000
+[Q dist] min=0.0707, max=0.3629, std=0.0841
+[Scale before] step=83, p05=-0.0927, p95=-0.0067
+[Scale  after] step=84, p05=0.1045, p95=0.3195, value=1.000
+[Q dist] min=0.0655, max=0.3623, std=0.0829
+[Scale before] step=84, p05=0.1045, p95=0.3195
+[Scale  after] step=85, p05=0.1090, p95=0.3220, value=1.000
+[Q dist] min=0.0161, max=0.3261, std=0.0958
+[Scale before] step=85, p05=0.1090, p95=0.3220
+[Scale  after] step=86, p05=0.0416, p95=0.2879, value=1.000
+[Q dist] min=0.0099, max=0.3921, std=0.1215
+[Scale before] step=86, p05=0.0416, p95=0.2879
+[Scale  after] step=87, p05=0.0535, p95=0.3551, value=1.000
+[Q dist] min=0.3113, max=0.5392, std=0.0528
+[Scale before] step=87, p05=0.0535, p95=0.3551
+[Scale  after] step=88, p05=0.3424, p95=0.4958, value=1.000
+[Q dist] min=-0.1668, max=0.0358, std=0.0294
+[Scale before] step=88, p05=0.3424, p95=0.4958
+[Scale  after] step=89, p05=-0.0931, p95=-0.0006, value=1.000
+[Q dist] min=-0.0622, max=0.1443, std=0.0391
+[Scale before] step=89, p05=-0.0931, p95=-0.0006
+[Scale  after] step=90, p05=-0.0259, p95=0.0898, value=1.000
+[Q dist] min=-0.0613, max=0.1166, std=0.0391
+[Scale before] step=90, p05=-0.0259, p95=0.0898
+[Scale  after] step=91, p05=-0.0254, p95=0.0856, value=1.000
+[Q dist] min=0.0807, max=0.3870, std=0.0944
+[Scale before] step=91, p05=-0.0254, p95=0.0856
+[Scale  after] step=92, p05=0.1033, p95=0.3528, value=1.000
+[Q dist] min=0.0642, max=0.3637, std=0.0860
+[Scale before] step=92, p05=0.1033, p95=0.3528
+[Scale  after] step=93, p05=0.1004, p95=0.3220, value=1.000
+[Q dist] min=-0.1249, max=0.0450, std=0.0292
+[Scale before] step=93, p05=0.1004, p95=0.3220
+[Scale  after] step=94, p05=-0.1032, p95=-0.0071, value=1.000
+[Q dist] min=-0.0240, max=0.3224, std=0.1082
+[Scale before] step=94, p05=-0.1032, p95=-0.0071
+[Scale  after] step=95, p05=0.0137, p95=0.2907, value=1.000
+[Q dist] min=0.0773, max=0.3892, std=0.0961
+[Scale before] step=95, p05=0.0137, p95=0.2907
+[Scale  after] step=96, p05=0.1110, p95=0.3619, value=1.000
+[Q dist] min=0.2940, max=0.5498, std=0.0560
+[Scale before] step=96, p05=0.1110, p95=0.3619
+[Scale  after] step=97, p05=0.3296, p95=0.4916, value=1.000
+[Q dist] min=-0.0500, max=0.3685, std=0.1111
+[Scale before] step=97, p05=0.3296, p95=0.4916
+[Scale  after] step=98, p05=0.0168, p95=0.2892, value=1.000
+[Q dist] min=0.0055, max=0.3261, std=0.0937
+[Scale before] step=98, p05=0.0168, p95=0.2892
+[Scale  after] step=99, p05=0.0402, p95=0.2810, value=1.000
+[Q dist] min=0.2845, max=0.5547, std=0.0578
+[Scale before] step=99, p05=0.0402, p95=0.2810
+[Scale  after] step=100, p05=0.3262, p95=0.5059, value=1.000
+[Q dist] min=-0.1388, max=0.0153, std=0.0284
+[Scale before] step=100, p05=0.3262, p95=0.5059
+[Scale  after] step=101, p05=-0.0921, p95=-0.0016, value=1.000
+[Q dist] min=-0.0015, max=0.3039, std=0.0923
+[Scale before] step=101, p05=-0.0921, p95=-0.0016
+[Scale  after] step=102, p05=0.0423, p95=0.2801, value=1.000
+[Q dist] min=0.0670, max=0.3499, std=0.0832
+[Scale before] step=102, p05=0.0423, p95=0.2801
+[Scale  after] step=103, p05=0.1036, p95=0.3227, value=1.000
+[Q dist] min=-0.1250, max=0.0230, std=0.0299
+[Scale before] step=103, p05=0.1036, p95=0.3227
+[Scale  after] step=104, p05=-0.0960, p95=-0.0038, value=1.000
+[Q dist] min=0.3041, max=0.5570, std=0.0583
+[Scale before] step=104, p05=-0.0960, p95=-0.0038
+[Scale  after] step=105, p05=0.3292, p95=0.5022, value=1.000
+[Q dist] min=0.0198, max=0.3151, std=0.0893
+[Scale before] step=105, p05=0.3292, p95=0.5022
+[Scale  after] step=106, p05=0.0442, p95=0.2796, value=1.000
+[Q dist] min=0.0006, max=0.3176, std=0.0914
+[Scale before] step=106, p05=0.0442, p95=0.2796
+[Scale  after] step=107, p05=0.0392, p95=0.2854, value=1.000
+[Q dist] min=0.0779, max=0.3952, std=0.1056
+[Scale before] step=107, p05=0.0392, p95=0.2854
+[Scale  after] step=108, p05=0.1156, p95=0.3808, value=1.000
+[Q dist] min=-0.1398, max=0.0351, std=0.0296
+[Scale before] step=108, p05=0.1156, p95=0.3808
+[Scale  after] step=109, p05=-0.1028, p95=-0.0090, value=1.000
+[Q dist] min=0.0174, max=0.3871, std=0.1222
+[Scale before] step=109, p05=-0.1028, p95=-0.0090
+[Scale  after] step=110, p05=0.0583, p95=0.3640, value=1.000
+[Q dist] min=0.0694, max=0.4057, std=0.0961
+[Scale before] step=110, p05=0.0583, p95=0.3640
+[Scale  after] step=111, p05=0.1188, p95=0.3671, value=1.000
+[Q dist] min=-0.1240, max=0.0829, std=0.0510
+[Scale before] step=111, p05=0.1188, p95=0.3671
+[Scale  after] step=112, p05=-0.0959, p95=0.0486, value=1.000
+[Q dist] min=0.0835, max=0.4104, std=0.1060
+[Scale before] step=112, p05=-0.0959, p95=0.0486
+[Scale  after] step=113, p05=0.1151, p95=0.3827, value=1.000
+[Q dist] min=0.0834, max=0.4049, std=0.0994
+[Scale before] step=113, p05=0.1151, p95=0.3827
+[Scale  after] step=114, p05=0.1155, p95=0.3767, value=1.000
+[Q dist] min=0.2643, max=0.5416, std=0.0622
+[Scale before] step=114, p05=0.1155, p95=0.3767
+[Scale  after] step=115, p05=0.3196, p95=0.5115, value=1.000
+[Q dist] min=-0.0911, max=0.1449, std=0.0387
+[Scale before] step=115, p05=0.3196, p95=0.5115
+[Scale  after] step=116, p05=-0.0226, p95=0.0927, value=1.000
+[Q dist] min=-0.0141, max=0.3065, std=0.0938
+[Scale before] step=116, p05=-0.0226, p95=0.0927
+[Scale  after] step=117, p05=0.0277, p95=0.2762, value=1.000
+[Q dist] min=0.0113, max=0.3338, std=0.0894
+[Scale before] step=117, p05=0.0277, p95=0.2762
+[Scale  after] step=118, p05=0.0414, p95=0.2784, value=1.000
+[Q dist] min=-0.1289, max=0.0856, std=0.0515
+[Scale before] step=118, p05=0.0414, p95=0.2784
+[Scale  after] step=119, p05=-0.0978, p95=0.0436, value=1.000
+[Q dist] min=0.0265, max=0.4281, std=0.1238
+[Scale before] step=119, p05=-0.0978, p95=0.0436
+[Scale  after] step=120, p05=0.0652, p95=0.3820, value=1.000
+[Q dist] min=0.0857, max=0.4683, std=0.1067
+[Scale before] step=120, p05=0.0652, p95=0.3820
+[Scale  after] step=121, p05=0.1179, p95=0.3850, value=1.000
+[Q dist] min=0.0877, max=0.4184, std=0.1048
+[Scale before] step=121, p05=0.1179, p95=0.3850
+[Scale  after] step=122, p05=0.1213, p95=0.3836, value=1.000
+[Q dist] min=-0.0112, max=0.3283, std=0.1072
+[Scale before] step=122, p05=0.1213, p95=0.3836
+[Scale  after] step=123, p05=0.0103, p95=0.2970, value=1.000
+[Q dist] min=0.0333, max=0.4251, std=0.1240
+[Scale before] step=123, p05=0.0103, p95=0.2970
+[Scale  after] step=124, p05=0.0664, p95=0.3841, value=1.000
+[Q dist] min=0.0326, max=0.4412, std=0.1238
+[Scale before] step=124, p05=0.0664, p95=0.3841
+[Scale  after] step=125, p05=0.0701, p95=0.3820, value=1.000
+[Q dist] min=-0.1266, max=0.0104, std=0.0286
+[Scale before] step=125, p05=0.0701, p95=0.3820
+[Scale  after] step=126, p05=-0.1076, p95=-0.0128, value=1.000
+[Q dist] min=0.0997, max=0.4275, std=0.1013
+[Scale before] step=126, p05=-0.1076, p95=-0.0128
+[Scale  after] step=127, p05=0.1231, p95=0.3880, value=1.000
+[Q dist] min=0.0310, max=0.4424, std=0.1235
+[Scale before] step=127, p05=0.1231, p95=0.3880
+[Scale  after] step=128, p05=0.0667, p95=0.3954, value=1.000
+[Q dist] min=0.0335, max=0.4558, std=0.1267
+[Scale before] step=128, p05=0.0667, p95=0.3954
+[Scale  after] step=129, p05=0.0703, p95=0.3904, value=1.000
+[Q dist] min=0.0709, max=0.4406, std=0.0999
+[Scale before] step=129, p05=0.0703, p95=0.3904
+[Scale  after] step=130, p05=0.1216, p95=0.3843, value=1.000
+[Q dist] min=0.0966, max=0.4683, std=0.1010
+[Scale before] step=130, p05=0.1216, p95=0.3843
+[Scale  after] step=131, p05=0.1349, p95=0.4021, value=1.000
+[Q dist] min=0.0518, max=0.3645, std=0.0734
+[Scale before] step=131, p05=0.1349, p95=0.4021
+[Scale  after] step=132, p05=0.1217, p95=0.3297, value=1.000
+[Q dist] min=-0.0888, max=0.1326, std=0.0411
+[Scale before] step=132, p05=0.1217, p95=0.3297
+[Scale  after] step=133, p05=-0.0166, p95=0.1072, value=1.000
+[Q dist] min=0.0930, max=0.3469, std=0.0729
+[Scale before] step=133, p05=-0.0166, p95=0.1072
+[Scale  after] step=134, p05=0.1273, p95=0.3308, value=1.000
+[Q dist] min=-0.1388, max=0.0168, std=0.0311
+[Scale before] step=134, p05=0.1273, p95=0.3308
+[Scale  after] step=135, p05=-0.1131, p95=-0.0121, value=1.000
+[Q dist] min=0.3240, max=0.6174, std=0.0708
+[Scale before] step=135, p05=-0.1131, p95=-0.0121
+[Scale  after] step=136, p05=0.3370, p95=0.5454, value=1.000
+[Q dist] min=-0.0048, max=0.3496, std=0.1122
+[Scale before] step=136, p05=0.3370, p95=0.5454
+[Scale  after] step=137, p05=0.0248, p95=0.3047, value=1.000
+[Q dist] min=-0.0670, max=0.1579, std=0.0414
+[Scale before] step=137, p05=0.0248, p95=0.3047
+[Scale  after] step=138, p05=-0.0116, p95=0.1048, value=1.000
+[Q dist] min=-0.1645, max=0.0846, std=0.0571
+[Scale before] step=138, p05=-0.0116, p95=0.1048
+[Scale  after] step=139, p05=-0.1145, p95=0.0455, value=1.000
+[Q dist] min=-0.0177, max=0.3493, std=0.1064
+[Scale before] step=139, p05=-0.1145, p95=0.0455
+[Scale  after] step=140, p05=0.0210, p95=0.3025, value=1.000
+[Q dist] min=-0.1383, max=0.0186, std=0.0310
+[Scale before] step=140, p05=0.0210, p95=0.3025
+[Scale  after] step=141, p05=-0.1148, p95=-0.0190, value=1.000
+[Q dist] min=-0.0602, max=0.1504, std=0.0422
+[Scale before] step=141, p05=-0.1148, p95=-0.0190
+[Scale  after] step=142, p05=-0.0110, p95=0.1157, value=1.000
+[Q dist] min=-0.0167, max=0.3410, std=0.1145
+[Scale before] step=142, p05=-0.0110, p95=0.1157
+[Scale  after] step=143, p05=0.0216, p95=0.3149, value=1.000
+[Q dist] min=0.2842, max=0.6043, std=0.0705
+[Scale before] step=143, p05=0.0216, p95=0.3149
+[Scale  after] step=144, p05=0.3373, p95=0.5471, value=1.000
+[Q dist] min=-0.1279, max=0.0968, std=0.0551
+[Scale before] step=144, p05=0.3373, p95=0.5471
+[Scale  after] step=145, p05=-0.0965, p95=0.0611, value=1.000
+[Q dist] min=-0.1391, max=0.0982, std=0.0551
+[Scale before] step=145, p05=-0.0965, p95=0.0611
+[Scale  after] step=146, p05=-0.0906, p95=0.0675, value=1.000
+[Q dist] min=-0.0253, max=0.1698, std=0.0394
+[Scale before] step=146, p05=-0.0906, p95=0.0675
+[Scale  after] step=147, p05=0.0129, p95=0.1383, value=1.000
+[Q dist] min=-0.1026, max=0.1278, std=0.0542
+[Scale before] step=147, p05=0.0129, p95=0.1383
+[Scale  after] step=148, p05=-0.0628, p95=0.0947, value=1.000
+[Q dist] min=-0.0741, max=0.1663, std=0.0570
+[Scale before] step=148, p05=-0.0628, p95=0.0947
+[Scale  after] step=149, p05=-0.0373, p95=0.1295, value=1.000
+[Q dist] min=-0.1134, max=0.0966, std=0.0396
+[Scale before] step=149, p05=-0.0373, p95=0.1295
+[Scale  after] step=150, p05=-0.0579, p95=0.0670, value=1.000
+[Q dist] min=-0.0741, max=0.1233, std=0.0392
+[Scale before] step=150, p05=-0.0579, p95=0.0670
+[Scale  after] step=151, p05=-0.0369, p95=0.0817, value=1.000
+[Q dist] min=-0.0184, max=0.2364, std=0.0503
+[Scale before] step=151, p05=-0.0369, p95=0.0817
+[Scale  after] step=152, p05=0.0467, p95=0.1914, value=1.000
+[Q dist] min=0.0667, max=0.3345, std=0.0459
+[Scale before] step=152, p05=0.0467, p95=0.1914
+[Scale  after] step=153, p05=0.1220, p95=0.2532, value=1.000
+[Q dist] min=-0.0492, max=0.1660, std=0.0451
+[Scale before] step=153, p05=0.1220, p95=0.2532
+[Scale  after] step=154, p05=-0.0253, p95=0.1040, value=1.000
+[Q dist] min=0.0642, max=0.3044, std=0.0523
+[Scale before] step=154, p05=-0.0253, p95=0.1040
+[Scale  after] step=155, p05=0.0966, p95=0.2494, value=1.000
+[Q dist] min=-0.0807, max=0.1266, std=0.0486
+[Scale before] step=155, p05=0.0966, p95=0.2494
+[Scale  after] step=156, p05=-0.0477, p95=0.0921, value=1.000
+[Q dist] min=0.0993, max=0.3053, std=0.0438
+[Scale before] step=156, p05=-0.0477, p95=0.0921
+[Scale  after] step=157, p05=0.1205, p95=0.2550, value=1.000
+[Q dist] min=-0.0989, max=0.1139, std=0.0513
+[Scale before] step=157, p05=0.1205, p95=0.2550
+[Scale  after] step=158, p05=-0.0615, p95=0.0875, value=1.000
+[Q dist] min=0.0566, max=0.2956, std=0.0499
+[Scale before] step=158, p05=-0.0615, p95=0.0875
+[Scale  after] step=159, p05=0.1027, p95=0.2451, value=1.000
+[Q dist] min=-0.1010, max=0.1190, std=0.0479
+[Scale before] step=159, p05=0.1027, p95=0.2451
+[Scale  after] step=160, p05=-0.0514, p95=0.0902, value=1.000
+[Q dist] min=0.0379, max=0.2726, std=0.0523
+[Scale before] step=160, p05=-0.0514, p95=0.0902
+[Scale  after] step=161, p05=0.0962, p95=0.2475, value=1.000
+[Q dist] min=0.0545, max=0.3037, std=0.0490
+[Scale before] step=161, p05=0.0962, p95=0.2475
+[Scale  after] step=162, p05=0.1064, p95=0.2469, value=1.000
+[Q dist] min=-0.0621, max=0.1249, std=0.0395
+[Scale before] step=162, p05=0.1064, p95=0.2469
+[Scale  after] step=163, p05=-0.0347, p95=0.0856, value=1.000
+[Q dist] min=0.0954, max=0.3004, std=0.0422
+[Scale before] step=163, p05=-0.0347, p95=0.0856
+[Scale  after] step=164, p05=0.1231, p95=0.2507, value=1.000
+[Q dist] min=-0.0340, max=0.1892, std=0.0415
+[Scale before] step=164, p05=0.1231, p95=0.2507
+[Scale  after] step=165, p05=-0.0008, p95=0.1268, value=1.000
+[Q dist] min=-0.1209, max=0.1169, std=0.0490
+[Scale before] step=165, p05=-0.0008, p95=0.1268
+[Scale  after] step=166, p05=-0.0552, p95=0.0817, value=1.000
+[Q dist] min=-0.0762, max=0.2776, std=0.0564
+[Scale before] step=166, p05=-0.0552, p95=0.0817
+[Scale  after] step=167, p05=-0.0245, p95=0.1410, value=1.000
+[Q dist] min=0.0448, max=0.3097, std=0.0524
+[Scale before] step=167, p05=-0.0245, p95=0.1410
+[Scale  after] step=168, p05=0.0910, p95=0.2446, value=1.000
+[Q dist] min=-0.1017, max=0.2262, std=0.0543
+[Scale before] step=168, p05=0.0910, p95=0.2446
+[Scale  after] step=169, p05=-0.0527, p95=0.1006, value=1.000
+[Q dist] min=-0.1612, max=0.1206, std=0.0532
+[Scale before] step=169, p05=-0.0527, p95=0.1006
+[Scale  after] step=170, p05=-0.0615, p95=0.0852, value=1.000
+[Q dist] min=-0.1599, max=0.1160, std=0.0555
+[Scale before] step=170, p05=-0.0615, p95=0.0852
+[Scale  after] step=171, p05=-0.0770, p95=0.0784, value=1.000
+[Q dist] min=-0.1090, max=0.2788, std=0.0799
+[Scale before] step=171, p05=-0.0770, p95=0.0784
+[Scale  after] step=172, p05=-0.0500, p95=0.2219, value=1.000
+[Q dist] min=-0.0180, max=0.6549, std=0.1390
+[Scale before] step=172, p05=-0.0500, p95=0.2219
+[Scale  after] step=173, p05=0.0067, p95=0.4403, value=1.000
+[Q dist] min=-0.1717, max=0.1123, std=0.0587
+[Scale before] step=173, p05=0.0067, p95=0.4403
+[Scale  after] step=174, p05=-0.0908, p95=0.0752, value=1.000
+[Q dist] min=-0.2082, max=0.1458, std=0.0616
+[Scale before] step=174, p05=-0.0908, p95=0.0752
+[Scale  after] step=175, p05=-0.1016, p95=0.0832, value=1.000
+[Q dist] min=-0.0187, max=0.7020, std=0.1770
+[Scale before] step=175, p05=-0.1016, p95=0.0832
+[Scale  after] step=176, p05=0.0129, p95=0.5326, value=1.000
+[Q dist] min=-0.0731, max=0.2621, std=0.0785
+[Scale before] step=176, p05=0.0129, p95=0.5326
+[Scale  after] step=177, p05=-0.0434, p95=0.2171, value=1.000
+[Q dist] min=-0.0559, max=0.3399, std=0.0943
+[Scale before] step=177, p05=-0.0434, p95=0.2171
+[Scale  after] step=178, p05=-0.0258, p95=0.2902, value=1.000
+[Q dist] min=-0.0318, max=0.2727, std=0.0722
+[Scale before] step=178, p05=-0.0258, p95=0.2902
+[Scale  after] step=179, p05=0.0225, p95=0.2482, value=1.000
+[Q dist] min=-0.0232, max=0.5292, std=0.1178
+[Scale before] step=179, p05=0.0225, p95=0.2482
+[Scale  after] step=180, p05=0.0164, p95=0.4152, value=1.000
+[Q dist] min=-0.1934, max=0.2390, std=0.0932
+[Scale before] step=180, p05=0.0164, p95=0.4152
+[Scale  after] step=181, p05=-0.1143, p95=0.1915, value=1.000
+[Q dist] min=-0.1641, max=0.2175, std=0.0969
+[Scale before] step=181, p05=-0.1143, p95=0.1915
+[Scale  after] step=182, p05=-0.1206, p95=0.1910, value=1.000
+[Q dist] min=-0.0644, max=0.3302, std=0.0739
+[Scale before] step=182, p05=-0.1206, p95=0.1910
+[Scale  after] step=183, p05=-0.0304, p95=0.2299, value=1.000
+[Q dist] min=-0.0442, max=0.2785, std=0.0836
+[Scale before] step=183, p05=-0.0304, p95=0.2299
+[Scale  after] step=184, p05=-0.0079, p95=0.2414, value=1.000
+[Q dist] min=-0.1092, max=0.2895, std=0.0947
+[Scale before] step=184, p05=-0.0079, p95=0.2414
+[Scale  after] step=185, p05=-0.0464, p95=0.2390, value=1.000
+[Q dist] min=0.0279, max=0.4287, std=0.0885
+[Scale before] step=185, p05=-0.0464, p95=0.2390
+[Scale  after] step=186, p05=0.1069, p95=0.3800, value=1.000
+[Q dist] min=-0.1563, max=0.2217, std=0.0965
+[Scale before] step=186, p05=0.1069, p95=0.3800
+[Scale  after] step=187, p05=-0.1159, p95=0.1978, value=1.000
+[Q dist] min=0.0718, max=0.4128, std=0.0863
+[Scale before] step=187, p05=-0.1159, p95=0.1978
+[Scale  after] step=188, p05=0.1066, p95=0.3726, value=1.000
+[Q dist] min=-0.1705, max=0.1075, std=0.0661
+[Scale before] step=188, p05=0.1066, p95=0.3726
+[Scale  after] step=189, p05=-0.1236, p95=0.0782, value=1.000
+[Q dist] min=-0.1913, max=0.1108, std=0.0704
+[Scale before] step=189, p05=-0.1236, p95=0.0782
+[Scale  after] step=190, p05=-0.1335, p95=0.0832, value=1.000
+[Q dist] min=-0.1612, max=0.2269, std=0.1000
+[Scale before] step=190, p05=-0.1335, p95=0.0832
+[Scale  after] step=191, p05=-0.1262, p95=0.1877, value=1.000
+[Q dist] min=-0.1765, max=0.1248, std=0.0672
+[Scale before] step=191, p05=-0.1262, p95=0.1877
+[Scale  after] step=192, p05=-0.1262, p95=0.0692, value=1.000
+[Q dist] min=0.0692, max=0.4138, std=0.0917
+[Scale before] step=192, p05=-0.1262, p95=0.0692
+[Scale  after] step=193, p05=0.1061, p95=0.3855, value=1.000
+[Q dist] min=-0.0499, max=0.2861, std=0.0703
+[Scale before] step=193, p05=0.1061, p95=0.3855
+[Scale  after] step=194, p05=0.0242, p95=0.2428, value=1.000
+[Q dist] min=-0.2066, max=0.2115, std=0.0994
+[Scale before] step=194, p05=0.0242, p95=0.2428
+[Scale  after] step=195, p05=-0.1206, p95=0.1914, value=1.000
+[Q dist] min=-0.0031, max=0.4969, std=0.1156
+[Scale before] step=195, p05=-0.1206, p95=0.1914
+[Scale  after] step=196, p05=0.0252, p95=0.4059, value=1.000
+[Q dist] min=0.0880, max=0.5341, std=0.0852
+[Scale before] step=196, p05=0.0252, p95=0.4059
+[Scale  after] step=197, p05=0.1284, p95=0.4163, value=1.000
+[Q dist] min=-0.1225, max=0.2777, std=0.0916
+[Scale before] step=197, p05=0.1284, p95=0.4163
+[Scale  after] step=198, p05=-0.0453, p95=0.2395, value=1.000
+[Q dist] min=-0.1631, max=0.2140, std=0.0978
+[Scale before] step=198, p05=-0.0453, p95=0.2395
+[Scale  after] step=199, p05=-0.1260, p95=0.1905, value=1.000
+[Q dist] min=0.0921, max=0.6638, std=0.0968
+[Scale before] step=199, p05=-0.1260, p95=0.1905
+[Scale  after] step=200, p05=0.1296, p95=0.4326, value=1.000
+[Q dist] min=-0.0722, max=0.2874, std=0.0779
+[Scale before] step=200, p05=0.1296, p95=0.4326
+[Scale  after] step=201, p05=-0.0047, p95=0.2409, value=1.000
+[Q dist] min=-0.2450, max=0.2773, std=0.1199
+[Scale before] step=201, p05=-0.0047, p95=0.2409
+[Scale  after] step=202, p05=-0.1744, p95=0.2317, value=1.000
+[Q dist] min=-0.2395, max=0.2632, std=0.1196
+[Scale before] step=202, p05=-0.1744, p95=0.2317
+[Scale  after] step=203, p05=-0.1689, p95=0.2299, value=1.000
+[Q dist] min=0.0883, max=0.7393, std=0.1299
+[Scale before] step=203, p05=-0.1689, p95=0.2299
+[Scale  after] step=204, p05=0.1343, p95=0.5090, value=1.000
+[Q dist] min=-0.1688, max=0.2291, std=0.0874
+[Scale before] step=204, p05=0.1343, p95=0.5090
+[Scale  after] step=205, p05=-0.0649, p95=0.1965, value=1.000
+[Q dist] min=-0.2476, max=0.2819, std=0.1250
+[Scale before] step=205, p05=-0.0649, p95=0.1965
+[Scale  after] step=206, p05=-0.1738, p95=0.2298, value=1.000
+[Q dist] min=0.1050, max=0.8132, std=0.1460
+[Scale before] step=206, p05=-0.1738, p95=0.2298
+[Scale  after] step=207, p05=0.1395, p95=0.5963, value=1.000
+[Q dist] min=-0.0396, max=0.4123, std=0.1023
+[Scale before] step=207, p05=0.1395, p95=0.5963
+[Scale  after] step=208, p05=0.0295, p95=0.3766, value=1.000
+[Q dist] min=-0.2796, max=0.1508, std=0.0767
+[Scale before] step=208, p05=0.0295, p95=0.3766
+[Scale  after] step=209, p05=-0.1639, p95=0.0780, value=1.000
+[Q dist] min=-0.2028, max=0.2931, std=0.1114
+[Scale before] step=209, p05=-0.1639, p95=0.0780
+[Scale  after] step=210, p05=-0.1287, p95=0.2337, value=1.000
+[Q dist] min=-0.2186, max=0.1210, std=0.0692
+[Scale before] step=210, p05=-0.1287, p95=0.2337
+[Scale  after] step=211, p05=-0.1235, p95=0.0837, value=1.000
+[Q dist] min=-0.0373, max=0.4551, std=0.1084
+[Scale before] step=211, p05=-0.1235, p95=0.0837
+[Scale  after] step=212, p05=0.0131, p95=0.4006, value=1.000
+[Q dist] min=-0.0572, max=0.2709, std=0.0905
+[Scale before] step=212, p05=0.0131, p95=0.4006
+[Scale  after] step=213, p05=-0.0366, p95=0.2370, value=1.000
+[Q dist] min=-0.0846, max=0.2899, std=0.0917
+[Scale before] step=213, p05=-0.0366, p95=0.2370
+[Scale  after] step=214, p05=-0.0442, p95=0.2393, value=1.000
+[Q dist] min=0.0574, max=0.4159, std=0.0869
+[Scale before] step=214, p05=-0.0442, p95=0.2393
+[Scale  after] step=215, p05=0.1138, p95=0.3783, value=1.000
+[Q dist] min=-0.0317, max=0.4478, std=0.1065
+[Scale before] step=215, p05=0.1138, p95=0.3783
+[Scale  after] step=216, p05=0.0223, p95=0.4064, value=1.000
+[Q dist] min=-0.1699, max=0.1193, std=0.0724
+[Scale before] step=216, p05=0.0223, p95=0.4064
+[Scale  after] step=217, p05=-0.1265, p95=0.0805, value=1.000
+[Q dist] min=-0.1659, max=0.2342, std=0.0982
+[Scale before] step=217, p05=-0.1265, p95=0.0805
+[Scale  after] step=218, p05=-0.1212, p95=0.1940, value=1.000
+[Q dist] min=-0.1489, max=0.1227, std=0.0674
+[Scale before] step=218, p05=-0.1212, p95=0.1940
+[Scale  after] step=219, p05=-0.1081, p95=0.0812, value=1.000
+[Q dist] min=-0.0145, max=0.2997, std=0.0765
+[Scale before] step=219, p05=-0.1081, p95=0.0812
+[Scale  after] step=220, p05=0.0298, p95=0.2505, value=1.000
+[Q dist] min=-0.0620, max=0.3172, std=0.0770
+[Scale before] step=220, p05=0.0298, p95=0.2505
+[Scale  after] step=221, p05=-0.0331, p95=0.2554, value=1.000
+[Q dist] min=0.0887, max=0.4640, std=0.0718
+[Scale before] step=221, p05=-0.0331, p95=0.2554
+[Scale  after] step=222, p05=0.1264, p95=0.3856, value=1.000
+[Q dist] min=-0.0217, max=0.6548, std=0.2031
+[Scale before] step=222, p05=0.1264, p95=0.3856
+[Scale  after] step=223, p05=0.0149, p95=0.5836, value=1.000
+[Q dist] min=0.0002, max=0.4491, std=0.1108
+[Scale before] step=223, p05=0.0149, p95=0.5836
+[Scale  after] step=224, p05=0.0237, p95=0.4002, value=1.000
+[Q dist] min=-0.1692, max=0.2496, std=0.1018
+[Scale before] step=224, p05=0.0237, p95=0.4002
+[Scale  after] step=225, p05=-0.1330, p95=0.1988, value=1.000
+[Q dist] min=-0.0456, max=0.2980, std=0.0779
+[Scale before] step=225, p05=-0.1330, p95=0.1988
+[Scale  after] step=226, p05=0.0085, p95=0.2411, value=1.000
+[Q dist] min=-0.0340, max=0.2836, std=0.0780
+[Scale before] step=226, p05=0.0085, p95=0.2411
+[Scale  after] step=227, p05=0.0077, p95=0.2462, value=1.000
+[Q dist] min=-0.0696, max=0.3353, std=0.0774
+[Scale before] step=227, p05=0.0077, p95=0.2462
+[Scale  after] step=228, p05=-0.0292, p95=0.2559, value=1.000
+[Q dist] min=0.0743, max=0.4152, std=0.0905
+[Scale before] step=228, p05=-0.0292, p95=0.2559
+[Scale  after] step=229, p05=0.1060, p95=0.3815, value=1.000
+[Q dist] min=-0.1423, max=0.1246, std=0.0681
+[Scale before] step=229, p05=0.1060, p95=0.3815
+[Scale  after] step=230, p05=-0.1096, p95=0.0807, value=1.000
+[Q dist] min=0.0825, max=0.4630, std=0.0681
+[Scale before] step=230, p05=-0.1096, p95=0.0807
+[Scale  after] step=231, p05=0.1204, p95=0.3608, value=1.000
+[Q dist] min=-0.0126, max=0.3536, std=0.1031
+[Scale before] step=231, p05=0.1204, p95=0.3608
+[Scale  after] step=232, p05=0.0202, p95=0.3270, value=1.000
+[Q dist] min=-0.0637, max=0.3241, std=0.0924
+[Scale before] step=232, p05=0.0202, p95=0.3270
+[Scale  after] step=233, p05=-0.0331, p95=0.2408, value=1.000
+[Q dist] min=-0.0109, max=0.6693, std=0.1971
+[Scale before] step=233, p05=-0.0331, p95=0.2408
+[Scale  after] step=234, p05=0.0158, p95=0.5558, value=1.000
+[Q dist] min=-0.0134, max=0.4544, std=0.1011
+[Scale before] step=234, p05=0.0158, p95=0.5558
+[Scale  after] step=235, p05=0.0221, p95=0.4019, value=1.000
+[Q dist] min=-0.0292, max=0.3830, std=0.1008
+[Scale before] step=235, p05=0.0221, p95=0.4019
+[Scale  after] step=236, p05=0.0201, p95=0.3195, value=1.000
+[Q dist] min=-0.1469, max=0.2520, std=0.0944
+[Scale before] step=236, p05=0.0201, p95=0.3195
+[Scale  after] step=237, p05=-0.1069, p95=0.1924, value=1.000
+[Q dist] min=-0.0047, max=0.4895, std=0.1022
+[Scale before] step=237, p05=-0.1069, p95=0.1924
+[Scale  after] step=238, p05=0.0196, p95=0.3845, value=1.000
+[Q dist] min=0.1004, max=0.4555, std=0.0597
+[Scale before] step=238, p05=0.0196, p95=0.3845
+[Scale  after] step=239, p05=0.1270, p95=0.3243, value=1.000
+[Q dist] min=-0.0230, max=0.3608, std=0.0998
+[Scale before] step=239, p05=0.1270, p95=0.3243
+[Scale  after] step=240, p05=0.0103, p95=0.3188, value=1.000
+[Q dist] min=0.1036, max=0.4601, std=0.0781
+[Scale before] step=240, p05=0.0103, p95=0.3188
+[Scale  after] step=241, p05=0.1303, p95=0.4012, value=1.000
+[Q dist] min=-0.0114, max=0.4556, std=0.0959
+[Scale before] step=241, p05=0.1303, p95=0.4012
+[Scale  after] step=242, p05=0.0258, p95=0.3773, value=1.000
+[Q dist] min=0.0794, max=0.4208, std=0.0924
+[Scale before] step=242, p05=0.0258, p95=0.3773
+[Scale  after] step=243, p05=0.1041, p95=0.3854, value=1.000
+[Q dist] min=0.1028, max=0.4855, std=0.0818
+[Scale before] step=243, p05=0.1041, p95=0.3854
+[Scale  after] step=244, p05=0.1350, p95=0.4168, value=1.000
+[Q dist] min=-0.1662, max=0.2337, std=0.0949
+[Scale before] step=244, p05=0.1350, p95=0.4168
+[Scale  after] step=245, p05=-0.1003, p95=0.1931, value=1.000
+[Q dist] min=-0.0597, max=0.3095, std=0.0683
+[Scale before] step=245, p05=-0.1003, p95=0.1931
+[Scale  after] step=246, p05=-0.0307, p95=0.2125, value=1.000
+[Q dist] min=-0.0246, max=0.3665, std=0.1020
+[Scale before] step=246, p05=-0.0307, p95=0.2125
+[Scale  after] step=247, p05=0.0181, p95=0.3279, value=1.000
+[Q dist] min=-0.0485, max=0.3194, std=0.0746
+[Scale before] step=247, p05=0.0181, p95=0.3279
+[Scale  after] step=248, p05=-0.0297, p95=0.2455, value=1.000
+[Q dist] min=0.0693, max=0.4317, std=0.0847
+[Scale before] step=248, p05=-0.0297, p95=0.2455
+[Scale  after] step=249, p05=0.1324, p95=0.3883, value=1.000
+[Q dist] min=-0.0501, max=0.2730, std=0.0874
+[Scale before] step=249, p05=0.1324, p95=0.3883
+[Scale  after] step=250, p05=-0.0057, p95=0.2420, value=1.000
+[Q dist] min=-0.1505, max=0.2676, std=0.0965
+[Scale before] step=250, p05=-0.0057, p95=0.2420
+[Scale  after] step=251, p05=-0.0951, p95=0.1984, value=1.000
+[Q dist] min=-0.0120, max=0.3706, std=0.0981
+[Scale before] step=251, p05=-0.0951, p95=0.1984
+[Scale  after] step=252, p05=0.0651, p95=0.3277, value=1.000
+[Q dist] min=0.1028, max=0.3502, std=0.0342
+[Scale before] step=252, p05=0.0651, p95=0.3277
+[Scale  after] step=253, p05=0.1286, p95=0.2330, value=1.000
+[Q dist] min=-0.0278, max=0.2852, std=0.0730
+[Scale before] step=253, p05=0.1286, p95=0.2330
+[Scale  after] step=254, p05=0.0509, p95=0.2419, value=1.000
+[Q dist] min=-0.0083, max=0.3027, std=0.0731
+[Scale before] step=254, p05=0.0509, p95=0.2419
+[Scale  after] step=255, p05=0.0519, p95=0.2488, value=1.000
+[Q dist] min=0.0294, max=0.2877, std=0.0732
+[Scale before] step=255, p05=0.0519, p95=0.2488
+[Scale  after] step=256, p05=0.0519, p95=0.2478, value=1.000
+[Q dist] min=0.0226, max=0.3600, std=0.0969
+[Scale before] step=256, p05=0.0519, p95=0.2478
+[Scale  after] step=257, p05=0.0823, p95=0.3304, value=1.000
+[Q dist] min=-0.0033, max=0.2713, std=0.0743
+[Scale before] step=257, p05=0.0823, p95=0.3304
+[Scale  after] step=258, p05=0.0515, p95=0.2449, value=1.000
+[Q dist] min=-0.0847, max=0.2434, std=0.0860
+[Scale before] step=258, p05=0.0515, p95=0.2449
+[Scale  after] step=259, p05=-0.0311, p95=0.1886, value=1.000
+[Q dist] min=-0.0272, max=0.5682, std=0.1842
+[Scale before] step=259, p05=-0.0311, p95=0.1886
+[Scale  after] step=260, p05=0.0123, p95=0.4509, value=1.000
+[Q dist] min=-0.0698, max=0.1290, std=0.0342
+[Scale before] step=260, p05=0.0123, p95=0.4509
+[Scale  after] step=261, p05=-0.0220, p95=0.0779, value=1.000
+[Q dist] min=0.0382, max=0.3642, std=0.0930
+[Scale before] step=261, p05=-0.0220, p95=0.0779
+[Scale  after] step=262, p05=0.0779, p95=0.3198, value=1.000
+[Q dist] min=-0.0064, max=0.4874, std=0.1834
+[Scale before] step=262, p05=0.0779, p95=0.3198
+[Scale  after] step=263, p05=0.0203, p95=0.4523, value=1.000
+[Q dist] min=0.0823, max=0.2831, std=0.0319
+[Scale before] step=263, p05=0.0203, p95=0.4523
+[Scale  after] step=264, p05=0.1257, p95=0.2229, value=1.000
+[Q dist] min=-0.1438, max=0.2301, std=0.0871
+[Scale before] step=264, p05=0.1257, p95=0.2229
+[Scale  after] step=265, p05=-0.0289, p95=0.1963, value=1.000
+[Q dist] min=0.1620, max=0.4229, std=0.0740
+[Scale before] step=265, p05=-0.0289, p95=0.1963
+[Scale  after] step=266, p05=0.1905, p95=0.3907, value=1.000
+[Q dist] min=-0.0060, max=0.3032, std=0.0837
+[Scale before] step=266, p05=0.1905, p95=0.3907
+[Scale  after] step=267, p05=0.0280, p95=0.2538, value=1.000
+[Q dist] min=-0.0351, max=0.5089, std=0.1833
+[Scale before] step=267, p05=0.0280, p95=0.2538
+[Scale  after] step=268, p05=0.0175, p95=0.4574, value=1.000
+[Q dist] min=0.0692, max=0.2802, std=0.0333
+[Scale before] step=268, p05=0.0175, p95=0.4574
+[Scale  after] step=269, p05=0.1273, p95=0.2349, value=1.000
+[Q dist] min=-0.1422, max=0.1146, std=0.0662
+[Scale before] step=269, p05=0.1273, p95=0.2349
+[Scale  after] step=270, p05=-0.0849, p95=0.0839, value=1.000
+[Q dist] min=0.0496, max=0.3674, std=0.0956
+[Scale before] step=270, p05=-0.0849, p95=0.0839
+[Scale  after] step=271, p05=0.0926, p95=0.3376, value=1.000
+[Q dist] min=-0.0037, max=0.2074, std=0.0441
+[Scale before] step=271, p05=0.0926, p95=0.3376
+[Scale  after] step=272, p05=0.0278, p95=0.1558, value=1.000
+[Q dist] min=-0.0075, max=0.3041, std=0.0812
+[Scale before] step=272, p05=0.0278, p95=0.1558
+[Scale  after] step=273, p05=0.0258, p95=0.2509, value=1.000
+[Q dist] min=-0.0661, max=0.2503, std=0.0853
+[Scale before] step=273, p05=0.0258, p95=0.2509
+[Scale  after] step=274, p05=-0.0245, p95=0.1937, value=1.000
+[Q dist] min=0.0059, max=0.2820, std=0.0800
+[Scale before] step=274, p05=-0.0245, p95=0.1937
+[Scale  after] step=275, p05=0.0352, p95=0.2411, value=1.000
+[Q dist] min=0.0787, max=0.2908, std=0.0344
+[Scale before] step=275, p05=0.0352, p95=0.2411
+[Scale  after] step=276, p05=0.1258, p95=0.2361, value=1.000
+[Q dist] min=-0.0066, max=0.1887, std=0.0462
+[Scale before] step=276, p05=0.1258, p95=0.2361
+[Scale  after] step=277, p05=0.0230, p95=0.1613, value=1.000
+[Q dist] min=-0.0046, max=0.3117, std=0.0809
+[Scale before] step=277, p05=0.0230, p95=0.1613
+[Scale  after] step=278, p05=0.0294, p95=0.2401, value=1.000
+[Q dist] min=-0.0354, max=0.2289, std=0.0475
+[Scale before] step=278, p05=0.0294, p95=0.2401
+[Scale  after] step=279, p05=0.0220, p95=0.1613, value=1.000
+[Q dist] min=0.0576, max=0.3854, std=0.0952
+[Scale before] step=279, p05=0.0220, p95=0.1613
+[Scale  after] step=280, p05=0.0830, p95=0.3260, value=1.000
+[Q dist] min=-0.0416, max=0.5035, std=0.1794
+[Scale before] step=280, p05=0.0830, p95=0.3260
+[Scale  after] step=281, p05=0.0146, p95=0.4455, value=1.000
+[Q dist] min=-0.0115, max=0.2826, std=0.0805
+[Scale before] step=281, p05=0.0146, p95=0.4455
+[Scale  after] step=282, p05=0.0192, p95=0.2478, value=1.000
+[Q dist] min=0.0665, max=0.2866, std=0.0299
+[Scale before] step=282, p05=0.0192, p95=0.2478
+[Scale  after] step=283, p05=0.1300, p95=0.2249, value=1.000
+[Q dist] min=-0.0843, max=0.2438, std=0.0856
+[Scale before] step=283, p05=0.1300, p95=0.2249
+[Scale  after] step=284, p05=-0.0292, p95=0.1923, value=1.000
+[Q dist] min=0.0908, max=0.2586, std=0.0312
+[Scale before] step=284, p05=-0.0292, p95=0.1923
+[Scale  after] step=285, p05=0.1261, p95=0.2295, value=1.000
+[Q dist] min=-0.0277, max=0.4985, std=0.1799
+[Scale before] step=285, p05=0.1261, p95=0.2295
+[Scale  after] step=286, p05=0.0154, p95=0.4476, value=1.000
+[Q dist] min=-0.1111, max=0.1200, std=0.0664
+[Scale before] step=286, p05=0.0154, p95=0.4476
+[Scale  after] step=287, p05=-0.0882, p95=0.0859, value=1.000
+[Q dist] min=-0.0036, max=0.2061, std=0.0465
+[Scale before] step=287, p05=-0.0882, p95=0.0859
+[Scale  after] step=288, p05=0.0230, p95=0.1686, value=1.000
+[Q dist] min=-0.0337, max=0.2038, std=0.0488
+[Scale before] step=288, p05=0.0230, p95=0.1686
+[Scale  after] step=289, p05=0.0202, p95=0.1602, value=1.000
+[Q dist] min=0.1467, max=0.4195, std=0.0757
+[Scale before] step=289, p05=0.0202, p95=0.1602
+[Scale  after] step=290, p05=0.1885, p95=0.3958, value=1.000
+[Q dist] min=-0.0655, max=0.2228, std=0.0876
+[Scale before] step=290, p05=0.1885, p95=0.3958
+[Scale  after] step=291, p05=-0.0272, p95=0.1993, value=1.000
+[Q dist] min=-0.0516, max=0.2353, std=0.0873
+[Scale before] step=291, p05=-0.0272, p95=0.1993
+[Scale  after] step=292, p05=-0.0265, p95=0.1945, value=1.000
+[Q dist] min=0.0058, max=0.2125, std=0.0480
+[Scale before] step=292, p05=-0.0265, p95=0.1945
+[Scale  after] step=293, p05=0.0260, p95=0.1625, value=1.000
+[Q dist] min=-0.0188, max=0.2903, std=0.0802
+[Scale before] step=293, p05=0.0260, p95=0.1625
+[Scale  after] step=294, p05=0.0363, p95=0.2466, value=1.000
+[Q dist] min=-0.0492, max=0.2474, std=0.0847
+[Scale before] step=294, p05=0.0363, p95=0.2466
+[Scale  after] step=295, p05=-0.0238, p95=0.1914, value=1.000
+[Q dist] min=0.0122, max=0.2726, std=0.0720
+[Scale before] step=295, p05=-0.0238, p95=0.1914
+[Scale  after] step=296, p05=0.0576, p95=0.2463, value=1.000
+[Q dist] min=0.0316, max=0.3977, std=0.0967
+[Scale before] step=296, p05=0.0576, p95=0.2463
+[Scale  after] step=297, p05=0.0804, p95=0.3293, value=1.000
+[Q dist] min=-0.0535, max=0.2302, std=0.0879
+[Scale before] step=297, p05=0.0804, p95=0.3293
+[Scale  after] step=298, p05=-0.0283, p95=0.1925, value=1.000
+[Q dist] min=-0.0538, max=0.1218, std=0.0345
+[Scale before] step=298, p05=-0.0283, p95=0.1925
+[Scale  after] step=299, p05=-0.0280, p95=0.0773, value=1.000
+[Q dist] min=-0.0530, max=0.2546, std=0.0866
+[Scale before] step=299, p05=-0.0280, p95=0.0773
+[Scale  after] step=300, p05=-0.0271, p95=0.1929, value=1.000
+[Q dist] min=-0.0108, max=0.3129, std=0.0858
+[Scale before] step=300, p05=-0.0271, p95=0.1929
+[Scale  after] step=301, p05=0.0282, p95=0.2588, value=1.000
+[Q dist] min=0.1454, max=0.4378, std=0.0747
+[Scale before] step=301, p05=0.0282, p95=0.2588
+[Scale  after] step=302, p05=0.2009, p95=0.3966, value=1.000
+[Q dist] min=0.1568, max=0.4416, std=0.0726
+[Scale before] step=302, p05=0.2009, p95=0.3966
+[Scale  after] step=303, p05=0.1976, p95=0.3965, value=1.000
+[Q dist] min=0.0565, max=0.3943, std=0.0982
+[Scale before] step=303, p05=0.1976, p95=0.3965
+[Scale  after] step=304, p05=0.0801, p95=0.3295, value=1.000
+[Q dist] min=-0.0148, max=0.1859, std=0.0481
+[Scale before] step=304, p05=0.0801, p95=0.3295
+[Scale  after] step=305, p05=0.0209, p95=0.1572, value=1.000
+[Q dist] min=0.1753, max=0.4367, std=0.0749
+[Scale before] step=305, p05=0.0209, p95=0.1572
+[Scale  after] step=306, p05=0.2020, p95=0.4006, value=1.000
+[Q dist] min=0.1034, max=0.2692, std=0.0317
+[Scale before] step=306, p05=0.2020, p95=0.4006
+[Scale  after] step=307, p05=0.1301, p95=0.2315, value=1.000
+[Q dist] min=-0.0158, max=0.2791, std=0.0817
+[Scale before] step=307, p05=0.1301, p95=0.2315
+[Scale  after] step=308, p05=0.0321, p95=0.2504, value=1.000
+[Q dist] min=0.1626, max=0.4386, std=0.0752
+[Scale before] step=308, p05=0.0321, p95=0.2504
+[Scale  after] step=309, p05=0.1961, p95=0.3995, value=1.000
+[Q dist] min=-0.1294, max=0.1048, std=0.0661
+[Scale before] step=309, p05=0.1961, p95=0.3995
+[Scale  after] step=310, p05=-0.0918, p95=0.0831, value=1.000
+[Q dist] min=0.0911, max=0.2690, std=0.0313
+[Scale before] step=310, p05=-0.0918, p95=0.0831
+[Scale  after] step=311, p05=0.1294, p95=0.2239, value=1.000
+[Q dist] min=0.0948, max=0.2665, std=0.0311
+[Scale before] step=311, p05=0.1294, p95=0.2239
+[Scale  after] step=312, p05=0.1281, p95=0.2314, value=1.000
+[Q dist] min=0.0228, max=0.2951, std=0.0739
+[Scale before] step=312, p05=0.1281, p95=0.2314
+[Scale  after] step=313, p05=0.0482, p95=0.2495, value=1.000
+[Q dist] min=-0.0644, max=0.2286, std=0.0886
+[Scale before] step=313, p05=0.0482, p95=0.2495
+[Scale  after] step=314, p05=-0.0291, p95=0.1935, value=1.000
+[Q dist] min=-0.0552, max=0.2629, std=0.0885
+[Scale before] step=314, p05=-0.0291, p95=0.1935
+[Scale  after] step=315, p05=-0.0285, p95=0.1930, value=1.000
+[Q dist] min=-0.0023, max=0.1967, std=0.0500
+[Scale before] step=315, p05=-0.0285, p95=0.1930
+[Scale  after] step=316, p05=0.0201, p95=0.1695, value=1.000
+[Q dist] min=-0.0120, max=0.3128, std=0.0830
+[Scale before] step=316, p05=0.0201, p95=0.1695
+[Scale  after] step=317, p05=0.0306, p95=0.2556, value=1.000
+[Q dist] min=-0.0171, max=0.4812, std=0.1807
+[Scale before] step=317, p05=0.0306, p95=0.2556
+[Scale  after] step=318, p05=0.0195, p95=0.4495, value=1.000
+[Q dist] min=-0.1353, max=0.1344, std=0.0654
+[Scale before] step=318, p05=0.0195, p95=0.4495
+[Scale  after] step=319, p05=-0.0964, p95=0.0822, value=1.000
+[Q dist] min=-0.1293, max=0.1238, std=0.0637
+[Scale before] step=319, p05=-0.0964, p95=0.0822
+[Scale  after] step=320, p05=-0.0919, p95=0.0767, value=1.000
+[Q dist] min=0.1456, max=0.4588, std=0.0748
+[Scale before] step=320, p05=-0.0919, p95=0.0767
+[Scale  after] step=321, p05=0.2030, p95=0.4008, value=1.000
+[Q dist] min=-0.0613, max=0.2249, std=0.0865
+[Scale before] step=321, p05=0.2030, p95=0.4008
+[Scale  after] step=322, p05=-0.0349, p95=0.1980, value=1.000
+[Q dist] min=-0.0597, max=0.1252, std=0.0343
+[Scale before] step=322, p05=-0.0349, p95=0.1980
+[Scale  after] step=323, p05=-0.0276, p95=0.0744, value=1.000
+[Q dist] min=0.0381, max=0.3720, std=0.0958
+[Scale before] step=323, p05=-0.0276, p95=0.0744
+[Scale  after] step=324, p05=0.0820, p95=0.3289, value=1.000
+[Q dist] min=0.0226, max=0.2907, std=0.0745
+[Scale before] step=324, p05=0.0820, p95=0.3289
+[Scale  after] step=325, p05=0.0491, p95=0.2442, value=1.000
+[Q dist] min=0.1095, max=0.2755, std=0.0329
+[Scale before] step=325, p05=0.0491, p95=0.2442
+[Scale  after] step=326, p05=0.1316, p95=0.2385, value=1.000
+[Q dist] min=0.1620, max=0.4369, std=0.0774
+[Scale before] step=326, p05=0.1316, p95=0.2385
+[Scale  after] step=327, p05=0.1936, p95=0.4082, value=1.000
+[Q dist] min=-0.0781, max=0.2309, std=0.0874
+[Scale before] step=327, p05=0.1936, p95=0.4082
+[Scale  after] step=328, p05=-0.0333, p95=0.1951, value=1.000
+[Q dist] min=0.1060, max=0.2679, std=0.0300
+[Scale before] step=328, p05=-0.0333, p95=0.1951
+[Scale  after] step=329, p05=0.1316, p95=0.2332, value=1.000
+[Q dist] min=-0.1328, max=0.1071, std=0.0654
+[Scale before] step=329, p05=0.1316, p95=0.2332
+[Scale  after] step=330, p05=-0.0943, p95=0.0773, value=1.000
+[Q dist] min=-0.0627, max=0.1233, std=0.0349
+[Scale before] step=330, p05=-0.0943, p95=0.0773
+[Scale  after] step=331, p05=-0.0241, p95=0.0868, value=1.000
+[Q dist] min=0.0518, max=0.3799, std=0.0946
+[Scale before] step=331, p05=-0.0241, p95=0.0868
+[Scale  after] step=332, p05=0.0854, p95=0.3299, value=1.000
+[Q dist] min=-0.0521, max=0.1285, std=0.0319
+[Scale before] step=332, p05=0.0854, p95=0.3299
+[Scale  after] step=333, p05=-0.0224, p95=0.0707, value=1.000
+[Q dist] min=-0.0531, max=0.1246, std=0.0340
+[Scale before] step=333, p05=-0.0224, p95=0.0707
+[Scale  after] step=334, p05=-0.0310, p95=0.0801, value=1.000
+[Q dist] min=-0.1242, max=0.1076, std=0.0651
+[Scale before] step=334, p05=-0.0310, p95=0.0801
+[Scale  after] step=335, p05=-0.0924, p95=0.0792, value=1.000
+[Q dist] min=-0.0457, max=0.4585, std=0.1768
+[Scale before] step=335, p05=-0.0924, p95=0.0792
+[Scale  after] step=336, p05=0.0222, p95=0.4442, value=1.000
+[Q dist] min=-0.0078, max=0.4817, std=0.1830
+[Scale before] step=336, p05=0.0222, p95=0.4442
+[Scale  after] step=337, p05=0.0182, p95=0.4527, value=1.000
+[Q dist] min=-0.0094, max=0.4909, std=0.1840
+[Scale before] step=337, p05=0.0182, p95=0.4527
+[Scale  after] step=338, p05=0.0191, p95=0.4517, value=1.000
+[Q dist] min=0.1492, max=0.4466, std=0.0729
+[Scale before] step=338, p05=0.0191, p95=0.4517
+[Scale  after] step=339, p05=0.1973, p95=0.3943, value=1.000
+[Q dist] min=0.0036, max=0.5518, std=0.1856
+[Scale before] step=339, p05=0.1973, p95=0.3943
+[Scale  after] step=340, p05=0.0191, p95=0.4530, value=1.000
+[Q dist] min=0.0642, max=0.3749, std=0.0936
+[Scale before] step=340, p05=0.0191, p95=0.4530
+[Scale  after] step=341, p05=0.0913, p95=0.3295, value=1.000
+[Q dist] min=-0.0505, max=0.1109, std=0.0323
+[Scale before] step=341, p05=0.0913, p95=0.3295
+[Scale  after] step=342, p05=-0.0271, p95=0.0764, value=1.000
+[Q dist] min=0.0061, max=0.2869, std=0.0717
+[Scale before] step=342, p05=-0.0271, p95=0.0764
+[Scale  after] step=343, p05=0.0551, p95=0.2490, value=1.000
+[Q dist] min=0.1596, max=0.4409, std=0.0737
+[Scale before] step=343, p05=0.0551, p95=0.2490
+[Scale  after] step=344, p05=0.1967, p95=0.4038, value=1.000
+[Q dist] min=-0.1354, max=0.1133, std=0.0648
+[Scale before] step=344, p05=0.1967, p95=0.4038
+[Scale  after] step=345, p05=-0.0930, p95=0.0747, value=1.000
+[Q dist] min=0.0742, max=0.2930, std=0.0324
+[Scale before] step=345, p05=-0.0930, p95=0.0747
+[Scale  after] step=346, p05=0.1350, p95=0.2330, value=1.000
+[Q dist] min=-0.1136, max=0.1231, std=0.0658
+[Scale before] step=346, p05=0.1350, p95=0.2330
+[Scale  after] step=347, p05=-0.0896, p95=0.0795, value=1.000
+[Q dist] min=-0.0132, max=0.2013, std=0.0479
+[Scale before] step=347, p05=-0.0896, p95=0.0795
+[Scale  after] step=348, p05=0.0261, p95=0.1675, value=1.000
+[Q dist] min=0.0343, max=0.3059, std=0.0691
+[Scale before] step=348, p05=0.0261, p95=0.1675
+[Scale  after] step=349, p05=0.0603, p95=0.2406, value=1.000
+[Q dist] min=0.0001, max=0.5262, std=0.1797
+[Scale before] step=349, p05=0.0603, p95=0.2406
+[Scale  after] step=350, p05=0.0189, p95=0.4628, value=1.000
+[Q dist] min=0.0170, max=0.2822, std=0.0719
+[Scale before] step=350, p05=0.0189, p95=0.4628
+[Scale  after] step=351, p05=0.0517, p95=0.2480, value=1.000
+[Q dist] min=-0.0568, max=0.1171, std=0.0345
+[Scale before] step=351, p05=0.0517, p95=0.2480
+[Scale  after] step=352, p05=-0.0247, p95=0.0849, value=1.000
+[Q dist] min=0.1615, max=0.4452, std=0.0729
+[Scale before] step=352, p05=-0.0247, p95=0.0849
+[Scale  after] step=353, p05=0.1966, p95=0.3998, value=1.000
+[Q dist] min=-0.1163, max=0.1089, std=0.0651
+[Scale before] step=353, p05=0.1966, p95=0.3998
+[Scale  after] step=354, p05=-0.0975, p95=0.0802, value=1.000
+[Q dist] min=0.0598, max=0.3655, std=0.0915
+[Scale before] step=354, p05=-0.0975, p95=0.0802
+[Scale  after] step=355, p05=0.0924, p95=0.3280, value=1.000
+[Q dist] min=-0.0080, max=0.2979, std=0.0788
+[Scale before] step=355, p05=0.0924, p95=0.3280
+[Scale  after] step=356, p05=0.0420, p95=0.2482, value=1.000
+[Q dist] min=-0.0099, max=0.3119, std=0.0807
+[Scale before] step=356, p05=0.0420, p95=0.2482
+[Scale  after] step=357, p05=0.0337, p95=0.2477, value=1.000
+[Q dist] min=-0.0279, max=0.1908, std=0.0453
+[Scale before] step=357, p05=0.0337, p95=0.2477
+[Scale  after] step=358, p05=0.0279, p95=0.1585, value=1.000
+[Q dist] min=0.0211, max=0.3004, std=0.0711
+[Scale before] step=358, p05=0.0279, p95=0.1585
+[Scale  after] step=359, p05=0.0525, p95=0.2434, value=1.000
+[Q dist] min=0.0933, max=0.3043, std=0.0321
+[Scale before] step=359, p05=0.0525, p95=0.2434
+[Scale  after] step=360, p05=0.1331, p95=0.2325, value=1.000
+[Q dist] min=0.1178, max=0.2610, std=0.0308
+[Scale before] step=360, p05=0.1331, p95=0.2325
+[Scale  after] step=361, p05=0.1365, p95=0.2361, value=1.000
+[Q dist] min=-0.0519, max=0.2601, std=0.0879
+[Scale before] step=361, p05=0.1365, p95=0.2361
+[Scale  after] step=362, p05=-0.0272, p95=0.1984, value=1.000
+[Q dist] min=0.0591, max=0.3746, std=0.0895
+[Scale before] step=362, p05=-0.0272, p95=0.1984
+[Scale  after] step=363, p05=0.0929, p95=0.3397, value=1.000
+[Q dist] min=0.0046, max=0.5073, std=0.1792
+[Scale before] step=363, p05=0.0929, p95=0.3397
+[Scale  after] step=364, p05=0.0249, p95=0.4621, value=1.000
+[Q dist] min=0.0561, max=0.3855, std=0.0950
+[Scale before] step=364, p05=0.0249, p95=0.4621
+[Scale  after] step=365, p05=0.0869, p95=0.3302, value=1.000
+[Q dist] min=-0.0119, max=0.3029, std=0.0831
+[Scale before] step=365, p05=0.0869, p95=0.3302
+[Scale  after] step=366, p05=0.0335, p95=0.2567, value=1.000
+[Q dist] min=-0.1291, max=0.1317, std=0.0665
+[Scale before] step=366, p05=0.0335, p95=0.2567
+[Scale  after] step=367, p05=-0.0964, p95=0.0879, value=1.000
+[Q dist] min=-0.0081, max=0.2886, std=0.0795
+[Scale before] step=367, p05=-0.0964, p95=0.0879
+[Scale  after] step=368, p05=0.0401, p95=0.2559, value=1.000
+[Q dist] min=0.0430, max=0.3715, std=0.0953
+[Scale before] step=368, p05=0.0401, p95=0.2559
+[Scale  after] step=369, p05=0.0811, p95=0.3267, value=1.000
+[Q dist] min=0.0217, max=0.2799, std=0.0699
+[Scale before] step=369, p05=0.0811, p95=0.3267
+[Scale  after] step=370, p05=0.0533, p95=0.2430, value=1.000
+[Q dist] min=0.1014, max=0.2656, std=0.0324
+[Scale before] step=370, p05=0.0533, p95=0.2430
+[Scale  after] step=371, p05=0.1315, p95=0.2347, value=1.000
+[Q dist] min=0.0045, max=0.2943, std=0.0801
+[Scale before] step=371, p05=0.1315, p95=0.2347
+[Scale  after] step=372, p05=0.0346, p95=0.2522, value=1.000
+[Q dist] min=0.1642, max=0.4561, std=0.0676
+[Scale before] step=372, p05=0.0346, p95=0.2522
+[Scale  after] step=373, p05=0.2083, p95=0.3956, value=1.000
+[Q dist] min=-0.1295, max=0.1086, std=0.0645
+[Scale before] step=373, p05=0.2083, p95=0.3956
+[Scale  after] step=374, p05=-0.0951, p95=0.0797, value=1.000
+[Q dist] min=0.1053, max=0.2648, std=0.0301
+[Scale before] step=374, p05=-0.0951, p95=0.0797
+[Scale  after] step=375, p05=0.1330, p95=0.2350, value=1.000
+[Q dist] min=0.1431, max=0.4515, std=0.0738
+[Scale before] step=375, p05=0.1330, p95=0.2350
+[Scale  after] step=376, p05=0.1986, p95=0.4057, value=1.000
+[Q dist] min=-0.0217, max=0.2938, std=0.0793
+[Scale before] step=376, p05=0.1986, p95=0.4057
+[Scale  after] step=377, p05=0.0324, p95=0.2607, value=1.000
+[Q dist] min=-0.1299, max=0.1203, std=0.0636
+[Scale before] step=377, p05=0.0324, p95=0.2607
+[Scale  after] step=378, p05=-0.0988, p95=0.0761, value=1.000
+[Q dist] min=-0.0565, max=0.1040, std=0.0309
+[Scale before] step=378, p05=-0.0988, p95=0.0761
+[Scale  after] step=379, p05=-0.0183, p95=0.0778, value=1.000
+[Q dist] min=-0.0873, max=0.2702, std=0.0863
+[Scale before] step=379, p05=-0.0183, p95=0.0778
+[Scale  after] step=380, p05=-0.0282, p95=0.1930, value=1.000
+[Q dist] min=-0.1333, max=0.0955, std=0.0597
+[Scale before] step=380, p05=-0.0282, p95=0.1930
+[Scale  after] step=381, p05=-0.0968, p95=0.0742, value=1.000
+[Q dist] min=-0.1473, max=0.1098, std=0.0659
+[Scale before] step=381, p05=-0.0968, p95=0.0742
+[Scale  after] step=382, p05=-0.0971, p95=0.0771, value=1.000
+[Q dist] min=-0.0388, max=0.2762, std=0.0772
+[Scale before] step=382, p05=-0.0971, p95=0.0771
+[Scale  after] step=383, p05=0.0373, p95=0.2513, value=1.000
+[Q dist] min=-0.0693, max=0.2214, std=0.0849
+[Scale before] step=383, p05=0.0373, p95=0.2513
+[Scale  after] step=384, p05=-0.0359, p95=0.1886, value=1.000
+[Q dist] min=0.0187, max=0.3094, std=0.0672
+[Scale before] step=384, p05=-0.0359, p95=0.1886
+[Scale  after] step=385, p05=0.0593, p95=0.2469, value=1.000
+[Q dist] min=0.1673, max=0.4559, std=0.0686
+[Scale before] step=385, p05=0.0593, p95=0.2469
+[Scale  after] step=386, p05=0.2068, p95=0.4024, value=1.000
+[Q dist] min=-0.0715, max=0.1152, std=0.0325
+[Scale before] step=386, p05=0.2068, p95=0.4024
+[Scale  after] step=387, p05=-0.0239, p95=0.0754, value=1.000
+[Q dist] min=-0.1278, max=0.1220, std=0.0648
+[Scale before] step=387, p05=-0.0239, p95=0.0754
+[Scale  after] step=388, p05=-0.0980, p95=0.0767, value=1.000
+[Q dist] min=0.1748, max=0.4252, std=0.0659
+[Scale before] step=388, p05=-0.0980, p95=0.0767
+[Scale  after] step=389, p05=0.2068, p95=0.4030, value=1.000
+[Q dist] min=0.0566, max=0.3881, std=0.0898
+[Scale before] step=389, p05=0.2068, p95=0.4030
+[Scale  after] step=390, p05=0.0947, p95=0.3408, value=1.000
+[Q dist] min=-0.0837, max=0.2344, std=0.0829
+[Scale before] step=390, p05=0.0947, p95=0.3408
+[Scale  after] step=391, p05=-0.0371, p95=0.1918, value=1.000
+[Q dist] min=-0.0040, max=0.5106, std=0.1722
+[Scale before] step=391, p05=-0.0371, p95=0.1918
+[Scale  after] step=392, p05=0.0198, p95=0.4625, value=1.000
+[Q dist] min=-0.1277, max=0.1213, std=0.0630
+[Scale before] step=392, p05=0.0198, p95=0.4625
+[Scale  after] step=393, p05=-0.1012, p95=0.0731, value=1.000
+[Q dist] min=-0.0025, max=0.1916, std=0.0421
+[Scale before] step=393, p05=-0.1012, p95=0.0731
+[Scale  after] step=394, p05=0.0340, p95=0.1636, value=1.000
+[Q dist] min=0.1683, max=0.4379, std=0.0672
+[Scale before] step=394, p05=0.0340, p95=0.1636
+[Scale  after] step=395, p05=0.2059, p95=0.3987, value=1.000
+[Q dist] min=0.0975, max=0.2638, std=0.0308
+[Scale before] step=395, p05=0.2059, p95=0.3987
+[Scale  after] step=396, p05=0.1380, p95=0.2401, value=1.000
+[Q dist] min=0.0603, max=0.3511, std=0.0801
+[Scale before] step=396, p05=0.1380, p95=0.2401
+[Scale  after] step=397, p05=0.1019, p95=0.3346, value=1.000
+[Q dist] min=-0.0084, max=0.1936, std=0.0434
+[Scale before] step=397, p05=0.1019, p95=0.3346
+[Scale  after] step=398, p05=0.0282, p95=0.1635, value=1.000
+[Q dist] min=-0.0532, max=0.1218, std=0.0318
+[Scale before] step=398, p05=0.0282, p95=0.1635
+[Scale  after] step=399, p05=-0.0201, p95=0.0814, value=1.000
+[Q dist] min=0.0151, max=0.3022, std=0.0670
+[Scale before] step=399, p05=-0.0201, p95=0.0814
+[Scale  after] step=400, p05=0.0463, p95=0.2636, value=1.000
+[Q dist] min=0.0134, max=0.5139, std=0.1192
+[Scale before] step=400, p05=0.0463, p95=0.2636
+[Scale  after] step=401, p05=0.0681, p95=0.4527, value=1.000
+[Q dist] min=0.0294, max=0.2116, std=0.0232
+[Scale before] step=401, p05=0.0681, p95=0.4527
+[Scale  after] step=402, p05=0.0486, p95=0.1230, value=1.000
+[Q dist] min=0.1251, max=0.3245, std=0.0270
+[Scale before] step=402, p05=0.0486, p95=0.1230
+[Scale  after] step=403, p05=0.1561, p95=0.2506, value=1.000
+[Q dist] min=0.1208, max=0.3356, std=0.0282
+[Scale before] step=403, p05=0.1561, p95=0.2506
+[Scale  after] step=404, p05=0.1597, p95=0.2439, value=1.000
+[Q dist] min=0.2444, max=0.4670, std=0.0278
+[Scale before] step=404, p05=0.1597, p95=0.2439
+[Scale  after] step=405, p05=0.3245, p95=0.4125, value=1.000
+[Q dist] min=0.2284, max=0.4022, std=0.0261
+[Scale before] step=405, p05=0.3245, p95=0.4125
+[Scale  after] step=406, p05=0.2639, p95=0.3518, value=1.000
+[Q dist] min=0.2156, max=0.3798, std=0.0267
+[Scale before] step=406, p05=0.2639, p95=0.3518
+[Scale  after] step=407, p05=0.2568, p95=0.3474, value=1.000
+[Q dist] min=-0.0105, max=0.1446, std=0.0229
+[Scale before] step=407, p05=0.2568, p95=0.3474
+[Scale  after] step=408, p05=0.0413, p95=0.1167, value=1.000
+[Q dist] min=0.1095, max=0.3302, std=0.0300
+[Scale before] step=408, p05=0.0413, p95=0.1167
+[Scale  after] step=409, p05=0.1537, p95=0.2525, value=1.000
+[Q dist] min=-0.0088, max=0.2964, std=0.0370
+[Scale before] step=409, p05=0.1537, p95=0.2525
+[Scale  after] step=410, p05=0.1592, p95=0.2559, value=1.000
+[Q dist] min=0.1327, max=0.4045, std=0.0300
+[Scale before] step=410, p05=0.1592, p95=0.2559
+[Scale  after] step=411, p05=0.1534, p95=0.2456, value=1.000
+[Q dist] min=-0.1890, max=-0.0202, std=0.0215
+[Scale before] step=411, p05=0.1534, p95=0.2456
+[Scale  after] step=412, p05=-0.1062, p95=-0.0434, value=1.000
+[Q dist] min=0.0105, max=0.3342, std=0.0396
+[Scale before] step=412, p05=-0.1062, p95=-0.0434
+[Scale  after] step=413, p05=0.1520, p95=0.2611, value=1.000
+[Q dist] min=0.0077, max=0.1397, std=0.0208
+[Scale before] step=413, p05=0.1520, p95=0.2611
+[Scale  after] step=414, p05=0.0449, p95=0.1122, value=1.000
+[Q dist] min=-0.1546, max=0.0021, std=0.0231
+[Scale before] step=414, p05=0.0449, p95=0.1122
+[Scale  after] step=415, p05=-0.1092, p95=-0.0353, value=1.000
+[Q dist] min=-0.0201, max=0.1429, std=0.0212
+[Scale before] step=415, p05=-0.1092, p95=-0.0353
+[Scale  after] step=416, p05=0.0428, p95=0.1142, value=1.000
+[Q dist] min=0.1027, max=0.3423, std=0.0341
+[Scale before] step=416, p05=0.0428, p95=0.1142
+[Scale  after] step=417, p05=0.1549, p95=0.2606, value=1.000
+[Q dist] min=0.2829, max=0.5017, std=0.0329
+[Scale before] step=417, p05=0.1549, p95=0.2606
+[Scale  after] step=418, p05=0.3508, p95=0.4580, value=1.000
+[Q dist] min=-0.0157, max=0.3914, std=0.0513
+[Scale before] step=418, p05=0.3508, p95=0.4580
+[Scale  after] step=419, p05=0.2055, p95=0.3352, value=1.000
+[Q dist] min=-0.0051, max=0.3357, std=0.0429
+[Scale before] step=419, p05=0.2055, p95=0.3352
+[Scale  after] step=420, p05=0.0159, p95=0.1110, value=1.000
+[Q dist] min=-0.0815, max=0.0982, std=0.0223
+[Scale before] step=420, p05=0.0159, p95=0.1110
+[Scale  after] step=421, p05=-0.0395, p95=0.0300, value=1.000
+[Q dist] min=0.1141, max=0.4403, std=0.0476
+[Scale before] step=421, p05=-0.0395, p95=0.0300
+[Scale  after] step=422, p05=0.2680, p95=0.4183, value=1.000
+[Q dist] min=0.1343, max=0.3323, std=0.0292
+[Scale before] step=422, p05=0.2680, p95=0.4183
+[Scale  after] step=423, p05=0.1549, p95=0.2506, value=1.000
+[Q dist] min=0.1943, max=0.3930, std=0.0259
+[Scale before] step=423, p05=0.1549, p95=0.2506
+[Scale  after] step=424, p05=0.2588, p95=0.3394, value=1.000
+[Q dist] min=-0.0694, max=0.0758, std=0.0240
+[Scale before] step=424, p05=0.2588, p95=0.3394
+[Scale  after] step=425, p05=-0.0390, p95=0.0367, value=1.000
+[Q dist] min=-0.0216, max=0.1529, std=0.0277
+[Scale before] step=425, p05=-0.0390, p95=0.0367
+[Scale  after] step=426, p05=0.0083, p95=0.0984, value=1.000
+[Q dist] min=-0.1281, max=0.0124, std=0.0197
+[Scale before] step=426, p05=0.0083, p95=0.0984
+[Scale  after] step=427, p05=-0.1035, p95=-0.0410, value=1.000
+[Q dist] min=0.1238, max=0.2945, std=0.0265
+[Scale before] step=427, p05=-0.1035, p95=-0.0410
+[Scale  after] step=428, p05=0.1800, p95=0.2582, value=1.000
+[Q dist] min=-0.0582, max=0.0824, std=0.0214
+[Scale before] step=428, p05=0.1800, p95=0.2582
+[Scale  after] step=429, p05=-0.0392, p95=0.0310, value=1.000
+[Q dist] min=0.3264, max=0.5150, std=0.0281
+[Scale before] step=429, p05=-0.0392, p95=0.0310
+[Scale  after] step=430, p05=0.3734, p95=0.4623, value=1.000
+[Q dist] min=0.1278, max=0.3107, std=0.0279
+[Scale before] step=430, p05=0.3734, p95=0.4623
+[Scale  after] step=431, p05=0.1719, p95=0.2639, value=1.000
+[Q dist] min=-0.0197, max=0.1257, std=0.0231
+[Scale before] step=431, p05=0.1719, p95=0.2639
+[Scale  after] step=432, p05=0.0098, p95=0.0842, value=1.000
+[Q dist] min=0.0177, max=0.1384, std=0.0200
+[Scale before] step=432, p05=0.0098, p95=0.0842
+[Scale  after] step=433, p05=0.0470, p95=0.1137, value=1.000
+[Q dist] min=-0.1150, max=0.0504, std=0.0211
+[Scale before] step=433, p05=0.0470, p95=0.1137
+[Scale  after] step=434, p05=-0.0427, p95=0.0279, value=1.000
+[Q dist] min=-0.0267, max=0.1328, std=0.0249
+[Scale before] step=434, p05=-0.0427, p95=0.0279
+[Scale  after] step=435, p05=0.0023, p95=0.0873, value=1.000
+[Q dist] min=-0.0655, max=0.0655, std=0.0202
+[Scale before] step=435, p05=0.0023, p95=0.0873
+[Scale  after] step=436, p05=-0.0361, p95=0.0316, value=1.000
+[Q dist] min=-0.0527, max=0.0476, std=0.0207
+[Scale before] step=436, p05=-0.0361, p95=0.0316
+[Scale  after] step=437, p05=-0.0427, p95=0.0286, value=1.000
+[Q dist] min=-0.1732, max=-0.0026, std=0.0204
+[Scale before] step=437, p05=-0.0427, p95=0.0286
+[Scale  after] step=438, p05=-0.1086, p95=-0.0403, value=1.000
+[Q dist] min=0.0434, max=0.3391, std=0.0321
+[Scale before] step=438, p05=-0.1086, p95=-0.0403
+[Scale  after] step=439, p05=0.1739, p95=0.2619, value=1.000
+[Q dist] min=0.1064, max=0.2793, std=0.0273
+[Scale before] step=439, p05=0.1739, p95=0.2619
+[Scale  after] step=440, p05=0.1573, p95=0.2401, value=1.000
+[Q dist] min=-0.0410, max=0.1414, std=0.0248
+[Scale before] step=440, p05=0.1573, p95=0.2401
+[Scale  after] step=441, p05=0.0024, p95=0.0858, value=1.000
+[Q dist] min=0.0402, max=0.2411, std=0.0273
+[Scale before] step=441, p05=0.0024, p95=0.0858
+[Scale  after] step=442, p05=0.0888, p95=0.1730, value=1.000
+[Q dist] min=0.1479, max=0.3096, std=0.0281
+[Scale before] step=442, p05=0.0888, p95=0.1730
+[Scale  after] step=443, p05=0.1686, p95=0.2642, value=1.000
+[Q dist] min=0.2202, max=0.4106, std=0.0269
+[Scale before] step=443, p05=0.1686, p95=0.2642
+[Scale  after] step=444, p05=0.2607, p95=0.3435, value=1.000
+[Q dist] min=0.1455, max=0.2938, std=0.0292
+[Scale before] step=444, p05=0.2607, p95=0.3435
+[Scale  after] step=445, p05=0.1717, p95=0.2698, value=1.000
+[Q dist] min=-0.1318, max=-0.0084, std=0.0209
+[Scale before] step=445, p05=0.1717, p95=0.2698
+[Scale  after] step=446, p05=-0.1061, p95=-0.0377, value=1.000
+[Q dist] min=0.0158, max=0.1434, std=0.0185
+[Scale before] step=446, p05=-0.1061, p95=-0.0377
+[Scale  after] step=447, p05=0.0526, p95=0.1104, value=1.000
+[Q dist] min=0.1301, max=0.2698, std=0.0264
+[Scale before] step=447, p05=0.0526, p95=0.1104
+[Scale  after] step=448, p05=0.1604, p95=0.2470, value=1.000
+[Q dist] min=0.1075, max=0.2827, std=0.0283
+[Scale before] step=448, p05=0.1604, p95=0.2470
+[Scale  after] step=449, p05=0.1534, p95=0.2462, value=1.000
+[Q dist] min=0.1380, max=0.3102, std=0.0266
+[Scale before] step=449, p05=0.1534, p95=0.2462
+[Scale  after] step=450, p05=0.1771, p95=0.2624, value=1.000
+[Q dist] min=0.0862, max=0.2930, std=0.0294
+[Scale before] step=450, p05=0.1771, p95=0.2624
+[Scale  after] step=451, p05=0.1691, p95=0.2614, value=1.000
+[Q dist] min=0.1958, max=0.3745, std=0.0266
+[Scale before] step=451, p05=0.1691, p95=0.2614
+[Scale  after] step=452, p05=0.2585, p95=0.3408, value=1.000
+[Q dist] min=0.0817, max=0.2956, std=0.0302
+[Scale before] step=452, p05=0.2585, p95=0.3408
+[Scale  after] step=453, p05=0.1500, p95=0.2455, value=1.000
+[Q dist] min=0.3167, max=0.5024, std=0.0293
+[Scale before] step=453, p05=0.1500, p95=0.2455
+[Scale  after] step=454, p05=0.3791, p95=0.4682, value=1.000
+[Q dist] min=0.1304, max=0.3130, std=0.0294
+[Scale before] step=454, p05=0.3791, p95=0.4682
+[Scale  after] step=455, p05=0.1573, p95=0.2539, value=1.000
+[Q dist] min=0.1277, max=0.2978, std=0.0276
+[Scale before] step=455, p05=0.1573, p95=0.2539
+[Scale  after] step=456, p05=0.1702, p95=0.2622, value=1.000
+[Q dist] min=0.1220, max=0.3130, std=0.0290
+[Scale before] step=456, p05=0.1702, p95=0.2622
+[Scale  after] step=457, p05=0.1649, p95=0.2633, value=1.000
+[Q dist] min=-0.1707, max=-0.0216, std=0.0193
+[Scale before] step=457, p05=0.1649, p95=0.2633
+[Scale  after] step=458, p05=-0.1025, p95=-0.0414, value=1.000
+[Q dist] min=-0.0301, max=0.2550, std=0.0313
+[Scale before] step=458, p05=-0.1025, p95=-0.0414
+[Scale  after] step=459, p05=0.0100, p95=0.0988, value=1.000
+[Q dist] min=0.2629, max=0.4458, std=0.0292
+[Scale before] step=459, p05=0.0100, p95=0.0988
+[Scale  after] step=460, p05=0.3153, p95=0.4099, value=1.000
+[Q dist] min=0.3053, max=0.5144, std=0.0322
+[Scale before] step=460, p05=0.3153, p95=0.4099
+[Scale  after] step=461, p05=0.3714, p95=0.4808, value=1.000
+[Q dist] min=-0.0330, max=0.2440, std=0.0339
+[Scale before] step=461, p05=0.3714, p95=0.4808
+[Scale  after] step=462, p05=0.0097, p95=0.1060, value=1.000
+[Q dist] min=0.0759, max=0.3263, std=0.0330
+[Scale before] step=462, p05=0.0097, p95=0.1060
+[Scale  after] step=463, p05=0.1593, p95=0.2651, value=1.000
+[Q dist] min=0.1470, max=0.3853, std=0.0328
+[Scale before] step=463, p05=0.1593, p95=0.2651
+[Scale  after] step=464, p05=0.2527, p95=0.3506, value=1.000
+[Q dist] min=0.2376, max=0.5054, std=0.0322
+[Scale before] step=464, p05=0.2527, p95=0.3506
+[Scale  after] step=465, p05=0.3097, p95=0.4104, value=1.000
+[Q dist] min=0.3210, max=0.5141, std=0.0308
+[Scale before] step=465, p05=0.3097, p95=0.4104
+[Scale  after] step=466, p05=0.3752, p95=0.4748, value=1.000
+[Q dist] min=0.0673, max=0.4109, std=0.0416
+[Scale before] step=466, p05=0.3752, p95=0.4748
+[Scale  after] step=467, p05=0.0995, p95=0.1926, value=1.000
+[Q dist] min=-0.1593, max=-0.0070, std=0.0205
+[Scale before] step=467, p05=0.0995, p95=0.1926
+[Scale  after] step=468, p05=-0.1054, p95=-0.0410, value=1.000
+[Q dist] min=0.1273, max=0.4420, std=0.0451
+[Scale before] step=468, p05=-0.1054, p95=-0.0410
+[Scale  after] step=469, p05=0.1628, p95=0.2705, value=1.000
+[Q dist] min=0.0573, max=0.4090, std=0.0549
+[Scale before] step=469, p05=0.1628, p95=0.2705
+[Scale  after] step=470, p05=0.0935, p95=0.2271, value=1.000
+[Q dist] min=-0.1475, max=0.1088, std=0.0358
+[Scale before] step=470, p05=0.0935, p95=0.2271
+[Scale  after] step=471, p05=-0.1038, p95=0.0308, value=1.000
+[Q dist] min=-0.1532, max=0.0046, std=0.0247
+[Scale before] step=471, p05=-0.1038, p95=0.0308
+[Scale  after] step=472, p05=-0.1284, p95=-0.0457, value=1.000
+[Q dist] min=0.0198, max=0.3075, std=0.0492
+[Scale before] step=472, p05=-0.1284, p95=-0.0457
+[Scale  after] step=473, p05=0.0975, p95=0.2697, value=1.000
+[Q dist] min=0.0724, max=0.4553, std=0.0760
+[Scale before] step=473, p05=0.0975, p95=0.2697
+[Scale  after] step=474, p05=0.0928, p95=0.3778, value=1.000
+[Q dist] min=0.1280, max=0.3703, std=0.0367
+[Scale before] step=474, p05=0.0928, p95=0.3778
+[Scale  after] step=475, p05=0.2184, p95=0.3419, value=1.000
+[Q dist] min=0.0807, max=0.4491, std=0.0561
+[Scale before] step=475, p05=0.2184, p95=0.3419
+[Scale  after] step=476, p05=0.1944, p95=0.4079, value=1.000
+[Q dist] min=-0.1845, max=0.0735, std=0.0336
+[Scale before] step=476, p05=0.1944, p95=0.4079
+[Scale  after] step=477, p05=-0.0711, p95=0.0327, value=1.000
+[Q dist] min=-0.0123, max=0.2920, std=0.0592
+[Scale before] step=477, p05=-0.0711, p95=0.0327
+[Scale  after] step=478, p05=0.0236, p95=0.2381, value=1.000
+[Q dist] min=-0.1808, max=0.0475, std=0.0364
+[Scale before] step=478, p05=0.0236, p95=0.2381
+[Scale  after] step=479, p05=-0.1169, p95=0.0206, value=1.000
+[Q dist] min=-0.0063, max=0.3028, std=0.0494
+[Scale before] step=479, p05=-0.1169, p95=0.0206
+[Scale  after] step=480, p05=0.0587, p95=0.2518, value=1.000
+[Q dist] min=-0.0228, max=0.3162, std=0.0492
+[Scale before] step=480, p05=0.0587, p95=0.2518
+[Scale  after] step=481, p05=0.0125, p95=0.1534, value=1.000
+[Q dist] min=0.0103, max=0.1454, std=0.0209
+[Scale before] step=481, p05=0.0125, p95=0.1534
+[Scale  after] step=482, p05=0.0430, p95=0.1071, value=1.000
+[Q dist] min=0.1330, max=0.2760, std=0.0254
+[Scale before] step=482, p05=0.0430, p95=0.1071
+[Scale  after] step=483, p05=0.1740, p95=0.2542, value=1.000
+[Q dist] min=0.2958, max=0.5470, std=0.0310
+[Scale before] step=483, p05=0.1740, p95=0.2542
+[Scale  after] step=484, p05=0.3799, p95=0.4833, value=1.000
+[Q dist] min=0.3391, max=0.5491, std=0.0287
+[Scale before] step=484, p05=0.3799, p95=0.4833
+[Scale  after] step=485, p05=0.3811, p95=0.4687, value=1.000
+[Q dist] min=0.0719, max=0.2434, std=0.0287
+[Scale before] step=485, p05=0.3811, p95=0.4687
+[Scale  after] step=486, p05=0.0975, p95=0.1888, value=1.000
+[Q dist] min=-0.0305, max=0.1376, std=0.0259
+[Scale before] step=486, p05=0.0975, p95=0.1888
+[Scale  after] step=487, p05=0.0187, p95=0.1030, value=1.000
+[Q dist] min=-0.0578, max=0.0802, std=0.0203
+[Scale before] step=487, p05=0.0187, p95=0.1030
+[Scale  after] step=488, p05=-0.0302, p95=0.0347, value=1.000
+[Q dist] min=-0.1265, max=0.0182, std=0.0199
+[Scale before] step=488, p05=-0.0302, p95=0.0347
+[Scale  after] step=489, p05=-0.0974, p95=-0.0300, value=1.000
+[Q dist] min=0.1168, max=0.3220, std=0.0325
+[Scale before] step=489, p05=-0.0974, p95=-0.0300
+[Scale  after] step=490, p05=0.1613, p95=0.2656, value=1.000
+[Q dist] min=0.0176, max=0.1698, std=0.0193
+[Scale before] step=490, p05=0.1613, p95=0.2656
+[Scale  after] step=491, p05=0.0468, p95=0.1081, value=1.000
+[Q dist] min=0.1379, max=0.2911, std=0.0291
+[Scale before] step=491, p05=0.0468, p95=0.1081
+[Scale  after] step=492, p05=0.1656, p95=0.2568, value=1.000
+[Q dist] min=-0.0633, max=0.0670, std=0.0203
+[Scale before] step=492, p05=0.1656, p95=0.2568
+[Scale  after] step=493, p05=-0.0318, p95=0.0343, value=1.000
+[Q dist] min=-0.1154, max=-0.0014, std=0.0193
+[Scale before] step=493, p05=-0.0318, p95=0.0343
+[Scale  after] step=494, p05=-0.0916, p95=-0.0261, value=1.000
+[Q dist] min=0.0118, max=0.1355, std=0.0181
+[Scale before] step=494, p05=-0.0916, p95=-0.0261
+[Scale  after] step=495, p05=0.0487, p95=0.1065, value=1.000
+[Q dist] min=0.1025, max=0.3249, std=0.0293
+[Scale before] step=495, p05=0.0487, p95=0.1065
+[Scale  after] step=496, p05=0.1581, p95=0.2509, value=1.000
+[Q dist] min=0.2024, max=0.3447, std=0.0237
+[Scale before] step=496, p05=0.1581, p95=0.2509
+[Scale  after] step=497, p05=0.2393, p95=0.3220, value=1.000
+[Q dist] min=0.1117, max=0.3301, std=0.0291
+[Scale before] step=497, p05=0.2393, p95=0.3220
+[Scale  after] step=498, p05=0.1657, p95=0.2571, value=1.000
+[Q dist] min=-0.1238, max=0.0290, std=0.0200
+[Scale before] step=498, p05=0.1657, p95=0.2571
+[Scale  after] step=499, p05=-0.0896, p95=-0.0229, value=1.000
+[Q dist] min=-0.1142, max=0.0076, std=0.0181
+[Scale before] step=499, p05=-0.0896, p95=-0.0229
+[Scale  after] step=500, p05=-0.0879, p95=-0.0301, value=1.000
+[Q dist] min=0.1189, max=0.2875, std=0.0283
+[Scale before] step=500, p05=-0.0879, p95=-0.0301
+[Scale  after] step=501, p05=0.1615, p95=0.2542, value=1.000
+[Q dist] min=0.2083, max=0.3772, std=0.0248
+[Scale before] step=501, p05=0.1615, p95=0.2542
+[Scale  after] step=502, p05=0.2422, p95=0.3223, value=1.000
+[Q dist] min=-0.0771, max=0.0604, std=0.0196
+[Scale before] step=502, p05=0.2422, p95=0.3223
+[Scale  after] step=503, p05=-0.0275, p95=0.0355, value=1.000
+[Q dist] min=-0.0571, max=0.0775, std=0.0216
+[Scale before] step=503, p05=-0.0275, p95=0.0355
+[Scale  after] step=504, p05=-0.0345, p95=0.0359, value=1.000
+[Q dist] min=0.0206, max=0.1660, std=0.0203
+[Scale before] step=504, p05=-0.0345, p95=0.0359
+[Scale  after] step=505, p05=0.0486, p95=0.1140, value=1.000
+[Q dist] min=0.2654, max=0.4563, std=0.0249
+[Scale before] step=505, p05=0.0486, p95=0.1140
+[Scale  after] step=506, p05=0.3174, p95=0.3925, value=1.000
+[Q dist] min=0.0022, max=0.1452, std=0.0221
+[Scale before] step=506, p05=0.3174, p95=0.3925
+[Scale  after] step=507, p05=0.0282, p95=0.1038, value=1.000
+[Q dist] min=0.1339, max=0.2927, std=0.0292
+[Scale before] step=507, p05=0.0282, p95=0.1038
+[Scale  after] step=508, p05=0.1663, p95=0.2617, value=1.000
+[Q dist] min=0.2568, max=0.4395, std=0.0261
+[Scale before] step=508, p05=0.1663, p95=0.2617
+[Scale  after] step=509, p05=0.3104, p95=0.3965, value=1.000
+[Q dist] min=0.1234, max=0.3489, std=0.0313
+[Scale before] step=509, p05=0.3104, p95=0.3965
+[Scale  after] step=510, p05=0.1665, p95=0.2618, value=1.000
+[Q dist] min=-0.0635, max=0.1756, std=0.0368
+[Scale before] step=510, p05=0.1665, p95=0.2618
+[Scale  after] step=511, p05=-0.0330, p95=0.0873, value=1.000
+[Q dist] min=0.1270, max=0.3101, std=0.0291
+[Scale before] step=511, p05=-0.0330, p95=0.0873
+[Scale  after] step=512, p05=0.1683, p95=0.2599, value=1.000
+[Q dist] min=-0.0092, max=0.3175, std=0.0488
+[Scale before] step=512, p05=0.1683, p95=0.2599
+[Scale  after] step=513, p05=0.0797, p95=0.2443, value=1.000
+[Q dist] min=-0.0580, max=0.2109, std=0.0656
+[Scale before] step=513, p05=0.0797, p95=0.2443
+[Scale  after] step=514, p05=-0.0261, p95=0.1743, value=1.000
+[Q dist] min=-0.1346, max=0.1208, std=0.0505
+[Scale before] step=514, p05=-0.0261, p95=0.1743
+[Scale  after] step=515, p05=-0.0946, p95=0.0604, value=1.000
+[Q dist] min=-0.0284, max=0.3091, std=0.0701
+[Scale before] step=515, p05=-0.0946, p95=0.0604
+[Scale  after] step=516, p05=0.0358, p95=0.2602, value=1.000
+[Q dist] min=0.1497, max=0.4040, std=0.0627
+[Scale before] step=516, p05=0.0358, p95=0.2602
+[Scale  after] step=517, p05=0.2020, p95=0.3861, value=1.000
+[Q dist] min=0.0179, max=0.2672, std=0.0585
+[Scale before] step=517, p05=0.2020, p95=0.3861
+[Scale  after] step=518, p05=0.0522, p95=0.2305, value=1.000
+[Q dist] min=-0.0542, max=0.1584, std=0.0344
+[Scale before] step=518, p05=0.0522, p95=0.2305
+[Scale  after] step=519, p05=-0.0108, p95=0.1017, value=1.000
+[Q dist] min=-0.0738, max=0.2429, std=0.0667
+[Scale before] step=519, p05=-0.0108, p95=0.1017
+[Scale  after] step=520, p05=-0.0229, p95=0.1754, value=1.000
+[Q dist] min=0.0151, max=0.2205, std=0.0386
+[Scale before] step=520, p05=-0.0229, p95=0.1754
+[Scale  after] step=521, p05=0.0459, p95=0.1750, value=1.000
+[Q dist] min=0.0078, max=0.2782, std=0.0609
+[Scale before] step=521, p05=0.0459, p95=0.1750
+[Scale  after] step=522, p05=0.0497, p95=0.2342, value=1.000
+[Q dist] min=-0.1388, max=0.0886, std=0.0535
+[Scale before] step=522, p05=0.0497, p95=0.2342
+[Scale  after] step=523, p05=-0.0982, p95=0.0615, value=1.000
+[Q dist] min=0.0068, max=0.2709, std=0.0601
+[Scale before] step=523, p05=-0.0982, p95=0.0615
+[Scale  after] step=524, p05=0.0521, p95=0.2302, value=1.000
+[Q dist] min=0.0154, max=0.2670, std=0.0629
+[Scale before] step=524, p05=0.0521, p95=0.2302
+[Scale  after] step=525, p05=0.0544, p95=0.2352, value=1.000
+[Q dist] min=-0.0222, max=0.2912, std=0.0780
+[Scale before] step=525, p05=0.0544, p95=0.2352
+[Scale  after] step=526, p05=0.0217, p95=0.2451, value=1.000
+[Q dist] min=0.1273, max=0.2856, std=0.0315
+[Scale before] step=526, p05=0.0217, p95=0.2451
+[Scale  after] step=527, p05=0.1475, p95=0.2530, value=1.000
+[Q dist] min=-0.0695, max=0.2242, std=0.0823
+[Scale before] step=527, p05=0.1475, p95=0.2530
+[Scale  after] step=528, p05=-0.0278, p95=0.1881, value=1.000
+[Q dist] min=0.1608, max=0.4282, std=0.0646
+[Scale before] step=528, p05=-0.0278, p95=0.1881
+[Scale  after] step=529, p05=0.2006, p95=0.3933, value=1.000
+[Q dist] min=0.1134, max=0.2939, std=0.0317
+[Scale before] step=529, p05=0.2006, p95=0.3933
+[Scale  after] step=530, p05=0.1471, p95=0.2473, value=1.000
+[Q dist] min=0.0025, max=0.2759, std=0.0794
+[Scale before] step=530, p05=0.1471, p95=0.2473
+[Scale  after] step=531, p05=0.0282, p95=0.2477, value=1.000
+[Q dist] min=0.0346, max=0.2950, std=0.0696
+[Scale before] step=531, p05=0.0282, p95=0.2477
+[Scale  after] step=532, p05=0.0530, p95=0.2423, value=1.000
+[Q dist] min=0.0011, max=0.5106, std=0.1694
+[Scale before] step=532, p05=0.0530, p95=0.2423
+[Scale  after] step=533, p05=0.0251, p95=0.4545, value=1.000
+[Q dist] min=-0.0014, max=0.3065, std=0.0802
+[Scale before] step=533, p05=0.0251, p95=0.4545
+[Scale  after] step=534, p05=0.0280, p95=0.2450, value=1.000
+[Q dist] min=-0.0057, max=0.2912, std=0.0696
+[Scale before] step=534, p05=0.0280, p95=0.2450
+[Scale  after] step=535, p05=0.0465, p95=0.2458, value=1.000
+[Q dist] min=0.2007, max=0.4599, std=0.0599
+[Scale before] step=535, p05=0.0465, p95=0.2458
+[Scale  after] step=536, p05=0.2181, p95=0.4008, value=1.000
+[Q dist] min=0.0028, max=0.2876, std=0.0726
+[Scale before] step=536, p05=0.2181, p95=0.4008
+[Scale  after] step=537, p05=0.0386, p95=0.2485, value=1.000
+[Q dist] min=-0.1279, max=0.1067, std=0.0570
+[Scale before] step=537, p05=0.0386, p95=0.2485
+[Scale  after] step=538, p05=-0.0951, p95=0.0689, value=1.000
+[Q dist] min=-0.1361, max=0.1131, std=0.0497
+[Scale before] step=538, p05=-0.0951, p95=0.0689
+[Scale  after] step=539, p05=-0.0923, p95=0.0609, value=1.000
+[Q dist] min=0.0822, max=0.3612, std=0.0625
+[Scale before] step=539, p05=-0.0923, p95=0.0609
+[Scale  after] step=540, p05=0.1184, p95=0.3362, value=1.000
+[Q dist] min=0.0166, max=0.2605, std=0.0457
+[Scale before] step=540, p05=0.1184, p95=0.3362
+[Scale  after] step=541, p05=0.0510, p95=0.2115, value=1.000
+[Q dist] min=0.0284, max=0.5016, std=0.0863
+[Scale before] step=541, p05=0.0510, p95=0.2115
+[Scale  after] step=542, p05=0.1695, p95=0.4647, value=1.000
+[Q dist] min=0.2674, max=0.4594, std=0.0279
+[Scale before] step=542, p05=0.1695, p95=0.4647
+[Scale  after] step=543, p05=0.3207, p95=0.4121, value=1.000
+[Q dist] min=-0.0420, max=0.1337, std=0.0222
+[Scale before] step=543, p05=0.3207, p95=0.4121
+[Scale  after] step=544, p05=0.0118, p95=0.0819, value=1.000
+[Q dist] min=0.0354, max=0.2240, std=0.0286
+[Scale before] step=544, p05=0.0118, p95=0.0819
+[Scale  after] step=545, p05=0.0931, p95=0.1866, value=1.000
+[Q dist] min=0.1312, max=0.2933, std=0.0297
+[Scale before] step=545, p05=0.0931, p95=0.1866
+[Scale  after] step=546, p05=0.1532, p95=0.2536, value=1.000
+[Q dist] min=0.0513, max=0.2082, std=0.0251
+[Scale before] step=546, p05=0.1532, p95=0.2536
+[Scale  after] step=547, p05=0.0949, p95=0.1769, value=1.000
+[Q dist] min=0.0712, max=0.2020, std=0.0261
+[Scale before] step=547, p05=0.0949, p95=0.1769
+[Scale  after] step=548, p05=0.0922, p95=0.1804, value=1.000
+[Q dist] min=0.3430, max=0.5043, std=0.0291
+[Scale before] step=548, p05=0.0922, p95=0.1804
+[Scale  after] step=549, p05=0.3765, p95=0.4688, value=1.000
+[Q dist] min=0.2179, max=0.3666, std=0.0238
+[Scale before] step=549, p05=0.3765, p95=0.4688
+[Scale  after] step=550, p05=0.2633, p95=0.3421, value=1.000
+[Q dist] min=-0.1795, max=0.0610, std=0.0262
+[Scale before] step=550, p05=0.2633, p95=0.3421
+[Scale  after] step=551, p05=-0.0469, p95=0.0268, value=1.000
+[Q dist] min=-0.0270, max=0.1624, std=0.0265
+[Scale before] step=551, p05=-0.0469, p95=0.0268
+[Scale  after] step=552, p05=0.0082, p95=0.0947, value=1.000
+[Q dist] min=-0.0441, max=0.2281, std=0.0294
+[Scale before] step=552, p05=0.0082, p95=0.0947
+[Scale  after] step=553, p05=0.0147, p95=0.0962, value=1.000
+[Q dist] min=0.0012, max=0.2869, std=0.0297
+[Scale before] step=553, p05=0.0147, p95=0.0962
+[Scale  after] step=554, p05=0.1687, p95=0.2577, value=1.000
+[Q dist] min=-0.1586, max=-0.0065, std=0.0194
+[Scale before] step=554, p05=0.1687, p95=0.2577
+[Scale  after] step=555, p05=-0.1031, p95=-0.0429, value=1.000
+[Q dist] min=0.1119, max=0.4065, std=0.0329
+[Scale before] step=555, p05=-0.1031, p95=-0.0429
+[Scale  after] step=556, p05=0.1646, p95=0.2579, value=1.000
+[Q dist] min=-0.0056, max=0.3118, std=0.0346
+[Scale before] step=556, p05=0.1646, p95=0.2579
+[Scale  after] step=557, p05=0.0147, p95=0.1028, value=1.000
+[Q dist] min=0.3007, max=0.6067, std=0.0338
+[Scale before] step=557, p05=0.0147, p95=0.1028
+[Scale  after] step=558, p05=0.3726, p95=0.4677, value=1.000
+[Q dist] min=0.3163, max=0.6173, std=0.0364
+[Scale before] step=558, p05=0.3726, p95=0.4677
+[Scale  after] step=559, p05=0.3761, p95=0.4782, value=1.000
+[Q dist] min=-0.1545, max=0.0710, std=0.0320
+[Scale before] step=559, p05=0.3761, p95=0.4782
+[Scale  after] step=560, p05=-0.0621, p95=0.0333, value=1.000
+[Q dist] min=0.0534, max=0.3812, std=0.0440
+[Scale before] step=560, p05=-0.0621, p95=0.0333
+[Scale  after] step=561, p05=0.2012, p95=0.3349, value=1.000
+[Q dist] min=-0.1692, max=0.0041, std=0.0272
+[Scale before] step=561, p05=0.2012, p95=0.3349
+[Scale  after] step=562, p05=-0.1141, p95=-0.0244, value=1.000
+[Q dist] min=-0.0008, max=0.3708, std=0.0664
+[Scale before] step=562, p05=-0.1141, p95=-0.0244
+[Scale  after] step=563, p05=0.0310, p95=0.2581, value=1.000
+[Q dist] min=-0.1905, max=0.0054, std=0.0314
+[Scale before] step=563, p05=0.0310, p95=0.2581
+[Scale  after] step=564, p05=-0.1373, p95=-0.0263, value=1.000
+[Q dist] min=-0.2027, max=0.0327, std=0.0395
+[Scale before] step=564, p05=-0.1373, p95=-0.0263
+[Scale  after] step=565, p05=-0.1530, p95=-0.0162, value=1.000
+[Q dist] min=0.0139, max=0.5461, std=0.0978
+[Scale before] step=565, p05=-0.1530, p95=-0.0162
+[Scale  after] step=566, p05=0.0423, p95=0.3330, value=1.000
+[Q dist] min=-0.0845, max=0.1288, std=0.0334
+[Scale before] step=566, p05=0.0423, p95=0.3330
+[Scale  after] step=567, p05=-0.0051, p95=0.1074, value=1.000
+[Q dist] min=-0.2156, max=0.3682, std=0.1338
+[Scale before] step=567, p05=-0.0051, p95=0.1074
+[Scale  after] step=568, p05=-0.0636, p95=0.3322, value=1.000
+[Q dist] min=-0.0460, max=0.1519, std=0.0344
+[Scale before] step=568, p05=-0.0636, p95=0.3322
+[Scale  after] step=569, p05=-0.0186, p95=0.0967, value=1.000
+[Q dist] min=-0.2470, max=0.3852, std=0.1215
+[Scale before] step=569, p05=-0.0186, p95=0.0967
+[Scale  after] step=570, p05=-0.0264, p95=0.3219, value=1.000
+[Q dist] min=-0.2222, max=0.2859, std=0.0913
+[Scale before] step=570, p05=-0.0264, p95=0.3219
+[Scale  after] step=571, p05=-0.0265, p95=0.2367, value=1.000
+[Q dist] min=-0.0122, max=0.5573, std=0.1119
+[Scale before] step=571, p05=-0.0265, p95=0.2367
+[Scale  after] step=572, p05=0.0325, p95=0.3645, value=1.000
+[Q dist] min=-0.0501, max=0.1301, std=0.0317
+[Scale before] step=572, p05=0.0325, p95=0.3645
+[Scale  after] step=573, p05=-0.0049, p95=0.1038, value=1.000
+[Q dist] min=0.0184, max=0.4195, std=0.0915
+[Scale before] step=573, p05=-0.0049, p95=0.1038
+[Scale  after] step=574, p05=0.0997, p95=0.3925, value=1.000
+[Q dist] min=0.1221, max=0.7473, std=0.1009
+[Scale before] step=574, p05=0.0997, p95=0.3925
+[Scale  after] step=575, p05=0.1741, p95=0.5216, value=1.000
+[Q dist] min=0.0124, max=0.4096, std=0.0612
+[Scale before] step=575, p05=0.1741, p95=0.5216
+[Scale  after] step=576, p05=0.0402, p95=0.2253, value=1.000
+[Q dist] min=-0.1809, max=0.0589, std=0.0405
+[Scale before] step=576, p05=0.0402, p95=0.2253
+[Scale  after] step=577, p05=-0.1090, p95=0.0397, value=1.000
+[Q dist] min=-0.1804, max=0.2747, std=0.0587
+[Scale before] step=577, p05=-0.1090, p95=0.0397
+[Scale  after] step=578, p05=0.0373, p95=0.2324, value=1.000
+[Q dist] min=-0.1591, max=0.0836, std=0.0412
+[Scale before] step=578, p05=0.0373, p95=0.2324
+[Scale  after] step=579, p05=-0.1133, p95=0.0428, value=1.000
+[Q dist] min=0.1107, max=0.4359, std=0.0382
+[Scale before] step=579, p05=-0.1133, p95=0.0428
+[Scale  after] step=580, p05=0.1325, p95=0.2341, value=1.000
+[Q dist] min=0.0550, max=0.3671, std=0.0342
+[Scale before] step=580, p05=0.1325, p95=0.2341
+[Scale  after] step=581, p05=0.0905, p95=0.1747, value=1.000
+[Q dist] min=0.1869, max=0.5644, std=0.0450
+[Scale before] step=581, p05=0.0905, p95=0.1747
+[Scale  after] step=582, p05=0.2061, p95=0.3120, value=1.000
+[Q dist] min=0.0004, max=0.2544, std=0.0291
+[Scale before] step=582, p05=0.2061, p95=0.3120
+[Scale  after] step=583, p05=0.1225, p95=0.2165, value=1.000
+[Q dist] min=-0.0035, max=0.2140, std=0.0255
+[Scale before] step=583, p05=0.1225, p95=0.2165
+[Scale  after] step=584, p05=0.1017, p95=0.1795, value=1.000
+[Q dist] min=-0.0214, max=0.1155, std=0.0221
+[Scale before] step=584, p05=0.1017, p95=0.1795
+[Scale  after] step=585, p05=0.0088, p95=0.0837, value=1.000
+[Q dist] min=-0.0618, max=0.1209, std=0.0214
+[Scale before] step=585, p05=0.0088, p95=0.0837
+[Scale  after] step=586, p05=0.0063, p95=0.0755, value=1.000
+[Q dist] min=-0.0483, max=0.0746, std=0.0150
+[Scale before] step=586, p05=0.0063, p95=0.0755
+[Scale  after] step=587, p05=-0.0286, p95=0.0186, value=1.000
+[Q dist] min=-0.0036, max=0.1340, std=0.0181
+[Scale before] step=587, p05=-0.0286, p95=0.0186
+[Scale  after] step=588, p05=0.0283, p95=0.0848, value=1.000
+[Q dist] min=-0.0129, max=0.1300, std=0.0214
+[Scale before] step=588, p05=0.0283, p95=0.0848
+[Scale  after] step=589, p05=0.0186, p95=0.0883, value=1.000
+[Q dist] min=0.2092, max=0.3862, std=0.0270
+[Scale before] step=589, p05=0.0186, p95=0.0883
+[Scale  after] step=590, p05=0.2509, p95=0.3358, value=1.000
+[Q dist] min=-0.0312, max=0.0784, std=0.0162
+[Scale before] step=590, p05=0.2509, p95=0.3358
+[Scale  after] step=591, p05=-0.0067, p95=0.0437, value=1.000
+[Q dist] min=0.2343, max=0.4199, std=0.0300
+[Scale before] step=591, p05=-0.0067, p95=0.0437
+[Scale  after] step=592, p05=0.2686, p95=0.3653, value=1.000
+[Q dist] min=-0.0380, max=0.1038, std=0.0203
+[Scale before] step=592, p05=0.2686, p95=0.3653
+[Scale  after] step=593, p05=0.0092, p95=0.0762, value=1.000
+[Q dist] min=0.0118, max=0.1244, std=0.0189
+[Scale before] step=593, p05=0.0092, p95=0.0762
+[Scale  after] step=594, p05=0.0394, p95=0.1037, value=1.000
+[Q dist] min=0.0280, max=0.1765, std=0.0198
+[Scale before] step=594, p05=0.0394, p95=0.1037
+[Scale  after] step=595, p05=0.0620, p95=0.1312, value=1.000
+[Q dist] min=0.2550, max=0.4215, std=0.0264
+[Scale before] step=595, p05=0.0620, p95=0.1312
+[Scale  after] step=596, p05=0.2900, p95=0.3743, value=1.000
+[Q dist] min=-0.0335, max=0.0657, std=0.0161
+[Scale before] step=596, p05=0.2900, p95=0.3743
+[Scale  after] step=597, p05=-0.0086, p95=0.0438, value=1.000
+[Q dist] min=0.2294, max=0.4017, std=0.0266
+[Scale before] step=597, p05=-0.0086, p95=0.0438
+[Scale  after] step=598, p05=0.2868, p95=0.3720, value=1.000
+[Q dist] min=0.1668, max=0.3332, std=0.0264
+[Scale before] step=598, p05=0.2868, p95=0.3720
+[Scale  after] step=599, p05=0.2136, p95=0.2989, value=1.000
+[Q dist] min=0.1645, max=0.3347, std=0.0271
+[Scale before] step=599, p05=0.2136, p95=0.2989
+[Scale  after] step=600, p05=0.2053, p95=0.2930, value=1.000
+[Q dist] min=-0.0247, max=0.0579, std=0.0142
+[Scale before] step=600, p05=0.2053, p95=0.2930
+[Scale  after] step=601, p05=-0.0059, p95=0.0413, value=1.000
+[Q dist] min=0.2590, max=0.4175, std=0.0230
+[Scale before] step=601, p05=-0.0059, p95=0.0413
+[Scale  after] step=602, p05=0.3023, p95=0.3766, value=1.000
+[Q dist] min=0.2347, max=0.3823, std=0.0275
+[Scale before] step=602, p05=0.3023, p95=0.3766
+[Scale  after] step=603, p05=0.2564, p95=0.3415, value=1.000
+[Q dist] min=-0.0105, max=0.1140, std=0.0194
+[Scale before] step=603, p05=0.2564, p95=0.3415
+[Scale  after] step=604, p05=0.0097, p95=0.0724, value=1.000
+[Q dist] min=0.0427, max=0.1672, std=0.0198
+[Scale before] step=604, p05=0.0097, p95=0.0724
+[Scale  after] step=605, p05=0.0603, p95=0.1252, value=1.000
+[Q dist] min=0.1823, max=0.3370, std=0.0278
+[Scale before] step=605, p05=0.0603, p95=0.1252
+[Scale  after] step=606, p05=0.2060, p95=0.2955, value=1.000
+[Q dist] min=0.1700, max=0.3348, std=0.0273
+[Scale before] step=606, p05=0.2060, p95=0.2955
+[Scale  after] step=607, p05=0.1992, p95=0.2906, value=1.000
+[Q dist] min=-0.0642, max=0.0886, std=0.0209
+[Scale before] step=607, p05=0.1992, p95=0.2906
+[Scale  after] step=608, p05=-0.0140, p95=0.0538, value=1.000
+[Q dist] min=0.2149, max=0.3861, std=0.0265
+[Scale before] step=608, p05=-0.0140, p95=0.0538
+[Scale  after] step=609, p05=0.2550, p95=0.3431, value=1.000
+[Q dist] min=0.2653, max=0.4553, std=0.0302
+[Scale before] step=609, p05=0.2550, p95=0.3431
+[Scale  after] step=610, p05=0.3090, p95=0.4041, value=1.000
+[Q dist] min=0.0215, max=0.1244, std=0.0167
+[Scale before] step=610, p05=0.3090, p95=0.4041
+[Scale  after] step=611, p05=0.0388, p95=0.0928, value=1.000
+[Q dist] min=0.2189, max=0.3660, std=0.0283
+[Scale before] step=611, p05=0.0388, p95=0.0928
+[Scale  after] step=612, p05=0.2525, p95=0.3468, value=1.000
+[Q dist] min=0.0862, max=0.2166, std=0.0183
+[Scale before] step=612, p05=0.2525, p95=0.3468
+[Scale  after] step=613, p05=0.1026, p95=0.1600, value=1.000
+[Q dist] min=0.2830, max=0.4571, std=0.0311
+[Scale before] step=613, p05=0.1026, p95=0.1600
+[Scale  after] step=614, p05=0.3100, p95=0.4067, value=1.000
+[Q dist] min=-0.0237, max=0.1142, std=0.0190
+[Scale before] step=614, p05=0.3100, p95=0.4067
+[Scale  after] step=615, p05=0.0354, p95=0.0952, value=1.000
+[Q dist] min=0.1698, max=0.3346, std=0.0260
+[Scale before] step=615, p05=0.0354, p95=0.0952
+[Scale  after] step=616, p05=0.2054, p95=0.2984, value=1.000
+[Q dist] min=0.1451, max=0.3855, std=0.0273
+[Scale before] step=616, p05=0.2054, p95=0.2984
+[Scale  after] step=617, p05=0.2546, p95=0.3418, value=1.000
+[Q dist] min=0.2639, max=0.4440, std=0.0298
+[Scale before] step=617, p05=0.2546, p95=0.3418
+[Scale  after] step=618, p05=0.3070, p95=0.4019, value=1.000
+[Q dist] min=0.0148, max=0.1279, std=0.0178
+[Scale before] step=618, p05=0.3070, p95=0.4019
+[Scale  after] step=619, p05=0.0380, p95=0.0964, value=1.000
+[Q dist] min=0.2726, max=0.4287, std=0.0249
+[Scale before] step=619, p05=0.0380, p95=0.0964
+[Scale  after] step=620, p05=0.3003, p95=0.3839, value=1.000
+[Q dist] min=-0.0336, max=0.0744, std=0.0179
+[Scale before] step=620, p05=0.3003, p95=0.3839
+[Scale  after] step=621, p05=-0.0117, p95=0.0493, value=1.000
+[Q dist] min=0.2098, max=0.4381, std=0.0277
+[Scale before] step=621, p05=-0.0117, p95=0.0493
+[Scale  after] step=622, p05=0.2936, p95=0.3788, value=1.000
+[Q dist] min=0.2497, max=0.4468, std=0.0318
+[Scale before] step=622, p05=0.2936, p95=0.3788
+[Scale  after] step=623, p05=0.3049, p95=0.4088, value=1.000
+[Q dist] min=0.2696, max=0.4453, std=0.0275
+[Scale before] step=623, p05=0.3049, p95=0.4088
+[Scale  after] step=624, p05=0.2960, p95=0.3901, value=1.000
+[Q dist] min=0.2816, max=0.4413, std=0.0303
+[Scale before] step=624, p05=0.2960, p95=0.3901
+[Scale  after] step=625, p05=0.3142, p95=0.4151, value=1.000
+[Q dist] min=0.2263, max=0.4001, std=0.0274
+[Scale before] step=625, p05=0.3142, p95=0.4151
+[Scale  after] step=626, p05=0.2580, p95=0.3412, value=1.000
+[Q dist] min=-0.0810, max=0.0275, std=0.0192
+[Scale before] step=626, p05=0.2580, p95=0.3412
+[Scale  after] step=627, p05=-0.0526, p95=0.0120, value=1.000
+[Q dist] min=0.2398, max=0.4303, std=0.0266
+[Scale before] step=627, p05=-0.0526, p95=0.0120
+[Scale  after] step=628, p05=0.3035, p95=0.3859, value=1.000
+[Q dist] min=-0.0978, max=0.0323, std=0.0202
+[Scale before] step=628, p05=0.3035, p95=0.3859
+[Scale  after] step=629, p05=-0.0550, p95=0.0128, value=1.000
+[Q dist] min=-0.0218, max=0.0826, std=0.0164
+[Scale before] step=629, p05=-0.0550, p95=0.0128
+[Scale  after] step=630, p05=-0.0079, p95=0.0461, value=1.000
+[Q dist] min=-0.0317, max=0.0706, std=0.0172
+[Scale before] step=630, p05=-0.0079, p95=0.0461
+[Scale  after] step=631, p05=-0.0083, p95=0.0490, value=1.000
+[Q dist] min=0.1562, max=0.3251, std=0.0291
+[Scale before] step=631, p05=-0.0083, p95=0.0490
+[Scale  after] step=632, p05=0.2042, p95=0.2990, value=1.000
+[Q dist] min=0.0594, max=0.2220, std=0.0220
+[Scale before] step=632, p05=0.2042, p95=0.2990
+[Scale  after] step=633, p05=0.1060, p95=0.1761, value=1.000
+[Q dist] min=0.2522, max=0.4618, std=0.0326
+[Scale before] step=633, p05=0.1060, p95=0.1761
+[Scale  after] step=634, p05=0.3007, p95=0.4121, value=1.000
+[Q dist] min=-0.0906, max=0.0618, std=0.0213
+[Scale before] step=634, p05=0.3007, p95=0.4121
+[Scale  after] step=635, p05=-0.0519, p95=0.0094, value=1.000
+[Q dist] min=-0.0552, max=0.0929, std=0.0197
+[Scale before] step=635, p05=-0.0519, p95=0.0094
+[Scale  after] step=636, p05=-0.0042, p95=0.0555, value=1.000
+[Q dist] min=0.0329, max=0.1940, std=0.0299
+[Scale before] step=636, p05=-0.0042, p95=0.0555
+[Scale  after] step=637, p05=0.0606, p95=0.1607, value=1.000
+[Q dist] min=0.0145, max=0.2165, std=0.0367
+[Scale before] step=637, p05=0.0606, p95=0.1607
+[Scale  after] step=638, p05=0.0409, p95=0.1717, value=1.000
+[Q dist] min=0.2174, max=0.4355, std=0.0402
+[Scale before] step=638, p05=0.0409, p95=0.1717
+[Scale  after] step=639, p05=0.2497, p95=0.3847, value=1.000
+[Q dist] min=-0.0348, max=0.0781, std=0.0187
+[Scale before] step=639, p05=0.2497, p95=0.3847
+[Scale  after] step=640, p05=-0.0072, p95=0.0533, value=1.000
+[Q dist] min=-0.1834, max=0.0733, std=0.0221
+[Scale before] step=640, p05=-0.0072, p95=0.0533
+[Scale  after] step=641, p05=-0.0103, p95=0.0516, value=1.000
+[Q dist] min=0.2212, max=0.4533, std=0.0380
+[Scale before] step=641, p05=-0.0103, p95=0.0516
+[Scale  after] step=642, p05=0.2628, p95=0.3845, value=1.000
+[Q dist] min=0.0774, max=0.2703, std=0.0271
+[Scale before] step=642, p05=0.2628, p95=0.3845
+[Scale  after] step=643, p05=0.0987, p95=0.1924, value=1.000
+[Q dist] min=0.0583, max=0.2696, std=0.0270
+[Scale before] step=643, p05=0.0987, p95=0.1924
+[Scale  after] step=644, p05=0.0925, p95=0.1817, value=1.000
+[Q dist] min=-0.0356, max=0.2388, std=0.0508
+[Scale before] step=644, p05=0.0925, p95=0.1817
+[Scale  after] step=645, p05=0.0434, p95=0.1928, value=1.000
+[Q dist] min=-0.0389, max=0.1117, std=0.0281
+[Scale before] step=645, p05=0.0434, p95=0.1928
+[Scale  after] step=646, p05=-0.0201, p95=0.0737, value=1.000
+[Q dist] min=-0.0743, max=0.1180, std=0.0398
+[Scale before] step=646, p05=-0.0201, p95=0.0737
+[Scale  after] step=647, p05=-0.0548, p95=0.0709, value=1.000
+[Q dist] min=0.2111, max=0.4564, std=0.0422
+[Scale before] step=647, p05=-0.0548, p95=0.0709
+[Scale  after] step=648, p05=0.2630, p95=0.4036, value=1.000
+[Q dist] min=0.2556, max=0.4312, std=0.0283
+[Scale before] step=648, p05=0.2630, p95=0.4036
+[Scale  after] step=649, p05=0.2919, p95=0.3858, value=1.000
+[Q dist] min=0.2020, max=0.4983, std=0.0439
+[Scale before] step=649, p05=0.2919, p95=0.3858
+[Scale  after] step=650, p05=0.2716, p95=0.4197, value=1.000
+[Q dist] min=0.2426, max=0.4225, std=0.0287
+[Scale before] step=650, p05=0.2716, p95=0.4197
+[Scale  after] step=651, p05=0.2892, p95=0.3785, value=1.000
+[Q dist] min=0.1338, max=0.3497, std=0.0343
+[Scale before] step=651, p05=0.2892, p95=0.3785
+[Scale  after] step=652, p05=0.1751, p95=0.2880, value=1.000
+[Q dist] min=-0.0424, max=0.2012, std=0.0370
+[Scale before] step=652, p05=0.1751, p95=0.2880
+[Scale  after] step=653, p05=0.0597, p95=0.1700, value=1.000
+[Q dist] min=-0.0085, max=0.2473, std=0.0283
+[Scale before] step=653, p05=0.0597, p95=0.1700
+[Scale  after] step=654, p05=0.0998, p95=0.1859, value=1.000
+[Q dist] min=-0.0563, max=0.0731, std=0.0184
+[Scale before] step=654, p05=0.0998, p95=0.1859
+[Scale  after] step=655, p05=-0.0050, p95=0.0526, value=1.000
+[Q dist] min=0.0218, max=0.2285, std=0.0400
+[Scale before] step=655, p05=-0.0050, p95=0.0526
+[Scale  after] step=656, p05=0.0618, p95=0.1836, value=1.000
+[Q dist] min=0.2198, max=0.4779, std=0.0422
+[Scale before] step=656, p05=0.0618, p95=0.1836
+[Scale  after] step=657, p05=0.2552, p95=0.3824, value=1.000
+[Q dist] min=0.2184, max=0.4619, std=0.0412
+[Scale before] step=657, p05=0.2552, p95=0.3824
+[Scale  after] step=658, p05=0.2614, p95=0.3878, value=1.000
+[Q dist] min=0.2344, max=0.4106, std=0.0380
+[Scale before] step=658, p05=0.2614, p95=0.3878
+[Scale  after] step=659, p05=0.2625, p95=0.3799, value=1.000
+[Q dist] min=0.2338, max=0.4778, std=0.0435
+[Scale before] step=659, p05=0.2625, p95=0.3799
+[Scale  after] step=660, p05=0.2770, p95=0.4164, value=1.000
+[Q dist] min=0.2556, max=0.4149, std=0.0290
+[Scale before] step=660, p05=0.2770, p95=0.4164
+[Scale  after] step=661, p05=0.2900, p95=0.3879, value=1.000
+[Q dist] min=0.1472, max=0.3407, std=0.0353
+[Scale before] step=661, p05=0.2900, p95=0.3879
+[Scale  after] step=662, p05=0.1806, p95=0.2953, value=1.000
+[Q dist] min=0.0026, max=0.2303, std=0.0548
+[Scale before] step=662, p05=0.1806, p95=0.2953
+[Scale  after] step=663, p05=0.0448, p95=0.1994, value=1.000
+[Q dist] min=0.0309, max=0.2089, std=0.0336
+[Scale before] step=663, p05=0.0448, p95=0.1994
+[Scale  after] step=664, p05=0.0659, p95=0.1696, value=1.000
+[Q dist] min=-0.0043, max=0.2266, std=0.0315
+[Scale before] step=664, p05=0.0659, p95=0.1696
+[Scale  after] step=665, p05=0.0816, p95=0.1850, value=1.000
+[Q dist] min=-0.0752, max=0.0962, std=0.0422
+[Scale before] step=665, p05=0.0816, p95=0.1850
+[Scale  after] step=666, p05=-0.0611, p95=0.0759, value=1.000
+[Q dist] min=-0.0298, max=0.0957, std=0.0171
+[Scale before] step=666, p05=-0.0611, p95=0.0759
+[Scale  after] step=667, p05=-0.0031, p95=0.0496, value=1.000
+[Q dist] min=0.2506, max=0.4209, std=0.0289
+[Scale before] step=667, p05=-0.0031, p95=0.0496
+[Scale  after] step=668, p05=0.2951, p95=0.3868, value=1.000
+[Q dist] min=0.0547, max=0.2447, std=0.0291
+[Scale before] step=668, p05=0.2951, p95=0.3868
+[Scale  after] step=669, p05=0.0940, p95=0.1937, value=1.000
+[Q dist] min=-0.1026, max=0.1241, std=0.0323
+[Scale before] step=669, p05=0.0940, p95=0.1937
+[Scale  after] step=670, p05=-0.0219, p95=0.0826, value=1.000
+[Q dist] min=0.1665, max=0.4421, std=0.0426
+[Scale before] step=670, p05=-0.0219, p95=0.0826
+[Scale  after] step=671, p05=0.2464, p95=0.3738, value=1.000
+[Q dist] min=-0.0840, max=0.1202, std=0.0428
+[Scale before] step=671, p05=0.2464, p95=0.3738
+[Scale  after] step=672, p05=-0.0578, p95=0.0740, value=1.000
+[Q dist] min=-0.0055, max=0.2181, std=0.0556
+[Scale before] step=672, p05=-0.0578, p95=0.0740
+[Scale  after] step=673, p05=0.0342, p95=0.1990, value=1.000
+[Q dist] min=-0.0254, max=0.0831, std=0.0175
+[Scale before] step=673, p05=0.0342, p95=0.1990
+[Scale  after] step=674, p05=-0.0045, p95=0.0510, value=1.000
+[Q dist] min=-0.0343, max=0.1298, std=0.0181
+[Scale before] step=674, p05=-0.0045, p95=0.0510
+[Scale  after] step=675, p05=-0.0030, p95=0.0565, value=1.000
+[Q dist] min=0.2147, max=0.4628, std=0.0430
+[Scale before] step=675, p05=-0.0030, p95=0.0565
+[Scale  after] step=676, p05=0.2800, p95=0.4251, value=1.000
+[Q dist] min=0.0127, max=0.2005, std=0.0362
+[Scale before] step=676, p05=0.2800, p95=0.4251
+[Scale  after] step=677, p05=0.0606, p95=0.1740, value=1.000
+[Q dist] min=0.0435, max=0.2143, std=0.0351
+[Scale before] step=677, p05=0.0606, p95=0.1740
+[Scale  after] step=678, p05=0.0627, p95=0.1746, value=1.000
+[Q dist] min=0.1044, max=0.3092, std=0.0347
+[Scale before] step=678, p05=0.0627, p95=0.1746
+[Scale  after] step=679, p05=0.1742, p95=0.2845, value=1.000
+[Q dist] min=0.0151, max=0.2236, std=0.0555
+[Scale before] step=679, p05=0.1742, p95=0.2845
+[Scale  after] step=680, p05=0.0474, p95=0.2023, value=1.000
+[Q dist] min=-0.0534, max=0.1361, std=0.0306
+[Scale before] step=680, p05=0.0474, p95=0.2023
+[Scale  after] step=681, p05=-0.0168, p95=0.0814, value=1.000
+[Q dist] min=-0.1095, max=0.1419, std=0.0344
+[Scale before] step=681, p05=-0.0168, p95=0.0814
+[Scale  after] step=682, p05=-0.0189, p95=0.0879, value=1.000
+[Q dist] min=-0.0362, max=0.0778, std=0.0177
+[Scale before] step=682, p05=-0.0189, p95=0.0879
+[Scale  after] step=683, p05=-0.0059, p95=0.0525, value=1.000
+[Q dist] min=0.2159, max=0.4168, std=0.0370
+[Scale before] step=683, p05=-0.0059, p95=0.0525
+[Scale  after] step=684, p05=0.2544, p95=0.3716, value=1.000
+[Q dist] min=-0.0269, max=0.1078, std=0.0169
+[Scale before] step=684, p05=0.2544, p95=0.3716
+[Scale  after] step=685, p05=-0.0037, p95=0.0513, value=1.000
+[Q dist] min=-0.0151, max=0.2343, std=0.0566
+[Scale before] step=685, p05=-0.0037, p95=0.0513
+[Scale  after] step=686, p05=0.0312, p95=0.1991, value=1.000
+[Q dist] min=0.0031, max=0.2225, std=0.0546
+[Scale before] step=686, p05=0.0312, p95=0.1991
+[Scale  after] step=687, p05=0.0387, p95=0.2008, value=1.000
+[Q dist] min=-0.0447, max=0.0725, std=0.0174
+[Scale before] step=687, p05=0.0387, p95=0.2008
+[Scale  after] step=688, p05=-0.0066, p95=0.0495, value=1.000
+[Q dist] min=-0.1189, max=0.1173, std=0.0477
+[Scale before] step=688, p05=-0.0066, p95=0.0495
+[Scale  after] step=689, p05=-0.0703, p95=0.0743, value=1.000
+[Q dist] min=-0.0128, max=0.2187, std=0.0551
+[Scale before] step=689, p05=-0.0703, p95=0.0743
+[Scale  after] step=690, p05=0.0390, p95=0.1985, value=1.000
+[Q dist] min=0.1556, max=0.3396, std=0.0315
+[Scale before] step=690, p05=0.0390, p95=0.1985
+[Scale  after] step=691, p05=0.1819, p95=0.2852, value=1.000
+[Q dist] min=0.0146, max=0.2148, std=0.0371
+[Scale before] step=691, p05=0.1819, p95=0.2852
+[Scale  after] step=692, p05=0.0628, p95=0.1767, value=1.000
+[Q dist] min=0.0238, max=0.2086, std=0.0364
+[Scale before] step=692, p05=0.0628, p95=0.1767
+[Scale  after] step=693, p05=0.0601, p95=0.1739, value=1.000
+[Q dist] min=-0.0343, max=0.0971, std=0.0184
+[Scale before] step=693, p05=0.0601, p95=0.1739
+[Scale  after] step=694, p05=-0.0072, p95=0.0539, value=1.000
+[Q dist] min=0.0537, max=0.2507, std=0.0271
+[Scale before] step=694, p05=-0.0072, p95=0.0539
+[Scale  after] step=695, p05=0.0998, p95=0.1880, value=1.000
+[Q dist] min=-0.0121, max=0.2304, std=0.0541
+[Scale before] step=695, p05=0.0998, p95=0.1880
+[Scale  after] step=696, p05=0.0393, p95=0.1943, value=1.000
+[Q dist] min=0.2371, max=0.4514, std=0.0430
+[Scale before] step=696, p05=0.0393, p95=0.1943
+[Scale  after] step=697, p05=0.2794, p95=0.4269, value=1.000
+[Q dist] min=0.1122, max=0.3381, std=0.0332
+[Scale before] step=697, p05=0.2794, p95=0.4269
+[Scale  after] step=698, p05=0.1829, p95=0.2852, value=1.000
+[Q dist] min=0.0188, max=0.2052, std=0.0371
+[Scale before] step=698, p05=0.1829, p95=0.2852
+[Scale  after] step=699, p05=0.0622, p95=0.1794, value=1.000
+[Q dist] min=0.0539, max=0.2718, std=0.0324
+[Scale before] step=699, p05=0.0622, p95=0.1794
+[Scale  after] step=700, p05=0.0995, p95=0.2035, value=1.000
+[Q dist] min=0.1414, max=0.3292, std=0.0341
+[Scale before] step=700, p05=0.0995, p95=0.2035
+[Scale  after] step=701, p05=0.1754, p95=0.2875, value=1.000
+[Q dist] min=-0.0326, max=0.0676, std=0.0171
+[Scale before] step=701, p05=0.1754, p95=0.2875
+[Scale  after] step=702, p05=-0.0057, p95=0.0498, value=1.000
+[Q dist] min=-0.0273, max=0.0827, std=0.0187
+[Scale before] step=702, p05=-0.0057, p95=0.0498
+[Scale  after] step=703, p05=-0.0073, p95=0.0569, value=1.000
+[Q dist] min=0.0181, max=0.2486, std=0.0592
+[Scale before] step=703, p05=-0.0073, p95=0.0569
+[Scale  after] step=704, p05=0.0406, p95=0.2081, value=1.000
+[Q dist] min=0.1395, max=0.3378, std=0.0359
+[Scale before] step=704, p05=0.0406, p95=0.2081
+[Scale  after] step=705, p05=0.1700, p95=0.2844, value=1.000
+[Q dist] min=0.0009, max=0.2216, std=0.0354
+[Scale before] step=705, p05=0.1700, p95=0.2844
+[Scale  after] step=706, p05=0.0683, p95=0.1736, value=1.000
+[Q dist] min=0.0353, max=0.2118, std=0.0346
+[Scale before] step=706, p05=0.0683, p95=0.1736
+[Scale  after] step=707, p05=0.0714, p95=0.1722, value=1.000
+[Q dist] min=0.2512, max=0.4681, std=0.0297
+[Scale before] step=707, p05=0.0714, p95=0.1722
+[Scale  after] step=708, p05=0.2974, p95=0.3905, value=1.000
+[Q dist] min=0.0366, max=0.2178, std=0.0361
+[Scale before] step=708, p05=0.2974, p95=0.3905
+[Scale  after] step=709, p05=0.0616, p95=0.1709, value=1.000
+[Q dist] min=0.2179, max=0.4344, std=0.0411
+[Scale before] step=709, p05=0.0616, p95=0.1709
+[Scale  after] step=710, p05=0.2524, p95=0.3846, value=1.000
+[Q dist] min=-0.0637, max=0.1133, std=0.0322
+[Scale before] step=710, p05=0.2524, p95=0.3846
+[Scale  after] step=711, p05=-0.0185, p95=0.0874, value=1.000
+[Q dist] min=-0.0980, max=0.1279, std=0.0441
+[Scale before] step=711, p05=-0.0185, p95=0.0874
+[Scale  after] step=712, p05=-0.0625, p95=0.0744, value=1.000
+[Q dist] min=-0.0240, max=0.0846, std=0.0195
+[Scale before] step=712, p05=-0.0625, p95=0.0744
+[Scale  after] step=713, p05=-0.0094, p95=0.0575, value=1.000
+[Q dist] min=-0.0827, max=0.1745, std=0.0516
+[Scale before] step=713, p05=-0.0094, p95=0.0575
+[Scale  after] step=714, p05=-0.0520, p95=0.0923, value=1.000
+[Q dist] min=-0.0603, max=0.0835, std=0.0230
+[Scale before] step=714, p05=-0.0520, p95=0.0923
+[Scale  after] step=715, p05=-0.0228, p95=0.0512, value=1.000
+[Q dist] min=-0.0011, max=0.2983, std=0.0551
+[Scale before] step=715, p05=-0.0228, p95=0.0512
+[Scale  after] step=716, p05=0.0430, p95=0.2019, value=1.000
+[Q dist] min=0.1165, max=0.5210, std=0.0705
+[Scale before] step=716, p05=0.0430, p95=0.2019
+[Scale  after] step=717, p05=0.1972, p95=0.4232, value=1.000
+[Q dist] min=0.1131, max=0.4896, std=0.0635
+[Scale before] step=717, p05=0.1972, p95=0.4232
+[Scale  after] step=718, p05=0.2068, p95=0.4145, value=1.000
+[Q dist] min=0.0179, max=0.4137, std=0.0905
+[Scale before] step=718, p05=0.2068, p95=0.4145
+[Scale  after] step=719, p05=0.0725, p95=0.3873, value=1.000
+[Q dist] min=-0.0360, max=0.2451, std=0.0435
+[Scale before] step=719, p05=0.0725, p95=0.3873
+[Scale  after] step=720, p05=0.0536, p95=0.1950, value=1.000
+[Q dist] min=-0.0516, max=0.0840, std=0.0198
+[Scale before] step=720, p05=0.0536, p95=0.1950
+[Scale  after] step=721, p05=-0.0096, p95=0.0564, value=1.000
+[Q dist] min=-0.0231, max=0.0970, std=0.0176
+[Scale before] step=721, p05=-0.0096, p95=0.0564
+[Scale  after] step=722, p05=-0.0002, p95=0.0544, value=1.000
+[Q dist] min=-0.0428, max=0.1070, std=0.0179
+[Scale before] step=722, p05=-0.0002, p95=0.0544
+[Scale  after] step=723, p05=-0.0012, p95=0.0536, value=1.000
+[Q dist] min=0.1222, max=0.3375, std=0.0385
+[Scale before] step=723, p05=-0.0012, p95=0.0536
+[Scale  after] step=724, p05=0.1664, p95=0.2956, value=1.000
+[Q dist] min=-0.0604, max=0.1599, std=0.0321
+[Scale before] step=724, p05=0.1664, p95=0.2956
+[Scale  after] step=725, p05=-0.0147, p95=0.0887, value=1.000
+[Q dist] min=0.1338, max=0.4353, std=0.0381
+[Scale before] step=725, p05=-0.0147, p95=0.0887
+[Scale  after] step=726, p05=0.1805, p95=0.2971, value=1.000
+[Q dist] min=0.2323, max=0.6054, std=0.0471
+[Scale before] step=726, p05=0.1805, p95=0.2971
+[Scale  after] step=727, p05=0.2905, p95=0.4385, value=1.000
+[Q dist] min=-0.1080, max=0.1116, std=0.0409
+[Scale before] step=727, p05=0.2905, p95=0.4385
+[Scale  after] step=728, p05=-0.0741, p95=0.0612, value=1.000
+[Q dist] min=-0.0083, max=0.2022, std=0.0337
+[Scale before] step=728, p05=-0.0741, p95=0.0612
+[Scale  after] step=729, p05=0.0632, p95=0.1613, value=1.000
+[Q dist] min=0.2590, max=0.5442, std=0.0317
+[Scale before] step=729, p05=0.0632, p95=0.1613
+[Scale  after] step=730, p05=0.3057, p95=0.3954, value=1.000
+[Q dist] min=-0.2471, max=0.2048, std=0.0586
+[Scale before] step=730, p05=0.3057, p95=0.3954
+[Scale  after] step=731, p05=0.0224, p95=0.1820, value=1.000
+[Q dist] min=-0.0077, max=0.2257, std=0.0552
+[Scale before] step=731, p05=0.0224, p95=0.1820
+[Scale  after] step=732, p05=0.0201, p95=0.1830, value=1.000
+[Q dist] min=0.2637, max=0.5410, std=0.0383
+[Scale before] step=732, p05=0.0201, p95=0.1830
+[Scale  after] step=733, p05=0.2993, p95=0.4084, value=1.000
+[Q dist] min=-0.2123, max=0.0697, std=0.0252
+[Scale before] step=733, p05=0.2993, p95=0.4084
+[Scale  after] step=734, p05=-0.0039, p95=0.0583, value=1.000
+[Q dist] min=-0.0449, max=0.1168, std=0.0310
+[Scale before] step=734, p05=-0.0039, p95=0.0583
+[Scale  after] step=735, p05=-0.0092, p95=0.0929, value=1.000
+[Q dist] min=-0.2901, max=0.2234, std=0.0675
+[Scale before] step=735, p05=-0.0092, p95=0.0929
+[Scale  after] step=736, p05=0.0248, p95=0.1883, value=1.000
+[Q dist] min=-0.1678, max=0.0842, std=0.0280
+[Scale before] step=736, p05=0.0248, p95=0.1883
+[Scale  after] step=737, p05=-0.0168, p95=0.0571, value=1.000
+[Q dist] min=-0.1834, max=0.0920, std=0.0249
+[Scale before] step=737, p05=-0.0168, p95=0.0571
+[Scale  after] step=738, p05=-0.0121, p95=0.0604, value=1.000
+[Q dist] min=-0.0411, max=0.2058, std=0.0367
+[Scale before] step=738, p05=-0.0121, p95=0.0604
+[Scale  after] step=739, p05=0.0609, p95=0.1742, value=1.000
+[Q dist] min=-0.2274, max=0.1072, std=0.0431
+[Scale before] step=739, p05=0.0609, p95=0.1742
+[Scale  after] step=740, p05=-0.0752, p95=0.0571, value=1.000
+[Q dist] min=-0.2802, max=0.0981, std=0.0504
+[Scale before] step=740, p05=-0.0752, p95=0.0571
+[Scale  after] step=741, p05=-0.0698, p95=0.0666, value=1.000
+[Q dist] min=-0.0123, max=0.1983, std=0.0361
+[Scale before] step=741, p05=-0.0698, p95=0.0666
+[Scale  after] step=742, p05=0.0603, p95=0.1688, value=1.000
+[Q dist] min=0.2223, max=0.5106, std=0.0489
+[Scale before] step=742, p05=0.0603, p95=0.1688
+[Scale  after] step=743, p05=0.2728, p95=0.4321, value=1.000
+[Q dist] min=-0.0227, max=0.1920, std=0.0344
+[Scale before] step=743, p05=0.2728, p95=0.4321
+[Scale  after] step=744, p05=0.0700, p95=0.1719, value=1.000
+[Q dist] min=0.1252, max=0.2971, std=0.0339
+[Scale before] step=744, p05=0.0700, p95=0.1719
+[Scale  after] step=745, p05=0.1737, p95=0.2826, value=1.000
+[Q dist] min=0.0763, max=0.2489, std=0.0279
+[Scale before] step=745, p05=0.1737, p95=0.2826
+[Scale  after] step=746, p05=0.1075, p95=0.1970, value=1.000
+[Q dist] min=-0.0370, max=0.1316, std=0.0311
+[Scale before] step=746, p05=0.1075, p95=0.1970
+[Scale  after] step=747, p05=-0.0139, p95=0.0853, value=1.000
+[Q dist] min=0.1567, max=0.3122, std=0.0307
+[Scale before] step=747, p05=-0.0139, p95=0.0853
+[Scale  after] step=748, p05=0.1823, p95=0.2811, value=1.000
+[Q dist] min=0.1521, max=0.3318, std=0.0345
+[Scale before] step=748, p05=0.1823, p95=0.2811
+[Scale  after] step=749, p05=0.1800, p95=0.2873, value=1.000
+[Q dist] min=-0.0337, max=0.0907, std=0.0167
+[Scale before] step=749, p05=0.1800, p95=0.2873
+[Scale  after] step=750, p05=0.0007, p95=0.0510, value=1.000
+[Q dist] min=0.1366, max=0.3382, std=0.0369
+[Scale before] step=750, p05=0.0007, p95=0.0510
+[Scale  after] step=751, p05=0.1751, p95=0.2982, value=1.000
+[Q dist] min=0.0205, max=0.2257, std=0.0370
+[Scale before] step=751, p05=0.1751, p95=0.2982
+[Scale  after] step=752, p05=0.0612, p95=0.1760, value=1.000
+[Q dist] min=-0.0425, max=0.0803, std=0.0175
+[Scale before] step=752, p05=0.0612, p95=0.1760
+[Scale  after] step=753, p05=-0.0021, p95=0.0518, value=1.000
+[Q dist] min=-0.0104, max=0.2305, std=0.0585
+[Scale before] step=753, p05=-0.0021, p95=0.0518
+[Scale  after] step=754, p05=0.0382, p95=0.2004, value=1.000
+[Q dist] min=0.1994, max=0.4446, std=0.0413
+[Scale before] step=754, p05=0.0382, p95=0.2004
+[Scale  after] step=755, p05=0.2497, p95=0.3754, value=1.000
+[Q dist] min=-0.0527, max=0.0912, std=0.0184
+[Scale before] step=755, p05=0.2497, p95=0.3754
+[Scale  after] step=756, p05=-0.0082, p95=0.0512, value=1.000
+[Q dist] min=0.2022, max=0.4600, std=0.0440
+[Scale before] step=756, p05=-0.0082, p95=0.0512
+[Scale  after] step=757, p05=0.2804, p95=0.4183, value=1.000
+[Q dist] min=-0.0371, max=0.1302, std=0.0310
+[Scale before] step=757, p05=0.2804, p95=0.4183
+[Scale  after] step=758, p05=-0.0108, p95=0.0916, value=1.000
+[Q dist] min=-0.0716, max=0.1179, std=0.0324
+[Scale before] step=758, p05=-0.0108, p95=0.0916
+[Scale  after] step=759, p05=-0.0176, p95=0.0846, value=1.000
+[Q dist] min=0.0297, max=0.1980, std=0.0336
+[Scale before] step=759, p05=-0.0176, p95=0.0846
+[Scale  after] step=760, p05=0.0648, p95=0.1688, value=1.000
+[Q dist] min=0.0741, max=0.2580, std=0.0292
+[Scale before] step=760, p05=0.0648, p95=0.1688
+[Scale  after] step=761, p05=0.1119, p95=0.2038, value=1.000
+[Q dist] min=-0.0933, max=0.0906, std=0.0440
+[Scale before] step=761, p05=0.1119, p95=0.2038
+[Scale  after] step=762, p05=-0.0663, p95=0.0577, value=1.000
+[Q dist] min=-0.0988, max=0.1038, std=0.0435
+[Scale before] step=762, p05=-0.0663, p95=0.0577
+[Scale  after] step=763, p05=-0.0758, p95=0.0635, value=1.000
+[Q dist] min=0.0343, max=0.2078, std=0.0337
+[Scale before] step=763, p05=-0.0758, p95=0.0635
+[Scale  after] step=764, p05=0.0680, p95=0.1770, value=1.000
+[Q dist] min=0.0874, max=0.2755, std=0.0281
+[Scale before] step=764, p05=0.0680, p95=0.1770
+[Scale  after] step=765, p05=0.1243, p95=0.2113, value=1.000
+[Q dist] min=0.2023, max=0.4055, std=0.0400
+[Scale before] step=765, p05=0.1243, p95=0.2113
+[Scale  after] step=766, p05=0.2435, p95=0.3729, value=1.000
+[Q dist] min=-0.0389, max=0.1044, std=0.0334
+[Scale before] step=766, p05=0.2435, p95=0.3729
+[Scale  after] step=767, p05=-0.0142, p95=0.0880, value=1.000
+[Q dist] min=0.1770, max=0.4170, std=0.0414
+[Scale before] step=767, p05=-0.0142, p95=0.0880
+[Scale  after] step=768, p05=0.2351, p95=0.3652, value=1.000
+[Q dist] min=-0.0380, max=0.0923, std=0.0183
+[Scale before] step=768, p05=0.2351, p95=0.3652
+[Scale  after] step=769, p05=-0.0009, p95=0.0579, value=1.000
+[Q dist] min=-0.0504, max=0.1013, std=0.0199
+[Scale before] step=769, p05=-0.0009, p95=0.0579
+[Scale  after] step=770, p05=0.0025, p95=0.0640, value=1.000
+[Q dist] min=0.0077, max=0.2214, std=0.0580
+[Scale before] step=770, p05=0.0025, p95=0.0640
+[Scale  after] step=771, p05=0.0320, p95=0.1960, value=1.000
+[Q dist] min=0.0105, max=0.2008, std=0.0322
+[Scale before] step=771, p05=0.0320, p95=0.1960
+[Scale  after] step=772, p05=0.0690, p95=0.1683, value=1.000
+[Q dist] min=0.0567, max=0.2544, std=0.0283
+[Scale before] step=772, p05=0.0690, p95=0.1683
+[Scale  after] step=773, p05=0.1172, p95=0.2099, value=1.000
+[Q dist] min=0.2559, max=0.4158, std=0.0290
+[Scale before] step=773, p05=0.1172, p95=0.2099
+[Scale  after] step=774, p05=0.2956, p95=0.3922, value=1.000
+[Q dist] min=-0.1100, max=0.1009, std=0.0454
+[Scale before] step=774, p05=0.2956, p95=0.3922
+[Scale  after] step=775, p05=-0.0692, p95=0.0597, value=1.000
+[Q dist] min=0.2215, max=0.4842, std=0.0511
+[Scale before] step=775, p05=-0.0692, p95=0.0597
+[Scale  after] step=776, p05=0.2730, p95=0.4359, value=1.000
+[Q dist] min=-0.0220, max=0.2287, std=0.0552
+[Scale before] step=776, p05=0.2730, p95=0.4359
+[Scale  after] step=777, p05=0.0311, p95=0.1846, value=1.000
+[Q dist] min=0.0273, max=0.2031, std=0.0328
+[Scale before] step=777, p05=0.0311, p95=0.1846
+[Scale  after] step=778, p05=0.0652, p95=0.1699, value=1.000
+[Q dist] min=-0.0960, max=0.1038, std=0.0417
+[Scale before] step=778, p05=0.0652, p95=0.1699
+[Scale  after] step=779, p05=-0.0723, p95=0.0594, value=1.000
+[Q dist] min=0.2571, max=0.4388, std=0.0298
+[Scale before] step=779, p05=-0.0723, p95=0.0594
+[Scale  after] step=780, p05=0.2894, p95=0.3894, value=1.000
+[Q dist] min=0.1902, max=0.4542, std=0.0393
+[Scale before] step=780, p05=0.2894, p95=0.3894
+[Scale  after] step=781, p05=0.2532, p95=0.3689, value=1.000
+[Q dist] min=0.0844, max=0.2505, std=0.0291
+[Scale before] step=781, p05=0.2532, p95=0.3689
+[Scale  after] step=782, p05=0.1097, p95=0.2111, value=1.000
+[Q dist] min=-0.0865, max=0.1267, std=0.0455
+[Scale before] step=782, p05=0.1097, p95=0.2111
+[Scale  after] step=783, p05=-0.0624, p95=0.0766, value=1.000
+[Q dist] min=0.2288, max=0.4845, std=0.0479
+[Scale before] step=783, p05=-0.0624, p95=0.0766
+[Scale  after] step=784, p05=0.2729, p95=0.4352, value=1.000
+[Q dist] min=-0.0432, max=0.0959, std=0.0194
+[Scale before] step=784, p05=0.2729, p95=0.4352
+[Scale  after] step=785, p05=0.0006, p95=0.0587, value=1.000
+[Q dist] min=-0.0564, max=0.1141, std=0.0296
+[Scale before] step=785, p05=0.0006, p95=0.0587
+[Scale  after] step=786, p05=-0.0130, p95=0.0796, value=1.000
+[Q dist] min=0.2140, max=0.4809, std=0.0453
+[Scale before] step=786, p05=-0.0130, p95=0.0796
+[Scale  after] step=787, p05=0.2689, p95=0.4206, value=1.000
+[Q dist] min=0.1835, max=0.5180, std=0.0480
+[Scale before] step=787, p05=0.2689, p95=0.4206
+[Scale  after] step=788, p05=0.2787, p95=0.4272, value=1.000
+[Q dist] min=0.2398, max=0.4659, std=0.0487
+[Scale before] step=788, p05=0.2787, p95=0.4272
+[Scale  after] step=789, p05=0.2694, p95=0.4222, value=1.000
+[Q dist] min=-0.0293, max=0.0870, std=0.0192
+[Scale before] step=789, p05=0.2694, p95=0.4222
+[Scale  after] step=790, p05=-0.0034, p95=0.0641, value=1.000
+[Q dist] min=-0.0000, max=0.2305, std=0.0589
+[Scale before] step=790, p05=-0.0034, p95=0.0641
+[Scale  after] step=791, p05=0.0384, p95=0.1986, value=1.000
+[Q dist] min=0.0030, max=0.2141, std=0.0567
+[Scale before] step=791, p05=0.0384, p95=0.1986
+[Scale  after] step=792, p05=0.0352, p95=0.1880, value=1.000
+[Q dist] min=0.2390, max=0.4610, std=0.0319
+[Scale before] step=792, p05=0.0352, p95=0.1880
+[Scale  after] step=793, p05=0.2973, p95=0.3960, value=1.000
+[Q dist] min=-0.1098, max=0.1237, std=0.0441
+[Scale before] step=793, p05=0.2973, p95=0.3960
+[Scale  after] step=794, p05=-0.0711, p95=0.0613, value=1.000
+[Q dist] min=-0.0135, max=0.0873, std=0.0178
+[Scale before] step=794, p05=-0.0711, p95=0.0613
+[Scale  after] step=795, p05=-0.0012, p95=0.0611, value=1.000
+[Q dist] min=0.1969, max=0.4294, std=0.0436
+[Scale before] step=795, p05=-0.0012, p95=0.0611
+[Scale  after] step=796, p05=0.2401, p95=0.3775, value=1.000
+[Q dist] min=0.0748, max=0.3024, std=0.0299
+[Scale before] step=796, p05=0.2401, p95=0.3775
+[Scale  after] step=797, p05=0.1136, p95=0.2108, value=1.000
+[Q dist] min=0.0360, max=0.2229, std=0.0331
+[Scale before] step=797, p05=0.1136, p95=0.2108
+[Scale  after] step=798, p05=0.0622, p95=0.1688, value=1.000
+[Q dist] min=0.0156, max=0.2260, std=0.0592
+[Scale before] step=798, p05=0.0622, p95=0.1688
+[Scale  after] step=799, p05=0.0362, p95=0.1969, value=1.000
+[Q dist] min=0.0165, max=0.2189, std=0.0577
+[Scale before] step=799, p05=0.0362, p95=0.1969
+[Scale  after] step=800, p05=0.0324, p95=0.1953, value=1.000
+[Q dist] min=0.0855, max=0.3151, std=0.0297
+[Scale before] step=800, p05=0.0324, p95=0.1953
+[Scale  after] step=801, p05=0.1136, p95=0.2092, value=1.000
+[Q dist] min=-0.0281, max=0.0890, std=0.0188
+[Scale before] step=801, p05=0.1136, p95=0.2092
+[Scale  after] step=802, p05=0.0021, p95=0.0642, value=1.000
+[Q dist] min=0.2474, max=0.4929, std=0.0474
+[Scale before] step=802, p05=0.0021, p95=0.0642
+[Scale  after] step=803, p05=0.2775, p95=0.4212, value=1.000
+[Q dist] min=0.2331, max=0.5048, std=0.0513
+[Scale before] step=803, p05=0.2775, p95=0.4212
+[Scale  after] step=804, p05=0.2706, p95=0.4312, value=1.000
+[Q dist] min=0.0294, max=0.2436, std=0.0305
+[Scale before] step=804, p05=0.2706, p95=0.4312
+[Scale  after] step=805, p05=0.1098, p95=0.2149, value=1.000
+[Q dist] min=0.0895, max=0.2662, std=0.0321
+[Scale before] step=805, p05=0.1098, p95=0.2149
+[Scale  after] step=806, p05=0.1189, p95=0.2282, value=1.000
+[Q dist] min=-0.0526, max=0.1623, std=0.0340
+[Scale before] step=806, p05=0.1189, p95=0.2282
+[Scale  after] step=807, p05=-0.0097, p95=0.0933, value=1.000
+[Q dist] min=0.2437, max=0.4272, std=0.0291
+[Scale before] step=807, p05=-0.0097, p95=0.0933
+[Scale  after] step=808, p05=0.2935, p95=0.3881, value=1.000
+[Q dist] min=-0.0221, max=0.1150, std=0.0205
+[Scale before] step=808, p05=0.2935, p95=0.3881
+[Scale  after] step=809, p05=-0.0057, p95=0.0637, value=1.000
+[Q dist] min=-0.0085, max=0.2489, std=0.0590
+[Scale before] step=809, p05=-0.0057, p95=0.0637
+[Scale  after] step=810, p05=0.0236, p95=0.1894, value=1.000
+[Q dist] min=-0.0169, max=0.1996, std=0.0562
+[Scale before] step=810, p05=0.0236, p95=0.1894
+[Scale  after] step=811, p05=0.0196, p95=0.1781, value=1.000
+[Q dist] min=-0.0606, max=0.0974, std=0.0203
+[Scale before] step=811, p05=0.0196, p95=0.1781
+[Scale  after] step=812, p05=-0.0054, p95=0.0545, value=1.000
+[Q dist] min=0.0709, max=0.2698, std=0.0337
+[Scale before] step=812, p05=-0.0054, p95=0.0545
+[Scale  after] step=813, p05=0.1252, p95=0.2440, value=1.000
+[Q dist] min=-0.2800, max=0.0778, std=0.0463
+[Scale before] step=813, p05=0.1252, p95=0.2440
+[Scale  after] step=814, p05=-0.0855, p95=0.0417, value=1.000
+[Q dist] min=-0.0464, max=0.2249, std=0.0560
+[Scale before] step=814, p05=-0.0855, p95=0.0417
+[Scale  after] step=815, p05=0.0273, p95=0.1805, value=1.000
+[Q dist] min=0.2025, max=0.4225, std=0.0383
+[Scale before] step=815, p05=0.0273, p95=0.1805
+[Scale  after] step=816, p05=0.2440, p95=0.3602, value=1.000
+[Q dist] min=-0.0044, max=0.2450, std=0.0601
+[Scale before] step=816, p05=0.2440, p95=0.3602
+[Scale  after] step=817, p05=0.0341, p95=0.1964, value=1.000
+[Q dist] min=0.2668, max=0.4392, std=0.0281
+[Scale before] step=817, p05=0.0341, p95=0.1964
+[Scale  after] step=818, p05=0.2933, p95=0.3824, value=1.000
+[Q dist] min=0.2156, max=0.4386, std=0.0436
+[Scale before] step=818, p05=0.2933, p95=0.3824
+[Scale  after] step=819, p05=0.2522, p95=0.3857, value=1.000
+[Q dist] min=0.2270, max=0.4336, std=0.0424
+[Scale before] step=819, p05=0.2522, p95=0.3857
+[Scale  after] step=820, p05=0.2504, p95=0.3892, value=1.000
+[Q dist] min=-0.1055, max=0.1050, std=0.0492
+[Scale before] step=820, p05=0.2504, p95=0.3892
+[Scale  after] step=821, p05=-0.0610, p95=0.0803, value=1.000
+[Q dist] min=0.2239, max=0.4648, std=0.0469
+[Scale before] step=821, p05=-0.0610, p95=0.0803
+[Scale  after] step=822, p05=0.2530, p95=0.3976, value=1.000
+[Q dist] min=-0.0593, max=0.0971, std=0.0316
+[Scale before] step=822, p05=0.2530, p95=0.3976
+[Scale  after] step=823, p05=-0.0258, p95=0.0756, value=1.000
+[Q dist] min=-0.0597, max=0.0943, std=0.0218
+[Scale before] step=823, p05=-0.0258, p95=0.0756
+[Scale  after] step=824, p05=-0.0093, p95=0.0576, value=1.000
+[Q dist] min=0.0559, max=0.2244, std=0.0259
+[Scale before] step=824, p05=-0.0093, p95=0.0576
+[Scale  after] step=825, p05=0.0949, p95=0.1764, value=1.000
+[Q dist] min=0.1614, max=0.3347, std=0.0327
+[Scale before] step=825, p05=0.0949, p95=0.1764
+[Scale  after] step=826, p05=0.1799, p95=0.2798, value=1.000
+[Q dist] min=-0.0769, max=0.1284, std=0.0325
+[Scale before] step=826, p05=0.1799, p95=0.2798
+[Scale  after] step=827, p05=-0.0299, p95=0.0703, value=1.000
+[Q dist] min=0.1481, max=0.3602, std=0.0357
+[Scale before] step=827, p05=-0.0299, p95=0.0703
+[Scale  after] step=828, p05=0.1787, p95=0.2953, value=1.000
+[Q dist] min=0.0366, max=0.2243, std=0.0369
+[Scale before] step=828, p05=0.1787, p95=0.2953
+[Scale  after] step=829, p05=0.0680, p95=0.1775, value=1.000
+[Q dist] min=-0.0339, max=0.0782, std=0.0171
+[Scale before] step=829, p05=0.0680, p95=0.1775
+[Scale  after] step=830, p05=-0.0050, p95=0.0533, value=1.000
+[Q dist] min=0.0566, max=0.2206, std=0.0288
+[Scale before] step=830, p05=-0.0050, p95=0.0533
+[Scale  after] step=831, p05=0.0844, p95=0.1837, value=1.000
+[Q dist] min=0.0366, max=0.2292, std=0.0387
+[Scale before] step=831, p05=0.0844, p95=0.1837
+[Scale  after] step=832, p05=0.0696, p95=0.1826, value=1.000
+[Q dist] min=0.0134, max=0.2492, std=0.0618
+[Scale before] step=832, p05=0.0696, p95=0.1826
+[Scale  after] step=833, p05=0.0490, p95=0.2141, value=1.000
+[Q dist] min=0.2409, max=0.4230, std=0.0263
+[Scale before] step=833, p05=0.0490, p95=0.2141
+[Scale  after] step=834, p05=0.3031, p95=0.3823, value=1.000
+[Q dist] min=0.0140, max=0.2436, std=0.0291
+[Scale before] step=834, p05=0.3031, p95=0.3823
+[Scale  after] step=835, p05=0.0909, p95=0.1790, value=1.000
+[Q dist] min=-0.0823, max=0.1307, std=0.0494
+[Scale before] step=835, p05=0.0909, p95=0.1790
+[Scale  after] step=836, p05=-0.0493, p95=0.0934, value=1.000
+[Q dist] min=-0.0946, max=0.0949, std=0.0330
+[Scale before] step=836, p05=-0.0493, p95=0.0934
+[Scale  after] step=837, p05=-0.0301, p95=0.0748, value=1.000
+[Q dist] min=-0.0859, max=0.2225, std=0.0514
+[Scale before] step=837, p05=-0.0301, p95=0.0748
+[Scale  after] step=838, p05=-0.0557, p95=0.0983, value=1.000
+[Q dist] min=0.0693, max=0.3599, std=0.0362
+[Scale before] step=838, p05=-0.0557, p95=0.0983
+[Scale  after] step=839, p05=0.1673, p95=0.2799, value=1.000
+[Q dist] min=0.1297, max=0.3432, std=0.0364
+[Scale before] step=839, p05=0.1673, p95=0.2799
+[Scale  after] step=840, p05=0.1734, p95=0.2868, value=1.000
+[Q dist] min=0.0399, max=0.4199, std=0.0431
+[Scale before] step=840, p05=0.1734, p95=0.2868
+[Scale  after] step=841, p05=0.2612, p95=0.3773, value=1.000
+[Q dist] min=-0.1171, max=0.1383, std=0.0507
+[Scale before] step=841, p05=0.2612, p95=0.3773
+[Scale  after] step=842, p05=-0.0495, p95=0.0902, value=1.000
+[Q dist] min=0.2246, max=0.4922, std=0.0455
+[Scale before] step=842, p05=-0.0495, p95=0.0902
+[Scale  after] step=843, p05=0.2658, p95=0.4011, value=1.000
+[Q dist] min=-0.0361, max=0.0841, std=0.0193
+[Scale before] step=843, p05=0.2658, p95=0.4011
+[Scale  after] step=844, p05=-0.0072, p95=0.0582, value=1.000
+[Q dist] min=0.2248, max=0.4519, std=0.0478
+[Scale before] step=844, p05=-0.0072, p95=0.0582
+[Scale  after] step=845, p05=0.2500, p95=0.3975, value=1.000
+[Q dist] min=-0.0507, max=0.0902, std=0.0205
+[Scale before] step=845, p05=0.2500, p95=0.3975
+[Scale  after] step=846, p05=-0.0095, p95=0.0586, value=1.000
+[Q dist] min=0.2280, max=0.4398, std=0.0315
+[Scale before] step=846, p05=-0.0095, p95=0.0586
+[Scale  after] step=847, p05=0.2939, p95=0.3950, value=1.000
+[Q dist] min=-0.0866, max=0.0840, std=0.0205
+[Scale before] step=847, p05=0.2939, p95=0.3950
+[Scale  after] step=848, p05=-0.0096, p95=0.0493, value=1.000
+[Q dist] min=-0.0769, max=0.1593, std=0.0496
+[Scale before] step=848, p05=-0.0096, p95=0.0493
+[Scale  after] step=849, p05=-0.0487, p95=0.0830, value=1.000
+[Q dist] min=0.1284, max=0.3314, std=0.0350
+[Scale before] step=849, p05=-0.0487, p95=0.0830
+[Scale  after] step=850, p05=0.1690, p95=0.2843, value=1.000
+[Q dist] min=0.0636, max=0.2256, std=0.0293
+[Scale before] step=850, p05=0.1690, p95=0.2843
+[Scale  after] step=851, p05=0.0902, p95=0.1941, value=1.000
+[Q dist] min=-0.0646, max=0.1170, std=0.0327
+[Scale before] step=851, p05=0.0902, p95=0.1941
+[Scale  after] step=852, p05=-0.0336, p95=0.0677, value=1.000
+[Q dist] min=-0.0526, max=0.0884, std=0.0312
+[Scale before] step=852, p05=-0.0336, p95=0.0677
+[Scale  after] step=853, p05=-0.0282, p95=0.0690, value=1.000
+[Q dist] min=-0.0136, max=0.2570, std=0.0612
+[Scale before] step=853, p05=-0.0282, p95=0.0690
+[Scale  after] step=854, p05=0.0507, p95=0.2119, value=1.000
+[Q dist] min=0.1988, max=0.4561, std=0.0477
+[Scale before] step=854, p05=0.0507, p95=0.2119
+[Scale  after] step=855, p05=0.2597, p95=0.4000, value=1.000
+[Q dist] min=-0.0622, max=0.0854, std=0.0310
+[Scale before] step=855, p05=0.2597, p95=0.4000
+[Scale  after] step=856, p05=-0.0299, p95=0.0703, value=1.000
+[Q dist] min=-0.0374, max=0.0727, std=0.0187
+[Scale before] step=856, p05=-0.0299, p95=0.0703
+[Scale  after] step=857, p05=-0.0122, p95=0.0519, value=1.000
+[Q dist] min=0.0325, max=0.2498, std=0.0615
+[Scale before] step=857, p05=-0.0122, p95=0.0519
+[Scale  after] step=858, p05=0.0482, p95=0.2160, value=1.000
+[Q dist] min=0.2579, max=0.4947, std=0.0294
+[Scale before] step=858, p05=0.0482, p95=0.2160
+[Scale  after] step=859, p05=0.2894, p95=0.3840, value=1.000
+[Q dist] min=-0.0396, max=0.0745, std=0.0190
+[Scale before] step=859, p05=0.2894, p95=0.3840
+[Scale  after] step=860, p05=-0.0096, p95=0.0534, value=1.000
+[Q dist] min=0.2302, max=0.4925, std=0.0452
+[Scale before] step=860, p05=-0.0096, p95=0.0534
+[Scale  after] step=861, p05=0.2706, p95=0.4157, value=1.000
+[Q dist] min=0.0035, max=0.2723, std=0.0633
+[Scale before] step=861, p05=0.2706, p95=0.4157
+[Scale  after] step=862, p05=0.0428, p95=0.2158, value=1.000
+[Q dist] min=0.2449, max=0.4315, std=0.0301
+[Scale before] step=862, p05=0.0428, p95=0.2158
+[Scale  after] step=863, p05=0.2996, p95=0.3951, value=1.000
+[Q dist] min=0.0683, max=0.2181, std=0.0258
+[Scale before] step=863, p05=0.2996, p95=0.3951
+[Scale  after] step=864, p05=0.0925, p95=0.1815, value=1.000
+[Q dist] min=0.0372, max=0.2415, std=0.0262
+[Scale before] step=864, p05=0.0925, p95=0.1815
+[Scale  after] step=865, p05=0.0936, p95=0.1776, value=1.000
+[Q dist] min=0.0385, max=0.2410, std=0.0409
+[Scale before] step=865, p05=0.0936, p95=0.1776
+[Scale  after] step=866, p05=0.0660, p95=0.1846, value=1.000
+[Q dist] min=0.0828, max=0.2324, std=0.0266
+[Scale before] step=866, p05=0.0660, p95=0.1846
+[Scale  after] step=867, p05=0.0965, p95=0.1896, value=1.000
+[Q dist] min=0.2161, max=0.4814, std=0.0441
+[Scale before] step=867, p05=0.0965, p95=0.1896
+[Scale  after] step=868, p05=0.2701, p95=0.4065, value=1.000
+[Q dist] min=0.2294, max=0.4837, std=0.0451
+[Scale before] step=868, p05=0.2701, p95=0.4065
+[Scale  after] step=869, p05=0.2700, p95=0.4109, value=1.000
+[Q dist] min=-0.0655, max=0.1713, std=0.0354
+[Scale before] step=869, p05=0.2700, p95=0.4109
+[Scale  after] step=870, p05=-0.0232, p95=0.0876, value=1.000
+[Q dist] min=-0.0131, max=0.2150, std=0.0418
+[Scale before] step=870, p05=-0.0232, p95=0.0876
+[Scale  after] step=871, p05=0.0576, p95=0.1857, value=1.000
+[Q dist] min=0.0306, max=0.2232, std=0.0401
+[Scale before] step=871, p05=0.0576, p95=0.1857
+[Scale  after] step=872, p05=0.0660, p95=0.1852, value=1.000
+[Q dist] min=-0.0285, max=0.3215, std=0.0486
+[Scale before] step=872, p05=0.0660, p95=0.1852
+[Scale  after] step=873, p05=0.1459, p95=0.2789, value=1.000
+[Q dist] min=0.2414, max=0.4819, std=0.0445
+[Scale before] step=873, p05=0.1459, p95=0.2789
+[Scale  after] step=874, p05=0.2749, p95=0.4197, value=1.000
+[Q dist] min=-0.0538, max=0.1391, std=0.0379
+[Scale before] step=874, p05=0.2749, p95=0.4197
+[Scale  after] step=875, p05=-0.0301, p95=0.0976, value=1.000
+[Q dist] min=-0.0536, max=0.1633, std=0.0379
+[Scale before] step=875, p05=-0.0301, p95=0.0976
+[Scale  after] step=876, p05=-0.0295, p95=0.0873, value=1.000
+[Q dist] min=0.0042, max=0.2759, std=0.0355
+[Scale before] step=876, p05=-0.0295, p95=0.0873
+[Scale  after] step=877, p05=0.0946, p95=0.2088, value=1.000
+[Q dist] min=0.2157, max=0.4579, std=0.0488
+[Scale before] step=877, p05=0.0946, p95=0.2088
+[Scale  after] step=878, p05=0.2586, p95=0.4211, value=1.000
+[Q dist] min=-0.2303, max=0.2569, std=0.0906
+[Scale before] step=878, p05=0.2586, p95=0.4211
+[Scale  after] step=879, p05=-0.1037, p95=0.2158, value=1.000
+[Q dist] min=-0.0947, max=0.2576, std=0.0672
+[Scale before] step=879, p05=-0.1037, p95=0.2158
+[Scale  after] step=880, p05=0.0392, p95=0.2168, value=1.000
+[Q dist] min=-0.0519, max=0.1130, std=0.0313
+[Scale before] step=880, p05=0.0392, p95=0.2168
+[Scale  after] step=881, p05=-0.0208, p95=0.0780, value=1.000
+[Q dist] min=0.2173, max=0.4666, std=0.0490
+[Scale before] step=881, p05=-0.0208, p95=0.0780
+[Scale  after] step=882, p05=0.2585, p95=0.4018, value=1.000
+[Q dist] min=-0.0169, max=0.0770, std=0.0169
+[Scale before] step=882, p05=0.2585, p95=0.4018
+[Scale  after] step=883, p05=-0.0045, p95=0.0530, value=1.000
+[Q dist] min=-0.0375, max=0.0825, std=0.0181
+[Scale before] step=883, p05=-0.0045, p95=0.0530
+[Scale  after] step=884, p05=-0.0049, p95=0.0516, value=1.000
+[Q dist] min=0.0451, max=0.2058, std=0.0380
+[Scale before] step=884, p05=-0.0049, p95=0.0516
+[Scale  after] step=885, p05=0.0649, p95=0.1810, value=1.000
+[Q dist] min=0.2654, max=0.4515, std=0.0273
+[Scale before] step=885, p05=0.0649, p95=0.1810
+[Scale  after] step=886, p05=0.3034, p95=0.3901, value=1.000
+[Q dist] min=0.0419, max=0.2256, std=0.0402
+[Scale before] step=886, p05=0.3034, p95=0.3901
+[Scale  after] step=887, p05=0.0684, p95=0.1876, value=1.000
+[Q dist] min=0.1326, max=0.3286, std=0.0326
+[Scale before] step=887, p05=0.0684, p95=0.1876
+[Scale  after] step=888, p05=0.1754, p95=0.2805, value=1.000
+[Q dist] min=0.2632, max=0.4386, std=0.0291
+[Scale before] step=888, p05=0.1754, p95=0.2805
+[Scale  after] step=889, p05=0.2886, p95=0.3876, value=1.000
+[Q dist] min=0.0075, max=0.2258, std=0.0613
+[Scale before] step=889, p05=0.2886, p95=0.3876
+[Scale  after] step=890, p05=0.0484, p95=0.2115, value=1.000
+[Q dist] min=-0.0516, max=0.0823, std=0.0193
+[Scale before] step=890, p05=0.0484, p95=0.2115
+[Scale  after] step=891, p05=-0.0060, p95=0.0531, value=1.000
+[Q dist] min=0.2639, max=0.4547, std=0.0267
+[Scale before] step=891, p05=-0.0060, p95=0.0531
+[Scale  after] step=892, p05=0.2945, p95=0.3771, value=1.000
+[Q dist] min=0.2542, max=0.4460, std=0.0308
+[Scale before] step=892, p05=0.2945, p95=0.3771
+[Scale  after] step=893, p05=0.2915, p95=0.3894, value=1.000
+[Q dist] min=0.0229, max=0.2365, std=0.0621
+[Scale before] step=893, p05=0.2915, p95=0.3894
+[Scale  after] step=894, p05=0.0451, p95=0.2113, value=1.000
+[Q dist] min=0.0278, max=0.2135, std=0.0393
+[Scale before] step=894, p05=0.0451, p95=0.2113
+[Scale  after] step=895, p05=0.0680, p95=0.1852, value=1.000
+[Q dist] min=-0.0880, max=0.1304, std=0.0461
+[Scale before] step=895, p05=0.0680, p95=0.1852
+[Scale  after] step=896, p05=-0.0506, p95=0.0860, value=1.000
+[Q dist] min=0.2115, max=0.4450, std=0.0451
+[Scale before] step=896, p05=-0.0506, p95=0.0860
+[Scale  after] step=897, p05=0.2676, p95=0.4097, value=1.000
+[Q dist] min=-0.0068, max=0.2207, std=0.0403
+[Scale before] step=897, p05=0.2676, p95=0.4097
+[Scale  after] step=898, p05=0.0693, p95=0.1836, value=1.000
+[Q dist] min=0.0164, max=0.2249, std=0.0404
+[Scale before] step=898, p05=0.0693, p95=0.1836
+[Scale  after] step=899, p05=0.0662, p95=0.1886, value=1.000
+[Q dist] min=-0.0996, max=0.1377, std=0.0486
+[Scale before] step=899, p05=0.0662, p95=0.1886
+[Scale  after] step=900, p05=-0.0471, p95=0.0883, value=1.000
+[Q dist] min=-0.0231, max=0.0859, std=0.0184
+[Scale before] step=900, p05=-0.0471, p95=0.0883
+[Scale  after] step=901, p05=-0.0046, p95=0.0533, value=1.000
+[Q dist] min=0.1764, max=0.4453, std=0.0435
+[Scale before] step=901, p05=-0.0046, p95=0.0533
+[Scale  after] step=902, p05=0.2644, p95=0.4045, value=1.000
+[Q dist] min=-0.0797, max=0.1345, std=0.0494
+[Scale before] step=902, p05=0.2644, p95=0.4045
+[Scale  after] step=903, p05=-0.0520, p95=0.0906, value=1.000
+[Q dist] min=0.1335, max=0.3307, std=0.0321
+[Scale before] step=903, p05=-0.0520, p95=0.0906
+[Scale  after] step=904, p05=0.1737, p95=0.2782, value=1.000
+[Q dist] min=-0.0821, max=0.1239, std=0.0475
+[Scale before] step=904, p05=0.1737, p95=0.2782
+[Scale  after] step=905, p05=-0.0488, p95=0.0852, value=1.000
+[Q dist] min=0.2185, max=0.4515, std=0.0482
+[Scale before] step=905, p05=-0.0488, p95=0.0852
+[Scale  after] step=906, p05=0.2585, p95=0.4070, value=1.000
+[Q dist] min=-0.0442, max=0.0811, std=0.0200
+[Scale before] step=906, p05=0.2585, p95=0.4070
+[Scale  after] step=907, p05=-0.0064, p95=0.0582, value=1.000
+[Q dist] min=-0.0921, max=0.1219, std=0.0503
+[Scale before] step=907, p05=-0.0064, p95=0.0582
+[Scale  after] step=908, p05=-0.0469, p95=0.0916, value=1.000
+[Q dist] min=0.2135, max=0.4705, std=0.0433
+[Scale before] step=908, p05=-0.0469, p95=0.0916
+[Scale  after] step=909, p05=0.2799, p95=0.4080, value=1.000
+[Q dist] min=0.0174, max=0.2504, std=0.0611
+[Scale before] step=909, p05=0.2799, p95=0.4080
+[Scale  after] step=910, p05=0.0484, p95=0.2144, value=1.000
+[Q dist] min=0.2266, max=0.4867, std=0.0484
+[Scale before] step=910, p05=0.0484, p95=0.2144
+[Scale  after] step=911, p05=0.2682, p95=0.4135, value=1.000
+[Q dist] min=0.1433, max=0.3179, std=0.0318
+[Scale before] step=911, p05=0.2682, p95=0.4135
+[Scale  after] step=912, p05=0.1789, p95=0.2783, value=1.000
+[Q dist] min=0.0377, max=0.2453, std=0.0300
+[Scale before] step=912, p05=0.1789, p95=0.2783
+[Scale  after] step=913, p05=0.0971, p95=0.1957, value=1.000
+[Q dist] min=-0.0642, max=0.1396, std=0.0209
+[Scale before] step=913, p05=0.0971, p95=0.1957
+[Scale  after] step=914, p05=-0.0067, p95=0.0576, value=1.000
+[Q dist] min=0.0481, max=0.2400, std=0.0262
+[Scale before] step=914, p05=-0.0067, p95=0.0576
+[Scale  after] step=915, p05=0.1005, p95=0.1810, value=1.000
+[Q dist] min=0.2173, max=0.4567, std=0.0433
+[Scale before] step=915, p05=0.1005, p95=0.1810
+[Scale  after] step=916, p05=0.2666, p95=0.4065, value=1.000
+[Q dist] min=-0.0727, max=0.1202, std=0.0498
+[Scale before] step=916, p05=0.2666, p95=0.4065
+[Scale  after] step=917, p05=-0.0545, p95=0.0934, value=1.000
+[Q dist] min=-0.0801, max=0.1029, std=0.0329
+[Scale before] step=917, p05=-0.0545, p95=0.0934
+[Scale  after] step=918, p05=-0.0320, p95=0.0707, value=1.000
+[Q dist] min=0.2571, max=0.4234, std=0.0288
+[Scale before] step=918, p05=-0.0320, p95=0.0707
+[Scale  after] step=919, p05=0.2965, p95=0.3862, value=1.000
+[Q dist] min=0.0227, max=0.2398, std=0.0605
+[Scale before] step=919, p05=0.2965, p95=0.3862
+[Scale  after] step=920, p05=0.0503, p95=0.2117, value=1.000
+[Q dist] min=0.0173, max=0.2525, std=0.0622
+[Scale before] step=920, p05=0.0503, p95=0.2117
+[Scale  after] step=921, p05=0.0513, p95=0.2217, value=1.000
+[Q dist] min=0.2322, max=0.4572, std=0.0442
+[Scale before] step=921, p05=0.0513, p95=0.2217
+[Scale  after] step=922, p05=0.2631, p95=0.4029, value=1.000
+[Q dist] min=0.0249, max=0.2323, std=0.0293
+[Scale before] step=922, p05=0.2631, p95=0.4029
+[Scale  after] step=923, p05=0.0914, p95=0.1807, value=1.000
+[Q dist] min=0.0187, max=0.2526, std=0.0604
+[Scale before] step=923, p05=0.0914, p95=0.1807
+[Scale  after] step=924, p05=0.0505, p95=0.2124, value=1.000
+[Q dist] min=-0.0341, max=0.0924, std=0.0194
+[Scale before] step=924, p05=0.0505, p95=0.2124
+[Scale  after] step=925, p05=-0.0067, p95=0.0544, value=1.000
+[Q dist] min=0.2144, max=0.4700, std=0.0452
+[Scale before] step=925, p05=-0.0067, p95=0.0544
+[Scale  after] step=926, p05=0.2590, p95=0.4092, value=1.000
+[Q dist] min=0.1908, max=0.4749, std=0.0507
+[Scale before] step=926, p05=0.2590, p95=0.4092
+[Scale  after] step=927, p05=0.2531, p95=0.4098, value=1.000
+[Q dist] min=0.2054, max=0.4348, std=0.0453
+[Scale before] step=927, p05=0.2531, p95=0.4098
+[Scale  after] step=928, p05=0.2619, p95=0.4028, value=1.000
+[Q dist] min=0.1207, max=0.3042, std=0.0339
+[Scale before] step=928, p05=0.2619, p95=0.4028
+[Scale  after] step=929, p05=0.1730, p95=0.2763, value=1.000
+[Q dist] min=0.0165, max=0.2220, std=0.0388
+[Scale before] step=929, p05=0.1730, p95=0.2763
+[Scale  after] step=930, p05=0.0666, p95=0.1865, value=1.000
+[Q dist] min=0.1359, max=0.3416, std=0.0321
+[Scale before] step=930, p05=0.0666, p95=0.1865
+[Scale  after] step=931, p05=0.1819, p95=0.2858, value=1.000
+[Q dist] min=0.2305, max=0.4906, std=0.0472
+[Scale before] step=931, p05=0.1819, p95=0.2858
+[Scale  after] step=932, p05=0.2620, p95=0.4177, value=1.000
+[Q dist] min=0.2027, max=0.4545, std=0.0474
+[Scale before] step=932, p05=0.2620, p95=0.4177
+[Scale  after] step=933, p05=0.2622, p95=0.4076, value=1.000
+[Q dist] min=0.0227, max=0.2468, std=0.0601
+[Scale before] step=933, p05=0.2622, p95=0.4076
+[Scale  after] step=934, p05=0.0553, p95=0.2170, value=1.000
+[Q dist] min=-0.0332, max=0.0811, std=0.0179
+[Scale before] step=934, p05=0.0553, p95=0.2170
+[Scale  after] step=935, p05=-0.0043, p95=0.0550, value=1.000
+[Q dist] min=0.0423, max=0.2297, std=0.0392
+[Scale before] step=935, p05=-0.0043, p95=0.0550
+[Scale  after] step=936, p05=0.0692, p95=0.1862, value=1.000
+[Q dist] min=-0.0674, max=0.1002, std=0.0296
+[Scale before] step=936, p05=0.0692, p95=0.1862
+[Scale  after] step=937, p05=-0.0251, p95=0.0665, value=1.000
+[Q dist] min=-0.0098, max=0.2379, std=0.0359
+[Scale before] step=937, p05=-0.0251, p95=0.0665
+[Scale  after] step=938, p05=0.0737, p95=0.1872, value=1.000
+[Q dist] min=-0.1103, max=0.1553, std=0.0486
+[Scale before] step=938, p05=0.0737, p95=0.1872
+[Scale  after] step=939, p05=-0.0434, p95=0.0841, value=1.000
+[Q dist] min=0.0149, max=0.2479, std=0.0392
+[Scale before] step=939, p05=-0.0434, p95=0.0841
+[Scale  after] step=940, p05=0.0660, p95=0.1855, value=1.000
+[Q dist] min=-0.0085, max=0.2577, std=0.0612
+[Scale before] step=940, p05=0.0660, p95=0.1855
+[Scale  after] step=941, p05=0.0494, p95=0.2128, value=1.000
+[Q dist] min=-0.0742, max=0.1131, std=0.0343
+[Scale before] step=941, p05=0.0494, p95=0.2128
+[Scale  after] step=942, p05=-0.0353, p95=0.0723, value=1.000
+[Q dist] min=0.1900, max=0.4733, std=0.0480
+[Scale before] step=942, p05=-0.0353, p95=0.0723
+[Scale  after] step=943, p05=0.2603, p95=0.4056, value=1.000
+[Q dist] min=0.1421, max=0.3248, std=0.0329
+[Scale before] step=943, p05=0.2603, p95=0.4056
+[Scale  after] step=944, p05=0.1739, p95=0.2773, value=1.000
+[Q dist] min=-0.0716, max=0.1146, std=0.0371
+[Scale before] step=944, p05=0.1739, p95=0.2773
+[Scale  after] step=945, p05=-0.0407, p95=0.0749, value=1.000
+[Q dist] min=0.0845, max=0.3328, std=0.0356
+[Scale before] step=945, p05=-0.0407, p95=0.0749
+[Scale  after] step=946, p05=0.1683, p95=0.2820, value=1.000
+[Q dist] min=-0.0630, max=0.1363, std=0.0351
+[Scale before] step=946, p05=0.1683, p95=0.2820
+[Scale  after] step=947, p05=-0.0311, p95=0.0770, value=1.000
+[Q dist] min=-0.0726, max=0.1141, std=0.0342
+[Scale before] step=947, p05=-0.0311, p95=0.0770
+[Scale  after] step=948, p05=-0.0371, p95=0.0725, value=1.000
+[Q dist] min=0.1770, max=0.4529, std=0.0505
+[Scale before] step=948, p05=-0.0371, p95=0.0725
+[Scale  after] step=949, p05=0.2571, p95=0.4169, value=1.000
+[Q dist] min=0.2123, max=0.4594, std=0.0534
+[Scale before] step=949, p05=0.2571, p95=0.4169
+[Scale  after] step=950, p05=0.2610, p95=0.4334, value=1.000
+[Q dist] min=-0.0046, max=0.2561, std=0.0618
+[Scale before] step=950, p05=0.2610, p95=0.4334
+[Scale  after] step=951, p05=0.0396, p95=0.2173, value=1.000
+[Q dist] min=0.1567, max=0.4481, std=0.0662
+[Scale before] step=951, p05=0.0396, p95=0.2173
+[Scale  after] step=952, p05=0.1821, p95=0.3968, value=1.000
+[Q dist] min=-0.0945, max=0.3367, std=0.0986
+[Scale before] step=952, p05=0.1821, p95=0.3968
+[Scale  after] step=953, p05=-0.0456, p95=0.2995, value=1.000
+[Q dist] min=-0.1109, max=0.2398, std=0.0756
+[Scale before] step=953, p05=-0.0456, p95=0.2995
+[Scale  after] step=954, p05=-0.0480, p95=0.1864, value=1.000
+[Q dist] min=-0.0905, max=0.2356, std=0.0756
+[Scale before] step=954, p05=-0.0480, p95=0.1864
+[Scale  after] step=955, p05=-0.0531, p95=0.1721, value=1.000
+[Q dist] min=-0.0227, max=0.2714, std=0.0676
+[Scale before] step=955, p05=-0.0531, p95=0.1721
+[Scale  after] step=956, p05=0.0357, p95=0.2258, value=1.000
+[Q dist] min=0.0606, max=0.3626, std=0.0486
+[Scale before] step=956, p05=0.0357, p95=0.2258
+[Scale  after] step=957, p05=0.1187, p95=0.2724, value=1.000
+[Q dist] min=-0.1355, max=0.0867, std=0.0512
+[Scale before] step=957, p05=0.1187, p95=0.2724
+[Scale  after] step=958, p05=-0.0974, p95=0.0527, value=1.000
+[Q dist] min=0.0553, max=0.4296, std=0.0971
+[Scale before] step=958, p05=-0.0974, p95=0.0527
+[Scale  after] step=959, p05=0.0744, p95=0.3942, value=1.000
+[Q dist] min=0.0474, max=0.4353, std=0.0944
+[Scale before] step=959, p05=0.0744, p95=0.3942
+[Scale  after] step=960, p05=0.0801, p95=0.3888, value=1.000
+[Q dist] min=0.2189, max=0.4664, std=0.0581
+[Scale before] step=960, p05=0.0801, p95=0.3888
+[Scale  after] step=961, p05=0.2478, p95=0.4309, value=1.000
+[Q dist] min=-0.0359, max=0.2486, std=0.0696
+[Scale before] step=961, p05=0.2478, p95=0.4309
+[Scale  after] step=962, p05=0.0264, p95=0.2236, value=1.000
+[Q dist] min=0.1297, max=0.4520, std=0.0754
+[Scale before] step=962, p05=0.0264, p95=0.2236
+[Scale  after] step=963, p05=0.1646, p95=0.4019, value=1.000
+[Q dist] min=0.1261, max=0.4695, std=0.0783
+[Scale before] step=963, p05=0.1646, p95=0.4019
+[Scale  after] step=964, p05=0.1629, p95=0.4029, value=1.000
+[Q dist] min=-0.1240, max=0.2051, std=0.0771
+[Scale before] step=964, p05=0.1629, p95=0.4029
+[Scale  after] step=965, p05=-0.0609, p95=0.1697, value=1.000
+[Q dist] min=-0.0097, max=0.2709, std=0.0683
+[Scale before] step=965, p05=-0.0609, p95=0.1697
+[Scale  after] step=966, p05=0.0311, p95=0.2288, value=1.000
+[Q dist] min=0.0379, max=0.4567, std=0.0947
+[Scale before] step=966, p05=0.0311, p95=0.2288
+[Scale  after] step=967, p05=0.0678, p95=0.3865, value=1.000
+[Q dist] min=-0.0325, max=0.2853, std=0.0696
+[Scale before] step=967, p05=0.0678, p95=0.3865
+[Scale  after] step=968, p05=0.0318, p95=0.2268, value=1.000
+[Q dist] min=0.2069, max=0.4856, std=0.0590
+[Scale before] step=968, p05=0.0318, p95=0.2268
+[Scale  after] step=969, p05=0.2451, p95=0.4327, value=1.000
+[Q dist] min=0.2121, max=0.5133, std=0.0596
+[Scale before] step=969, p05=0.2451, p95=0.4327
+[Scale  after] step=970, p05=0.2538, p95=0.4334, value=1.000
+[Q dist] min=-0.0966, max=0.2336, std=0.0730
+[Scale before] step=970, p05=0.2538, p95=0.4334
+[Scale  after] step=971, p05=-0.0455, p95=0.1738, value=1.000
+[Q dist] min=-0.0648, max=0.1505, std=0.0379
+[Scale before] step=971, p05=-0.0455, p95=0.1738
+[Scale  after] step=972, p05=-0.0313, p95=0.0918, value=1.000
+[Q dist] min=-0.0450, max=0.1288, std=0.0380
+[Scale before] step=972, p05=-0.0313, p95=0.0918
+[Scale  after] step=973, p05=-0.0315, p95=0.0910, value=1.000
+[Q dist] min=-0.0224, max=0.2739, std=0.0664
+[Scale before] step=973, p05=-0.0315, p95=0.0910
+[Scale  after] step=974, p05=0.0400, p95=0.2217, value=1.000
+[Q dist] min=-0.0816, max=0.2319, std=0.0655
+[Scale before] step=974, p05=0.0400, p95=0.2217
+[Scale  after] step=975, p05=-0.0382, p95=0.1702, value=1.000
+[Q dist] min=-0.0938, max=0.2293, std=0.0715
+[Scale before] step=975, p05=-0.0382, p95=0.1702
+[Scale  after] step=976, p05=-0.0529, p95=0.1817, value=1.000
+[Q dist] min=0.0097, max=0.4456, std=0.1031
+[Scale before] step=976, p05=-0.0529, p95=0.1817
+[Scale  after] step=977, p05=0.0470, p95=0.3969, value=1.000
+[Q dist] min=0.0886, max=0.3021, std=0.0391
+[Scale before] step=977, p05=0.0470, p95=0.3969
+[Scale  after] step=978, p05=0.1458, p95=0.2784, value=1.000
+[Q dist] min=-0.0857, max=0.0806, std=0.0236
+[Scale before] step=978, p05=0.1458, p95=0.2784
+[Scale  after] step=979, p05=-0.0172, p95=0.0549, value=1.000
+[Q dist] min=-0.0512, max=0.2523, std=0.0417
+[Scale before] step=979, p05=-0.0172, p95=0.0549
+[Scale  after] step=980, p05=0.0659, p95=0.1872, value=1.000
+[Q dist] min=-0.0556, max=0.0705, std=0.0191
+[Scale before] step=980, p05=0.0659, p95=0.1872
+[Scale  after] step=981, p05=-0.0059, p95=0.0553, value=1.000
+[Q dist] min=0.1149, max=0.3258, std=0.0340
+[Scale before] step=981, p05=-0.0059, p95=0.0553
+[Scale  after] step=982, p05=0.1739, p95=0.2806, value=1.000
+[Q dist] min=0.2264, max=0.7053, std=0.0499
+[Scale before] step=982, p05=0.1739, p95=0.2806
+[Scale  after] step=983, p05=0.2710, p95=0.4109, value=1.000
+[Q dist] min=-0.0554, max=0.1245, std=0.0333
+[Scale before] step=983, p05=0.2710, p95=0.4109
+[Scale  after] step=984, p05=-0.0264, p95=0.0748, value=1.000
+[Q dist] min=0.1148, max=0.4949, std=0.0414
+[Scale before] step=984, p05=-0.0264, p95=0.0748
+[Scale  after] step=985, p05=0.1734, p95=0.2968, value=1.000
+[Q dist] min=0.2154, max=0.5002, std=0.0500
+[Scale before] step=985, p05=0.1734, p95=0.2968
+[Scale  after] step=986, p05=0.2574, p95=0.4067, value=1.000
+[Q dist] min=-0.2441, max=0.0878, std=0.0407
+[Scale before] step=986, p05=0.2574, p95=0.4067
+[Scale  after] step=987, p05=-0.0391, p95=0.0485, value=1.000
+[Q dist] min=-0.2206, max=0.0729, std=0.0433
+[Scale before] step=987, p05=-0.0391, p95=0.0485
+[Scale  after] step=988, p05=-0.0548, p95=0.0518, value=1.000
+[Q dist] min=-0.0597, max=0.1119, std=0.0327
+[Scale before] step=988, p05=-0.0548, p95=0.0518
+[Scale  after] step=989, p05=-0.0278, p95=0.0736, value=1.000
+[Q dist] min=0.2460, max=0.7573, std=0.0788
+[Scale before] step=989, p05=-0.0278, p95=0.0736
+[Scale  after] step=990, p05=0.2699, p95=0.4585, value=1.000
+[Q dist] min=0.1882, max=0.5197, std=0.0517
+[Scale before] step=990, p05=0.2699, p95=0.4585
+[Scale  after] step=991, p05=0.2647, p95=0.4159, value=1.000
+[Q dist] min=-0.2294, max=0.0880, std=0.0536
+[Scale before] step=991, p05=0.2647, p95=0.4159
+[Scale  after] step=992, p05=-0.1415, p95=0.0567, value=1.000
+[Q dist] min=0.2267, max=0.7696, std=0.0817
+[Scale before] step=992, p05=-0.1415, p95=0.0567
+[Scale  after] step=993, p05=0.2631, p95=0.4479, value=1.000
+[Q dist] min=0.2190, max=0.5517, std=0.0576
+[Scale before] step=993, p05=0.2631, p95=0.4479
+[Scale  after] step=994, p05=0.2629, p95=0.4344, value=1.000
+[Q dist] min=-0.0814, max=0.2287, std=0.0542
+[Scale before] step=994, p05=0.2629, p95=0.4344
+[Scale  after] step=995, p05=-0.0248, p95=0.1917, value=1.000
+[Q dist] min=-0.0919, max=0.1217, std=0.0328
+[Scale before] step=995, p05=-0.0248, p95=0.1917
+[Scale  after] step=996, p05=-0.0256, p95=0.0730, value=1.000
+[Q dist] min=-0.2733, max=0.2352, std=0.0991
+[Scale before] step=996, p05=-0.0256, p95=0.0730
+[Scale  after] step=997, p05=-0.1109, p95=0.2090, value=1.000
+[Q dist] min=0.1414, max=0.6490, std=0.0672
+[Scale before] step=997, p05=-0.1109, p95=0.2090
+[Scale  after] step=998, p05=0.1818, p95=0.3370, value=1.000
+[Q dist] min=-0.0468, max=0.2317, std=0.0488
+[Scale before] step=998, p05=0.1818, p95=0.3370
+[Scale  after] step=999, p05=0.0461, p95=0.1799, value=1.000
+[Q dist] min=0.2281, max=0.5556, std=0.0611
+[Scale before] step=999, p05=0.0461, p95=0.1799
+[Scale  after] step=1000, p05=0.2500, p95=0.4358, value=1.000
+[Q dist] min=0.1440, max=0.5766, std=0.0744
+[Scale before] step=1000, p05=0.2500, p95=0.4358
+[Scale  after] step=1001, p05=0.1789, p95=0.4473, value=1.000
+[Q dist] min=0.2271, max=0.6003, std=0.0557
+[Scale before] step=1001, p05=0.1789, p95=0.4473
+[Scale  after] step=1002, p05=0.2605, p95=0.4155, value=1.000
+[Q dist] min=0.2102, max=0.5893, std=0.0595
+[Scale before] step=1002, p05=0.2605, p95=0.4155
+[Scale  after] step=1003, p05=0.2577, p95=0.4328, value=1.000
+[Q dist] min=-0.2494, max=0.0982, std=0.0533
+[Scale before] step=1003, p05=0.2577, p95=0.4328
+[Scale  after] step=1004, p05=-0.0807, p95=0.0515, value=1.000
+[Q dist] min=0.1655, max=0.5438, std=0.0521
+[Scale before] step=1004, p05=-0.0807, p95=0.0515
+[Scale  after] step=1005, p05=0.2720, p95=0.4282, value=1.000
+[Q dist] min=0.2077, max=0.5916, std=0.0604
+[Scale before] step=1005, p05=0.2720, p95=0.4282
+[Scale  after] step=1006, p05=0.2613, p95=0.4332, value=1.000
+[Q dist] min=-0.2669, max=0.0780, std=0.0648
+[Scale before] step=1006, p05=0.2613, p95=0.4332
+[Scale  after] step=1007, p05=-0.2006, p95=0.0500, value=1.000
+[Q dist] min=0.2233, max=0.6421, std=0.0585
+[Scale before] step=1007, p05=-0.2006, p95=0.0500
+[Scale  after] step=1008, p05=0.2560, p95=0.4353, value=1.000
+[Q dist] min=-0.0753, max=0.1368, std=0.0316
+[Scale before] step=1008, p05=0.2560, p95=0.4353
+[Scale  after] step=1009, p05=-0.0238, p95=0.0736, value=1.000
+[Q dist] min=0.1967, max=0.7427, std=0.0944
+[Scale before] step=1009, p05=-0.0238, p95=0.0736
+[Scale  after] step=1010, p05=0.2714, p95=0.6377, value=1.000
+[Q dist] min=-0.0859, max=0.2320, std=0.0668
+[Scale before] step=1010, p05=0.2714, p95=0.6377
+[Scale  after] step=1011, p05=-0.0449, p95=0.1885, value=1.000
+[Q dist] min=-0.2659, max=0.1241, std=0.0703
+[Scale before] step=1011, p05=-0.0449, p95=0.1885
+[Scale  after] step=1012, p05=-0.1606, p95=0.0806, value=1.000
+[Q dist] min=-0.0895, max=0.2542, std=0.0662
+[Scale before] step=1012, p05=-0.1606, p95=0.0806
+[Scale  after] step=1013, p05=-0.0404, p95=0.1914, value=1.000
+[Q dist] min=0.2386, max=0.8400, std=0.0894
+[Scale before] step=1013, p05=-0.0404, p95=0.1914
+[Scale  after] step=1014, p05=0.2724, p95=0.5184, value=1.000
+[Q dist] min=-0.0643, max=0.2105, std=0.0566
+[Scale before] step=1014, p05=0.2724, p95=0.5184
+[Scale  after] step=1015, p05=-0.0159, p95=0.1726, value=1.000
+[Q dist] min=0.2338, max=0.5938, std=0.0601
+[Scale before] step=1015, p05=-0.0159, p95=0.1726
+[Scale  after] step=1016, p05=0.2628, p95=0.4282, value=1.000
+[Q dist] min=0.2257, max=0.5427, std=0.0576
+[Scale before] step=1016, p05=0.2628, p95=0.4282
+[Scale  after] step=1017, p05=0.2674, p95=0.4413, value=1.000
+[Q dist] min=0.2319, max=0.7863, std=0.1173
+[Scale before] step=1017, p05=0.2674, p95=0.4413
+[Scale  after] step=1018, p05=0.2780, p95=0.7126, value=1.000
+[Q dist] min=0.1356, max=0.6499, std=0.0880
+[Scale before] step=1018, p05=0.2780, p95=0.7126
+[Scale  after] step=1019, p05=0.1742, p95=0.5035, value=1.000
+[Q dist] min=-0.2795, max=0.1047, std=0.0784
+[Scale before] step=1019, p05=0.1742, p95=0.5035
+[Scale  after] step=1020, p05=-0.2079, p95=0.0811, value=1.000
+[Q dist] min=-0.2596, max=0.1295, std=0.0820
+[Scale before] step=1020, p05=-0.2079, p95=0.0811
+[Scale  after] step=1021, p05=-0.2111, p95=0.0869, value=1.000
+[Q dist] min=0.2055, max=0.8709, std=0.1213
+[Scale before] step=1021, p05=-0.2111, p95=0.0869
+[Scale  after] step=1022, p05=0.2636, p95=0.6953, value=1.000
+[Q dist] min=-0.2704, max=0.2623, std=0.1245
+[Scale before] step=1022, p05=0.2636, p95=0.6953
+[Scale  after] step=1023, p05=-0.2398, p95=0.2114, value=1.000
+[Q dist] min=-0.2545, max=0.2581, std=0.1152
+[Scale before] step=1023, p05=-0.2398, p95=0.2114
+[Scale  after] step=1024, p05=-0.1628, p95=0.2175, value=1.000
+[Q dist] min=-0.0674, max=0.2334, std=0.0574
+[Scale before] step=1024, p05=-0.1628, p95=0.2175
+[Scale  after] step=1025, p05=-0.0100, p95=0.1878, value=1.000
+[Q dist] min=0.2286, max=0.5644, std=0.0662
+[Scale before] step=1025, p05=-0.0100, p95=0.1878
+[Scale  after] step=1026, p05=0.2609, p95=0.4819, value=1.000
+[Q dist] min=-0.0913, max=0.2167, std=0.0559
+[Scale before] step=1026, p05=0.2609, p95=0.4819
+[Scale  after] step=1027, p05=-0.0212, p95=0.1832, value=1.000
+[Q dist] min=-0.2511, max=0.1360, std=0.0728
+[Scale before] step=1027, p05=-0.0212, p95=0.1832
+[Scale  after] step=1028, p05=-0.1825, p95=0.0902, value=1.000
+[Q dist] min=-0.0550, max=0.1148, std=0.0351
+[Scale before] step=1028, p05=-0.1825, p95=0.0902
+[Scale  after] step=1029, p05=-0.0319, p95=0.0853, value=1.000
+[Q dist] min=-0.0570, max=0.1072, std=0.0333
+[Scale before] step=1029, p05=-0.0319, p95=0.0853
+[Scale  after] step=1030, p05=-0.0309, p95=0.0758, value=1.000
+[Q dist] min=0.2265, max=0.5575, std=0.0597
+[Scale before] step=1030, p05=-0.0309, p95=0.0758
+[Scale  after] step=1031, p05=0.2659, p95=0.4559, value=1.000
+[Q dist] min=0.1254, max=0.5763, std=0.0772
+[Scale before] step=1031, p05=0.2659, p95=0.4559
+[Scale  after] step=1032, p05=0.1773, p95=0.4468, value=1.000
+[Q dist] min=-0.0692, max=0.2446, std=0.0566
+[Scale before] step=1032, p05=0.1773, p95=0.4468
+[Scale  after] step=1033, p05=-0.0117, p95=0.1817, value=1.000
+[Q dist] min=0.1986, max=0.6239, std=0.0604
+[Scale before] step=1033, p05=-0.0117, p95=0.1817
+[Scale  after] step=1034, p05=0.2632, p95=0.4475, value=1.000
+[Q dist] min=0.1890, max=0.5482, std=0.0519
+[Scale before] step=1034, p05=0.2632, p95=0.4475
+[Scale  after] step=1035, p05=0.2694, p95=0.4202, value=1.000
+[Q dist] min=-0.0677, max=0.2386, std=0.0525
+[Scale before] step=1035, p05=0.2694, p95=0.4202
+[Scale  after] step=1036, p05=0.0101, p95=0.1856, value=1.000
+[Q dist] min=0.2066, max=0.5779, std=0.0544
+[Scale before] step=1036, p05=0.0101, p95=0.1856
+[Scale  after] step=1037, p05=0.2711, p95=0.4661, value=1.000
+[Q dist] min=-0.2738, max=0.2456, std=0.1260
+[Scale before] step=1037, p05=0.2711, p95=0.4661
+[Scale  after] step=1038, p05=-0.2332, p95=0.2125, value=1.000
+[Q dist] min=-0.0572, max=0.1179, std=0.0336
+[Scale before] step=1038, p05=-0.2332, p95=0.2125
+[Scale  after] step=1039, p05=-0.0289, p95=0.0773, value=1.000
+[Q dist] min=0.1905, max=0.6551, std=0.0517
+[Scale before] step=1039, p05=-0.0289, p95=0.0773
+[Scale  after] step=1040, p05=0.2890, p95=0.4279, value=1.000
+[Q dist] min=0.2189, max=0.5851, std=0.0629
+[Scale before] step=1040, p05=0.2890, p95=0.4279
+[Scale  after] step=1041, p05=0.2649, p95=0.4719, value=1.000
+[Q dist] min=-0.0722, max=0.2391, std=0.0625
+[Scale before] step=1041, p05=0.2649, p95=0.4719
+[Scale  after] step=1042, p05=-0.0340, p95=0.1808, value=1.000
+[Q dist] min=0.1227, max=0.5824, std=0.0917
+[Scale before] step=1042, p05=-0.0340, p95=0.1808
+[Scale  after] step=1043, p05=0.1747, p95=0.4995, value=1.000
+[Q dist] min=0.1247, max=0.6618, std=0.0906
+[Scale before] step=1043, p05=0.1747, p95=0.4995
+[Scale  after] step=1044, p05=0.1798, p95=0.4914, value=1.000
+[Q dist] min=-0.0744, max=0.2316, std=0.0601
+[Scale before] step=1044, p05=0.1798, p95=0.4914
+[Scale  after] step=1045, p05=-0.0395, p95=0.1907, value=1.000
+[Q dist] min=-0.0740, max=0.2274, std=0.0597
+[Scale before] step=1045, p05=-0.0395, p95=0.1907
+[Scale  after] step=1046, p05=-0.0374, p95=0.1757, value=1.000
+[Q dist] min=-0.2747, max=0.0828, std=0.0692
+[Scale before] step=1046, p05=-0.0374, p95=0.1757
+[Scale  after] step=1047, p05=-0.2023, p95=0.0515, value=1.000
+[Q dist] min=-0.0622, max=0.2163, std=0.0558
+[Scale before] step=1047, p05=-0.2023, p95=0.0515
+[Scale  after] step=1048, p05=-0.0140, p95=0.1875, value=1.000
+[Q dist] min=-0.0771, max=0.1162, std=0.0363
+[Scale before] step=1048, p05=-0.0140, p95=0.1875
+[Scale  after] step=1049, p05=-0.0332, p95=0.0735, value=1.000
+[Q dist] min=-0.2732, max=0.2446, std=0.1256
+[Scale before] step=1049, p05=-0.0332, p95=0.0735
+[Scale  after] step=1050, p05=-0.2319, p95=0.2116, value=1.000
+[Q dist] min=0.1152, max=0.6829, std=0.0971
+[Scale before] step=1050, p05=-0.2319, p95=0.2116
+[Scale  after] step=1051, p05=0.1755, p95=0.5220, value=1.000
+[Q dist] min=-0.0690, max=0.2269, std=0.0613
+[Scale before] step=1051, p05=0.1755, p95=0.5220
+[Scale  after] step=1052, p05=-0.0362, p95=0.1972, value=1.000
+[Q dist] min=-0.2776, max=0.1096, std=0.0775
+[Scale before] step=1052, p05=-0.0362, p95=0.1972
+[Scale  after] step=1053, p05=-0.2131, p95=0.0530, value=1.000
+[Q dist] min=-0.2512, max=0.1241, std=0.0731
+[Scale before] step=1053, p05=-0.2131, p95=0.0530
+[Scale  after] step=1054, p05=-0.1757, p95=0.0915, value=1.000
+[Q dist] min=-0.0585, max=0.1277, std=0.0333
+[Scale before] step=1054, p05=-0.1757, p95=0.0915
+[Scale  after] step=1055, p05=-0.0271, p95=0.0794, value=1.000
+[Q dist] min=0.2139, max=0.6265, std=0.0551
+[Scale before] step=1055, p05=-0.0271, p95=0.0794
+[Scale  after] step=1056, p05=0.2532, p95=0.4634, value=1.000
+[Q dist] min=0.2090, max=0.8139, std=0.1298
+[Scale before] step=1056, p05=0.2532, p95=0.4634
+[Scale  after] step=1057, p05=0.2709, p95=0.7289, value=1.000
+[Q dist] min=0.2140, max=0.6048, std=0.0681
+[Scale before] step=1057, p05=0.2709, p95=0.7289
+[Scale  after] step=1058, p05=0.2653, p95=0.4981, value=1.000
+[Q dist] min=0.2235, max=0.8076, std=0.1191
+[Scale before] step=1058, p05=0.2653, p95=0.4981
+[Scale  after] step=1059, p05=0.2672, p95=0.7065, value=1.000
+[Q dist] min=-0.2526, max=0.0803, std=0.0652
+[Scale before] step=1059, p05=0.2672, p95=0.7065
+[Scale  after] step=1060, p05=-0.1834, p95=0.0517, value=1.000
+[Q dist] min=0.1794, max=0.5499, std=0.0534
+[Scale before] step=1060, p05=-0.1834, p95=0.0517
+[Scale  after] step=1061, p05=0.2626, p95=0.4470, value=1.000
+[Q dist] min=-0.0646, max=0.1279, std=0.0336
+[Scale before] step=1061, p05=0.2626, p95=0.4470
+[Scale  after] step=1062, p05=-0.0257, p95=0.0781, value=1.000
+[Q dist] min=0.1410, max=0.6713, std=0.0980
+[Scale before] step=1062, p05=-0.0257, p95=0.0781
+[Scale  after] step=1063, p05=0.1757, p95=0.5045, value=1.000
+[Q dist] min=-0.0583, max=0.2191, std=0.0613
+[Scale before] step=1063, p05=0.1757, p95=0.5045
+[Scale  after] step=1064, p05=-0.0360, p95=0.1826, value=1.000
+[Q dist] min=0.2266, max=0.5756, std=0.0667
+[Scale before] step=1064, p05=-0.0360, p95=0.1826
+[Scale  after] step=1065, p05=0.2658, p95=0.4802, value=1.000
+[Q dist] min=-0.0811, max=0.2181, std=0.0616
+[Scale before] step=1065, p05=0.2658, p95=0.4802
+[Scale  after] step=1066, p05=-0.0256, p95=0.1797, value=1.000
+[Q dist] min=-0.0984, max=0.2287, std=0.0720
+[Scale before] step=1066, p05=-0.0256, p95=0.1797
+[Scale  after] step=1067, p05=-0.0440, p95=0.1919, value=1.000
+[Q dist] min=0.1478, max=0.6659, std=0.1023
+[Scale before] step=1067, p05=-0.0440, p95=0.1919
+[Scale  after] step=1068, p05=0.1812, p95=0.5278, value=1.000
+[Q dist] min=0.2299, max=0.7820, std=0.0869
+[Scale before] step=1068, p05=0.1812, p95=0.5278
+[Scale  after] step=1069, p05=0.2666, p95=0.4705, value=1.000
+[Q dist] min=-0.0836, max=0.2414, std=0.0716
+[Scale before] step=1069, p05=0.2666, p95=0.4705
+[Scale  after] step=1070, p05=-0.0455, p95=0.1802, value=1.000
+[Q dist] min=-0.2758, max=0.0838, std=0.0731
+[Scale before] step=1070, p05=-0.0455, p95=0.1802
+[Scale  after] step=1071, p05=-0.2191, p95=0.0477, value=1.000
+[Q dist] min=-0.2417, max=0.1082, std=0.0874
+[Scale before] step=1071, p05=-0.2191, p95=0.0477
+[Scale  after] step=1072, p05=-0.2131, p95=0.0873, value=1.000
+[Q dist] min=-0.2451, max=0.0940, std=0.0720
+[Scale before] step=1072, p05=-0.2131, p95=0.0873
+[Scale  after] step=1073, p05=-0.2041, p95=0.0548, value=1.000
+[Q dist] min=0.1738, max=0.5369, std=0.0622
+[Scale before] step=1073, p05=-0.2041, p95=0.0548
+[Scale  after] step=1074, p05=0.2405, p95=0.4938, value=1.000
+[Q dist] min=-0.0719, max=0.2204, std=0.0641
+[Scale before] step=1074, p05=0.2405, p95=0.4938
+[Scale  after] step=1075, p05=-0.0339, p95=0.1905, value=1.000
+[Q dist] min=0.1344, max=0.6213, std=0.1058
+[Scale before] step=1075, p05=-0.0339, p95=0.1905
+[Scale  after] step=1076, p05=0.1828, p95=0.5315, value=1.000
+[Q dist] min=-0.0619, max=0.2237, std=0.0653
+[Scale before] step=1076, p05=0.1828, p95=0.5315
+[Scale  after] step=1077, p05=-0.0466, p95=0.1793, value=1.000
+[Q dist] min=-0.2656, max=0.1134, std=0.0787
+[Scale before] step=1077, p05=-0.0466, p95=0.1793
+[Scale  after] step=1078, p05=-0.2028, p95=0.0903, value=1.000
+[Q dist] min=0.1332, max=0.5972, std=0.0971
+[Scale before] step=1078, p05=-0.2028, p95=0.0903
+[Scale  after] step=1079, p05=0.1798, p95=0.5183, value=1.000
+[Q dist] min=0.1628, max=0.5985, std=0.0947
+[Scale before] step=1079, p05=0.1798, p95=0.5183
+[Scale  after] step=1080, p05=0.1779, p95=0.5097, value=1.000
+[Q dist] min=-0.0696, max=0.1052, std=0.0318
+[Scale before] step=1080, p05=0.1779, p95=0.5097
+[Scale  after] step=1081, p05=-0.0244, p95=0.0740, value=1.000
+[Q dist] min=-0.0627, max=0.1226, std=0.0336
+[Scale before] step=1081, p05=-0.0244, p95=0.0740
+[Scale  after] step=1082, p05=-0.0277, p95=0.0741, value=1.000
+[Q dist] min=0.1236, max=0.6552, std=0.0895
+[Scale before] step=1082, p05=-0.0277, p95=0.0741
+[Scale  after] step=1083, p05=0.1803, p95=0.5011, value=1.000
+[Q dist] min=-0.0819, max=0.2218, std=0.0697
+[Scale before] step=1083, p05=0.1803, p95=0.5011
+[Scale  after] step=1084, p05=-0.0426, p95=0.1842, value=1.000
+[Q dist] min=0.2172, max=0.7755, std=0.1079
+[Scale before] step=1084, p05=-0.0426, p95=0.1842
+[Scale  after] step=1085, p05=0.2632, p95=0.6741, value=1.000
+[Q dist] min=-0.0817, max=0.1216, std=0.0341
+[Scale before] step=1085, p05=0.2632, p95=0.6741
+[Scale  after] step=1086, p05=-0.0304, p95=0.0730, value=1.000
+[Q dist] min=0.2318, max=0.8061, std=0.1230
+[Scale before] step=1086, p05=-0.0304, p95=0.0730
+[Scale  after] step=1087, p05=0.2770, p95=0.7206, value=1.000
+[Q dist] min=-0.2998, max=0.2533, std=0.1209
+[Scale before] step=1087, p05=0.2770, p95=0.7206
+[Scale  after] step=1088, p05=-0.2315, p95=0.2139, value=1.000
+[Q dist] min=0.2130, max=0.5827, std=0.0703
+[Scale before] step=1088, p05=-0.2315, p95=0.2139
+[Scale  after] step=1089, p05=0.2694, p95=0.5125, value=1.000
+[Q dist] min=0.1506, max=0.6851, std=0.1031
+[Scale before] step=1089, p05=0.2694, p95=0.5125
+[Scale  after] step=1090, p05=0.1813, p95=0.5516, value=1.000
+[Q dist] min=0.1595, max=0.6004, std=0.0994
+[Scale before] step=1090, p05=0.1813, p95=0.5516
+[Scale  after] step=1091, p05=0.1863, p95=0.5390, value=1.000
+[Q dist] min=-0.2576, max=0.1230, std=0.0878
+[Scale before] step=1091, p05=0.1863, p95=0.5390
+[Scale  after] step=1092, p05=-0.2139, p95=0.0885, value=1.000
+[Q dist] min=-0.2943, max=0.2505, std=0.1435
+[Scale before] step=1092, p05=-0.2139, p95=0.0885
+[Scale  after] step=1093, p05=-0.2457, p95=0.2119, value=1.000
+[Q dist] min=-0.0881, max=0.2209, std=0.0732
+[Scale before] step=1093, p05=-0.2457, p95=0.2119
+[Scale  after] step=1094, p05=-0.0442, p95=0.1880, value=1.000
+[Q dist] min=-0.0634, max=0.1154, std=0.0328
+[Scale before] step=1094, p05=-0.0442, p95=0.1880
+[Scale  after] step=1095, p05=-0.0258, p95=0.0762, value=1.000
+[Q dist] min=-0.0696, max=0.1334, std=0.0337
+[Scale before] step=1095, p05=-0.0258, p95=0.0762
+[Scale  after] step=1096, p05=-0.0218, p95=0.0794, value=1.000
+[Q dist] min=-0.0626, max=0.1195, std=0.0305
+[Scale before] step=1096, p05=-0.0218, p95=0.0794
+[Scale  after] step=1097, p05=-0.0178, p95=0.0791, value=1.000
+[Q dist] min=0.1799, max=0.6765, std=0.0657
+[Scale before] step=1097, p05=-0.0178, p95=0.0791
+[Scale  after] step=1098, p05=0.2602, p95=0.5079, value=1.000
+[Q dist] min=-0.0836, max=0.2130, std=0.0626
+[Scale before] step=1098, p05=0.2602, p95=0.5079
+[Scale  after] step=1099, p05=-0.0336, p95=0.1830, value=1.000
+ [34mtrain[39m   [34mE:[39m 10           [34mI:[39m 1,100        [34mR:[39m 212.1        [34mS:[39m 0.0          [34mT:[39m 0:01:26
+[Q dist] min=-0.0720, max=0.1210, std=0.0318
+[Scale before] step=1099, p05=-0.0336, p95=0.1830
+[Scale  after] step=1100, p05=-0.0212, p95=0.0792, value=1.000
+[Q dist] min=-0.0635, max=0.1136, std=0.0333
+[Scale before] step=1100, p05=-0.0212, p95=0.0792
+[Scale  after] step=1101, p05=-0.0208, p95=0.0854, value=1.000
+[Q dist] min=0.1899, max=0.6297, std=0.0790
+[Scale before] step=1101, p05=-0.0208, p95=0.0854
+[Scale  after] step=1102, p05=0.2656, p95=0.5339, value=1.000
+[Q dist] min=0.1893, max=0.6975, std=0.0694
+[Scale before] step=1102, p05=0.2656, p95=0.5339
+[Scale  after] step=1103, p05=0.2622, p95=0.5171, value=1.000
+[Q dist] min=0.1380, max=0.6143, std=0.1051
+[Scale before] step=1103, p05=0.2622, p95=0.5171
+[Scale  after] step=1104, p05=0.1793, p95=0.5310, value=1.000
+[Q dist] min=-0.4212, max=0.2882, std=0.0916
+[Scale before] step=1104, p05=0.1793, p95=0.5310
+[Scale  after] step=1105, p05=-0.2187, p95=0.0777, value=1.000
+[Q dist] min=-0.0560, max=0.1095, std=0.0340
+[Scale before] step=1105, p05=-0.2187, p95=0.0777
+[Scale  after] step=1106, p05=-0.0280, p95=0.0815, value=1.000
+[Q dist] min=-0.2445, max=0.0922, std=0.0699
+[Scale before] step=1106, p05=-0.0280, p95=0.0815
+[Scale  after] step=1107, p05=-0.1874, p95=0.0480, value=1.000
+[Q dist] min=-0.1522, max=0.2564, std=0.0777
+[Scale before] step=1107, p05=-0.1874, p95=0.0480
+[Scale  after] step=1108, p05=-0.0495, p95=0.2052, value=1.000
+[Q dist] min=-0.2663, max=0.0869, std=0.0818
+[Scale before] step=1108, p05=-0.0495, p95=0.2052
+[Scale  after] step=1109, p05=-0.2157, p95=0.0601, value=1.000
+[Q dist] min=-0.2503, max=0.0747, std=0.0701
+[Scale before] step=1109, p05=-0.2157, p95=0.0601
+[Scale  after] step=1110, p05=-0.2114, p95=0.0546, value=1.000
+[Q dist] min=-0.0717, max=0.2615, std=0.0610
+[Scale before] step=1110, p05=-0.2114, p95=0.0546
+[Scale  after] step=1111, p05=-0.0262, p95=0.1914, value=1.000
+[Q dist] min=0.2180, max=0.7121, std=0.0824
+[Scale before] step=1111, p05=-0.0262, p95=0.1914
+[Scale  after] step=1112, p05=0.2682, p95=0.5297, value=1.000
+[Q dist] min=-0.2574, max=0.3094, std=0.0950
+[Scale before] step=1112, p05=0.2682, p95=0.5297
+[Scale  after] step=1113, p05=-0.2122, p95=0.1109, value=1.000
+[Q dist] min=0.1433, max=0.8118, std=0.1398
+[Scale before] step=1113, p05=-0.2122, p95=0.1109
+[Scale  after] step=1114, p05=0.2411, p95=0.7277, value=1.000
+[Q dist] min=-0.3025, max=0.2717, std=0.1476
+[Scale before] step=1114, p05=0.2411, p95=0.7277
+[Scale  after] step=1115, p05=-0.2587, p95=0.2136, value=1.000
+[Q dist] min=0.1747, max=0.5667, std=0.0660
+[Scale before] step=1115, p05=-0.2587, p95=0.2136
+[Scale  after] step=1116, p05=0.2700, p95=0.4763, value=1.000
+[Q dist] min=0.2246, max=0.5818, std=0.0695
+[Scale before] step=1116, p05=0.2700, p95=0.4763
+[Scale  after] step=1117, p05=0.2598, p95=0.4928, value=1.000
+[Q dist] min=-0.0875, max=0.2248, std=0.0664
+[Scale before] step=1117, p05=0.2598, p95=0.4928
+[Scale  after] step=1118, p05=-0.0386, p95=0.1814, value=1.000
+[Q dist] min=-0.1027, max=0.2273, std=0.0786
+[Scale before] step=1118, p05=-0.0386, p95=0.1814
+[Scale  after] step=1119, p05=-0.0553, p95=0.1880, value=1.000
+[Q dist] min=0.1756, max=0.5848, std=0.0673
+[Scale before] step=1119, p05=-0.0553, p95=0.1880
+[Scale  after] step=1120, p05=0.2545, p95=0.5055, value=1.000
+[Q dist] min=-0.0980, max=0.2548, std=0.0714
+[Scale before] step=1120, p05=0.2545, p95=0.5055
+[Scale  after] step=1121, p05=-0.0505, p95=0.1768, value=1.000
+[Q dist] min=-0.0739, max=0.2341, std=0.0699
+[Scale before] step=1121, p05=-0.0505, p95=0.1768
+[Scale  after] step=1122, p05=-0.0432, p95=0.1848, value=1.000
+[Q dist] min=0.1960, max=0.5515, std=0.0671
+[Scale before] step=1122, p05=-0.0432, p95=0.1848
+[Scale  after] step=1123, p05=0.2698, p95=0.5135, value=1.000
+[Q dist] min=0.2436, max=0.8693, std=0.1144
+[Scale before] step=1123, p05=0.2698, p95=0.5135
+[Scale  after] step=1124, p05=0.2717, p95=0.6977, value=1.000
+[Q dist] min=-0.2878, max=0.2586, std=0.1378
+[Scale before] step=1124, p05=0.2717, p95=0.6977
+[Scale  after] step=1125, p05=-0.2423, p95=0.2239, value=1.000
+[Q dist] min=-0.0716, max=0.2202, std=0.0637
+[Scale before] step=1125, p05=-0.2423, p95=0.2239
+[Scale  after] step=1126, p05=-0.0360, p95=0.1813, value=1.000
+[Q dist] min=0.2139, max=0.8430, std=0.1256
+[Scale before] step=1126, p05=-0.0360, p95=0.1813
+[Scale  after] step=1127, p05=0.2810, p95=0.7190, value=1.000
+[Q dist] min=0.2202, max=0.6033, std=0.0709
+[Scale before] step=1127, p05=0.2810, p95=0.7190
+[Scale  after] step=1128, p05=0.2668, p95=0.5147, value=1.000
+[Q dist] min=-0.0834, max=0.2542, std=0.0705
+[Scale before] step=1128, p05=0.2668, p95=0.5147
+[Scale  after] step=1129, p05=-0.0464, p95=0.1914, value=1.000
+[Q dist] min=-0.0985, max=0.2337, std=0.0724
+[Scale before] step=1129, p05=-0.0464, p95=0.1914
+[Scale  after] step=1130, p05=-0.0470, p95=0.1864, value=1.000
+[Q dist] min=-0.2603, max=0.0840, std=0.0780
+[Scale before] step=1130, p05=-0.0470, p95=0.1864
+[Scale  after] step=1131, p05=-0.2112, p95=0.0547, value=1.000
+[Q dist] min=0.1524, max=0.5721, std=0.0669
+[Scale before] step=1131, p05=-0.2112, p95=0.0547
+[Scale  after] step=1132, p05=0.2583, p95=0.5005, value=1.000
+[Q dist] min=-0.2717, max=0.0983, std=0.0814
+[Scale before] step=1132, p05=0.2583, p95=0.5005
+[Scale  after] step=1133, p05=-0.2094, p95=0.0459, value=1.000
+[Q dist] min=0.1709, max=0.5564, std=0.0618
+[Scale before] step=1133, p05=-0.2094, p95=0.0459
+[Scale  after] step=1134, p05=0.2517, p95=0.4915, value=1.000
+[Q dist] min=-0.0718, max=0.2186, std=0.0641
+[Scale before] step=1134, p05=0.2517, p95=0.4915
+[Scale  after] step=1135, p05=-0.0324, p95=0.1843, value=1.000
+[Q dist] min=0.2273, max=0.6308, std=0.0683
+[Scale before] step=1135, p05=-0.0324, p95=0.1843
+[Scale  after] step=1136, p05=0.2628, p95=0.4856, value=1.000
+[Q dist] min=-0.2979, max=0.2522, std=0.1453
+[Scale before] step=1136, p05=0.2628, p95=0.4856
+[Scale  after] step=1137, p05=-0.2487, p95=0.2214, value=1.000
+[Q dist] min=-0.2659, max=0.0878, std=0.0740
+[Scale before] step=1137, p05=-0.2487, p95=0.2214
+[Scale  after] step=1138, p05=-0.2128, p95=0.0554, value=1.000
+[Q dist] min=-0.3077, max=0.2610, std=0.1258
+[Scale before] step=1138, p05=-0.2128, p95=0.0554
+[Scale  after] step=1139, p05=-0.2226, p95=0.2187, value=1.000
+[Q dist] min=-0.2724, max=0.2448, std=0.1295
+[Scale before] step=1139, p05=-0.2226, p95=0.2187
+[Scale  after] step=1140, p05=-0.2470, p95=0.2136, value=1.000
+[Q dist] min=0.2304, max=0.7697, std=0.0997
+[Scale before] step=1140, p05=-0.2470, p95=0.2136
+[Scale  after] step=1141, p05=0.2746, p95=0.5964, value=1.000
+[Q dist] min=0.2184, max=0.7839, std=0.1102
+[Scale before] step=1141, p05=0.2746, p95=0.5964
+[Scale  after] step=1142, p05=0.2699, p95=0.6817, value=1.000
+[Q dist] min=-0.0713, max=0.2367, std=0.0614
+[Scale before] step=1142, p05=0.2699, p95=0.6817
+[Scale  after] step=1143, p05=-0.0334, p95=0.1880, value=1.000
+[Q dist] min=0.2130, max=0.5738, std=0.0651
+[Scale before] step=1143, p05=-0.0334, p95=0.1880
+[Scale  after] step=1144, p05=0.2633, p95=0.4730, value=1.000
+[Q dist] min=-0.0763, max=0.2425, std=0.0699
+[Scale before] step=1144, p05=0.2633, p95=0.4730
+[Scale  after] step=1145, p05=-0.0436, p95=0.1861, value=1.000
+[Q dist] min=-0.0682, max=0.2151, std=0.0574
+[Scale before] step=1145, p05=-0.0436, p95=0.1861
+[Scale  after] step=1146, p05=-0.0160, p95=0.1846, value=1.000
+[Q dist] min=0.1715, max=0.8204, std=0.1158
+[Scale before] step=1146, p05=-0.0160, p95=0.1846
+[Scale  after] step=1147, p05=0.2662, p95=0.6996, value=1.000
+[Q dist] min=-0.2709, max=0.0921, std=0.0634
+[Scale before] step=1147, p05=0.2662, p95=0.6996
+[Scale  after] step=1148, p05=-0.1603, p95=0.0570, value=1.000
+[Q dist] min=0.1524, max=0.6779, std=0.0689
+[Scale before] step=1148, p05=-0.1603, p95=0.0570
+[Scale  after] step=1149, p05=0.2753, p95=0.5137, value=1.000
+[Q dist] min=0.2382, max=0.7922, std=0.1195
+[Scale before] step=1149, p05=0.2753, p95=0.5137
+[Scale  after] step=1150, p05=0.2759, p95=0.6934, value=1.000
+[Q dist] min=0.2117, max=0.5758, std=0.0609
+[Scale before] step=1150, p05=0.2759, p95=0.6934
+[Scale  after] step=1151, p05=0.2639, p95=0.4532, value=1.000
+[Q dist] min=-0.0687, max=0.1101, std=0.0311
+[Scale before] step=1151, p05=0.2639, p95=0.4532
+[Scale  after] step=1152, p05=-0.0223, p95=0.0760, value=1.000
+[Q dist] min=-0.2556, max=0.1364, std=0.0802
+[Scale before] step=1152, p05=-0.0223, p95=0.0760
+[Scale  after] step=1153, p05=-0.2035, p95=0.0906, value=1.000
+[Q dist] min=-0.0648, max=0.1181, std=0.0332
+[Scale before] step=1153, p05=-0.2035, p95=0.0906
+[Scale  after] step=1154, p05=-0.0196, p95=0.0800, value=1.000
+[Q dist] min=-0.0755, max=0.2277, std=0.0606
+[Scale before] step=1154, p05=-0.0196, p95=0.0800
+[Scale  after] step=1155, p05=-0.0338, p95=0.1887, value=1.000
+[Q dist] min=-0.2575, max=0.1022, std=0.0562
+[Scale before] step=1155, p05=-0.0338, p95=0.1887
+[Scale  after] step=1156, p05=-0.1059, p95=0.0546, value=1.000
+[Q dist] min=-0.2415, max=0.0805, std=0.0626
+[Scale before] step=1156, p05=-0.1059, p95=0.0546
+[Scale  after] step=1157, p05=-0.1668, p95=0.0514, value=1.000
+[Q dist] min=-0.2539, max=0.0836, std=0.0710
+[Scale before] step=1157, p05=-0.1668, p95=0.0514
+[Scale  after] step=1158, p05=-0.2105, p95=0.0553, value=1.000
+[Q dist] min=-0.0842, max=0.2198, std=0.0636
+[Scale before] step=1158, p05=-0.2105, p95=0.0553
+[Scale  after] step=1159, p05=-0.0367, p95=0.1905, value=1.000
+[Q dist] min=-0.2569, max=0.1103, std=0.0751
+[Scale before] step=1159, p05=-0.0367, p95=0.1905
+[Scale  after] step=1160, p05=-0.1842, p95=0.0861, value=1.000
+[Q dist] min=-0.0866, max=0.2327, std=0.0607
+[Scale before] step=1160, p05=-0.1842, p95=0.0861
+[Scale  after] step=1161, p05=-0.0359, p95=0.1951, value=1.000
+[Q dist] min=-0.0746, max=0.2073, std=0.0614
+[Scale before] step=1161, p05=-0.0359, p95=0.1951
+[Scale  after] step=1162, p05=-0.0304, p95=0.1807, value=1.000
+[Q dist] min=0.1256, max=0.5830, std=0.0710
+[Scale before] step=1162, p05=-0.0304, p95=0.1807
+[Scale  after] step=1163, p05=0.1736, p95=0.3700, value=1.000
+[Q dist] min=-0.2490, max=0.0717, std=0.0581
+[Scale before] step=1163, p05=0.1736, p95=0.3700
+[Scale  after] step=1164, p05=-0.1308, p95=0.0523, value=1.000
+[Q dist] min=-0.2524, max=0.0837, std=0.0584
+[Scale before] step=1164, p05=-0.1308, p95=0.0523
+[Scale  after] step=1165, p05=-0.1145, p95=0.0556, value=1.000
+[Q dist] min=0.2100, max=0.6255, std=0.0657
+[Scale before] step=1165, p05=-0.1145, p95=0.0556
+[Scale  after] step=1166, p05=0.2585, p95=0.4585, value=1.000
+[Q dist] min=-0.2951, max=0.2430, std=0.1085
+[Scale before] step=1166, p05=0.2585, p95=0.4585
+[Scale  after] step=1167, p05=-0.1007, p95=0.2176, value=1.000
+[Q dist] min=-0.0886, max=0.2311, std=0.0588
+[Scale before] step=1167, p05=-0.1007, p95=0.2176
+[Scale  after] step=1168, p05=-0.0275, p95=0.1963, value=1.000
+[Q dist] min=-0.2819, max=0.2494, std=0.1193
+[Scale before] step=1168, p05=-0.0275, p95=0.1963
+[Scale  after] step=1169, p05=-0.2241, p95=0.2177, value=1.000
+[Q dist] min=-0.2646, max=0.0851, std=0.0625
+[Scale before] step=1169, p05=-0.2241, p95=0.2177
+[Scale  after] step=1170, p05=-0.1585, p95=0.0595, value=1.000
+[Q dist] min=0.1853, max=0.5701, std=0.0534
+[Scale before] step=1170, p05=-0.1585, p95=0.0595
+[Scale  after] step=1171, p05=0.2700, p95=0.4270, value=1.000
+[Q dist] min=-0.0805, max=0.2413, std=0.0554
+[Scale before] step=1171, p05=0.2700, p95=0.4270
+[Scale  after] step=1172, p05=-0.0270, p95=0.1887, value=1.000
+[Q dist] min=0.2169, max=0.5394, std=0.0460
+[Scale before] step=1172, p05=-0.0270, p95=0.1887
+[Scale  after] step=1173, p05=0.2699, p95=0.4252, value=1.000
+[Q dist] min=-0.0779, max=0.2136, std=0.0498
+[Scale before] step=1173, p05=0.2699, p95=0.4252
+[Scale  after] step=1174, p05=0.0032, p95=0.1877, value=1.000
+[Q dist] min=-0.2041, max=0.1021, std=0.0357
+[Scale before] step=1174, p05=0.0032, p95=0.1877
+[Scale  after] step=1175, p05=-0.0284, p95=0.0620, value=1.000
+[Q dist] min=-0.2744, max=0.2676, std=0.0908
+[Scale before] step=1175, p05=-0.0284, p95=0.0620
+[Scale  after] step=1176, p05=-0.0841, p95=0.2210, value=1.000
+[Q dist] min=-0.2350, max=0.1044, std=0.0628
+[Scale before] step=1176, p05=-0.0841, p95=0.2210
+[Scale  after] step=1177, p05=-0.0684, p95=0.0790, value=1.000
+[Q dist] min=-0.0349, max=0.1031, std=0.0309
+[Scale before] step=1177, p05=-0.0684, p95=0.0790
+[Scale  after] step=1178, p05=-0.0186, p95=0.0786, value=1.000
+[Q dist] min=0.1702, max=0.4421, std=0.0471
+[Scale before] step=1178, p05=-0.0186, p95=0.0786
+[Scale  after] step=1179, p05=0.2572, p95=0.4021, value=1.000
+[Q dist] min=-0.0509, max=0.1141, std=0.0312
+[Scale before] step=1179, p05=0.2572, p95=0.4021
+[Scale  after] step=1180, p05=-0.0209, p95=0.0728, value=1.000
+[Q dist] min=-0.0394, max=0.2590, std=0.0336
+[Scale before] step=1180, p05=-0.0209, p95=0.0728
+[Scale  after] step=1181, p05=0.0955, p95=0.1871, value=1.000
+[Q dist] min=-0.0531, max=0.1054, std=0.0324
+[Scale before] step=1181, p05=0.0955, p95=0.1871
+[Scale  after] step=1182, p05=-0.0245, p95=0.0809, value=1.000
+[Q dist] min=0.2148, max=0.5486, std=0.0501
+[Scale before] step=1182, p05=-0.0245, p95=0.0809
+[Scale  after] step=1183, p05=0.2567, p95=0.4084, value=1.000
+[Q dist] min=0.2087, max=0.4686, std=0.0493
+[Scale before] step=1183, p05=0.2567, p95=0.4084
+[Scale  after] step=1184, p05=0.2547, p95=0.4022, value=1.000
+[Q dist] min=-0.0767, max=0.1288, std=0.0501
+[Scale before] step=1184, p05=0.2547, p95=0.4022
+[Scale  after] step=1185, p05=-0.0604, p95=0.0793, value=1.000
+[Q dist] min=-0.2145, max=0.1185, std=0.0494
+[Scale before] step=1185, p05=-0.0604, p95=0.0793
+[Scale  after] step=1186, p05=-0.0564, p95=0.0785, value=1.000
+Traceback (most recent call last):
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/train_with_cprofile.py", line 171, in <module>
+    train()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/train_with_cprofile.py", line 158, in train
+    trainer.train()
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/trainer/online_trainer.py", line 112, in train
+    action = self.agent.act(obs, t0=len(self._tds)==1)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/train_moore_agent.py", line 208, in act
+    action = self.plan(obs, t0, eval_mode, task)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/train_moore_agent.py", line 156, in plan
+    values = self._estimate_value(z_expand, actions, task)  # (N,1)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/train_moore_agent.py", line 324, in _estimate_value
+    z_seq, rew_seq, _ = self.model.core_vectorized(z0, actions, task)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/world_model.py", line 620, in core_vectorized
+    return self.core.core_vectorized(z_seq, a_seq, task)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/world_model_core.py", line 183, in core_vectorized
+    next_z_flat, rew_flat, (w_dyn_flat, w_rew_flat) = self(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1740, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/world_model_core.py", line 103, in forward
+    expert_feats = self.experts(h).permute(1, 0, 2)           # [N,E,D]
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1740, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/layers.py", line 240, in forward
+    h = torch.einsum('bd,edh->beh', x, self.expert_w1).add_(self.expert_b1).relu_()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/functional.py", line 407, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+KeyboardInterrupt

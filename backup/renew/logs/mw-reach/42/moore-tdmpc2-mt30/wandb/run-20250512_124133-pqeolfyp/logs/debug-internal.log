@@ -1,0 +1,795 @@
+2025-05-12 12:41:33,126 INFO    StreamThr :438120 [internal.py:wandb_internal():85] W&B internal server running at pid: 438120, started at: 2025-05-12 12:41:33.126413
+2025-05-12 12:41:33,128 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status
+2025-05-12 12:41:33,130 INFO    WriterThread:438120 [datastore.py:open_for_write():87] open: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/run-pqeolfyp.wandb
+2025-05-12 12:41:33,130 DEBUG   SenderThread:438120 [sender.py:send():379] send: header
+2025-05-12 12:41:33,157 DEBUG   SenderThread:438120 [sender.py:send():379] send: run
+2025-05-12 12:41:34,555 INFO    SenderThread:438120 [dir_watcher.py:__init__():211] watching files in: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files
+2025-05-12 12:41:34,555 INFO    SenderThread:438120 [sender.py:_start_run_threads():1188] run started: pqeolfyp with start time 1747024893.126438
+2025-05-12 12:41:34,560 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: check_version
+2025-05-12 12:41:34,561 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: check_version
+2025-05-12 12:41:35,361 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: run_start
+2025-05-12 12:41:35,384 DEBUG   HandlerThread:438120 [system_info.py:__init__():26] System info init
+2025-05-12 12:41:35,384 DEBUG   HandlerThread:438120 [system_info.py:__init__():41] System info init done
+2025-05-12 12:41:35,384 INFO    HandlerThread:438120 [system_monitor.py:start():194] Starting system monitor
+2025-05-12 12:41:35,384 INFO    SystemMonitor:438120 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-05-12 12:41:35,384 INFO    HandlerThread:438120 [system_monitor.py:probe():214] Collecting system info
+2025-05-12 12:41:35,384 INFO    SystemMonitor:438120 [interfaces.py:start():188] Started cpu monitoring
+2025-05-12 12:41:35,384 INFO    SystemMonitor:438120 [interfaces.py:start():188] Started disk monitoring
+2025-05-12 12:41:35,385 INFO    SystemMonitor:438120 [interfaces.py:start():188] Started gpu monitoring
+2025-05-12 12:41:35,385 INFO    SystemMonitor:438120 [interfaces.py:start():188] Started memory monitoring
+2025-05-12 12:41:35,385 INFO    SystemMonitor:438120 [interfaces.py:start():188] Started network monitoring
+2025-05-12 12:41:35,426 DEBUG   HandlerThread:438120 [system_info.py:probe():152] Probing system
+2025-05-12 12:41:35,429 DEBUG   HandlerThread:438120 [system_info.py:_probe_git():137] Probing git
+2025-05-12 12:41:35,436 DEBUG   HandlerThread:438120 [system_info.py:_probe_git():145] Probing git done
+2025-05-12 12:41:35,436 DEBUG   HandlerThread:438120 [system_info.py:probe():200] Probing system done
+2025-05-12 12:41:35,436 DEBUG   HandlerThread:438120 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-136-generic-x86_64-with-glibc2.31', 'python': '3.9.21', 'heartbeatAt': '2025-05-12T04:41:35.426129', 'startedAt': '2025-05-12T04:41:33.121875', 'docker': None, 'cuda': None, 'args': ('task=mw-reach',), 'state': 'running', 'program': '/home/levi/Desktop/MOORE-TDMPC/renew/train_with_cprofile.py', 'codePathLocal': None, 'codePath': 'renew/train_with_cprofile.py', 'git': {'remote': 'https://github.com/glue25/Multi-Task-MBRL', 'commit': '8a8f62177b4e3af0a42363999c165f422a90b325'}, 'email': 'sc_levi@163.com', 'root': '/home/levi/Desktop/MOORE-TDMPC', 'host': 'workstation', 'username': 'levi', 'executable': '/home/levi/anaconda3/envs/tdmpc2/bin/python', 'cpu_count': 16, 'cpu_count_logical': 24, 'cpu_freq': {'current': 3700.190541666667, 'min': 800.0, 'max': 4950.0}, 'cpu_freq_per_core': [{'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 5300.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 5280.55, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 5247.296, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 5266.971, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}], 'disk': {'/': {'total': 456.8756866455078, 'used': 397.7932243347168}}, 'gpu': 'NVIDIA GeForce RTX 4090 D', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4090 D', 'memory_total': 25757220864}], 'memory': {'total': 62.605716705322266}}
+2025-05-12 12:41:35,436 INFO    HandlerThread:438120 [system_monitor.py:probe():224] Finished collecting system info
+2025-05-12 12:41:35,436 INFO    HandlerThread:438120 [system_monitor.py:probe():227] Publishing system info
+2025-05-12 12:41:35,436 DEBUG   HandlerThread:438120 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-05-12 12:41:35,556 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/conda-environment.yaml
+2025-05-12 12:41:36,353 DEBUG   HandlerThread:438120 [system_info.py:_save_conda():224] Saving conda packages done
+2025-05-12 12:41:36,353 INFO    HandlerThread:438120 [system_monitor.py:probe():229] Finished publishing system info
+2025-05-12 12:41:36,355 DEBUG   SenderThread:438120 [sender.py:send():379] send: files
+2025-05-12 12:41:36,355 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-05-12 12:41:36,398 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: python_packages
+2025-05-12 12:41:36,398 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: python_packages
+2025-05-12 12:41:36,398 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:41:36,399 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:41:36,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:36,555 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/conda-environment.yaml
+2025-05-12 12:41:36,556 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/requirements.txt
+2025-05-12 12:41:36,556 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-metadata.json
+2025-05-12 12:41:37,142 DEBUG   SenderThread:438120 [sender.py:send():379] send: telemetry
+2025-05-12 12:41:37,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:37,556 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:41:38,143 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:41:38,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:38,860 INFO    wandb-upload_0:438120 [upload_job.py:push():130] Uploaded file /tmp/tmpvbp192axwandb/1z138k3l-wandb-metadata.json
+2025-05-12 12:41:39,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:39,556 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:41:40,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:41,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:42,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:43,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:41:43,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:44,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:45,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:46,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:47,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:48,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:41:48,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:49,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:50,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:51,398 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:41:51,399 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:41:51,444 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:52,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:53,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:54,166 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:41:54,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:55,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:56,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:57,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:58,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:41:59,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:41:59,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:00,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:01,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:02,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:03,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:04,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:42:04,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:05,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:05,561 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/config.yaml
+2025-05-12 12:42:06,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:42:06,399 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:42:06,444 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:07,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:08,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:09,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:09,863 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:42:10,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:11,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:12,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:13,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:14,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:15,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:42:15,403 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:16,403 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:17,403 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:18,403 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:19,403 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:20,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:42:20,403 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:21,070 DEBUG   SenderThread:438120 [sender.py:send():379] send: telemetry
+2025-05-12 12:42:21,112 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:42:21,112 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:42:21,113 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:42:21,113 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:42:21,114 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:42:21,160 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:42:21,161 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:42:21,161 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:42:21,161 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:42:21,197 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:42:21,197 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:42:21,197 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:42:21,197 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:42:21,233 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:42:21,234 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:42:21,234 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:42:21,234 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:42:21,270 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:42:21,270 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:42:21,270 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:42:21,270 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:42:21,306 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:42:21,307 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:42:21,307 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:42:21,307 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:42:21,344 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:42:21,344 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:42:21,344 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:42:21,344 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:42:21,380 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:42:21,381 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:42:21,381 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:42:21,381 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:42:21,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:42:21,401 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:42:21,448 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:21,448 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:42:21,457 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:42:21,564 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:42:22,274 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:42:22,274 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:42:22,282 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:42:22,282 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:42:22,282 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:42:22,282 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:42:22,403 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:22,565 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:42:23,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:23,565 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:42:24,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:25,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:26,283 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:42:26,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:27,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:28,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:29,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:30,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:31,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:42:31,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:32,405 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:33,405 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:34,405 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:35,385 DEBUG   SystemMonitor:438120 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-05-12 12:42:35,386 DEBUG   SenderThread:438120 [sender.py:send():379] send: stats
+2025-05-12 12:42:35,405 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:36,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:42:36,399 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:42:36,440 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:36,816 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:42:37,406 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:37,568 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/config.yaml
+2025-05-12 12:42:38,406 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:39,406 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:40,406 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:41,406 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:42,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:42:42,406 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:43,406 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:44,407 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:45,407 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:46,407 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:47,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:42:47,407 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:48,407 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:49,408 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:50,407 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:51,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:42:51,399 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:42:51,440 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:52,408 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:52,738 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:42:53,408 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:54,408 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:55,408 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:56,408 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:57,409 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:58,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:42:58,408 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:42:59,409 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:00,409 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:01,409 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:02,409 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:03,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:43:03,409 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:04,409 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:05,386 DEBUG   SenderThread:438120 [sender.py:send():379] send: stats
+2025-05-12 12:43:05,409 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:06,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:43:06,400 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:43:06,440 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:07,410 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:08,410 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:08,818 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:43:09,410 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:10,410 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:11,410 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:12,411 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:13,411 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:14,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:43:14,411 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:15,411 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:16,411 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:17,411 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:18,411 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:19,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:43:19,469 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:20,469 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:21,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:43:21,400 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:43:21,469 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:22,469 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:23,469 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:24,470 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:24,742 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:43:25,470 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:26,470 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:27,470 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:28,470 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:29,470 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:30,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:43:30,470 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:31,470 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:32,471 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:33,471 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:34,471 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:35,387 DEBUG   SenderThread:438120 [sender.py:send():379] send: stats
+2025-05-12 12:43:35,471 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:36,387 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:43:36,399 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:43:36,400 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:43:36,471 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:37,472 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:38,472 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:39,472 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:40,472 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:41,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:43:41,472 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:42,473 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:43,473 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:44,473 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:45,473 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:46,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:43:46,473 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:47,473 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:48,473 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:49,474 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:50,474 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:51,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:43:51,400 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:43:51,474 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:51,774 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:43:52,474 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:53,474 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:54,474 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:55,475 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:56,475 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:57,403 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:43:57,475 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:58,476 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:43:59,476 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:00,476 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:01,476 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:02,403 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:44:02,476 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:03,476 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:04,476 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:05,026 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:44:05,026 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:44:05,027 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:44:05,028 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:44:05,387 DEBUG   SenderThread:438120 [sender.py:send():379] send: stats
+2025-05-12 12:44:05,476 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:05,584 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:44:06,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:44:06,400 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:44:06,476 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:07,477 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:07,585 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:44:08,135 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:44:08,477 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:09,477 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:10,477 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:11,477 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:12,478 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:13,403 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:44:13,478 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:14,478 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:15,478 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:16,478 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:17,478 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:18,042 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:44:18,043 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:44:18,043 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:44:18,043 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:44:18,478 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:18,587 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:44:19,084 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:44:19,478 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:19,587 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:44:20,478 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:21,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:44:21,400 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:44:21,479 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:22,479 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:23,479 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:24,290 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:44:24,479 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:25,480 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:26,480 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:27,480 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:28,480 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:29,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:44:29,480 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:30,480 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:31,013 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:44:31,014 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:44:31,014 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:44:31,014 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:44:31,480 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:31,590 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:44:32,480 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:33,481 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:33,590 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:44:34,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:44:34,481 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:35,387 DEBUG   SenderThread:438120 [sender.py:send():379] send: stats
+2025-05-12 12:44:35,481 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:36,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:44:36,400 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:44:36,481 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:37,481 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:38,481 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:39,481 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:40,137 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:44:40,482 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:41,482 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:42,482 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:43,482 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:44,018 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:44:44,019 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:44:44,019 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:44:44,020 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:44:44,482 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:44,593 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:44:45,482 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:45,593 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:44:46,061 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:44:46,482 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:47,482 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:48,483 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:49,483 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:50,483 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:51,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:44:51,401 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:44:51,483 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:51,884 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:44:52,483 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:53,483 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:54,483 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:55,483 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:56,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:57,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:44:57,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:57,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:44:57,485 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:44:57,485 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:44:57,485 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:44:57,595 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:44:58,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:59,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:44:59,595 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:45:00,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:01,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:02,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:03,404 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:45:03,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:04,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:05,388 DEBUG   SenderThread:438120 [sender.py:send():379] send: stats
+2025-05-12 12:45:05,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:06,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:45:06,400 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:45:06,484 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:07,485 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:08,485 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:08,758 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:45:09,485 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:10,485 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:11,323 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:45:11,323 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:45:11,323 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:45:11,324 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:45:11,485 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:11,597 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:45:12,485 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:13,485 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:13,598 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:45:14,405 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:45:14,485 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:15,485 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:16,485 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:17,485 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:18,486 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:19,405 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:45:19,486 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:20,486 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:21,400 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:45:21,401 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:45:21,486 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:22,486 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:23,486 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:24,486 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:24,786 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:45:25,046 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:45:25,046 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:45:25,047 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:45:25,047 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:45:25,486 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:25,600 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:45:26,486 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:27,487 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:27,600 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:45:28,487 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:29,487 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:30,405 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:45:30,487 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:31,487 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:32,487 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:33,487 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:34,487 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:35,388 DEBUG   SenderThread:438120 [sender.py:send():379] send: stats
+2025-05-12 12:45:35,488 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:36,389 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:45:36,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:45:36,401 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:45:36,487 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:37,488 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:38,070 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:45:38,070 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:45:38,070 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:45:38,071 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:45:38,488 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:38,603 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:45:39,488 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:39,603 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:45:40,488 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:41,405 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:45:41,488 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:42,488 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:43,488 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:44,488 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:45,488 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:46,405 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:45:46,489 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:47,489 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:48,489 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:49,489 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:50,489 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:50,901 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:45:50,902 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:45:50,902 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:45:50,902 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:45:51,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:45:51,401 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:45:51,489 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:51,605 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:45:51,787 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:45:52,489 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:53,489 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:53,606 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:45:54,489 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:55,490 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:56,490 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:57,406 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:45:57,490 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:58,490 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:45:59,490 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:00,490 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:01,490 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:02,406 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:46:02,490 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:03,491 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:03,791 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:46:03,802 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:46:03,802 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:46:03,802 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:46:04,491 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:04,608 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:46:05,388 DEBUG   SenderThread:438120 [sender.py:send():379] send: stats
+2025-05-12 12:46:05,491 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:05,608 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:46:06,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:46:06,401 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:46:06,491 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:07,491 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:07,827 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:46:08,491 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:09,491 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:10,492 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:11,492 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:12,492 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:13,406 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:46:13,492 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:14,492 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:15,492 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:16,492 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:16,684 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:46:16,684 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:46:16,684 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:46:16,685 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:46:17,492 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:17,611 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:46:17,611 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:46:18,492 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:18,724 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:46:19,492 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:20,492 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:21,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:46:21,401 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:46:21,493 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:22,493 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:23,493 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:23,929 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:46:24,493 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:25,493 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:26,493 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:27,493 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:28,494 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:29,407 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:46:29,494 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:29,573 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:46:29,573 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:46:29,573 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:46:29,574 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:46:29,613 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:46:30,494 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:31,494 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:31,614 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:46:32,494 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:33,494 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:34,407 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:46:34,494 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:35,389 DEBUG   SenderThread:438120 [sender.py:send():379] send: stats
+2025-05-12 12:46:35,494 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:36,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:46:36,401 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:46:36,495 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:37,495 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:38,495 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:39,495 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:39,845 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:46:40,495 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:41,495 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:42,437 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:46:42,437 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:46:42,445 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:46:42,446 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:46:42,495 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:42,616 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:46:43,495 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:43,616 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:46:44,496 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:45,481 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:46:45,496 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:46,496 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:47,496 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:48,496 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:49,496 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:50,497 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:51,401 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:46:51,402 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:46:51,496 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:51,795 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:46:52,496 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:53,497 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:54,497 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:55,275 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:46:55,275 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:46:55,275 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:46:55,276 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:46:55,497 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:55,619 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:46:56,497 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:57,408 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:46:57,497 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:57,619 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:46:58,497 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:46:59,497 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:00,498 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:01,498 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:02,498 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:03,408 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:47:03,498 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:04,498 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:05,389 DEBUG   SenderThread:438120 [sender.py:send():379] send: stats
+2025-05-12 12:47:05,498 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:06,402 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-12 12:47:06,402 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: stop_status
+2025-05-12 12:47:06,498 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:07,498 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:08,499 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:08,818 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:47:09,352 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-12 12:47:09,353 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:47:09,353 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:47:09,354 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:47:09,499 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:09,621 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:47:10,499 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:11,499 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:11,622 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:47:12,499 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:13,499 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:14,408 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:47:14,499 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:15,500 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:16,500 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:17,500 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:18,500 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:19,500 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:20,408 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:47:20,500 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:21,338 DEBUG   SenderThread:438120 [sender.py:send():379] send: exit
+2025-05-12 12:47:21,338 INFO    SenderThread:438120 [sender.py:send_exit():586] handling exit code: 255
+2025-05-12 12:47:21,338 INFO    SenderThread:438120 [sender.py:send_exit():588] handling runtime: 345
+2025-05-12 12:47:21,339 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:47:21,340 INFO    SenderThread:438120 [sender.py:send_exit():594] send defer
+2025-05-12 12:47:21,340 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:21,340 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 0
+2025-05-12 12:47:21,341 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:21,341 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 0
+2025-05-12 12:47:21,341 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 1
+2025-05-12 12:47:21,341 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:21,342 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 1
+2025-05-12 12:47:21,342 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:21,342 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 1
+2025-05-12 12:47:21,343 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 2
+2025-05-12 12:47:21,343 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:21,343 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 2
+2025-05-12 12:47:21,343 INFO    HandlerThread:438120 [system_monitor.py:finish():203] Stopping system monitor
+2025-05-12 12:47:21,344 DEBUG   SystemMonitor:438120 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-05-12 12:47:21,344 DEBUG   SystemMonitor:438120 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-05-12 12:47:21,346 INFO    HandlerThread:438120 [interfaces.py:finish():200] Joined cpu monitor
+2025-05-12 12:47:21,347 INFO    HandlerThread:438120 [interfaces.py:finish():200] Joined disk monitor
+2025-05-12 12:47:21,382 INFO    HandlerThread:438120 [interfaces.py:finish():200] Joined gpu monitor
+2025-05-12 12:47:21,382 INFO    HandlerThread:438120 [interfaces.py:finish():200] Joined memory monitor
+2025-05-12 12:47:21,382 INFO    HandlerThread:438120 [interfaces.py:finish():200] Joined network monitor
+2025-05-12 12:47:21,382 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:21,382 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 2
+2025-05-12 12:47:21,382 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 3
+2025-05-12 12:47:21,382 DEBUG   SenderThread:438120 [sender.py:send():379] send: stats
+2025-05-12 12:47:21,383 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:21,383 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 3
+2025-05-12 12:47:21,383 DEBUG   SenderThread:438120 [sender.py:send():379] send: history
+2025-05-12 12:47:21,383 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: summary_record
+2025-05-12 12:47:21,383 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:47:21,384 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:21,384 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 3
+2025-05-12 12:47:21,384 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 4
+2025-05-12 12:47:21,384 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:21,384 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 4
+2025-05-12 12:47:21,384 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:21,384 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 4
+2025-05-12 12:47:21,384 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 5
+2025-05-12 12:47:21,384 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:21,384 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 5
+2025-05-12 12:47:21,384 DEBUG   SenderThread:438120 [sender.py:send():379] send: summary
+2025-05-12 12:47:21,385 INFO    SenderThread:438120 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-12 12:47:21,385 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:21,385 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 5
+2025-05-12 12:47:21,385 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 6
+2025-05-12 12:47:21,385 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:21,385 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 6
+2025-05-12 12:47:21,385 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:21,385 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 6
+2025-05-12 12:47:21,385 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 7
+2025-05-12 12:47:21,385 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: status_report
+2025-05-12 12:47:21,385 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:21,385 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 7
+2025-05-12 12:47:21,386 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:21,386 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 7
+2025-05-12 12:47:21,624 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:47:22,334 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-12 12:47:23,299 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 8
+2025-05-12 12:47:23,299 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: poll_exit
+2025-05-12 12:47:23,300 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:23,300 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 8
+2025-05-12 12:47:23,301 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:23,301 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 8
+2025-05-12 12:47:23,301 INFO    SenderThread:438120 [job_builder.py:build():440] Attempting to build job artifact
+2025-05-12 12:47:23,302 INFO    SenderThread:438120 [job_builder.py:_get_source_type():569] is repo sourced job
+2025-05-12 12:47:23,318 INFO    SenderThread:438120 [job_builder.py:build():545] adding wandb-job metadata file
+2025-05-12 12:47:23,329 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 9
+2025-05-12 12:47:23,330 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:23,330 DEBUG   SenderThread:438120 [sender.py:send():379] send: artifact
+2025-05-12 12:47:23,330 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 9
+2025-05-12 12:47:23,334 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-12 12:47:23,626 INFO    Thread-12 :438120 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:47:25,984 INFO    SenderThread:438120 [sender.py:send_artifact():1530] sent artifact job-https___github.com_glue25_Multi-Task-MBRL_renew_train_with_cprofile.py - {'id': 'QXJ0aWZhY3Q6MTcyNzU4MTM5Mw==', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjYzMjgwODY0OQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTcyNzU4MTM5Mw==', 'versionIndex': 21}}}
+2025-05-12 12:47:25,984 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:25,984 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 9
+2025-05-12 12:47:25,984 INFO    SenderThread:438120 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-05-12 12:47:26,628 INFO    SenderThread:438120 [dir_watcher.py:finish():388] scan: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files
+2025-05-12 12:47:26,628 INFO    SenderThread:438120 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/conda-environment.yaml conda-environment.yaml
+2025-05-12 12:47:26,628 INFO    SenderThread:438120 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json wandb-summary.json
+2025-05-12 12:47:26,629 INFO    SenderThread:438120 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log output.log
+2025-05-12 12:47:26,638 INFO    SenderThread:438120 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/config.yaml config.yaml
+2025-05-12 12:47:26,638 INFO    SenderThread:438120 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-metadata.json wandb-metadata.json
+2025-05-12 12:47:26,638 INFO    SenderThread:438120 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/requirements.txt requirements.txt
+2025-05-12 12:47:26,639 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 10
+2025-05-12 12:47:26,639 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: poll_exit
+2025-05-12 12:47:26,639 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:26,640 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 10
+2025-05-12 12:47:26,654 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:26,654 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 10
+2025-05-12 12:47:26,654 INFO    SenderThread:438120 [file_pusher.py:finish():169] shutting down file pusher
+2025-05-12 12:47:27,336 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-12 12:47:27,337 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: poll_exit
+2025-05-12 12:47:28,338 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-12 12:47:28,338 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: poll_exit
+2025-05-12 12:47:28,864 INFO    wandb-upload_1:438120 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/conda-environment.yaml
+2025-05-12 12:47:28,884 INFO    wandb-upload_0:438120 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/wandb-summary.json
+2025-05-12 12:47:29,339 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-12 12:47:29,340 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: poll_exit
+2025-05-12 12:47:29,803 INFO    wandb-upload_4:438120 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/requirements.txt
+2025-05-12 12:47:29,888 INFO    wandb-upload_3:438120 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/config.yaml
+2025-05-12 12:47:29,899 INFO    wandb-upload_2:438120 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/files/output.log
+2025-05-12 12:47:30,099 INFO    Thread-11 :438120 [sender.py:transition_state():614] send defer: 11
+2025-05-12 12:47:30,100 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:30,100 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 11
+2025-05-12 12:47:30,101 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:30,101 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 11
+2025-05-12 12:47:30,101 INFO    SenderThread:438120 [file_pusher.py:join():175] waiting for file pusher
+2025-05-12 12:47:30,102 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 12
+2025-05-12 12:47:30,102 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:30,102 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 12
+2025-05-12 12:47:30,103 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:30,103 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 12
+2025-05-12 12:47:30,103 INFO    SenderThread:438120 [file_stream.py:finish():601] file stream finish called
+2025-05-12 12:47:30,339 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-12 12:47:30,451 INFO    SenderThread:438120 [file_stream.py:finish():605] file stream finish is done
+2025-05-12 12:47:30,451 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 13
+2025-05-12 12:47:30,451 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: poll_exit
+2025-05-12 12:47:30,452 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:30,452 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 13
+2025-05-12 12:47:30,452 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:30,452 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 13
+2025-05-12 12:47:30,452 INFO    SenderThread:438120 [sender.py:transition_state():614] send defer: 14
+2025-05-12 12:47:30,452 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: defer
+2025-05-12 12:47:30,452 INFO    HandlerThread:438120 [handler.py:handle_request_defer():184] handle defer: 14
+2025-05-12 12:47:30,452 DEBUG   SenderThread:438120 [sender.py:send():379] send: final
+2025-05-12 12:47:30,452 DEBUG   SenderThread:438120 [sender.py:send():379] send: footer
+2025-05-12 12:47:30,452 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: defer
+2025-05-12 12:47:30,453 INFO    SenderThread:438120 [sender.py:send_request_defer():610] handle sender defer: 14
+2025-05-12 12:47:30,453 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-12 12:47:30,453 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: server_info
+2025-05-12 12:47:30,453 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: poll_exit
+2025-05-12 12:47:30,453 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: server_info
+2025-05-12 12:47:30,455 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-12 12:47:30,455 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: get_summary
+2025-05-12 12:47:30,456 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: sampled_history
+2025-05-12 12:47:30,456 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-12 12:47:30,809 DEBUG   SenderThread:438120 [sender.py:send_request():406] send_request: poll_exit
+2025-05-12 12:47:30,810 INFO    MainThread:438120 [wandb_run.py:_footer_history_summary_info():3991] rendering history
+2025-05-12 12:47:30,811 INFO    MainThread:438120 [wandb_run.py:_footer_history_summary_info():4023] rendering summary
+2025-05-12 12:47:30,811 INFO    MainThread:438120 [wandb_run.py:_footer_sync_info():3950] logging synced files
+2025-05-12 12:47:30,811 DEBUG   HandlerThread:438120 [handler.py:handle_request():158] handle_request: shutdown
+2025-05-12 12:47:30,811 INFO    HandlerThread:438120 [handler.py:finish():882] shutting down handler
+2025-05-12 12:47:31,456 INFO    WriterThread:438120 [datastore.py:close():296] close: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250512_124133-pqeolfyp/run-pqeolfyp.wandb
+2025-05-12 12:47:31,810 INFO    SenderThread:438120 [sender.py:finish():1608] shutting down sender
+2025-05-12 12:47:31,810 INFO    SenderThread:438120 [file_pusher.py:finish():169] shutting down file pusher
+2025-05-12 12:47:31,810 INFO    SenderThread:438120 [file_pusher.py:join():175] waiting for file pusher

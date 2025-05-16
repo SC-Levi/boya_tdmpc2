@@ -1,0 +1,309 @@
+2025-05-10 21:13:20,400 INFO    StreamThr :193471 [internal.py:wandb_internal():85] W&B internal server running at pid: 193471, started at: 2025-05-10 21:13:20.399902
+2025-05-10 21:13:20,404 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status
+2025-05-10 21:13:20,408 INFO    WriterThread:193471 [datastore.py:open_for_write():87] open: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/run-1bi0wn2b.wandb
+2025-05-10 21:13:20,408 DEBUG   SenderThread:193471 [sender.py:send():379] send: header
+2025-05-10 21:13:20,432 DEBUG   SenderThread:193471 [sender.py:send():379] send: run
+2025-05-10 21:13:21,774 INFO    SenderThread:193471 [dir_watcher.py:__init__():211] watching files in: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files
+2025-05-10 21:13:21,774 INFO    SenderThread:193471 [sender.py:_start_run_threads():1188] run started: 1bi0wn2b with start time 1746882800.400027
+2025-05-10 21:13:21,775 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: check_version
+2025-05-10 21:13:21,775 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: check_version
+2025-05-10 21:13:22,712 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: run_start
+2025-05-10 21:13:22,741 DEBUG   HandlerThread:193471 [system_info.py:__init__():26] System info init
+2025-05-10 21:13:22,741 DEBUG   HandlerThread:193471 [system_info.py:__init__():41] System info init done
+2025-05-10 21:13:22,742 INFO    HandlerThread:193471 [system_monitor.py:start():194] Starting system monitor
+2025-05-10 21:13:22,742 INFO    SystemMonitor:193471 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-05-10 21:13:22,742 INFO    SystemMonitor:193471 [interfaces.py:start():188] Started cpu monitoring
+2025-05-10 21:13:22,742 INFO    SystemMonitor:193471 [interfaces.py:start():188] Started disk monitoring
+2025-05-10 21:13:22,742 INFO    HandlerThread:193471 [system_monitor.py:probe():214] Collecting system info
+2025-05-10 21:13:22,742 INFO    SystemMonitor:193471 [interfaces.py:start():188] Started gpu monitoring
+2025-05-10 21:13:22,743 INFO    SystemMonitor:193471 [interfaces.py:start():188] Started memory monitoring
+2025-05-10 21:13:22,743 INFO    SystemMonitor:193471 [interfaces.py:start():188] Started network monitoring
+2025-05-10 21:13:22,795 DEBUG   HandlerThread:193471 [system_info.py:probe():152] Probing system
+2025-05-10 21:13:22,804 DEBUG   HandlerThread:193471 [system_info.py:_probe_git():137] Probing git
+2025-05-10 21:13:22,827 DEBUG   HandlerThread:193471 [system_info.py:_probe_git():145] Probing git done
+2025-05-10 21:13:22,827 DEBUG   HandlerThread:193471 [system_info.py:probe():200] Probing system done
+2025-05-10 21:13:22,827 DEBUG   HandlerThread:193471 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-136-generic-x86_64-with-glibc2.31', 'python': '3.9.21', 'heartbeatAt': '2025-05-10T13:13:22.796134', 'startedAt': '2025-05-10T13:13:20.388557', 'docker': None, 'cuda': None, 'args': ('task=mw-reach',), 'state': 'running', 'program': '/home/levi/Desktop/MOORE-TDMPC/renew/train_with_cprofile.py', 'codePathLocal': None, 'codePath': 'renew/train_with_cprofile.py', 'git': {'remote': 'https://github.com/glue25/Multi-Task-MBRL', 'commit': '8a8f62177b4e3af0a42363999c165f422a90b325'}, 'email': 'sc_levi@163.com', 'root': '/home/levi/Desktop/MOORE-TDMPC', 'host': 'workstation', 'username': 'levi', 'executable': '/home/levi/anaconda3/envs/tdmpc2/bin/python', 'cpu_count': 16, 'cpu_count_logical': 24, 'cpu_freq': {'current': 3307.143125, 'min': 800.0, 'max': 4950.0}, 'cpu_freq_per_core': [{'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 4694.595, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5400.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 5300.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}, {'current': 3400.0, 'min': 800.0, 'max': 4200.0}], 'disk': {'/': {'total': 456.8756866455078, 'used': 397.7552185058594}}, 'gpu': 'NVIDIA GeForce RTX 4090 D', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4090 D', 'memory_total': 25757220864}], 'memory': {'total': 62.605716705322266}}
+2025-05-10 21:13:22,827 INFO    HandlerThread:193471 [system_monitor.py:probe():224] Finished collecting system info
+2025-05-10 21:13:22,827 INFO    HandlerThread:193471 [system_monitor.py:probe():227] Publishing system info
+2025-05-10 21:13:22,828 DEBUG   HandlerThread:193471 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-05-10 21:13:23,697 DEBUG   HandlerThread:193471 [system_info.py:_save_conda():224] Saving conda packages done
+2025-05-10 21:13:23,698 INFO    HandlerThread:193471 [system_monitor.py:probe():229] Finished publishing system info
+2025-05-10 21:13:23,700 DEBUG   SenderThread:193471 [sender.py:send():379] send: files
+2025-05-10 21:13:23,700 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-05-10 21:13:23,743 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: python_packages
+2025-05-10 21:13:23,744 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: python_packages
+2025-05-10 21:13:23,744 DEBUG   SenderThread:193471 [sender.py:send():379] send: telemetry
+2025-05-10 21:13:23,775 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/requirements.txt
+2025-05-10 21:13:23,775 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/wandb-metadata.json
+2025-05-10 21:13:23,775 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/conda-environment.yaml
+2025-05-10 21:13:23,788 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:23,788 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-10 21:13:23,788 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: stop_status
+2025-05-10 21:13:24,744 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:24,775 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/output.log
+2025-05-10 21:13:25,686 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:13:25,744 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:26,176 INFO    wandb-upload_0:193471 [upload_job.py:push():130] Uploaded file /tmp/tmp010v8vsjwandb/p2pxoi05-wandb-metadata.json
+2025-05-10 21:13:26,744 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:26,775 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/output.log
+2025-05-10 21:13:27,744 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:28,744 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:29,744 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:30,744 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:13:30,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:31,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:32,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:33,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:34,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:35,744 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:13:35,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:36,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:37,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:38,744 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-10 21:13:38,744 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: stop_status
+2025-05-10 21:13:38,792 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:39,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:40,746 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:41,112 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:13:41,746 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:42,746 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:43,746 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:44,746 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:45,746 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:46,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:13:46,746 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:47,746 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:48,746 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:49,746 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:50,747 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:51,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:13:51,749 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:52,747 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:52,780 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/config.yaml
+2025-05-10 21:13:53,744 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-10 21:13:53,744 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: stop_status
+2025-05-10 21:13:53,792 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:54,747 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:55,747 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:56,747 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:57,279 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:13:57,747 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:58,747 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:13:59,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:00,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:01,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:02,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:14:02,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:03,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:04,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:05,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:06,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:07,745 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:14:07,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:08,744 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: stop_status
+2025-05-10 21:14:08,744 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: stop_status
+2025-05-10 21:14:08,788 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:09,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:10,748 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:11,749 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:12,749 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:13,131 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:14:13,654 DEBUG   SenderThread:193471 [sender.py:send():379] send: telemetry
+2025-05-10 21:14:13,696 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-10 21:14:13,700 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-10 21:14:13,700 DEBUG   SenderThread:193471 [sender.py:send():379] send: history
+2025-05-10 21:14:13,700 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: summary_record
+2025-05-10 21:14:13,701 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:13,749 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:13,753 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-10 21:14:13,753 DEBUG   SenderThread:193471 [sender.py:send():379] send: history
+2025-05-10 21:14:13,753 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: summary_record
+2025-05-10 21:14:13,754 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:13,783 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_created():271] file/dir created: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/wandb-summary.json
+2025-05-10 21:14:13,796 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-10 21:14:13,796 DEBUG   SenderThread:193471 [sender.py:send():379] send: history
+2025-05-10 21:14:13,796 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: summary_record
+2025-05-10 21:14:13,796 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:13,828 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-10 21:14:13,828 DEBUG   SenderThread:193471 [sender.py:send():379] send: history
+2025-05-10 21:14:13,828 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: summary_record
+2025-05-10 21:14:13,828 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:13,865 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-10 21:14:13,865 DEBUG   SenderThread:193471 [sender.py:send():379] send: history
+2025-05-10 21:14:13,865 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: summary_record
+2025-05-10 21:14:13,865 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:13,902 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-10 21:14:13,902 DEBUG   SenderThread:193471 [sender.py:send():379] send: history
+2025-05-10 21:14:13,903 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: summary_record
+2025-05-10 21:14:13,903 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:13,940 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-10 21:14:13,940 DEBUG   SenderThread:193471 [sender.py:send():379] send: history
+2025-05-10 21:14:13,940 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: summary_record
+2025-05-10 21:14:13,940 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:13,977 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-10 21:14:13,977 DEBUG   SenderThread:193471 [sender.py:send():379] send: history
+2025-05-10 21:14:13,977 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: summary_record
+2025-05-10 21:14:13,977 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:14,014 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-10 21:14:14,014 DEBUG   SenderThread:193471 [sender.py:send():379] send: history
+2025-05-10 21:14:14,014 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: summary_record
+2025-05-10 21:14:14,015 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:14,051 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: partial_history
+2025-05-10 21:14:14,052 DEBUG   SenderThread:193471 [sender.py:send():379] send: history
+2025-05-10 21:14:14,052 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: summary_record
+2025-05-10 21:14:14,052 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:14,159 DEBUG   SenderThread:193471 [sender.py:send():379] send: exit
+2025-05-10 21:14:14,159 INFO    SenderThread:193471 [sender.py:send_exit():586] handling exit code: 1
+2025-05-10 21:14:14,159 INFO    SenderThread:193471 [sender.py:send_exit():588] handling runtime: 51
+2025-05-10 21:14:14,159 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:14,159 INFO    SenderThread:193471 [sender.py:send_exit():594] send defer
+2025-05-10 21:14:14,159 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:14,159 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 0
+2025-05-10 21:14:14,159 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:14,159 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 0
+2025-05-10 21:14:14,159 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 1
+2025-05-10 21:14:14,159 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:14,159 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 1
+2025-05-10 21:14:14,160 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:14,160 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 1
+2025-05-10 21:14:14,160 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 2
+2025-05-10 21:14:14,160 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:14,160 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 2
+2025-05-10 21:14:14,160 INFO    HandlerThread:193471 [system_monitor.py:finish():203] Stopping system monitor
+2025-05-10 21:14:14,160 DEBUG   SystemMonitor:193471 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-05-10 21:14:14,160 DEBUG   SystemMonitor:193471 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-05-10 21:14:14,160 DEBUG   SystemMonitor:193471 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-05-10 21:14:14,160 INFO    HandlerThread:193471 [interfaces.py:finish():200] Joined cpu monitor
+2025-05-10 21:14:14,160 INFO    HandlerThread:193471 [interfaces.py:finish():200] Joined disk monitor
+2025-05-10 21:14:14,184 INFO    HandlerThread:193471 [interfaces.py:finish():200] Joined gpu monitor
+2025-05-10 21:14:14,184 INFO    HandlerThread:193471 [interfaces.py:finish():200] Joined memory monitor
+2025-05-10 21:14:14,184 INFO    HandlerThread:193471 [interfaces.py:finish():200] Joined network monitor
+2025-05-10 21:14:14,184 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:14,184 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 2
+2025-05-10 21:14:14,184 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 3
+2025-05-10 21:14:14,185 DEBUG   SenderThread:193471 [sender.py:send():379] send: stats
+2025-05-10 21:14:14,185 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:14,185 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 3
+2025-05-10 21:14:14,185 DEBUG   SenderThread:193471 [sender.py:send():379] send: history
+2025-05-10 21:14:14,185 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: summary_record
+2025-05-10 21:14:14,185 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:14,185 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:14,185 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 3
+2025-05-10 21:14:14,185 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 4
+2025-05-10 21:14:14,185 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:14,185 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 4
+2025-05-10 21:14:14,185 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:14,185 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 4
+2025-05-10 21:14:14,185 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 5
+2025-05-10 21:14:14,185 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:14,185 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 5
+2025-05-10 21:14:14,185 DEBUG   SenderThread:193471 [sender.py:send():379] send: summary
+2025-05-10 21:14:14,186 INFO    SenderThread:193471 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-05-10 21:14:14,186 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:14,186 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 5
+2025-05-10 21:14:14,186 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 6
+2025-05-10 21:14:14,186 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:14,186 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 6
+2025-05-10 21:14:14,186 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:14,186 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 6
+2025-05-10 21:14:14,187 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:14:14,784 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/wandb-summary.json
+2025-05-10 21:14:14,784 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/output.log
+2025-05-10 21:14:14,873 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 7
+2025-05-10 21:14:14,873 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:14,873 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 7
+2025-05-10 21:14:14,873 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:14,873 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 7
+2025-05-10 21:14:15,159 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-10 21:14:15,784 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/config.yaml
+2025-05-10 21:14:16,785 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/output.log
+2025-05-10 21:14:18,103 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 8
+2025-05-10 21:14:18,103 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: poll_exit
+2025-05-10 21:14:18,103 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:18,104 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 8
+2025-05-10 21:14:18,104 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:18,104 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 8
+2025-05-10 21:14:18,105 INFO    SenderThread:193471 [job_builder.py:build():440] Attempting to build job artifact
+2025-05-10 21:14:18,106 INFO    SenderThread:193471 [job_builder.py:_get_source_type():569] is repo sourced job
+2025-05-10 21:14:18,123 INFO    SenderThread:193471 [job_builder.py:build():545] adding wandb-job metadata file
+2025-05-10 21:14:18,135 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 9
+2025-05-10 21:14:18,136 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:18,136 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 9
+2025-05-10 21:14:18,137 DEBUG   SenderThread:193471 [sender.py:send():379] send: artifact
+2025-05-10 21:14:18,160 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-10 21:14:18,786 INFO    Thread-12 :193471 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/output.log
+2025-05-10 21:14:20,494 INFO    SenderThread:193471 [sender.py:send_artifact():1530] sent artifact job-https___github.com_glue25_Multi-Task-MBRL_renew_train_with_cprofile.py - {'id': 'QXJ0aWZhY3Q6MTcxODA0Mzk0Mw==', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjYzMjgwODY0OQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTcyMTUwOTEyNw==', 'versionIndex': 19}}}
+2025-05-10 21:14:20,494 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:20,494 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 9
+2025-05-10 21:14:20,494 INFO    SenderThread:193471 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-05-10 21:14:20,787 INFO    SenderThread:193471 [dir_watcher.py:finish():388] scan: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files
+2025-05-10 21:14:20,788 INFO    SenderThread:193471 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/conda-environment.yaml conda-environment.yaml
+2025-05-10 21:14:20,788 INFO    SenderThread:193471 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/wandb-summary.json wandb-summary.json
+2025-05-10 21:14:20,788 INFO    SenderThread:193471 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/output.log output.log
+2025-05-10 21:14:20,793 INFO    SenderThread:193471 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/config.yaml config.yaml
+2025-05-10 21:14:20,798 INFO    SenderThread:193471 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/wandb-metadata.json wandb-metadata.json
+2025-05-10 21:14:20,801 INFO    SenderThread:193471 [dir_watcher.py:finish():402] scan save: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/requirements.txt requirements.txt
+2025-05-10 21:14:20,801 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 10
+2025-05-10 21:14:20,802 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: poll_exit
+2025-05-10 21:14:20,802 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:20,802 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 10
+2025-05-10 21:14:20,806 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:20,806 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 10
+2025-05-10 21:14:20,806 INFO    SenderThread:193471 [file_pusher.py:finish():169] shutting down file pusher
+2025-05-10 21:14:21,163 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-10 21:14:21,164 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: poll_exit
+2025-05-10 21:14:22,041 INFO    wandb-upload_1:193471 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/conda-environment.yaml
+2025-05-10 21:14:22,164 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-10 21:14:22,165 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: poll_exit
+2025-05-10 21:14:23,006 INFO    wandb-upload_4:193471 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/requirements.txt
+2025-05-10 21:14:23,166 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: status_report
+2025-05-10 21:14:23,167 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-10 21:14:23,168 INFO    wandb-upload_0:193471 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/output.log
+2025-05-10 21:14:23,168 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: poll_exit
+2025-05-10 21:14:24,169 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-10 21:14:24,170 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: poll_exit
+2025-05-10 21:14:24,394 INFO    wandb-upload_2:193471 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/wandb-summary.json
+2025-05-10 21:14:24,410 INFO    wandb-upload_3:193471 [upload_job.py:push():130] Uploaded file /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/files/config.yaml
+2025-05-10 21:14:24,611 INFO    Thread-11 :193471 [sender.py:transition_state():614] send defer: 11
+2025-05-10 21:14:24,612 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:24,612 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 11
+2025-05-10 21:14:24,612 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:24,613 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 11
+2025-05-10 21:14:24,613 INFO    SenderThread:193471 [file_pusher.py:join():175] waiting for file pusher
+2025-05-10 21:14:24,613 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 12
+2025-05-10 21:14:24,613 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:24,613 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 12
+2025-05-10 21:14:24,614 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:24,614 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 12
+2025-05-10 21:14:24,614 INFO    SenderThread:193471 [file_stream.py:finish():601] file stream finish called
+2025-05-10 21:14:25,115 INFO    SenderThread:193471 [file_stream.py:finish():605] file stream finish is done
+2025-05-10 21:14:25,115 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 13
+2025-05-10 21:14:25,116 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:25,116 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 13
+2025-05-10 21:14:25,116 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:25,117 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 13
+2025-05-10 21:14:25,117 INFO    SenderThread:193471 [sender.py:transition_state():614] send defer: 14
+2025-05-10 21:14:25,117 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: defer
+2025-05-10 21:14:25,118 INFO    HandlerThread:193471 [handler.py:handle_request_defer():184] handle defer: 14
+2025-05-10 21:14:25,118 DEBUG   SenderThread:193471 [sender.py:send():379] send: final
+2025-05-10 21:14:25,118 DEBUG   SenderThread:193471 [sender.py:send():379] send: footer
+2025-05-10 21:14:25,118 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: defer
+2025-05-10 21:14:25,118 INFO    SenderThread:193471 [sender.py:send_request_defer():610] handle sender defer: 14
+2025-05-10 21:14:25,119 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-10 21:14:25,119 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: poll_exit
+2025-05-10 21:14:25,120 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: server_info
+2025-05-10 21:14:25,120 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: server_info
+2025-05-10 21:14:25,125 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: poll_exit
+2025-05-10 21:14:25,125 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: get_summary
+2025-05-10 21:14:25,127 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: sampled_history
+2025-05-10 21:14:25,128 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: internal_messages
+2025-05-10 21:14:25,519 DEBUG   SenderThread:193471 [sender.py:send_request():406] send_request: poll_exit
+2025-05-10 21:14:25,519 INFO    MainThread:193471 [wandb_run.py:_footer_history_summary_info():3991] rendering history
+2025-05-10 21:14:25,520 INFO    MainThread:193471 [wandb_run.py:_footer_history_summary_info():4023] rendering summary
+2025-05-10 21:14:25,520 INFO    MainThread:193471 [wandb_run.py:_footer_sync_info():3950] logging synced files
+2025-05-10 21:14:25,521 DEBUG   HandlerThread:193471 [handler.py:handle_request():158] handle_request: shutdown
+2025-05-10 21:14:25,521 INFO    HandlerThread:193471 [handler.py:finish():882] shutting down handler
+2025-05-10 21:14:26,126 INFO    WriterThread:193471 [datastore.py:close():296] close: /home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30/wandb/run-20250510_211320-1bi0wn2b/run-1bi0wn2b.wandb
+2025-05-10 21:14:26,519 INFO    SenderThread:193471 [sender.py:finish():1608] shutting down sender
+2025-05-10 21:14:26,519 INFO    SenderThread:193471 [file_pusher.py:finish():169] shutting down file pusher
+2025-05-10 21:14:26,520 INFO    SenderThread:193471 [file_pusher.py:join():175] waiting for file pusher

@@ -1,0 +1,78 @@
+[34m[1mLogs will be synced with wandb.
+Architecture: Moore-MPC World Model
+Encoder: ModuleDict(
+  (state): Sequential(
+    (0): NormedLinear(in_features=88, out_features=256, bias=True, act=Mish)
+    (1): NormedLinear(in_features=256, out_features=512, bias=True, act=SimNorm)
+  )
+)
+Dynamics: Sequential(
+  (0): NormedLinear(in_features=582, out_features=512, bias=True, act=Mish)
+  (1): NormedLinear(in_features=512, out_features=512, bias=True, act=Mish)
+  (2): NormedLinear(in_features=512, out_features=512, bias=True, act=SimNorm)
+)
+Reward: Sequential(
+  (0): NormedLinear(in_features=582, out_features=512, bias=True, act=Mish)
+  (1): NormedLinear(in_features=512, out_features=512, bias=True, act=Mish)
+  (2): Linear(in_features=512, out_features=101, bias=True)
+)
+Policy prior: Sequential(
+  (0): NormedLinear(in_features=576, out_features=512, bias=True, act=Mish)
+  (1): NormedLinear(in_features=512, out_features=512, bias=True, act=Mish)
+  (2): Linear(in_features=512, out_features=12, bias=True)
+)
+Q-functions: Vectorized 5x Sequential(
+  (0): NormedLinear(in_features=582, out_features=512, bias=True, dropout=0.01, act=Mish)
+  (1): NormedLinear(in_features=512, out_features=512, bias=True, act=Mish)
+  (2): Linear(in_features=512, out_features=101, bias=True)
+)
+Learnable parameters: 5,241,066
+Found 1 files in /media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30/*.pt
+WARNING: expected 20 files for mt80 task set, 4 files for mt30 task set, found 1 files.
+Loading data:   0%|                                                                                               | 0/1 [00:00<?, ?it/s]
+Buffer capacity: 345,690,000
+Storage required: 47.01 GB
+Loading data: 100%|███████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:04<00:00,  4.57s/it]
+Evaluating:   0%|                                                                                                | 0/30 [00:00<?, ?it/s]
+WARNING: buffer has 200000 episodes, expected 690000 episodes for mt30 task set.
+Evaluating:   0%|                                                                                                | 0/30 [00:38<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/levi/Desktop/MOORE-TDMPC/moore-tdmpc/algorithms/train.py", line 65, in <module>
+    train()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore-tdmpc/algorithms/train.py", line 60, in train
+    trainer.train()
+  File "/home/levi/Desktop/MOORE-TDMPC/moore-tdmpc/algorithms/trainer/offline_trainer.py", line 92, in train
+    metrics.update(self.eval())
+  File "/home/levi/Desktop/MOORE-TDMPC/moore-tdmpc/algorithms/trainer/offline_trainer.py", line 31, in eval
+    action = self.agent.act(obs, t0=t==0, eval_mode=True, task=task_idx)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore-tdmpc/algorithms/Mooretdmpc.py", line 116, in act
+    return self.plan(obs, t0=t0, eval_mode=eval_mode, task=task).cpu()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore-tdmpc/algorithms/Mooretdmpc.py", line 185, in _plan
+    value = self._estimate_value(z, actions, task).nan_to_num(0)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore-tdmpc/algorithms/Mooretdmpc.py", line 130, in _estimate_value
+    z = self.model.next(z, actions[t], task)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore-tdmpc/algorithms/common/world_model.py", line 155, in next
+    z = self.task_emb(z, task)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore-tdmpc/algorithms/common/world_model.py", line 133, in task_emb
+    emb = emb.repeat(x.shape[0], 1)
+KeyboardInterrupt

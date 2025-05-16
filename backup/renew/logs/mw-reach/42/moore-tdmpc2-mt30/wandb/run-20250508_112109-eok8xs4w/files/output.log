@@ -1,0 +1,164 @@
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=30, obs_dim=39, action_dim=4, hidden_dim=256, n_experts=4, moore_temperature=0.5, use_softmax=True, use_checkpoint=False, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=4, use_ema=True, ensemble_size=5, update_freq=4, seed=42, model_updates=1, pi_updates=1, bc_coef=0.1, adv_norm_eps=0.01, device=device(type='cuda', index=0), task='mw-reach', obs='state', multitask=False, steps=10000000, batch_size=256, reward_coef=0.1, value_coef=0.1, consistency_coef=10, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.01, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=1000000, exp_name='moore-tdmpc2-mt30', eval_freq=20000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 0.5, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=15, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=7, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=False, compile_dynamics=False, compile_loss=False, work_dir=PosixPath('/home/levi/Desktop/MOORE-TDMPC/renew/logs/mw-reach/42/moore-tdmpc2-mt30'), task_title='Mw Reach', tasks=['mw-reach'], obs_shape={'state': (39,)}, episode_length=100, obs_shapes='???', episode_lengths='???', seed_steps=1000, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: MooreWorldModel(total_params=5308978, latent_dim=512, action_dim=4, n_experts=4, temperature=0.5)
+Task Encoder: MooreTaskEncoder(obs_dim=39, latent_dim=512, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True)
+Transition-Reward Core: MoETransitionRewardModel(latent_dim=512, action_dim=4, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, fused_head=True, use_mixed_precision=True)
+Policy prior: Sequential(
+  (0): Linear(in_features=512, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=256, out_features=256, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=256, out_features=8, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+[32m[1m开始Moore-TDMPC2训练...
+[32mOnlineTrainer: Starting training loop with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=0, Total Calls=0
+[36mPROFILER: forward executed in 40.19ms (call 1)
+[36mPROFILER: forward executed in 0.37ms (call 2)
+[36mPROFILER: forward executed in 0.35ms (call 3)
+=== 首次 eval() 阶段热点函数 ===
+         14415085 function calls (12364014 primitive calls) in 17.394 seconds
+   Ordered by: cumulative time
+   List reduced from 2393 to 20 due to restriction <20>
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.011    0.011   17.394   17.394 /home/levi/Desktop/MOORE-TDMPC/renew/trainer/online_trainer.py:36(eval)
+2000/1000    0.012    0.000   16.143    0.016 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py:113(decorate_context)
+     1000    0.004    0.000   16.131    0.016 /home/levi/Desktop/MOORE-TDMPC/renew/train_moore_agent.py:431(act)
+     1000    2.890    0.003   15.224    0.015 /home/levi/Desktop/MOORE-TDMPC/renew/train_moore_agent.py:374(plan)
+    15000    0.123    0.000    8.738    0.001 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py:482(Q)
+609000/77000    0.215    0.000    8.011    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py:1736(_wrapped_call_impl)
+609000/77000    0.326    0.000    7.980    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py:1744(_call_impl)
+    76000    0.218    0.000    7.581    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/container.py:248(forward)
+   229000    0.136    0.000    5.313    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/linear.py:124(forward)
+   229000    5.116    0.000    5.116    0.000 {built-in method torch._C._nn.linear}
+   152000    0.043    0.000    1.227    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/activation.py:132(forward)
+   152000    0.049    0.000    1.184    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/functional.py:1693(relu)
+   152000    1.119    0.000    1.119    0.000 {built-in method torch.relu}
+     2000    0.004    0.000    0.853    0.000 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py:574(train)
+254000/7000    0.153    0.000    0.847    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py:2831(train)
+     1000    0.002    0.000    0.665    0.001 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/compiler/__init__.py:285(cudagraph_mark_step_begin)
+1243/1000    0.001    0.000    0.663    0.001 <frozen importlib._bootstrap>:1033(_handle_fromlist)
+    213/1    0.000    0.000    0.662    0.662 <frozen importlib._bootstrap>:220(_call_with_frames_removed)
+     34/1    0.000    0.000    0.662    0.662 {built-in method builtins.__import__}
+    193/1    0.000    0.000    0.662    0.662 <frozen importlib._bootstrap>:1002(_find_and_load)
+ [32meval[39m    [34mE:[39m 0            [34mI:[39m 0            [34mR:[39m 291.0        [34mS:[39m 0.0          [34mT:[39m 0:00:17
+ [34mtrain[39m   [34mE:[39m 0            [34mI:[39m 100          [34mR:[39m 364.9        [34mS:[39m 0.0          [34mT:[39m 0:00:17
+Buffer capacity: 1,000,000
+Storage required: 0.18 GB
+Using CUDA:0 memory for storage.
+ [34mtrain[39m   [34mE:[39m 1            [34mI:[39m 200          [34mR:[39m 315.7        [34mS:[39m 0.0          [34mT:[39m 0:00:17
+ [34mtrain[39m   [34mE:[39m 2            [34mI:[39m 300          [34mR:[39m 605.1        [34mS:[39m 0.0          [34mT:[39m 0:00:17
+ [34mtrain[39m   [34mE:[39m 3            [34mI:[39m 400          [34mR:[39m 347.1        [34mS:[39m 0.0          [34mT:[39m 0:00:17
+ [34mtrain[39m   [34mE:[39m 4            [34mI:[39m 500          [34mR:[39m 319.2        [34mS:[39m 0.0          [34mT:[39m 0:00:17
+ [34mtrain[39m   [34mE:[39m 5            [34mI:[39m 600          [34mR:[39m 274.8        [34mS:[39m 0.0          [34mT:[39m 0:00:17
+ [34mtrain[39m   [34mE:[39m 6            [34mI:[39m 700          [34mR:[39m 276.7        [34mS:[39m 0.0          [34mT:[39m 0:00:17
+ [34mtrain[39m   [34mE:[39m 7            [34mI:[39m 800          [34mR:[39m 190.2        [34mS:[39m 0.0          [34mT:[39m 0:00:17
+ [34mtrain[39m   [34mE:[39m 8            [34mI:[39m 900          [34mR:[39m 547.0        [34mS:[39m 0.0          [34mT:[39m 0:00:17
+ [34mtrain[39m   [34mE:[39m 9            [34mI:[39m 1,000        [34mR:[39m 361.1        [34mS:[39m 0.0          [34mT:[39m 0:00:17
+Pretraining agent on seed data...
+ [34mtrain[39m   [34mE:[39m 10           [34mI:[39m 1,100        [34mR:[39m 178.9        [34mS:[39m 0.0          [34mT:[39m 0:02:10
+ [34mtrain[39m   [34mE:[39m 11           [34mI:[39m 1,200        [34mR:[39m 268.6        [34mS:[39m 0.0          [34mT:[39m 0:02:22
+ [34mtrain[39m   [34mE:[39m 12           [34mI:[39m 1,300        [34mR:[39m 685.8        [34mS:[39m 0.0          [34mT:[39m 0:02:34
+ [34mtrain[39m   [34mE:[39m 13           [34mI:[39m 1,400        [34mR:[39m 341.1        [34mS:[39m 0.0          [34mT:[39m 0:02:45
+ [34mtrain[39m   [34mE:[39m 14           [34mI:[39m 1,500        [34mR:[39m 337.1        [34mS:[39m 0.0          [34mT:[39m 0:02:57
+ [34mtrain[39m   [34mE:[39m 15           [34mI:[39m 1,600        [34mR:[39m 226.9        [34mS:[39m 0.0          [34mT:[39m 0:03:10
+ [34mtrain[39m   [34mE:[39m 16           [34mI:[39m 1,700        [34mR:[39m 330.5        [34mS:[39m 0.0          [34mT:[39m 0:03:21
+ [34mtrain[39m   [34mE:[39m 17           [34mI:[39m 1,800        [34mR:[39m 266.7        [34mS:[39m 0.0          [34mT:[39m 0:03:33
+ [34mtrain[39m   [34mE:[39m 18           [34mI:[39m 1,900        [34mR:[39m 322.8        [34mS:[39m 0.0          [34mT:[39m 0:03:45
+ [34mtrain[39m   [34mE:[39m 19           [34mI:[39m 2,000        [34mR:[39m 207.6        [34mS:[39m 0.0          [34mT:[39m 0:03:57
+ [34mtrain[39m   [34mE:[39m 20           [34mI:[39m 2,100        [34mR:[39m 228.2        [34mS:[39m 0.0          [34mT:[39m 0:04:09
+ [34mtrain[39m   [34mE:[39m 21           [34mI:[39m 2,200        [34mR:[39m 244.8        [34mS:[39m 0.0          [34mT:[39m 0:04:20
+ [34mtrain[39m   [34mE:[39m 22           [34mI:[39m 2,300        [34mR:[39m 523.5        [34mS:[39m 0.0          [34mT:[39m 0:04:32
+ [34mtrain[39m   [34mE:[39m 23           [34mI:[39m 2,400        [34mR:[39m 248.8        [34mS:[39m 0.0          [34mT:[39m 0:04:44
+ [34mtrain[39m   [34mE:[39m 24           [34mI:[39m 2,500        [34mR:[39m 632.1        [34mS:[39m 0.0          [34mT:[39m 0:04:55
+ [34mtrain[39m   [34mE:[39m 25           [34mI:[39m 2,600        [34mR:[39m 235.3        [34mS:[39m 0.0          [34mT:[39m 0:05:07
+ [34mtrain[39m   [34mE:[39m 26           [34mI:[39m 2,700        [34mR:[39m 274.4        [34mS:[39m 0.0          [34mT:[39m 0:05:19
+ [34mtrain[39m   [34mE:[39m 27           [34mI:[39m 2,800        [34mR:[39m 481.4        [34mS:[39m 0.0          [34mT:[39m 0:05:31
+ [34mtrain[39m   [34mE:[39m 28           [34mI:[39m 2,900        [34mR:[39m 253.4        [34mS:[39m 0.0          [34mT:[39m 0:05:43
+ [34mtrain[39m   [34mE:[39m 29           [34mI:[39m 3,000        [34mR:[39m 393.5        [34mS:[39m 0.0          [34mT:[39m 0:05:54
+ [34mtrain[39m   [34mE:[39m 30           [34mI:[39m 3,100        [34mR:[39m 212.9        [34mS:[39m 0.0          [34mT:[39m 0:06:06
+ [34mtrain[39m   [34mE:[39m 31           [34mI:[39m 3,200        [34mR:[39m 266.2        [34mS:[39m 0.0          [34mT:[39m 0:06:18
+ [34mtrain[39m   [34mE:[39m 32           [34mI:[39m 3,300        [34mR:[39m 358.6        [34mS:[39m 0.0          [34mT:[39m 0:06:30
+ [34mtrain[39m   [34mE:[39m 33           [34mI:[39m 3,400        [34mR:[39m 447.0        [34mS:[39m 0.0          [34mT:[39m 0:06:41
+ [34mtrain[39m   [34mE:[39m 34           [34mI:[39m 3,500        [34mR:[39m 297.5        [34mS:[39m 0.0          [34mT:[39m 0:06:53
+ [34mtrain[39m   [34mE:[39m 35           [34mI:[39m 3,600        [34mR:[39m 545.2        [34mS:[39m 0.0          [34mT:[39m 0:07:05
+ [34mtrain[39m   [34mE:[39m 36           [34mI:[39m 3,700        [34mR:[39m 385.3        [34mS:[39m 0.0          [34mT:[39m 0:07:17
+ [34mtrain[39m   [34mE:[39m 37           [34mI:[39m 3,800        [34mR:[39m 356.4        [34mS:[39m 0.0          [34mT:[39m 0:07:28
+ [34mtrain[39m   [34mE:[39m 38           [34mI:[39m 3,900        [34mR:[39m 206.9        [34mS:[39m 0.0          [34mT:[39m 0:07:40
+ [34mtrain[39m   [34mE:[39m 39           [34mI:[39m 4,000        [34mR:[39m 382.5        [34mS:[39m 0.0          [34mT:[39m 0:07:52
+ [34mtrain[39m   [34mE:[39m 40           [34mI:[39m 4,100        [34mR:[39m 280.7        [34mS:[39m 0.0          [34mT:[39m 0:08:04
+ [34mtrain[39m   [34mE:[39m 41           [34mI:[39m 4,200        [34mR:[39m 399.5        [34mS:[39m 0.0          [34mT:[39m 0:08:16
+ [34mtrain[39m   [34mE:[39m 42           [34mI:[39m 4,300        [34mR:[39m 204.4        [34mS:[39m 0.0          [34mT:[39m 0:08:28
+ [34mtrain[39m   [34mE:[39m 43           [34mI:[39m 4,400        [34mR:[39m 187.9        [34mS:[39m 0.0          [34mT:[39m 0:08:40
+ [34mtrain[39m   [34mE:[39m 44           [34mI:[39m 4,500        [34mR:[39m 343.7        [34mS:[39m 0.0          [34mT:[39m 0:08:52
+ [34mtrain[39m   [34mE:[39m 45           [34mI:[39m 4,600        [34mR:[39m 242.1        [34mS:[39m 0.0          [34mT:[39m 0:09:04
+ [34mtrain[39m   [34mE:[39m 46           [34mI:[39m 4,700        [34mR:[39m 230.8        [34mS:[39m 0.0          [34mT:[39m 0:09:16
+ [34mtrain[39m   [34mE:[39m 47           [34mI:[39m 4,800        [34mR:[39m 264.8        [34mS:[39m 0.0          [34mT:[39m 0:09:28
+ [34mtrain[39m   [34mE:[39m 48           [34mI:[39m 4,900        [34mR:[39m 274.5        [34mS:[39m 0.0          [34mT:[39m 0:09:40
+ [34mtrain[39m   [34mE:[39m 49           [34mI:[39m 5,000        [34mR:[39m 527.2        [34mS:[39m 0.0          [34mT:[39m 0:09:52
+ [34mtrain[39m   [34mE:[39m 50           [34mI:[39m 5,100        [34mR:[39m 266.8        [34mS:[39m 0.0          [34mT:[39m 0:10:05
+ [34mtrain[39m   [34mE:[39m 51           [34mI:[39m 5,200        [34mR:[39m 441.2        [34mS:[39m 0.0          [34mT:[39m 0:10:18
+ [34mtrain[39m   [34mE:[39m 52           [34mI:[39m 5,300        [34mR:[39m 253.6        [34mS:[39m 0.0          [34mT:[39m 0:10:31
+ [34mtrain[39m   [34mE:[39m 53           [34mI:[39m 5,400        [34mR:[39m 312.5        [34mS:[39m 0.0          [34mT:[39m 0:10:44
+ [34mtrain[39m   [34mE:[39m 54           [34mI:[39m 5,500        [34mR:[39m 296.8        [34mS:[39m 0.0          [34mT:[39m 0:10:55
+ [34mtrain[39m   [34mE:[39m 55           [34mI:[39m 5,600        [34mR:[39m 202.3        [34mS:[39m 0.0          [34mT:[39m 0:11:07
+ [34mtrain[39m   [34mE:[39m 56           [34mI:[39m 5,700        [34mR:[39m 249.7        [34mS:[39m 0.0          [34mT:[39m 0:11:19
+ [34mtrain[39m   [34mE:[39m 57           [34mI:[39m 5,800        [34mR:[39m 259.3        [34mS:[39m 0.0          [34mT:[39m 0:11:31
+ [34mtrain[39m   [34mE:[39m 58           [34mI:[39m 5,900        [34mR:[39m 258.9        [34mS:[39m 0.0          [34mT:[39m 0:11:44
+ [34mtrain[39m   [34mE:[39m 59           [34mI:[39m 6,000        [34mR:[39m 326.1        [34mS:[39m 0.0          [34mT:[39m 0:11:57
+ [34mtrain[39m   [34mE:[39m 60           [34mI:[39m 6,100        [34mR:[39m 275.2        [34mS:[39m 0.0          [34mT:[39m 0:12:10
+ [34mtrain[39m   [34mE:[39m 61           [34mI:[39m 6,200        [34mR:[39m 270.0        [34mS:[39m 0.0          [34mT:[39m 0:12:22
+ [34mtrain[39m   [34mE:[39m 62           [34mI:[39m 6,300        [34mR:[39m 248.0        [34mS:[39m 0.0          [34mT:[39m 0:12:34
+ [34mtrain[39m   [34mE:[39m 63           [34mI:[39m 6,400        [34mR:[39m 261.1        [34mS:[39m 0.0          [34mT:[39m 0:12:47
+ [34mtrain[39m   [34mE:[39m 64           [34mI:[39m 6,500        [34mR:[39m 480.7        [34mS:[39m 0.0          [34mT:[39m 0:12:59
+ [34mtrain[39m   [34mE:[39m 65           [34mI:[39m 6,600        [34mR:[39m 278.3        [34mS:[39m 0.0          [34mT:[39m 0:13:11
+ [34mtrain[39m   [34mE:[39m 66           [34mI:[39m 6,700        [34mR:[39m 278.0        [34mS:[39m 0.0          [34mT:[39m 0:13:24
+ [34mtrain[39m   [34mE:[39m 67           [34mI:[39m 6,800        [34mR:[39m 220.6        [34mS:[39m 0.0          [34mT:[39m 0:13:37
+ [34mtrain[39m   [34mE:[39m 68           [34mI:[39m 6,900        [34mR:[39m 248.4        [34mS:[39m 0.0          [34mT:[39m 0:13:49
+Traceback (most recent call last):
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/train_with_cprofile.py", line 173, in <module>
+    train()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/train_with_cprofile.py", line 160, in train
+    trainer.train()
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/trainer/online_trainer.py", line 126, in train
+    _train_metrics = self.agent.update(self.buffer)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/train_moore_agent.py", line 607, in update
+    @torch._dynamo.disable()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 721, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/renew/train_moore_agent.py", line 711, in update_pi
+    q_min = torch.cat(
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py", line 536, in Q
+    q = q_net(za)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1740, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1740, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/activation.py", line 133, in forward
+    return F.relu(input, inplace=self.inplace)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/functional.py", line 1704, in relu
+    result = torch.relu(input)
+KeyboardInterrupt

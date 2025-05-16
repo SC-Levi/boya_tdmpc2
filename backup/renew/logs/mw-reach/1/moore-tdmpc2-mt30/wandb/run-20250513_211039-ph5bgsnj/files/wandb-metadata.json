@@ -1,0 +1,170 @@
+{
+    "os": "Linux-5.15.0-136-generic-x86_64-with-glibc2.31",
+    "python": "3.9.21",
+    "heartbeatAt": "2025-05-13T13:10:43.632037",
+    "startedAt": "2025-05-13T13:10:39.727186",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "task=mw-reach"
+    ],
+    "state": "running",
+    "program": "/home/levi/Desktop/MOORE-TDMPC/renew/train_with_cprofile.py",
+    "codePathLocal": null,
+    "codePath": "renew/train_with_cprofile.py",
+    "git": {
+        "remote": "https://github.com/glue25/Multi-Task-MBRL",
+        "commit": "8a8f62177b4e3af0a42363999c165f422a90b325"
+    },
+    "email": "sc_levi@163.com",
+    "root": "/home/levi/Desktop/MOORE-TDMPC",
+    "host": "workstation",
+    "username": "levi",
+    "executable": "/home/levi/anaconda3/envs/tdmpc2/bin/python",
+    "cpu_count": 16,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 3453.329708333333,
+        "min": 800.0,
+        "max": 4950.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5400.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5400.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5400.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5400.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 2898.295,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        },
+        {
+            "current": 3400.0,
+            "min": 800.0,
+            "max": 4200.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 456.8756866455078,
+            "used": 397.9294891357422
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4090 D",
+            "memory_total": 25757220864
+        }
+    ],
+    "memory": {
+        "total": 62.605716705322266
+    }
+}

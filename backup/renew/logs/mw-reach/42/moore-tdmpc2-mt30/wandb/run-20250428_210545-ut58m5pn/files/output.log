@@ -1,0 +1,234 @@
+[34m[1mLogs will be synced with wandb.
+Config(env_type='MooreMultiTask', n_contexts=30, obs_dim=39, action_dim=4, hidden_dim=256, n_experts=4, moore_temperature=0.5, use_softmax=True, use_checkpoint=False, use_mixed_precision=True, gamma=0.99, stddev=0.1, actor_updates=2, use_ema=True, ensemble_size=5, update_freq=2, seed=42, device=device(type='cuda', index=0), task='mw-reach', obs='state', multitask=False, steps=10000000, batch_size=256, reward_coef=0.1, value_coef=0.1, consistency_coef=10, rho=0.5, lr=0.0003, enc_lr_scale=0.3, grad_clip_norm=20, tau=0.005, discount_denom=5, discount_min=0.95, discount_max=0.995, buffer_size=1000000, exp_name='moore-tdmpc2-mt30', eval_freq=20000, eval_episodes=10, moore={'n_experts': 4, 'temperature': 0.5, 'use_softmax': True, 'debug_task_emb': False}, mpc=True, iterations=6, num_samples=512, num_elites=64, num_pi_trajs=24, horizon=7, min_std=0.05, max_std=2, temperature=0.5, log_std_min=-10, log_std_max=2, entropy_coef=0.0001, model_size=5, num_enc_layers=2, enc_dim=256, num_channels=32, mlp_dim=512, latent_dim=512, task_dim=0, num_q=5, dropout=0.01, simnorm_dim=8, num_bins=101, vmin=-10, vmax=10, wandb_project='moore-tdmpc2', wandb_entity='OA-MBRL', wandb_silent=False, enable_wandb=True, save_csv=True, save_video=False, save_agent=True, compile=False, compile_dynamics=False, compile_loss=False, work_dir=PosixPath('/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/logs/mw-reach/42/moore-tdmpc2-mt30'), task_title='Mw Reach', tasks=['mw-reach'], obs_shape={'state': (39,)}, episode_length=100, obs_shapes='???', episode_lengths='???', seed_steps=1000, bin_size=0.2, data_dir='/media/levi/Singe4linux/Moore-TDMPC/TDMPC2/data/mt30')
+Architecture: MooreWorldModel(total_params=5308978, latent_dim=512, action_dim=4, n_experts=4, temperature=0.5)
+Task Encoder: MooreTaskEncoder(obs_dim=39, latent_dim=512, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True)
+Transition-Reward Core: MoETransitionRewardModel(latent_dim=512, action_dim=4, hidden_dim=256, n_experts=4, temperature=0.5, use_softmax=True, reward_dim=101, fused_head=True, use_mixed_precision=True)
+Policy prior: Sequential(
+  (0): Linear(in_features=512, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=256, out_features=256, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=256, out_features=8, bias=True)
+)
+Q-functions: Ensemble(n_models=5)
+[32m[1m开始Moore-TDMPC2训练...
+[32mOnlineTrainer: Starting training loop with profiling enabled
+[36mPROFILER STATUS: Enabled=True, Functions=0, Total Calls=0
+[36mPROFILER: forward executed in 38.01ms (call 1)
+[36mPROFILER: forward executed in 2.24ms (call 2)
+[36mPROFILER: forward executed in 2.47ms (call 3)
+=== 首次 eval() 阶段热点函数 ===
+         9086109 function calls (8348038 primitive calls) in 62.952 seconds
+   Ordered by: cumulative time
+   List reduced from 2401 to 20 due to restriction <20>
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.014    0.014   62.953   62.953 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/trainer/online_trainer.py:36(eval)
+     1000    0.003    0.000   61.621    0.062 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/utils/_contextlib.py:113(decorate_context)
+     1000    0.009    0.000   61.609    0.062 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py:453(act)
+     1000    7.190    0.007   61.173    0.061 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py:323(plan)
+     6000    1.146    0.000   44.368    0.007 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py:299(estimate_value)
+111000/19000    0.061    0.000   37.787    0.002 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py:1736(_wrapped_call_impl)
+111000/19000    0.149    0.000   37.773    0.002 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py:1744(_call_impl)
+    12000    0.085    0.000   34.416    0.003 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model_core.py:160(core_vectorized)
+    12000    5.822    0.000   33.669    0.003 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model_core.py:108(forward)
+     6000    0.033    0.000   17.798    0.003 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py:705(core_vectorized)
+     6000    0.014    0.000   16.939    0.003 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py:275(reward)
+     6000    0.014    0.000   16.907    0.003 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model.py:281(_forward)
+    13000    0.066    0.000    9.476    0.001 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/layers.py:228(forward)
+    50000    0.120    0.000    7.866    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/functional.py:210(einsum)
+    50000    7.706    0.000    7.706    0.000 {built-in method torch.einsum}
+    18000    0.039    0.000    6.200    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/container.py:248(forward)
+    49000    0.039    0.000    5.939    0.000 /home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/linear.py:124(forward)
+    49000    5.885    0.000    5.885    0.000 {built-in method torch._C._nn.linear}
+     6000    0.578    0.000    4.928    0.001 /home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/common/math.py:90(two_hot_inv)
+    26000    2.953    0.000    2.953    0.000 {method 'add_' of 'torch._C.TensorBase' objects}
+ [32meval[39m    [34mE:[39m 0            [34mI:[39m 0            [34mR:[39m 55.9         [34mS:[39m 0.0          [34mT:[39m 0:01:03
+ [34mtrain[39m   [34mE:[39m 0            [34mI:[39m 100          [34mR:[39m 364.9        [34mS:[39m 0.0          [34mT:[39m 0:01:03
+Buffer capacity: 1,000,000
+Storage required: 0.18 GB
+Using CUDA:0 memory for storage.
+ [34mtrain[39m   [34mE:[39m 1            [34mI:[39m 200          [34mR:[39m 315.7        [34mS:[39m 0.0          [34mT:[39m 0:01:03
+ [34mtrain[39m   [34mE:[39m 2            [34mI:[39m 300          [34mR:[39m 605.1        [34mS:[39m 0.0          [34mT:[39m 0:01:03
+ [34mtrain[39m   [34mE:[39m 3            [34mI:[39m 400          [34mR:[39m 347.1        [34mS:[39m 0.0          [34mT:[39m 0:01:03
+ [34mtrain[39m   [34mE:[39m 4            [34mI:[39m 500          [34mR:[39m 319.2        [34mS:[39m 0.0          [34mT:[39m 0:01:03
+ [34mtrain[39m   [34mE:[39m 5            [34mI:[39m 600          [34mR:[39m 274.8        [34mS:[39m 0.0          [34mT:[39m 0:01:03
+ [34mtrain[39m   [34mE:[39m 6            [34mI:[39m 700          [34mR:[39m 276.7        [34mS:[39m 0.0          [34mT:[39m 0:01:03
+ [34mtrain[39m   [34mE:[39m 7            [34mI:[39m 800          [34mR:[39m 190.2        [34mS:[39m 0.0          [34mT:[39m 0:01:03
+ [34mtrain[39m   [34mE:[39m 8            [34mI:[39m 900          [34mR:[39m 547.0        [34mS:[39m 0.0          [34mT:[39m 0:01:03
+ [34mtrain[39m   [34mE:[39m 9            [34mI:[39m 1,000        [34mR:[39m 361.1        [34mS:[39m 0.0          [34mT:[39m 0:01:03
+Pretraining agent on seed data...
+ [34mtrain[39m   [34mE:[39m 10           [34mI:[39m 1,100        [34mR:[39m 143.1        [34mS:[39m 0.0          [34mT:[39m 0:04:21
+ [34mtrain[39m   [34mE:[39m 11           [34mI:[39m 1,200        [34mR:[39m 148.7        [34mS:[39m 0.0          [34mT:[39m 0:04:52
+ [34mtrain[39m   [34mE:[39m 12           [34mI:[39m 1,300        [34mR:[39m 105.9        [34mS:[39m 0.0          [34mT:[39m 0:05:24
+ [34mtrain[39m   [34mE:[39m 13           [34mI:[39m 1,400        [34mR:[39m 110.1        [34mS:[39m 0.0          [34mT:[39m 0:05:55
+ [34mtrain[39m   [34mE:[39m 14           [34mI:[39m 1,500        [34mR:[39m 150.1        [34mS:[39m 0.0          [34mT:[39m 0:06:26
+ [34mtrain[39m   [34mE:[39m 15           [34mI:[39m 1,600        [34mR:[39m 139.4        [34mS:[39m 0.0          [34mT:[39m 0:06:58
+ [34mtrain[39m   [34mE:[39m 16           [34mI:[39m 1,700        [34mR:[39m 297.1        [34mS:[39m 0.0          [34mT:[39m 0:07:29
+ [34mtrain[39m   [34mE:[39m 17           [34mI:[39m 1,800        [34mR:[39m 343.9        [34mS:[39m 0.0          [34mT:[39m 0:08:01
+ [34mtrain[39m   [34mE:[39m 18           [34mI:[39m 1,900        [34mR:[39m 78.4         [34mS:[39m 0.0          [34mT:[39m 0:08:32
+ [34mtrain[39m   [34mE:[39m 19           [34mI:[39m 2,000        [34mR:[39m 212.9        [34mS:[39m 0.0          [34mT:[39m 0:09:03
+ [34mtrain[39m   [34mE:[39m 20           [34mI:[39m 2,100        [34mR:[39m 573.9        [34mS:[39m 0.0          [34mT:[39m 0:09:35
+ [34mtrain[39m   [34mE:[39m 21           [34mI:[39m 2,200        [34mR:[39m 413.5        [34mS:[39m 0.0          [34mT:[39m 0:10:07
+ [34mtrain[39m   [34mE:[39m 22           [34mI:[39m 2,300        [34mR:[39m 157.7        [34mS:[39m 0.0          [34mT:[39m 0:10:39
+ [34mtrain[39m   [34mE:[39m 23           [34mI:[39m 2,400        [34mR:[39m 227.4        [34mS:[39m 0.0          [34mT:[39m 0:11:11
+ [34mtrain[39m   [34mE:[39m 24           [34mI:[39m 2,500        [34mR:[39m 110.8        [34mS:[39m 0.0          [34mT:[39m 0:11:42
+ [34mtrain[39m   [34mE:[39m 25           [34mI:[39m 2,600        [34mR:[39m 305.7        [34mS:[39m 0.0          [34mT:[39m 0:12:13
+ [34mtrain[39m   [34mE:[39m 26           [34mI:[39m 2,700        [34mR:[39m 381.6        [34mS:[39m 0.0          [34mT:[39m 0:12:45
+ [34mtrain[39m   [34mE:[39m 27           [34mI:[39m 2,800        [34mR:[39m 265.9        [34mS:[39m 0.0          [34mT:[39m 0:13:16
+ [34mtrain[39m   [34mE:[39m 28           [34mI:[39m 2,900        [34mR:[39m 314.2        [34mS:[39m 0.0          [34mT:[39m 0:13:47
+ [34mtrain[39m   [34mE:[39m 29           [34mI:[39m 3,000        [34mR:[39m 350.7        [34mS:[39m 0.0          [34mT:[39m 0:14:19
+ [34mtrain[39m   [34mE:[39m 30           [34mI:[39m 3,100        [34mR:[39m 559.1        [34mS:[39m 0.0          [34mT:[39m 0:14:50
+ [34mtrain[39m   [34mE:[39m 31           [34mI:[39m 3,200        [34mR:[39m 333.5        [34mS:[39m 0.0          [34mT:[39m 0:15:24
+ [34mtrain[39m   [34mE:[39m 32           [34mI:[39m 3,300        [34mR:[39m 245.4        [34mS:[39m 0.0          [34mT:[39m 0:15:57
+ [34mtrain[39m   [34mE:[39m 33           [34mI:[39m 3,400        [34mR:[39m 338.9        [34mS:[39m 0.0          [34mT:[39m 0:16:30
+ [34mtrain[39m   [34mE:[39m 34           [34mI:[39m 3,500        [34mR:[39m 982.9        [34mS:[39m 0.0          [34mT:[39m 0:17:03
+ [34mtrain[39m   [34mE:[39m 35           [34mI:[39m 3,600        [34mR:[39m 735.0        [34mS:[39m 0.0          [34mT:[39m 0:17:35
+ [34mtrain[39m   [34mE:[39m 36           [34mI:[39m 3,700        [34mR:[39m 957.4        [34mS:[39m 0.0          [34mT:[39m 0:18:07
+ [34mtrain[39m   [34mE:[39m 37           [34mI:[39m 3,800        [34mR:[39m 1171.0       [34mS:[39m 0.0          [34mT:[39m 0:18:39
+ [34mtrain[39m   [34mE:[39m 38           [34mI:[39m 3,900        [34mR:[39m 744.3        [34mS:[39m 0.0          [34mT:[39m 0:19:11
+ [34mtrain[39m   [34mE:[39m 39           [34mI:[39m 4,000        [34mR:[39m 1161.4       [34mS:[39m 0.0          [34mT:[39m 0:19:43
+ [34mtrain[39m   [34mE:[39m 40           [34mI:[39m 4,100        [34mR:[39m 846.5        [34mS:[39m 0.0          [34mT:[39m 0:20:15
+ [34mtrain[39m   [34mE:[39m 41           [34mI:[39m 4,200        [34mR:[39m 536.7        [34mS:[39m 0.0          [34mT:[39m 0:20:46
+ [34mtrain[39m   [34mE:[39m 42           [34mI:[39m 4,300        [34mR:[39m 155.3        [34mS:[39m 0.0          [34mT:[39m 0:21:18
+ [34mtrain[39m   [34mE:[39m 43           [34mI:[39m 4,400        [34mR:[39m 96.9         [34mS:[39m 0.0          [34mT:[39m 0:21:28
+ [34mtrain[39m   [34mE:[39m 44           [34mI:[39m 4,500        [34mR:[39m 373.6        [34mS:[39m 0.0          [34mT:[39m 0:21:37
+ [34mtrain[39m   [34mE:[39m 45           [34mI:[39m 4,600        [34mR:[39m 149.5        [34mS:[39m 0.0          [34mT:[39m 0:21:46
+ [34mtrain[39m   [34mE:[39m 46           [34mI:[39m 4,700        [34mR:[39m 167.1        [34mS:[39m 0.0          [34mT:[39m 0:21:55
+ [34mtrain[39m   [34mE:[39m 47           [34mI:[39m 4,800        [34mR:[39m 135.0        [34mS:[39m 0.0          [34mT:[39m 0:22:04
+ [34mtrain[39m   [34mE:[39m 48           [34mI:[39m 4,900        [34mR:[39m 78.8         [34mS:[39m 0.0          [34mT:[39m 0:22:13
+ [34mtrain[39m   [34mE:[39m 49           [34mI:[39m 5,000        [34mR:[39m 163.3        [34mS:[39m 0.0          [34mT:[39m 0:22:22
+ [34mtrain[39m   [34mE:[39m 50           [34mI:[39m 5,100        [34mR:[39m 289.9        [34mS:[39m 0.0          [34mT:[39m 0:22:31
+ [34mtrain[39m   [34mE:[39m 51           [34mI:[39m 5,200        [34mR:[39m 561.6        [34mS:[39m 0.0          [34mT:[39m 0:22:40
+ [34mtrain[39m   [34mE:[39m 52           [34mI:[39m 5,300        [34mR:[39m 228.1        [34mS:[39m 0.0          [34mT:[39m 0:22:49
+ [34mtrain[39m   [34mE:[39m 53           [34mI:[39m 5,400        [34mR:[39m 217.4        [34mS:[39m 0.0          [34mT:[39m 0:22:58
+ [34mtrain[39m   [34mE:[39m 54           [34mI:[39m 5,500        [34mR:[39m 1207.3       [34mS:[39m 0.0          [34mT:[39m 0:23:17
+ [34mtrain[39m   [34mE:[39m 55           [34mI:[39m 5,600        [34mR:[39m 488.2        [34mS:[39m 0.0          [34mT:[39m 0:23:59
+ [34mtrain[39m   [34mE:[39m 56           [34mI:[39m 5,700        [34mR:[39m 389.0        [34mS:[39m 0.0          [34mT:[39m 0:24:28
+ [34mtrain[39m   [34mE:[39m 57           [34mI:[39m 5,800        [34mR:[39m 211.1        [34mS:[39m 0.0          [34mT:[39m 0:24:56
+ [34mtrain[39m   [34mE:[39m 58           [34mI:[39m 5,900        [34mR:[39m 854.7        [34mS:[39m 0.0          [34mT:[39m 0:25:25
+ [34mtrain[39m   [34mE:[39m 59           [34mI:[39m 6,000        [34mR:[39m 414.9        [34mS:[39m 0.0          [34mT:[39m 0:25:54
+ [34mtrain[39m   [34mE:[39m 60           [34mI:[39m 6,100        [34mR:[39m 474.0        [34mS:[39m 0.0          [34mT:[39m 0:26:22
+ [34mtrain[39m   [34mE:[39m 61           [34mI:[39m 6,200        [34mR:[39m 240.0        [34mS:[39m 0.0          [34mT:[39m 0:26:50
+ [34mtrain[39m   [34mE:[39m 62           [34mI:[39m 6,300        [34mR:[39m 260.9        [34mS:[39m 0.0          [34mT:[39m 0:27:19
+ [34mtrain[39m   [34mE:[39m 63           [34mI:[39m 6,400        [34mR:[39m 663.5        [34mS:[39m 0.0          [34mT:[39m 0:27:47
+ [34mtrain[39m   [34mE:[39m 64           [34mI:[39m 6,500        [34mR:[39m 465.7        [34mS:[39m 0.0          [34mT:[39m 0:28:15
+ [34mtrain[39m   [34mE:[39m 65           [34mI:[39m 6,600        [34mR:[39m 334.7        [34mS:[39m 0.0          [34mT:[39m 0:28:36
+ [34mtrain[39m   [34mE:[39m 66           [34mI:[39m 6,700        [34mR:[39m 688.7        [34mS:[39m 0.0          [34mT:[39m 0:28:57
+ [34mtrain[39m   [34mE:[39m 67           [34mI:[39m 6,800        [34mR:[39m 339.0        [34mS:[39m 0.0          [34mT:[39m 0:29:18
+ [34mtrain[39m   [34mE:[39m 68           [34mI:[39m 6,900        [34mR:[39m 282.7        [34mS:[39m 0.0          [34mT:[39m 0:29:39
+ [34mtrain[39m   [34mE:[39m 69           [34mI:[39m 7,000        [34mR:[39m 660.6        [34mS:[39m 0.0          [34mT:[39m 0:30:00
+ [34mtrain[39m   [34mE:[39m 70           [34mI:[39m 7,100        [34mR:[39m 681.9        [34mS:[39m 0.0          [34mT:[39m 0:30:20
+ [34mtrain[39m   [34mE:[39m 71           [34mI:[39m 7,200        [34mR:[39m 531.0        [34mS:[39m 0.0          [34mT:[39m 0:30:41
+ [34mtrain[39m   [34mE:[39m 72           [34mI:[39m 7,300        [34mR:[39m 264.7        [34mS:[39m 0.0          [34mT:[39m 0:31:01
+ [34mtrain[39m   [34mE:[39m 73           [34mI:[39m 7,400        [34mR:[39m 535.0        [34mS:[39m 0.0          [34mT:[39m 0:31:21
+ [34mtrain[39m   [34mE:[39m 74           [34mI:[39m 7,500        [34mR:[39m 494.2        [34mS:[39m 0.0          [34mT:[39m 0:31:40
+ [34mtrain[39m   [34mE:[39m 75           [34mI:[39m 7,600        [34mR:[39m 262.5        [34mS:[39m 0.0          [34mT:[39m 0:32:00
+ [34mtrain[39m   [34mE:[39m 76           [34mI:[39m 7,700        [34mR:[39m 336.4        [34mS:[39m 0.0          [34mT:[39m 0:32:20
+ [34mtrain[39m   [34mE:[39m 77           [34mI:[39m 7,800        [34mR:[39m 526.4        [34mS:[39m 0.0          [34mT:[39m 0:32:41
+ [34mtrain[39m   [34mE:[39m 78           [34mI:[39m 7,900        [34mR:[39m 337.6        [34mS:[39m 0.0          [34mT:[39m 0:33:02
+ [34mtrain[39m   [34mE:[39m 79           [34mI:[39m 8,000        [34mR:[39m 360.8        [34mS:[39m 0.0          [34mT:[39m 0:33:22
+ [34mtrain[39m   [34mE:[39m 80           [34mI:[39m 8,100        [34mR:[39m 191.9        [34mS:[39m 0.0          [34mT:[39m 0:33:42
+ [34mtrain[39m   [34mE:[39m 81           [34mI:[39m 8,200        [34mR:[39m 597.7        [34mS:[39m 0.0          [34mT:[39m 0:34:03
+ [34mtrain[39m   [34mE:[39m 82           [34mI:[39m 8,300        [34mR:[39m 242.8        [34mS:[39m 0.0          [34mT:[39m 0:34:24
+ [34mtrain[39m   [34mE:[39m 83           [34mI:[39m 8,400        [34mR:[39m 885.6        [34mS:[39m 0.0          [34mT:[39m 0:34:44
+ [34mtrain[39m   [34mE:[39m 84           [34mI:[39m 8,500        [34mR:[39m 735.3        [34mS:[39m 0.0          [34mT:[39m 0:35:06
+ [34mtrain[39m   [34mE:[39m 85           [34mI:[39m 8,600        [34mR:[39m 486.8        [34mS:[39m 0.0          [34mT:[39m 0:35:26
+ [34mtrain[39m   [34mE:[39m 86           [34mI:[39m 8,700        [34mR:[39m 277.8        [34mS:[39m 0.0          [34mT:[39m 0:35:47
+ [34mtrain[39m   [34mE:[39m 87           [34mI:[39m 8,800        [34mR:[39m 962.8        [34mS:[39m 0.0          [34mT:[39m 0:36:07
+ [34mtrain[39m   [34mE:[39m 88           [34mI:[39m 8,900        [34mR:[39m 580.7        [34mS:[39m 0.0          [34mT:[39m 0:36:28
+ [34mtrain[39m   [34mE:[39m 89           [34mI:[39m 9,000        [34mR:[39m 548.3        [34mS:[39m 0.0          [34mT:[39m 0:36:49
+ [34mtrain[39m   [34mE:[39m 90           [34mI:[39m 9,100        [34mR:[39m 960.4        [34mS:[39m 0.0          [34mT:[39m 0:37:10
+ [34mtrain[39m   [34mE:[39m 91           [34mI:[39m 9,200        [34mR:[39m 646.5        [34mS:[39m 0.0          [34mT:[39m 0:37:32
+ [34mtrain[39m   [34mE:[39m 92           [34mI:[39m 9,300        [34mR:[39m 679.2        [34mS:[39m 0.0          [34mT:[39m 0:37:53
+ [34mtrain[39m   [34mE:[39m 93           [34mI:[39m 9,400        [34mR:[39m 283.7        [34mS:[39m 0.0          [34mT:[39m 0:38:14
+ [34mtrain[39m   [34mE:[39m 94           [34mI:[39m 9,500        [34mR:[39m 122.9        [34mS:[39m 0.0          [34mT:[39m 0:38:36
+ [34mtrain[39m   [34mE:[39m 95           [34mI:[39m 9,600        [34mR:[39m 232.8        [34mS:[39m 0.0          [34mT:[39m 0:38:58
+ [34mtrain[39m   [34mE:[39m 96           [34mI:[39m 9,700        [34mR:[39m 1154.7       [34mS:[39m 0.0          [34mT:[39m 0:39:19
+ [34mtrain[39m   [34mE:[39m 97           [34mI:[39m 9,800        [34mR:[39m 454.9        [34mS:[39m 0.0          [34mT:[39m 0:39:40
+ [34mtrain[39m   [34mE:[39m 98           [34mI:[39m 9,900        [34mR:[39m 346.2        [34mS:[39m 0.0          [34mT:[39m 0:40:01
+ [34mtrain[39m   [34mE:[39m 99           [34mI:[39m 10,000       [34mR:[39m 227.8        [34mS:[39m 0.0          [34mT:[39m 0:40:21
+ [34mtrain[39m   [34mE:[39m 100          [34mI:[39m 10,100       [34mR:[39m 507.8        [34mS:[39m 1.0          [34mT:[39m 0:40:41
+ [34mtrain[39m   [34mE:[39m 101          [34mI:[39m 10,200       [34mR:[39m 454.6        [34mS:[39m 0.0          [34mT:[39m 0:41:02
+ [34mtrain[39m   [34mE:[39m 102          [34mI:[39m 10,300       [34mR:[39m 627.0        [34mS:[39m 0.0          [34mT:[39m 0:41:22
+ [34mtrain[39m   [34mE:[39m 103          [34mI:[39m 10,400       [34mR:[39m 515.5        [34mS:[39m 0.0          [34mT:[39m 0:41:43
+ [34mtrain[39m   [34mE:[39m 104          [34mI:[39m 10,500       [34mR:[39m 599.0        [34mS:[39m 0.0          [34mT:[39m 0:42:04
+ [34mtrain[39m   [34mE:[39m 105          [34mI:[39m 10,600       [34mR:[39m 572.4        [34mS:[39m 0.0          [34mT:[39m 0:42:25
+ [34mtrain[39m   [34mE:[39m 106          [34mI:[39m 10,700       [34mR:[39m 490.7        [34mS:[39m 0.0          [34mT:[39m 0:42:46
+ [34mtrain[39m   [34mE:[39m 107          [34mI:[39m 10,800       [34mR:[39m 904.2        [34mS:[39m 0.0          [34mT:[39m 0:43:06
+ [34mtrain[39m   [34mE:[39m 108          [34mI:[39m 10,900       [34mR:[39m 415.7        [34mS:[39m 0.0          [34mT:[39m 0:43:26
+ [34mtrain[39m   [34mE:[39m 109          [34mI:[39m 11,000       [34mR:[39m 94.6         [34mS:[39m 0.0          [34mT:[39m 0:43:48
+ [34mtrain[39m   [34mE:[39m 110          [34mI:[39m 11,100       [34mR:[39m 60.9         [34mS:[39m 0.0          [34mT:[39m 0:44:09
+ [34mtrain[39m   [34mE:[39m 111          [34mI:[39m 11,200       [34mR:[39m 66.5         [34mS:[39m 0.0          [34mT:[39m 0:44:29
+ [34mtrain[39m   [34mE:[39m 112          [34mI:[39m 11,300       [34mR:[39m 93.8         [34mS:[39m 0.0          [34mT:[39m 0:44:50
+ [34mtrain[39m   [34mE:[39m 113          [34mI:[39m 11,400       [34mR:[39m 86.8         [34mS:[39m 0.0          [34mT:[39m 0:45:10
+ [34mtrain[39m   [34mE:[39m 114          [34mI:[39m 11,500       [34mR:[39m 122.6        [34mS:[39m 0.0          [34mT:[39m 0:45:31
+ [34mtrain[39m   [34mE:[39m 115          [34mI:[39m 11,600       [34mR:[39m 108.9        [34mS:[39m 0.0          [34mT:[39m 0:45:52
+ [34mtrain[39m   [34mE:[39m 116          [34mI:[39m 11,700       [34mR:[39m 123.2        [34mS:[39m 0.0          [34mT:[39m 0:46:13
+ [34mtrain[39m   [34mE:[39m 117          [34mI:[39m 11,800       [34mR:[39m 190.6        [34mS:[39m 0.0          [34mT:[39m 0:46:34
+ [34mtrain[39m   [34mE:[39m 118          [34mI:[39m 11,900       [34mR:[39m 396.1        [34mS:[39m 0.0          [34mT:[39m 0:46:54
+ [34mtrain[39m   [34mE:[39m 119          [34mI:[39m 12,000       [34mR:[39m 592.0        [34mS:[39m 0.0          [34mT:[39m 0:47:16
+ [34mtrain[39m   [34mE:[39m 120          [34mI:[39m 12,100       [34mR:[39m 401.3        [34mS:[39m 0.0          [34mT:[39m 0:47:36
+ [34mtrain[39m   [34mE:[39m 121          [34mI:[39m 12,200       [34mR:[39m 253.3        [34mS:[39m 0.0          [34mT:[39m 0:47:57
+ [34mtrain[39m   [34mE:[39m 122          [34mI:[39m 12,300       [34mR:[39m 643.4        [34mS:[39m 0.0          [34mT:[39m 0:48:20
+ [34mtrain[39m   [34mE:[39m 123          [34mI:[39m 12,400       [34mR:[39m 300.9        [34mS:[39m 0.0          [34mT:[39m 0:48:44
+ [34mtrain[39m   [34mE:[39m 124          [34mI:[39m 12,500       [34mR:[39m 366.6        [34mS:[39m 0.0          [34mT:[39m 0:49:07
+ [34mtrain[39m   [34mE:[39m 125          [34mI:[39m 12,600       [34mR:[39m 458.1        [34mS:[39m 0.0          [34mT:[39m 0:49:30
+ [34mtrain[39m   [34mE:[39m 126          [34mI:[39m 12,700       [34mR:[39m 335.3        [34mS:[39m 0.0          [34mT:[39m 0:49:51
+ [34mtrain[39m   [34mE:[39m 127          [34mI:[39m 12,800       [34mR:[39m 287.2        [34mS:[39m 0.0          [34mT:[39m 0:50:12
+ [34mtrain[39m   [34mE:[39m 128          [34mI:[39m 12,900       [34mR:[39m 771.6        [34mS:[39m 0.0          [34mT:[39m 0:50:32
+ [34mtrain[39m   [34mE:[39m 129          [34mI:[39m 13,000       [34mR:[39m 259.1        [34mS:[39m 0.0          [34mT:[39m 0:50:53
+ [34mtrain[39m   [34mE:[39m 130          [34mI:[39m 13,100       [34mR:[39m 215.8        [34mS:[39m 0.0          [34mT:[39m 0:51:14
+ [34mtrain[39m   [34mE:[39m 131          [34mI:[39m 13,200       [34mR:[39m 272.6        [34mS:[39m 0.0          [34mT:[39m 0:51:34
+ [34mtrain[39m   [34mE:[39m 132          [34mI:[39m 13,300       [34mR:[39m 1124.4       [34mS:[39m 0.0          [34mT:[39m 0:51:55
+ [34mtrain[39m   [34mE:[39m 133          [34mI:[39m 13,400       [34mR:[39m 994.1        [34mS:[39m 0.0          [34mT:[39m 0:52:16
+ [34mtrain[39m   [34mE:[39m 134          [34mI:[39m 13,500       [34mR:[39m 1018.9       [34mS:[39m 0.0          [34mT:[39m 0:52:36
+ [34mtrain[39m   [34mE:[39m 135          [34mI:[39m 13,600       [34mR:[39m 167.4        [34mS:[39m 0.0          [34mT:[39m 0:52:57
+ [34mtrain[39m   [34mE:[39m 136          [34mI:[39m 13,700       [34mR:[39m 141.7        [34mS:[39m 0.0          [34mT:[39m 0:53:18
+ [34mtrain[39m   [34mE:[39m 137          [34mI:[39m 13,800       [34mR:[39m 350.1        [34mS:[39m 0.0          [34mT:[39m 0:53:38
+ [34mtrain[39m   [34mE:[39m 138          [34mI:[39m 13,900       [34mR:[39m 904.0        [34mS:[39m 0.0          [34mT:[39m 0:53:59
+Traceback (most recent call last):
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py", line 175, in <module>
+    train()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_with_cprofile.py", line 162, in train
+    trainer.train()
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/utils/profiler.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/trainer/online_trainer.py", line 126, in train
+    _train_metrics = self.agent.update(self.buffer)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 665, in update
+    # time-first [H,B] -> [B,H]
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 721, in _fn
+    return fn(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 415, in _update
+    z_next_flat = z_next.reshape(-1, D)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/train_moore_agent.py", line 528, in _loss_and_backward
+    reward_loss = F.mse_loss(rew_flat.view(B, H, 1),
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1740, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/levi/Desktop/MOORE-TDMPC/moore_tdmpc/world_model_core.py", line 122, in forward
+    dyn_feat = torch.einsum('bed,be->bd', expert_feats, w_dyn)
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/functional.py", line 407, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/site-packages/torch/fx/traceback.py", line 83, in format_stack
+    return traceback.format_list(traceback.extract_stack()[:-1])
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/traceback.py", line 39, in format_list
+    return StackSummary.from_list(extracted_list).format()
+  File "/home/levi/anaconda3/envs/tdmpc2/lib/python3.9/traceback.py", line 430, in format
+    result.append(''.join(row))
+KeyboardInterrupt
