@@ -152,6 +152,32 @@ $ python train.py task=dog-run visualize_experts=true viz_interval=5000
 
 The visualization shows how different experts are activated across the state space, and displays the entropy of gating weights, helping to understand how the model routes different inputs to different experts.
 
+### Using the MoE Architecture
+
+Moore-TDMPC includes a unified Mixture-of-Experts (MoE) implementation that supports both single-task and multi-task scenarios. This can be enabled by setting the `use_moe` parameter:
+
+```
+$ python train.py task=dog-run use_moe=true n_experts=4
+```
+
+Key features of the MoE implementation:
+
+1. **Adaptive Gating**: 
+   - In single-task scenarios: Uses state features `(z||a)` as gating inputs
+   - In multi-task scenarios: Uses task embeddings as gating signals
+
+2. **Flexible Configuration**:
+   - `use_moe`: Enable/disable the MoE architecture
+   - `n_experts`: Number of expert networks (default: 4)
+   - `use_orthogonal`: Whether to enforce orthogonality between experts
+
+3. **Component Integration**:
+   - Replaces standard MLPs with MoE structures in Dynamics and Reward modules
+   - Shared architecture between single and multi-task settings
+   - Compatible with visualization tools for expert gating analysis
+
+The MoE architecture provides improved expressivity by allowing different experts to specialize in different regions of the state space or different tasks, while maintaining a unified interface for both single and multi-task learning.
+
 ----
 
 ## Citation
