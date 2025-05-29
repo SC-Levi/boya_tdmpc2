@@ -98,12 +98,12 @@ class OnlineTrainer(Trainer):
 						# Dynamics
 						self.agent.plot_expert_gating(
 							self.agent.model._dynamics,
-							save_path=os.path.join(self.cfg.work_dir, f"dynamics_viz_{self._step}.png")
+							save_path=os.path.join(self.cfg.work_dir, f"dynamics_viz_{self.cfg.n_experts}experts_{self._step}.png")
 						)
 						# Reward
 						self.agent.plot_expert_gating(
 							self.agent.model._reward,
-							save_path=os.path.join(self.cfg.work_dir, f"reward_viz_{self._step}.png")
+							save_path=os.path.join(self.cfg.work_dir, f"reward_viz_{self.cfg.n_experts}experts_{self._step}.png")
 						)
 						# Clear history for next visualization
 						self.agent.clear_gate_history()

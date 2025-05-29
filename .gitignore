@@ -1,0 +1,43 @@
+# Logs and model files
+**/logs/**
+**/wandb/**
+**/models/**
+*.log
+*.pt
+*.pth
+*.pkl
+*.ckpt
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Virtual environments
+venv/
+env/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output and temporary files
+outputs/
+tmp/
+temp/
+
+# Dataset files
+datasets/*.pt
+datasets/*.h5
+datasets/*.hdf5
+
+# Backup files
+backup/ 
