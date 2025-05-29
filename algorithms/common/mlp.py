@@ -222,6 +222,10 @@ class MoEBlock(nn.Module):
             x = torch.cat([z, a], dim=-1)
         else:
             x = z
+        
+        # Store original task_emb for gate input
+        original_task_emb = task_emb
+        
         if task_emb is not None:
             # broadcast task_emb 到与 x 对齐
             if task_emb.ndim == 2 and x.ndim == 3:
@@ -235,12 +239,31 @@ class MoEBlock(nn.Module):
         if is_seq:
             T, B, D = x.shape
             x = x.view(T * B, D)
+            # Also flatten task_emb if needed for gate input
+            if task_emb is not None:
+                task_emb = task_emb.view(T * B, -1)
 
         # -------- Expert 并行 & Gate ---------------------------------
         feats = self.trunk(x)              # [K,N,H]
         feats = feats.permute(1, 0, 2)     # [N,K,H]
 
-        gate_in = task_emb if task_emb is not None else x
+        # Use original task_emb for gate if available, otherwise use x
+        if original_task_emb is not None:
+            # For gate input, we need the right shape and dimension
+            if is_seq and original_task_emb.ndim == 2:
+                # If we have sequence and task_emb is [B, task_dim], repeat for all timesteps
+                gate_in = original_task_emb.unsqueeze(0).expand(T, -1, -1).reshape(T * B, -1)
+            elif is_seq and original_task_emb.ndim == 3:
+                # If task_emb is already [T, B, task_dim], flatten it
+                gate_in = original_task_emb.view(T * B, -1)
+            elif not is_seq and original_task_emb.shape[0] == 1 and x.shape[0] > 1:
+                # Repeat task_emb to match batch size
+                gate_in = original_task_emb.repeat(x.shape[0], 1)
+            else:
+                gate_in = original_task_emb
+        else:
+            gate_in = x
+            
         logits  = self.gate(gate_in) / self.tau          # ← ② 加温度
         w       = F.softmax(logits, dim=-1)
 
