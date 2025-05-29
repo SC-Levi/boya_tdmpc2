@@ -4,7 +4,7 @@ import torch.nn.functional as F
 from common import math
 from common.scale import RunningScale
 from common.world_model import WorldModel
-from common.layers import api_model_conversion
+from common.mlp import api_model_conversion
 from tensordict import TensorDict
 
 

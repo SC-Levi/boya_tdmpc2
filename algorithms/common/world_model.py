@@ -3,10 +3,10 @@ from copy import deepcopy
 import torch
 import torch.nn as nn
 
-from common import layers, math, init
+from common import math, init
 from tensordict import TensorDict
 from tensordict.nn import TensorDictParams
-from common.layers import MoEBlock
+from common.mlp import MoEBlock, enc, mlp_legacy as mlp, SimNorm, Ensemble
 
 class WorldModel(nn.Module):
 	"""
@@ -22,46 +22,54 @@ class WorldModel(nn.Module):
 			self.register_buffer("_action_masks", torch.zeros(len(cfg.tasks), cfg.action_dim))
 			for i in range(len(cfg.tasks)):
 				self._action_masks[i, :cfg.action_dims[i]] = 1.
-		self._encoder = layers.enc(cfg)
+		self._encoder = enc(cfg)
 		if cfg.use_moe:
 			# Dynamics: 输入 dim = latent + action + (task?)
 			dyn_in = cfg.latent_dim + cfg.action_dim + (cfg.task_dim if cfg.multitask else 0)
 			# Gate 维度：single-task 用 latent+action；multi-task 用 task_dim
 			gate_dim = cfg.task_dim if cfg.multitask else (cfg.latent_dim + cfg.action_dim)
 			self._dynamics = MoEBlock(
-				cfg=cfg,
 				in_dim=dyn_in,
 				gate_dim=gate_dim,
-				hidden_dims=[cfg.mlp_dim, cfg.mlp_dim],
+				units=[cfg.mlp_dim, cfg.mlp_dim],
 				out_dim=cfg.latent_dim,
 				n_experts=cfg.n_experts,
 				use_orthogonal=cfg.use_orthogonal,
-				act = layers.SimNorm(cfg)
+				head_last_layer_kwargs={'act': SimNorm(cfg)} if hasattr(cfg, 'use_orthogonal') else {},
+				tau_init=cfg.tau_init,
+				tau_decay=cfg.tau_decay
 			)
 			# Reward 同理
 			rew_in = cfg.latent_dim + cfg.action_dim + (cfg.task_dim if cfg.multitask else 0)
 			self._reward = MoEBlock(
-				cfg=cfg,
 				in_dim=rew_in,
 				gate_dim=gate_dim,
-				hidden_dims=[cfg.mlp_dim, cfg.mlp_dim],
+				units=[cfg.mlp_dim, cfg.mlp_dim],
 				out_dim=max(cfg.num_bins,1),
 				n_experts=cfg.n_experts,
 				use_orthogonal=cfg.use_orthogonal,
-				act= None
+				tau_init=cfg.tau_init,
+				tau_decay=cfg.tau_decay
 			)
 		else:
-			self._dynamics = layers.mlp(cfg.latent_dim + cfg.action_dim + cfg.task_dim, 2*[cfg.mlp_dim], cfg.latent_dim, act=layers.SimNorm(cfg))
-			self._reward = layers.mlp(cfg.latent_dim + cfg.action_dim + cfg.task_dim, 2*[cfg.mlp_dim], max(cfg.num_bins, 1))
-		self._termination = layers.mlp(cfg.latent_dim + cfg.task_dim, 2*[cfg.mlp_dim], 1) if cfg.episodic else None
-		self._pi = layers.mlp(cfg.latent_dim + cfg.task_dim, 2*[cfg.mlp_dim], 2*cfg.action_dim)
-		self._Qs = layers.Ensemble([layers.mlp(cfg.latent_dim + cfg.action_dim + cfg.task_dim, 2*[cfg.mlp_dim], max(cfg.num_bins, 1), dropout=cfg.dropout) for _ in range(cfg.num_q)])
+			self._dynamics = mlp(cfg.latent_dim + cfg.action_dim + cfg.task_dim, 2*[cfg.mlp_dim], cfg.latent_dim, act=SimNorm(cfg))
+			self._reward = mlp(cfg.latent_dim + cfg.action_dim + cfg.task_dim, 2*[cfg.mlp_dim], max(cfg.num_bins, 1))
+		self._termination = mlp(cfg.latent_dim + cfg.task_dim, 2*[cfg.mlp_dim], 1) if cfg.episodic else None
+		self._pi = mlp(cfg.latent_dim + cfg.task_dim, 2*[cfg.mlp_dim], 2*cfg.action_dim)
+		self._Qs = Ensemble([mlp(cfg.latent_dim + cfg.action_dim + cfg.task_dim, 2*[cfg.mlp_dim], max(cfg.num_bins, 1), dropout=cfg.dropout) for _ in range(cfg.num_q)])
 		self.apply(init.weight_init)
-		reward_weight = (
-			self._reward.head.weight
-			if hasattr(self._reward, "head")
-			else self._reward[-1].weight
-		)
+		
+		# Get reward weight properly based on model type
+		if hasattr(self._reward, "head"):
+			# MoEBlock case: head is Sequential, get the last layer
+			if isinstance(self._reward.head, nn.Sequential):
+				reward_weight = self._reward.head[-1].weight
+			else:
+				reward_weight = self._reward.head.weight
+		else:
+			# Regular MLP case
+			reward_weight = self._reward[-1].weight
+			
 		init.zero_([reward_weight, self._Qs.params["2", "weight"]])
 
 		self.register_buffer("log_std_min", torch.tensor(cfg.log_std_min))

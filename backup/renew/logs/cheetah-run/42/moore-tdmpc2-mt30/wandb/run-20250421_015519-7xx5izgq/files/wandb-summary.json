@@ -1,1 +1,0 @@
-{"eval/episode_reward": 0.8095062375068665, "eval/episode_success": 0.0, "eval/step": 0, "eval/episode": 0, "eval/total_time": 9.426596879959106, "_timestamp": 1745171733.2731779, "_runtime": 14.225219964981079, "_step": 2000, "train/episode_reward": 7.028158187866211, "train/episode_success": 0.0, "train/step": 2000, "train/episode": 3, "train/total_time": 9.654917240142822}

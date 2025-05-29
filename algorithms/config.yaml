@@ -2,7 +2,7 @@ defaults:
     - override hydra/launcher: submitit_local
 
 # environment
-task: dog-run
+task: myo-reach-hard
 obs: state
 episodic: false
 
@@ -12,7 +12,7 @@ eval_episodes: 10
 eval_freq: 50000
 
 # training
-steps: 10_000_000
+steps: 200_000
 batch_size: 256
 reward_coef: 0.1
 value_coef: 0.1
@@ -55,6 +55,8 @@ vmax: +10
 use_moe: true
 n_experts: 4
 use_orthogonal : true
+tau_init: 1.0
+tau_decay: 0.99995
 
 # architecture
 model_size: ???
@@ -69,7 +71,7 @@ dropout: 0.01
 simnorm_dim: 8
 
 # logging
-wandb_project: moore-tdmpc
+wandb_project: myosuite
 wandb_entity: OA-MBRL
 wandb_silent: false
 enable_wandb: true
@@ -79,7 +81,7 @@ viz_interval: 10000         # how often to visualize (in steps/iterations)
 
 # misc
 compile: false
-save_video: false
+save_video: true
 save_agent: true
 seed: 1
 

@@ -26,3 +26,4 @@ config: {'task': 'dog-run', 'obs': 'state', 'episodic': False, 'checkpoint': '??
 2025-05-15 16:09:09,954 INFO    MainThread:823252 [wandb_run.py:_redirect():2300] Wrapping output streams.
 2025-05-15 16:09:09,954 INFO    MainThread:823252 [wandb_run.py:_redirect():2325] Redirects installed.
 2025-05-15 16:09:09,955 INFO    MainThread:823252 [wandb_init.py:init():847] run started, returning control to user process
+2025-05-16 16:13:15,323 WARNING MsgRouterThr:823252 [router.py:message_loop():77] message_loop has been closed
