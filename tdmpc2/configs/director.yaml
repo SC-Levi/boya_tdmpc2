@@ -1,0 +1,46 @@
+# Director configuration for hierarchical TD-MPC2
+# Shared hyperparameters for Goal-VAE and Manager
+
+# Goal-VAE parameters
+goal_vae:
+  n_latents: 16        # Number of latent variables in the discrete code
+  n_classes: 16        # Number of classes per latent variable
+  tau_start: 5.0       # Initial temperature for Gumbel-Softmax
+  tau_end: 0.1         # Final temperature for Gumbel-Softmax
+  anneal_steps: 100000 # Number of steps to anneal temperature
+  beta: 1.0            # KL divergence coefficient
+  lr: 0.0003           # Learning rate for Goal-VAE
+
+# Manager parameters
+manager:
+  goal_interval: 10    # Steps between goal updates (hierarchical frequency)
+  hidden_dim: 256      # Hidden dimension for manager networks
+  lr: 0.0003           # Learning rate for manager
+  gamma: 0.99          # Discount factor for manager
+  lam: 0.95            # GAE lambda parameter
+  tau: 0.005           # Soft update coefficient for target networks
+  ent_coef: 0.01       # Entropy coefficient for exploration
+  intrinsic_coef: 0.1  # Coefficient for intrinsic reward from Goal-VAE
+
+# Training parameters
+trainer: "director"    # Use DirectorTrainer instead of OnlineTrainer
+steps: 1000000        # Total training steps
+eval_freq: 10000      # Evaluation frequency
+seed_steps: 5000      # Random exploration steps at the beginning
+batch_size: 256       # Batch size for training
+buffer_size: 1000000  # Experience replay buffer size
+
+# Model parameters (inherit from base TD-MPC2)
+# These will be merged with task-specific configs
+latent_dim: 512       # Latent dimension for world model
+horizon: 5            # Planning horizon
+num_pi_iters: 5       # Policy improvement iterations
+tau: 0.01             # Soft update coefficient
+momentum: 0.9         # Momentum for target networks
+lr: 0.0003            # Base learning rate
+grad_clip_norm: 10.0  # Gradient clipping norm
+
+# Logging
+log_freq: 1000        # Logging frequency
+save_video: false     # Save evaluation videos
+video_size: 256       # Video resolution 

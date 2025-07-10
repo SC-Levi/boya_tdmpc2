@@ -1,0 +1,3 @@
+- task=walker-walk
+- steps=1000
+- eval_freq=500

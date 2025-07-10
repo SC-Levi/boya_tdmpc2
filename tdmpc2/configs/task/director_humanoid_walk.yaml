@@ -1,0 +1,35 @@
+# @package _global_
+
+# Director configuration for Humanoid Walk task
+# Inherits from director.yaml and humanoid_walk.yaml
+
+defaults:
+  - /config@_here_: director
+  - /config/task@_here_: humanoid_walk
+
+# Task-specific Director settings  
+goal_vae:
+  n_latents: 20        # More latents for complex humanoid control
+  n_classes: 12        # More classes for rich movement primitives
+  beta: 1.5            # Higher KL weight for structure
+  anneal_steps: 150000 # Longer annealing for complex task
+  
+manager:
+  goal_interval: 15    # Slower goal updates for complex planning
+  hidden_dim: 512      # Larger networks for complex task
+  intrinsic_coef: 0.2  # Higher intrinsic reward coefficient
+  ent_coef: 0.005      # Lower entropy for more directed exploration
+  gamma: 0.995         # Higher discount for long-term planning
+
+# Training adjustments for complex task
+steps: 2000000         # More training steps
+seed_steps: 10000      # More exploration at start
+batch_size: 512        # Larger batch size
+
+# Evaluation settings
+eval_episodes: 5       # Fewer episodes due to complexity
+save_video: true
+
+# Task info
+task_title: "Director Humanoid Walk"
+task_description: "Hierarchical control for complex humanoid locomotion" 

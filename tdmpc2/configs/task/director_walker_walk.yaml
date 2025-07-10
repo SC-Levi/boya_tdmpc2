@@ -1,0 +1,27 @@
+# @package _global_
+
+# Director configuration for Walker Walk task
+# Inherits from director.yaml and walker_walk.yaml
+
+defaults:
+  - /config@_here_: director
+  - /config/task@_here_: walker_walk
+
+# Task-specific Director settings
+goal_vae:
+  n_latents: 12        # Smaller for simpler locomotion task
+  n_classes: 8         # Fewer classes for locomotion primitives
+  beta: 0.5            # Lower KL weight for this task
+  
+manager:
+  goal_interval: 8     # Faster goal updates for locomotion
+  intrinsic_coef: 0.05 # Lower intrinsic reward coefficient
+  ent_coef: 0.02       # Higher exploration for locomotion
+
+# Evaluation settings
+eval_episodes: 10
+save_video: true
+
+# Task info
+task_title: "Director Walker Walk"
+task_description: "Hierarchical control for bipedal walking" 

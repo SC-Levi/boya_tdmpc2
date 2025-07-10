@@ -1,0 +1,4 @@
+- task=walker-walk
+- obs=rgb
+- steps=5000
+- eval_freq=1000

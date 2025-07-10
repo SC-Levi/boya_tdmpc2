@@ -1,0 +1,4 @@
+- task=walker-walk
+- steps=2000
+- eval_freq=1000
+- disable_wandb=true
