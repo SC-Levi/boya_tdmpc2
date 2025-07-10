@@ -1,4 +1,7 @@
+import csv
 import os
+import pickle
+from collections import defaultdict
 import datetime
 import re
 import numpy as np
@@ -6,7 +9,7 @@ import pandas as pd
 from termcolor import colored
 from omegaconf import OmegaConf
 
-from tdmpc2.common import TASK_SET
+from . import TASK_SET
 
 
 CONSOLE_FORMAT = [

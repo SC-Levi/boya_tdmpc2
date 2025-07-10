@@ -3,8 +3,8 @@ from copy import deepcopy
 import numpy as np
 import torch
 import torch.nn as nn
-
-from tdmpc2.common import layers, math, init
+import torch.nn.functional as F
+from . import layers, math, init
 
 
 class WorldModel(nn.Module):

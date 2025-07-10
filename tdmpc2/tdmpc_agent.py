@@ -1,10 +1,11 @@
-import numpy as np
 import torch
+import torch.nn as nn
+import numpy as np
 import torch.nn.functional as F
 
-from tdmpc2.common import math
-from tdmpc2.common.scale import RunningScale
-from tdmpc2.common.world_model import WorldModel
+from common import math
+from common.scale import RunningScale
+from common.world_model import WorldModel
 
 
 class TDMPC2:

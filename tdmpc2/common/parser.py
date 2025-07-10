@@ -1,10 +1,12 @@
+import warnings
+warnings.filterwarnings('ignore')
+import argparse
+import yaml
 import re
 from pathlib import Path
-
 import hydra
 from omegaconf import OmegaConf
-
-from tdmpc2.common import MODEL_SIZE, TASK_SET
+from . import MODEL_SIZE, TASK_SET
 
 
 def parse_cfg(cfg: OmegaConf) -> OmegaConf:

@@ -1,23 +1,25 @@
-import os
-import sys
-
-if sys.platform != "darwin":
-    os.environ["MUJOCO_GL"] = "egl"
-
 import warnings
-
-warnings.filterwarnings("ignore")
-
+warnings.filterwarnings('ignore')
+import os
+os.environ['MKL_SERVICE_FORCE_INTEL'] = '1'
+os.environ['MUJOCO_GL'] = 'egl'
 import hydra
-import imageio
 import numpy as np
 import torch
-from termcolor import colored
+import random
 
-from tdmpc2.common.parser import parse_cfg
-from tdmpc2.common.seed import set_seed
-from tdmpc2.envs import make_env
-from tdmpc2.tdmpc2 import TDMPC2
+import gym
+gym.logger.set_level(40)
+
+try:
+	from dm_env import StepType
+except:
+	pass
+
+from common.parser import parse_cfg
+from common.seed import set_seed
+from envs import make_env
+from tdmpc2 import TDMPC2
 
 torch.backends.cudnn.benchmark = True
 

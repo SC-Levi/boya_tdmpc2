@@ -10,15 +10,15 @@ import torch
 import hydra
 from termcolor import colored
 
-from tdmpc2.common.parser import parse_cfg
-from tdmpc2.common.seed import set_seed
-from tdmpc2.common.buffer import Buffer
-from tdmpc2.envs import make_env
-from tdmpc2.Mooretdmpc import MooreTDMPC
-from tdmpc2.trainer.offline_trainer import OfflineTrainer
-from tdmpc2.trainer.online_trainer import OnlineTrainer
-from tdmpc2.trainer.director_trainer import DirectorTrainer
-from tdmpc2.common.logger import Logger
+from common.parser import parse_cfg
+from common.seed import set_seed
+from common.buffer import Buffer
+from envs import make_env
+from Mooretdmpc import MooreTDMPC
+from trainer.offline_trainer import OfflineTrainer
+from trainer.online_trainer import OnlineTrainer
+from trainer.director_trainer import DirectorTrainer
+from common.logger import Logger
 
 torch.backends.cudnn.benchmark = True
 torch.set_float32_matmul_precision('high')

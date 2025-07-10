@@ -1,7 +1,7 @@
 import gym  # for ManiSkill2 environment creation
 import gymnasium as gym_new
 import numpy as np
-from tdmpc2.envs.wrappers.time_limit import TimeLimit
+from .wrappers.time_limit import TimeLimit
 
 import mani_skill2.envs
 

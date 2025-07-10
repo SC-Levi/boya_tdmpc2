@@ -2,8 +2,9 @@ import torch
 import numpy as np
 from tensordict.tensordict import TensorDict
 from .online_trainer import OnlineTrainer
-from tdmpc2.common.goal_vae import GoalVAE
-from tdmpc2.common.manager import Manager
+
+from common.goal_vae import GoalVAE
+from common.manager import Manager
 
 
 class DirectorTrainer(OnlineTrainer):

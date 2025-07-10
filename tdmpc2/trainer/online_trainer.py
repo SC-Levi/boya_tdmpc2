@@ -2,9 +2,11 @@ from time import time
 
 import numpy as np
 import torch
+import torch.nn.functional as F
+from collections import defaultdict
 from tensordict.tensordict import TensorDict
 
-from tdmpc2.trainer.base import Trainer
+from .base import Trainer
 
 
 class OnlineTrainer(Trainer):

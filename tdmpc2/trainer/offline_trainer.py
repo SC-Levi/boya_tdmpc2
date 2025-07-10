@@ -6,10 +6,16 @@ from glob import glob
 
 import numpy as np
 import torch
+import torch.nn.functional as F
+from collections import defaultdict
+import pickle
+import gzip
+import h5py
+
 from tqdm import tqdm
 
-from tdmpc2.common.buffer import Buffer
-from tdmpc2.trainer.base import Trainer
+from common.buffer import Buffer
+from .base import Trainer
 
 
 class OfflineTrainer(Trainer):

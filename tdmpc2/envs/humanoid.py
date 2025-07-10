@@ -1,10 +1,12 @@
+import warnings
+warnings.filterwarnings('ignore')
 import os
 import sys
 
 import numpy as np
 import gymnasium as gym
 
-from tdmpc2.envs.wrappers.time_limit import TimeLimit
+from .wrappers.time_limit import TimeLimit
 
 
 class HumanoidWrapper(gym.Wrapper):

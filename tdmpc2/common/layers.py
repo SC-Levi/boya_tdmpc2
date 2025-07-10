@@ -1,11 +1,10 @@
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import math
-from tensordict.nn import make_functional
-from tensordict import TensorDict
-from copy import deepcopy
-from tdmpc2.common.mixture_layers import InputLayer, ParallelLayer, OrthogonalLayer1D
+import torch.distributions as D
+from torch.nn.parameter import Parameter
+from .mixture_layers import InputLayer, ParallelLayer, OrthogonalLayer1D
 
 class MoEBlock(nn.Module):
 	def __init__(self, cfg,
