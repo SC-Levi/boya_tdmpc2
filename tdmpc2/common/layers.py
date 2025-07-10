@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.distributions as D
+import math
 from torch.nn.parameter import Parameter
 from .mixture_layers import InputLayer, ParallelLayer, OrthogonalLayer1D
 
