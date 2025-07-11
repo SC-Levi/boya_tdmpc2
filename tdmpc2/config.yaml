@@ -13,7 +13,7 @@ eval_freq: 50000
 
 # training
 trainer: online
-steps: 10_000_000
+steps: 4_000_000
 batch_size: 256
 reward_coef: 0.1
 value_coef: 0.1
@@ -98,10 +98,10 @@ dropout: 0.01
 simnorm_dim: 8
 
 # logging
-wandb_project: moore-tdmpc
+wandb_project: mani_skill
 wandb_entity: OA-MBRL
 wandb_silent: false
-disable_wandb: true
+disable_wandb: false
 save_csv: true
 visualize_experts: true    # whether to visualize expert gating weights
 viz_interval: 10000         # how often to visualize (in steps/iterations)

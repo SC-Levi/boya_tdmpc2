@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.distributions as D
-import math
+import math as stdlib_math
 from torch.nn.parameter import Parameter
 from .mixture_layers import InputLayer, ParallelLayer, OrthogonalLayer1D
 
@@ -30,7 +30,7 @@ class MoEBlock(nn.Module):
 		self.tau_min   = tau_min
 		self.tau_max   = tau_max
 		self.beta      = beta
-		self.H_target  = H_target or 0.75 * math.log(n_experts)
+		self.H_target  = H_target or 0.75 * stdlib_math.log(n_experts)
 		self.lb_alpha  = lb_alpha
 		self.total_steps   = total_steps
 		# ④ 防止freeze期过长，最少保证5000步
@@ -86,7 +86,7 @@ class MoEBlock(nn.Module):
 		if self.global_step < self.freeze_steps:
 			return  # 冻结阶段：τ 保持初值
 		# 自适应调整
-		self.tau += self.beta * math.tanh(self.H_target - entropy.item())
+		self.tau += self.beta * stdlib_math.tanh(self.H_target - entropy.item())
 		self.tau = float(torch.clamp(
 			torch.tensor(self.tau), self.tau_min, self.tau_max))
 

@@ -7,15 +7,15 @@ export http_proxy=http://127.0.0.1:7890
 export all_proxy=socks5://127.0.0.1:7890  
 
 # —— 设置ManiSkill2数据集环境变量 ——
-export MS2_ASSET_DIR="/home/ubuntu/Desktop/tdmpc2/tdmpc2/data"
-export PARTNET_MOBILITY_DATASET="/home/ubuntu/Desktop/tdmpc2/tdmpc2/data/partnet_mobility_faucet"
+export MS2_ASSET_DIR="/media/levi/Singe4linux/data"
+export PARTNET_MOBILITY_DATASET="/media/levi/Singe4linux/data/partnet_mobility"
 
 # —— 激活 Conda 环境 ——  
 eval "$(conda shell.bash hook)"  
 conda activate tdmpc2  
 
 # —— 添加 tdmpc2 项目到 PYTHONPATH ——  
-export PYTHONPATH="/home/ubuntu/Desktop/tdmpc2:${PYTHONPATH}"  
+export PYTHONPATH="/home/levi/Desktop/tdmpc2:${PYTHONPATH}"  
 
 # —— 获取激活环境下的绝对 python 路径 ——  
 PYTHON_BIN="$(which python)"  
