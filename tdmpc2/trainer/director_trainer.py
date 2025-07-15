@@ -149,6 +149,11 @@ class DirectorTrainer(OnlineTrainer):
             # Evaluate agent periodically
             if self._step % self.cfg.eval_freq == 0:
                 eval_next = True
+
+            # Save agent every 500k steps
+            if self._step > 0 and self._step % 500000 == 0:
+                self.logger.save_agent(self.agent, identifier=f"step_{self._step}")
+                print(f"Saved agent checkpoint at step {self._step}")
                 
             # Reset environment
             if done:

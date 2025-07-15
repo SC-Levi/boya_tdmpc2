@@ -95,6 +95,11 @@ class OfflineTrainer(Trainer):
             # Update agent
             train_metrics = self.agent.update(self.buffer)
 
+            # Save agent every 500k steps
+            if i > 0 and i % 500000 == 0:
+                self.logger.save_agent(self.agent, identifier=f"step_{i}")
+                print(f"Saved agent checkpoint at step {i}")
+
             # Evaluate agent periodically
             if i % self.cfg.eval_freq == 0 or i % 10_000 == 0:
                 metrics = {
