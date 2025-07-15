@@ -22,9 +22,11 @@ PYTHON_BIN="$(which python)"
 echo "Using Python: $PYTHON_BIN"
 
 # —— 任务列表 & MoE 配置 & 随机种子 ——  
-TASKS=(lift-cube pick-cube stack-cube pick-ycb turn-faucet)  
+#TASKS=(lift-cube pick-cube stack-cube pick-ycb turn-faucet)  
+#TASKS=(stack-cube turn-faucet)  
+TASKS=(pick-cube)  
 USE_MOES=(true false)  
-SEEDS=(2)
+SEEDS=(8)
 
 # —— 并行启动每个进程，并为每个进程生成不同的 exp_name ——  
 for TASK in "${TASKS[@]}"; do
