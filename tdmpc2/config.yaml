@@ -98,7 +98,7 @@ dropout: 0.01
 simnorm_dim: 8
 
 # logging
-wandb_project: mani_skill
+wandb_project: myosuite
 wandb_entity: OA-MBRL
 wandb_silent: false
 disable_wandb: false
