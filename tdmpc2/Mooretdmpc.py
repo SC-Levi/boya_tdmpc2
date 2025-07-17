@@ -4,6 +4,7 @@ import torch.nn.functional as F
 from common import math
 from common.scale import RunningScale
 from common.world_model import WorldModel
+from common.memory_monitor import MemoryMonitor
 from tensordict import TensorDict
 from common import layers
 
@@ -20,6 +21,9 @@ class MooreTDMPC(torch.nn.Module):
 		self.cfg = cfg
 		self.device = torch.device('cuda:0')
 		self.model = WorldModel(cfg).to(self.device)
+		
+		# 初始化内存监控器
+		self.memory_monitor = MemoryMonitor(log_interval=getattr(cfg, 'monitor_mem_interval', 1000))
 		
 		self.optim = torch.optim.Adam([
 			{'params': self.model._encoder.parameters(), 'lr': self.cfg.lr*self.cfg.enc_lr_scale},
@@ -320,6 +324,13 @@ class MooreTDMPC(torch.nn.Module):
 		self.optim.step()
 		self.optim.zero_grad(set_to_none=True)
 
+		# 处理MoE辅助损失
+		if self.cfg.use_moe:
+			moe_aux_loss = self.model.get_moe_aux_loss()
+			total_loss = total_loss + 0.01 * moe_aux_loss  # 添加辅助损失
+			# 重置MoE辅助损失累积器
+			self.model.zero_moe_aux_loss()
+
 		# Update policy
 		pi_info = self.update_pi(zs.detach(), task)
 
@@ -356,7 +367,35 @@ class MooreTDMPC(torch.nn.Module):
 		if task is not None:
 			kwargs["task"] = task
 		torch.compiler.cudagraph_mark_step_begin()
-		return self._update(obs, action, reward, terminated, **kwargs)
+		
+		# 执行实际更新
+		info = self._update(obs, action, reward, terminated, **kwargs)
+		
+		# 每次更新后都清除门控历史，防止内存泄漏
+		self.clear_gate_history()
+		
+		# 定期强制垃圾回收（可选，用于严重内存泄漏情况）
+		if hasattr(self, '_update_count'):
+			self._update_count += 1
+		else:
+			self._update_count = 1
+			
+		# 内存监控和清理
+		memory_stats = self.memory_monitor.log_memory(step=self._update_count)
+		if memory_stats:
+			print(self.memory_monitor.format_memory_stats(memory_stats))
+			
+		if self._update_count % 100 == 0:  # 每100次更新强制清理
+			self.memory_monitor.cleanup_memory()
+			
+			# 检查内存泄漏
+			if self.memory_monitor.check_memory_leak(threshold_increase_gb=2.0):
+				print(f"⚠️  Potential memory leak detected at step {self._update_count}")
+				print("Peak memory usage:", self.memory_monitor.get_peak_memory())
+				# 进行更激进的清理
+				self.memory_monitor.cleanup_memory(aggressive=True)
+		
+		return info
 		
 	def plot_expert_gating(self, moe_block, save_path=None):
 		"""

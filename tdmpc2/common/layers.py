@@ -45,6 +45,7 @@ class MoEBlock(nn.Module):
 
 		# ① 累积式辅助损失，使用buffer避免梯度追踪
 		self.gate_history = []
+		self.max_history_length = 1000  # 限制历史记录长度，防止内存泄漏
 		self.register_buffer("_aux_loss", torch.tensor(0.0))
 
 		# 2) 专家 unit：只是做特征提取，不用 SimNorm
@@ -142,6 +143,11 @@ class MoEBlock(nn.Module):
 		else:
 			# 单步输入，w 是 [B,K]，对 batch 取平均
 			self.gate_history.append(w.mean(dim=0, keepdim=True).detach().cpu())  # [1,K]
+		
+		# 防止内存泄漏：限制历史记录长度
+		if len(self.gate_history) > self.max_history_length:
+			# 保留最近的记录，删除最老的记录
+			self.gate_history = self.gate_history[-self.max_history_length//2:]
 
 		# -------- τ 调度 ----------
 		if self.training:
