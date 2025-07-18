@@ -8,11 +8,10 @@ core_requirements = [
 ]
 
 setup(
-    name="tdmpc2",
+    name="prismatic",
     version="0.0",
-    author="Nicklas Hansen",
-    url="https://github.com/nicklashansen/tdmpc2",
-    description="TD-MPC2",
+
+    description="Prismatic ",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(),

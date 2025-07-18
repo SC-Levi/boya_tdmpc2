@@ -19,7 +19,7 @@ except:
 from common.parser import parse_cfg
 from common.seed import set_seed
 from envs import make_env
-from tdmpc2 import TDMPC2
+from tdmpc_agent import TDMPC2
 
 torch.backends.cudnn.benchmark = True
 

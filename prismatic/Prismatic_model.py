@@ -5,13 +5,14 @@ from common import math
 from common.scale import RunningScale
 from common.world_model import WorldModel
 from common.memory_monitor import MemoryMonitor
+from common.runtime_memory_manager import RuntimeMemoryManager, create_memory_manager
 from tensordict import TensorDict
 from common import layers
 
 
-class MooreTDMPC(torch.nn.Module):
+class PrismaticModel(torch.nn.Module):
 	"""
-	Moore-TDMPC agent. Implements training + inference.
+	Prismatic agent (formerly Moore-TDMPC). Implements training + inference.
 	Can be used for both single-task and multi-task experiments,
 	and supports both state and pixel observations.
 	"""
@@ -24,6 +25,18 @@ class MooreTDMPC(torch.nn.Module):
 		
 		# 初始化内存监控器
 		self.memory_monitor = MemoryMonitor(log_interval=getattr(cfg, 'monitor_mem_interval', 1000))
+		
+		# 初始化运行时内存管理器
+		self.runtime_memory_manager = None
+		if cfg.use_moe:
+			self.runtime_memory_manager = create_memory_manager(
+				agent=self, 
+				auto_start=getattr(cfg, 'enable_runtime_memory_manager', True)
+			)
+			print("✅ 运行时内存管理器已启动")
+			print(f"   - 进程ID: {self.runtime_memory_manager.log_file.split('_')[-1].split('.')[0] if self.runtime_memory_manager.log_file else 'N/A'}")
+			print("   - 使用信号控制: kill -USR1 <pid> (清理), kill -USR2 <pid> (状态)")
+			print("   - 控制文件: /tmp/prismatic_memory_control")
 		
 		self.optim = torch.optim.Adam([
 			{'params': self.model._encoder.parameters(), 'lr': self.cfg.lr*self.cfg.enc_lr_scale},
@@ -445,8 +458,14 @@ class MooreTDMPC(torch.nn.Module):
 		return hist, entropy
 		
 	def clear_gate_history(self):
-		"""Clear gate history from all MoEBlock instances in the model"""
+		"""Clear gate history and entropy from all MoEBlock instances in the model"""
 		if hasattr(self.model, '_dynamics') and hasattr(self.model._dynamics, 'gate_history'):
 			self.model._dynamics.gate_history.clear()
+			# Clear entropy history as well
+			if hasattr(self.model._dynamics, '_last_entropy'):
+				del self.model._dynamics._last_entropy
 		if hasattr(self.model, '_reward') and hasattr(self.model._reward, 'gate_history'):
 			self.model._reward.gate_history.clear()
+			# Clear entropy history as well
+			if hasattr(self.model._reward, '_last_entropy'):
+				del self.model._reward._last_entropy
