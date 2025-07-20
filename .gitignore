@@ -117,6 +117,13 @@ prismatic/outputs/
 *.pth
 *.ckpt
 
+# Video files
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.gif
+
 # Data files
 */data/
 data/
