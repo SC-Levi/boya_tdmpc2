@@ -10,6 +10,7 @@ episodic: false
 checkpoint: ???
 eval_episodes: 10
 eval_freq: 50000
+force_step: ???  # Optional: force training to start from specific step
 
 # training
 trainer: online

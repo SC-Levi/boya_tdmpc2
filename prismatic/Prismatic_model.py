@@ -95,7 +95,13 @@ class PrismaticModel(torch.nn.Module):
 		Args:
 			fp (str): Filepath to save state dict to.
 		"""
-		torch.save({"model": self.model.state_dict()}, fp)
+		save_dict = {"model": self.model.state_dict()}
+		
+		# Add training state if it exists
+		if hasattr(self, '_training_state'):
+			save_dict["training_state"] = self._training_state
+			
+		torch.save(save_dict, fp)
 
 	def load(self, fp):
 		"""
@@ -106,6 +112,26 @@ class PrismaticModel(torch.nn.Module):
 		"""
 		state_dict = fp if isinstance(fp, dict) else torch.load(fp)
 		self.model.load_state_dict(state_dict["model"])
+		
+		# Load training state if it exists
+		if "training_state" in state_dict:
+			self._training_state = state_dict["training_state"]
+			print(f"📦 Found training state in checkpoint: step={self._training_state.get('step', 0)}, episode={self._training_state.get('episode', 0)}")
+
+	def set_training_state(self, step, episode, start_time):
+		"""
+		Set training state to be saved with the model.
+		
+		Args:
+			step (int): Current training step
+			episode (int): Current episode count  
+			start_time (float): Total training time elapsed
+		"""
+		self._training_state = {
+			'step': step,
+			'episode': episode,
+			'start_time': start_time
+		}
 
 	@torch.no_grad()
 	def act(self, obs, t0=False, eval_mode=False, task=None, goal=None):

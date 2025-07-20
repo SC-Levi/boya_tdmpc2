@@ -17,6 +17,41 @@ class OnlineTrainer(Trainer):
         self._step = 0
         self._ep_idx = 0
         self._start_time = time()
+        self._tds = []  # Initialize _tds to prevent AttributeError
+        
+        # Restore training state from agent if checkpoint was loaded
+        if hasattr(self.agent, '_training_state'):
+            state = self.agent._training_state
+            checkpoint_step = state.get('step', 0)
+            checkpoint_episode = state.get('episode', 0)
+            
+            # Check if force_step is specified and valid
+            force_step = getattr(self.cfg, 'force_step', None)
+            if force_step is not None and force_step != '???':
+                # Use forced step count
+                self._step = force_step
+                self._ep_idx = checkpoint_episode  # Keep episode count from checkpoint
+                print(f"🚀 FORCED step override: checkpoint={checkpoint_step} → forced={force_step}")
+                print(f"   Episode count from checkpoint: {checkpoint_episode}")
+            else:
+                # Use checkpoint step count (original behavior)
+                self._step = checkpoint_step
+                self._ep_idx = checkpoint_episode
+                print(f"📦 Restored from checkpoint: step={checkpoint_step}, episode={checkpoint_episode}")
+            
+            # Adjust start time to account for previous training time
+            prev_time = state.get('start_time', 0)
+            if prev_time > 0:
+                self._start_time = time() - prev_time
+                
+            # Clean up the temporary training state
+            delattr(self.agent, '_training_state')
+        else:
+            # Check if force_step is specified for fresh training
+            force_step = getattr(self.cfg, 'force_step', None)
+            if force_step is not None and force_step != '???':
+                self._step = force_step
+                print(f"🚀 FORCED step for fresh training: {force_step}")
 
     def common_metrics(self):
         """Return a dictionary of current metrics."""
@@ -81,6 +116,12 @@ class OnlineTrainer(Trainer):
 
             # Save agent every 500k steps
             if self._step > 0 and self._step % 500000 == 0:
+                # Set training state on agent before saving
+                self.agent.set_training_state(
+                    step=self._step,
+                    episode=self._ep_idx, 
+                    start_time=time() - self._start_time
+                )
                 self.logger.save_agent(self.agent, identifier=f"step_{self._step}")
                 print(f"Saved agent checkpoint at step {self._step}")
 
@@ -92,7 +133,8 @@ class OnlineTrainer(Trainer):
                     self.logger.log(eval_metrics, "eval")
                     eval_next = False
 
-                if self._step > 0:
+                # Only process episode metrics if we have trajectory data
+                if self._step > 0 and len(self._tds) > 1:
                     train_metrics.update(
                         episode_reward=torch.tensor(
                             [td["reward"] for td in self._tds[1:]]
@@ -125,15 +167,25 @@ class OnlineTrainer(Trainer):
 
             # Update agent
             if self._step >= self.cfg.seed_steps:
-                if self._step == self.cfg.seed_steps:
-                    num_updates = self.cfg.seed_steps
-                    print("Pretraining agent on seed data...")
+                # Only update if buffer has data
+                if self.buffer.num_eps > 0:
+                    if self._step == self.cfg.seed_steps:
+                        num_updates = self.cfg.seed_steps
+                        print("Pretraining agent on seed data...")
+                    else:
+                        num_updates = 1
+                    for _ in range(num_updates):
+                        _train_metrics = self.agent.update(self.buffer)
+                    train_metrics.update(_train_metrics)
                 else:
-                    num_updates = 1
-                for _ in range(num_updates):
-                    _train_metrics = self.agent.update(self.buffer)
-                train_metrics.update(_train_metrics)
+                    print(f"Skipping agent update at step {self._step}: buffer empty (num_eps={self.buffer.num_eps})")
 
             self._step += 1
 
+        # Set final training state before saving final checkpoint
+        self.agent.set_training_state(
+            step=self._step,
+            episode=self._ep_idx,
+            start_time=time() - self._start_time
+        )
         self.logger.finish(self.agent) 
