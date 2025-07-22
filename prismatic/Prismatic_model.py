@@ -484,14 +484,9 @@ class PrismaticModel(torch.nn.Module):
 		return hist, entropy
 		
 	def clear_gate_history(self):
-		"""Clear gate history and entropy from all MoEBlock instances in the model"""
+		"""Clear gate history from all MoEBlock instances in the model (safe: do not clear _last_entropy)"""
 		if hasattr(self.model, '_dynamics') and hasattr(self.model._dynamics, 'gate_history'):
 			self.model._dynamics.gate_history.clear()
-			# Clear entropy history as well
-			if hasattr(self.model._dynamics, '_last_entropy'):
-				del self.model._dynamics._last_entropy
 		if hasattr(self.model, '_reward') and hasattr(self.model._reward, 'gate_history'):
 			self.model._reward.gate_history.clear()
-			# Clear entropy history as well
-			if hasattr(self.model._reward, '_last_entropy'):
-				del self.model._reward._last_entropy
+		# Do NOT clear _last_entropy for safety
